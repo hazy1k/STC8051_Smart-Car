@@ -1,0 +1,202 @@
+A51 MACRO ASSEMBLER  S16_4                                                                12/22/2003 18:03:05 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN .\S16-4.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S16-4.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0028                 1             FLAG BIT 25H.0
+  0020                 2             DI_DA DATA 20H
+  0021                 3             SEC DATA 21H
+  0022                 4             MIN DATA 22H
+  0023                 5             HOUR DATA 23H
+                       6     ;*************************
+0000                   7             ORG 0000H
+0000 020030            8             LJMP MAIN
+000B                   9             ORG 000BH
+000B 0200F5           10             LJMP CLOCK
+0030                  11             ORG 030H
+0030 758901           12     MAIN:   MOV TMOD,#01H
+0033 758AB0           13             MOV TL0,#0B0H
+0036 758C3C           14             MOV TH0,#3CH
+0039 D2A9             15             SETB ET0
+003B D28C             16             SETB TR0
+003D 752000           17             MOV DI_DA,#00H
+0040 D2AF             18             SETB EA
+0042 75B07F           19     BEGIN:  MOV P3,#7FH
+0045 E5B0             20             MOV A,P3
+0047 B47F11           21             CJNE A,#7FH,NEXT
+004A D2B7             22             SETB P3.7
+004C 1194             23             ACALL CONV
+004E 11CB             24             ACALL DIS
+0050 202804           25             JB FLAG,FLAG_SEC
+0053 D2A7             26             SETB P2.7
+0055 0142             27             AJMP BEGIN
+0057 C2A7             28     FLAG_SEC:CLR P2.7
+0059 0142             29             AJMP BEGIN
+005B 115F             30     NEXT:   ACALL KEY
+005D 0142             31             AJMP BEGIN
+                      32     ;***********************
+005F 3107             33     KEY:    ACALL DEL10MS
+0061 20B015           34             JB P3.0,HOUR_KEY
+0064 C3               35     MIN_ADJ:CLR C
+0065 E522             36             MOV A,MIN
+0067 04               37             INC A
+0068 D4               38             DA A
+0069 B46001           39             CJNE A,#60H,X1
+006C E4               40             CLR A
+006D F522             41     X1:     MOV MIN,A
+006F 11CB             42             ACALL DIS
+0071 3110             43             ACALL DEL200MS
+0073 75B07F           44             MOV P3,#7FH
+0076 30B0EB           45             JNB P3.0,MIN_ADJ
+0079 20B10F           46     HOUR_KEY:JB P3.1,X2
+007C C3               47     HOUR_ADJ:CLR C
+007D E523             48             MOV A,HOUR
+007F 04               49             INC A
+0080 D4               50             DA A
+0081 B42401           51             CJNE A,#24H,X3
+0084 E4               52             CLR A
+0085 F523             53     X3:     MOV HOUR,A
+0087 11CB             54             ACALL DIS
+0089 3110             55             ACALL DEL200MS
+008B 75B07F           56     X2:     MOV P3,#7FH
+008E 30B1EB           57             JNB P3.1,HOUR_ADJ
+0091 D2B7             58             SETB P3.7
+A51 MACRO ASSEMBLER  S16_4                                                                12/22/2003 18:03:05 PAGE     2
+
+0093 22               59             RET
+                      60     ;***********************
+0094 E520             61     CONV:   MOV A,DI_DA
+0096 B40A02           62             CJNE A,#0AH,F1
+0099 D228             63             SETB FLAG
+009B B4142C           64     F1:     CJNE A,#14H,DONE
+009E C228             65             CLR FLAG
+00A0 752000           66             MOV DI_DA,#00H
+00A3 E521             67             MOV A,SEC
+00A5 2401             68             ADD A,#01H
+00A7 D4               69             DA A
+00A8 F521             70             MOV SEC,A
+00AA B4601D           71             CJNE A,#60H,DONE
+00AD 752100           72             MOV SEC,#00H
+00B0 E522             73             MOV A,MIN
+00B2 2401             74             ADD A,#01H
+00B4 D4               75             DA A
+00B5 F522             76             MOV MIN,A
+00B7 B46010           77             CJNE A,#60H,DONE
+00BA 752200           78             MOV MIN,#00H
+00BD E523             79             MOV A,HOUR
+00BF 2401             80             ADD A,#01H
+00C1 D4               81             DA A
+00C2 F523             82             MOV HOUR,A
+00C4 B42403           83             CJNE A,#24H,DONE
+00C7 752300           84             MOV HOUR,#00H
+00CA 22               85     DONE:   RET
+                      86     ;***********************
+00CB E522             87     DIS:    MOV A,MIN
+00CD 540F             88             ANL A,#0FH
+00CF 900117           89             MOV DPTR,#TAB
+00D2 93               90             MOVC A,@A+DPTR
+00D3 F580             91             MOV P0,A
+00D5 11FE             92             ACALL DEL1MS
+00D7 E522             93             MOV A,MIN
+00D9 C4               94             SWAP  A
+00DA 540F             95             ANL A,#0FH
+00DC 93               96             MOVC A,@A+DPTR
+00DD F590             97             MOV P1,A
+00DF 11FE             98             ACALL DEL1MS
+00E1 E523             99             MOV A,HOUR
+00E3 540F            100             ANL A,#0FH
+00E5 93              101             MOVC A,@A+DPTR
+00E6 F5A0            102             MOV P2,A
+00E8 11FE            103             ACALL DEL1MS
+00EA E523            104             MOV A,HOUR
+00EC C4              105             SWAP  A
+00ED 540F            106             ANL A,#0FH
+00EF 93              107             MOVC A,@A+DPTR
+00F0 F5B0            108             MOV P3,A
+00F2 11FE            109             ACALL DEL1MS
+00F4 22              110             RET
+                     111     ;**********************
+00F5 758AB0          112     CLOCK:  MOV TL0,#0B0H
+00F8 758C3C          113             MOV TH0,#3CH
+00FB 0520            114             INC DI_DA
+00FD 32              115             RETI
+                     116     ;***************************
+00FE 7E02            117     DEL1MS:MOV R6,#02H
+0100 7FFF            118     DEL1:   MOV R7,#0FFH
+0102 DFFE            119             DJNZ R7,$
+0104 DEFA            120             DJNZ R6,DEL1
+0106 22              121             RET
+0107 7D10            122     DEL10MS:MOV R5,#10H
+0109 7CFF            123     TX1:    MOV R4,#0FFH
+010B DCFE            124             DJNZ R4,$
+A51 MACRO ASSEMBLER  S16_4                                                                12/22/2003 18:03:05 PAGE     3
+
+010D DDFA            125             DJNZ R5,TX1
+010F 22              126             RET
+0110 7B14            127     DEL200MS:MOV R3,#14H
+0112 3107            128     TX2:    ACALL DEL10MS
+0114 DBFC            129             DJNZ R3,TX2
+0116 22              130             RET
+                     131     ;***************************
+0117 C0F9A4B0        132     TAB:    DB 0C0H,0F9H,0A4H,0B0H,099H,092H,082H,0F8H
+011B 999282F8                
+011F 80908883        133             DB 080H,090H,088H,083H,0C6H,0A1H,086H,08EH
+0123 C6A1868E                
+                     134             END
+                                     
+A51 MACRO ASSEMBLER  S16_4                                                                12/22/2003 18:03:05 PAGE     4
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BEGIN. . . . . . .  C ADDR   0042H   A   
+CLOCK. . . . . . .  C ADDR   00F5H   A   
+CONV . . . . . . .  C ADDR   0094H   A   
+DEL1 . . . . . . .  C ADDR   0100H   A   
+DEL10MS. . . . . .  C ADDR   0107H   A   
+DEL1MS . . . . . .  C ADDR   00FEH   A   
+DEL200MS . . . . .  C ADDR   0110H   A   
+DIS. . . . . . . .  C ADDR   00CBH   A   
+DI_DA. . . . . . .  D ADDR   0020H   A   
+DONE . . . . . . .  C ADDR   00CAH   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+F1 . . . . . . . .  C ADDR   009BH   A   
+FLAG . . . . . . .  B ADDR   0025H.0 A   
+FLAG_SEC . . . . .  C ADDR   0057H   A   
+HOUR . . . . . . .  D ADDR   0023H   A   
+HOUR_ADJ . . . . .  C ADDR   007CH   A   
+HOUR_KEY . . . . .  C ADDR   0079H   A   
+KEY. . . . . . . .  C ADDR   005FH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+MIN. . . . . . . .  D ADDR   0022H   A   
+MIN_ADJ. . . . . .  C ADDR   0064H   A   
+NEXT . . . . . . .  C ADDR   005BH   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+SEC. . . . . . . .  D ADDR   0021H   A   
+TAB. . . . . . . .  C ADDR   0117H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TX1. . . . . . . .  C ADDR   0109H   A   
+TX2. . . . . . . .  C ADDR   0112H   A   
+X1 . . . . . . . .  C ADDR   006DH   A   
+X2 . . . . . . . .  C ADDR   008BH   A   
+X3 . . . . . . . .  C ADDR   0085H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,59 @@
+BL51 BANKED LINKER/LOCATER V5.03                                                        07/17/2006  10:05:53  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.03, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE S13-1.obj TO S13-1
+
+
+INPUT MODULES INCLUDED:
+  S13-1.obj (S13_1)
+
+
+LINK MAP OF MODULE:  S13-1 (S13_1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0209H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  S13-1 (S13_1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        S13_1
+  B:00A8H.7       SYMBOL        EA
+  B:00A8H.3       SYMBOL        ET1
+  C:003FH         SYMBOL        HERE
+  C:0200H         SYMBOL        INSER
+  C:003DH         SYMBOL        LOOP
+  C:0030H         SYMBOL        MAIN
+  D:0090H         SYMBOL        P1
+  D:008DH         SYMBOL        TH1
+  D:008BH         SYMBOL        TL1
+  D:0089H         SYMBOL        TMOD
+  B:0088H.6       SYMBOL        TR1
+  C:0000H         LINE#         2
+  C:001BH         LINE#         4
+  C:0030H         LINE#         6
+  C:0033H         LINE#         7
+  C:0036H         LINE#         8
+  C:0039H         LINE#         9
+  C:003BH         LINE#         10
+  C:003DH         LINE#         11
+  C:003FH         LINE#         12
+  C:0200H         LINE#         14
+  C:0203H         LINE#         15
+  C:0206H         LINE#         16
+  C:0208H         LINE#         17
+  -------         ENDMOD        S13_1
+
+Program Size: data=8.0 xdata=0 code=521
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

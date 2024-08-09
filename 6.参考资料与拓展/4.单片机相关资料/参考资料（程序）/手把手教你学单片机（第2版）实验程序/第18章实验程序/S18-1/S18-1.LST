@@ -1,0 +1,165 @@
+A51 MACRO ASSEMBLER  S18_1                                                                02/29/2004 10:32:31 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN .\S18-1.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S18-1.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;********89C51引脚定义********
+  00B3                 2             RS BIT P3.3
+  00B4                 3             R_W BIT P3.4
+  00B5                 4             E BIT P3.5
+  0090                 5             DB0_DB7 EQU P1
+                       6     ;*******程序开始********
+0000                   7             ORG 0000H
+0000 020030            8             LJMP MAIN
+                       9     ;*******主程序开始*******
+0030                  10             ORG 0030H
+0030 758170           11     MAIN:   MOV SP,#70H
+                      12     ;*******LCM初始化*******
+0033 7438             13             MOV A,#00111000B
+                      14     ;-----------判LCM忙碌-----------
+0035 C0E0             15             PUSH ACC
+0037 C2B5             16     BUSY_LOOP:      CLR E
+0039 D2B4             17             SETB R_W
+003B C2B3             18             CLR RS
+003D D2B5             19             SETB E
+003F E590             20             MOV A, DB0_DB7
+0041 C2B5             21             CLR E
+0043 20E7F1           22             JB ACC.7,BUSY_LOOP
+0046 D0E0             23             POP ACC
+0048 1200E9           24             LCALL DEL
+                      25     ;----------写指令到LCM---------
+004B C2B5             26             CLR E
+004D C2B4             27             CLR R_W
+004F C2B3             28             CLR RS
+0051 D2B5             29             SETB E
+0053 F590             30             MOV DB0_DB7,A
+0055 C2B5             31             CLR E
+                      32     ;***************************
+0057 740E             33             MOV A,#00001110B
+                      34     ;-----------判LCM忙碌-----------
+0059 C0E0             35             PUSH ACC
+005B C2B5             36     BUSY_LOOP1:     CLR E
+005D D2B4             37             SETB R_W
+005F C2B3             38             CLR RS
+0061 D2B5             39             SETB E
+0063 E590             40             MOV A, DB0_DB7
+0065 C2B5             41             CLR E
+0067 20E7F1           42             JB ACC.7,BUSY_LOOP1
+006A D0E0             43             POP ACC
+006C 1200E9           44             LCALL DEL
+                      45     ;----------写指令到LCM------------
+006F C2B5             46             CLR E
+0071 C2B4             47             CLR R_W
+0073 C2B3             48             CLR RS
+0075 D2B5             49             SETB E
+0077 F590             50             MOV DB0_DB7,A
+0079 C2B5             51             CLR E
+                      52     ;***************************
+007B 7406             53             MOV A,#00000110B
+                      54     ;-----------判LCM忙碌------------
+007D C0E0             55             PUSH ACC
+007F C2B5             56     BUSY_LOOP2:     CLR E
+0081 D2B4             57             SETB R_W
+0083 C2B3             58             CLR RS
+A51 MACRO ASSEMBLER  S18_1                                                                02/29/2004 10:32:31 PAGE     2
+
+0085 D2B5             59             SETB E
+0087 E590             60             MOV A, DB0_DB7
+0089 C2B5             61             CLR E
+008B 20E7F1           62             JB ACC.7,BUSY_LOOP2
+008E D0E0             63             POP ACC
+0090 1200E9           64             LCALL DEL
+                      65     ;-----------写指令到LCM-------------
+0093 C2B5             66             CLR E
+0095 C2B4             67             CLR R_W
+0097 C2B3             68             CLR RS
+0099 D2B5             69             SETB E
+009B F590             70             MOV DB0_DB7,A
+009D C2B5             71             CLR E
+                      72     ;*******LCM初始化结束*******
+                      73     ;****设定显示地址并写入LCM****
+009F 7480             74             MOV A,#10000000B
+                      75     ;-----------判LCM忙碌-----------
+00A1 C0E0             76             PUSH ACC
+00A3 C2B5             77     BUSY_LOOP3:     CLR E
+00A5 D2B4             78             SETB R_W
+00A7 C2B3             79             CLR RS
+00A9 D2B5             80             SETB E
+00AB E590             81             MOV A, DB0_DB7
+00AD C2B5             82             CLR E
+00AF 20E7F1           83             JB ACC.7,BUSY_LOOP3
+00B2 D0E0             84             POP ACC
+00B4 1200E9           85             LCALL DEL
+                      86     ;-----------写指令到LCM------------
+00B7 C2B5             87             CLR E
+00B9 C2B4             88             CLR R_W
+00BB C2B3             89             CLR RS
+00BD D2B5             90             SETB E
+00BF F590             91             MOV DB0_DB7,A
+00C1 C2B5             92             CLR E
+                      93     ;****将显示字符的ASCII码写入LCM****
+00C3 7441             94             MOV A,#41H
+                      95     ;------------判LCM忙碌-------------
+00C5 C0E0             96             PUSH ACC
+00C7 C2B5             97     BUSY_LOOP4:     CLR E
+00C9 D2B4             98             SETB R_W
+00CB C2B3             99             CLR RS
+00CD D2B5            100             SETB E
+00CF E590            101             MOV A, DB0_DB7
+00D1 C2B5            102             CLR E
+00D3 20E7F1          103             JB ACC.7,BUSY_LOOP4
+00D6 D0E0            104             POP ACC
+00D8 1200E9          105             LCALL DEL
+                     106     ;-----------写数据到LCM------------
+00DB C2B5            107             CLR E
+00DD C2B4            108             CLR R_W
+00DF D2B3            109             SETB RS
+00E1 D2B5            110             SETB E
+00E3 F590            111             MOV DB0_DB7,A
+00E5 C2B5            112             CLR E
+                     113     ;*****************************
+00E7 80FE            114             SJMP $
+                     115     ;*****主程序结束*****
+                     116     ;****延时子程序开始****
+00E9 7E05            117     DEL:    MOV R6,#5
+00EB 7FF8            118     L1:     MOV R7,#248
+00ED DFFE            119             DJNZ R7,$
+00EF DEFA            120             DJNZ R6,L1
+00F1 22              121             RET
+                     122     ;*******延时子程序结束********
+                     123             END
+                             ;*******程序结束*******
+A51 MACRO ASSEMBLER  S18_1                                                                02/29/2004 10:32:31 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+BUSY_LOOP. . . . .  C ADDR   0037H   A   
+BUSY_LOOP1 . . . .  C ADDR   005BH   A   
+BUSY_LOOP2 . . . .  C ADDR   007FH   A   
+BUSY_LOOP3 . . . .  C ADDR   00A3H   A   
+BUSY_LOOP4 . . . .  C ADDR   00C7H   A   
+DB0_DB7. . . . . .  D ADDR   0090H   A   
+DEL. . . . . . . .  C ADDR   00E9H   A   
+E. . . . . . . . .  B ADDR   00B0H.5 A   
+L1 . . . . . . . .  C ADDR   00EBH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+RS . . . . . . . .  B ADDR   00B0H.3 A   
+R_W. . . . . . . .  B ADDR   00B0H.4 A   
+SP . . . . . . . .  D ADDR   0081H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

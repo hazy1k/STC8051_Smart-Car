@@ -1,0 +1,62 @@
+A51 MACRO ASSEMBLER  S10_4                                                                10/12/2003 16:53:23 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.14
+OBJECT MODULE PLACED IN .\S10-4.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S10-4.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 020030            2             LJMP MAIN
+0030                   3             ORG 030H
+0030 43A00F            4     MAIN:   ORL P2,#0FH
+0033 E5A0              5     GOON:   MOV A,P2
+0035 A2E0              6             MOV C,ACC.0
+0037 82E1              7             ANL C,ACC.1
+0039 82E2              8             ANL C,ACC.2
+003B 82E3              9             ANL C,ACC.3
+003D 9200             10             MOV 00H,C
+003F A2E0             11             MOV C,ACC.0
+0041 B0E1             12             ANL C,/ACC.1
+0043 9201             13             MOV 01H,C
+0045 B0E2             14             ANL C,/ACC.2
+0047 7200             15             ORL C, 00H
+0049 9200             16             MOV 00H,C
+004B A2E2             17             MOV C,ACC.2
+004D 8201             18             ANL C,01H
+004F B0E3             19             ANL C,/ACC.3
+0051 A000             20             ORL C, /00H
+0053 92A7             21             MOV P2.7,C
+0055 1159             22             ACALL DEL
+0057 80DA             23             SJMP GOON
+0059 7D04             24     DEL:    MOV R5,#04H
+005B 7EFF             25     F3:     MOV R6,#0FFH
+005D 7FFF             26     F2:     MOV R7,#0FFH
+005F DFFE             27     F1:     DJNZ R7,F1
+0061 DEFA             28             DJNZ R6,F2
+0063 DDF6             29             DJNZ R5,F3
+0065 22               30             RET
+                      31             END
+A51 MACRO ASSEMBLER  S10_4                                                                10/12/2003 16:53:23 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+DEL. . . . . . . .  C ADDR   0059H   A   
+F1 . . . . . . . .  C ADDR   005FH   A   
+F2 . . . . . . . .  C ADDR   005DH   A   
+F3 . . . . . . . .  C ADDR   005BH   A   
+GOON . . . . . . .  C ADDR   0033H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

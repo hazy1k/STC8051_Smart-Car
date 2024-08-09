@@ -1,0 +1,64 @@
+A51 MACRO ASSEMBLER  S15_3                                                                12/22/2003 17:39:03 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN .\S15-3.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S15-3.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 0130              2             AJMP MAIN
+0030                   3             ORG 030H
+0030 758000            4     MAIN:   MOV P0,#00H
+0033 115A              5             ACALL DEL10S
+0035 1140              6             ACALL KEY
+0037 7580FF            7             MOV P0,#0FFH
+003A 115A              8             ACALL DEL10S
+003C 1140              9             ACALL KEY
+003E 0130             10             AJMP MAIN
+0040 20B00D           11     KEY:    JB P3.0,RE
+0043 B3               12             CPL C
+0044 4005             13             JC NEXT1
+0046 759000           14             MOV P1,#00H
+0049 014E             15             AJMP NEXT2
+004B 7590FF           16     NEXT1:  MOV P1,#0FFH
+004E 1151             17     NEXT2:  ACALL DEL1S
+0050 22               18     RE:     RET
+0051 7DFF             19     DEL1S:  MOV R5,#0FFH
+0053 7EFF             20     F1:     MOV R6,#0FFH
+0055 DEFE             21     F2:     DJNZ R6,F2
+0057 DDFA             22             DJNZ R5,F1
+0059 22               23             RET
+005A A80A             24     DEL10S: MOV R0,0AH
+005C 1151             25     LOOP:   ACALL DEL1S
+005E D8FC             26             DJNZ R0,LOOP
+0060 22               27             RET
+                      28             END
+A51 MACRO ASSEMBLER  S15_3                                                                12/22/2003 17:39:03 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEL10S . . . . . .  C ADDR   005AH   A   
+DEL1S. . . . . . .  C ADDR   0051H   A   
+F1 . . . . . . . .  C ADDR   0053H   A   
+F2 . . . . . . . .  C ADDR   0055H   A   
+KEY. . . . . . . .  C ADDR   0040H   A   
+LOOP . . . . . . .  C ADDR   005CH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+NEXT1. . . . . . .  C ADDR   004BH   A   
+NEXT2. . . . . . .  C ADDR   004EH   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+RE . . . . . . . .  C ADDR   0050H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,126 @@
+A51 MACRO ASSEMBLER  S19_4                                                                02/29/2004 11:26:42 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN .\S19-4.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S19-4.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;********89C51引脚定义********
+  00B3                 2             RS BIT P3.3
+  00B4                 3             R_W BIT P3.4
+  00B5                 4             E BIT P3.5
+  0090                 5             DB0_DB7 EQU P1
+                       6     ;*******程序开始******
+0000                   7             ORG 0000H
+0000 020030            8             LJMP MAIN
+0030                   9             ORG 030H
+0030 758160           10     MAIN:   MOV SP,#60H
+0033 12004A           11             LCALL INITIAL
+0036 120091           12             LCALL CLS
+0039 7C08             13             MOV R4,#8
+003B 1200A0           14             LCALL SAVE_CGRAM
+003E 74C0             15             MOV A,#11000000B
+0040 120071           16             LCALL WRITE_COM
+0043 7400             17             MOV A,#00H
+0045 120081           18             LCALL WRITE_DATA
+0048 80FE             19             SJMP $
+                      20     ;****** 启动LCM子程序******
+004A 7438             21     INITIAL:MOV A,#00111000B
+004C 120071           22             LCALL WRITE_COM
+004F 740C             23             MOV A,#00001100B 
+0051 120071           24             LCALL WRITE_COM 
+0054 7406             25             MOV A,#00000110B 
+0056 120071           26             LCALL WRITE_COM 
+0059 22               27             RET
+                      28     ;******查询忙碌标志信号子程序******
+005A C0E0             29     CHECK_BUSY:     PUSH ACC
+005C C2B5             30     BUSY_LOOP:      CLR E
+005E D2B4             31             SETB R_W
+0060 C2B3             32             CLR RS
+0062 D2B5             33             SETB E
+0064 E590             34             MOV A, DB0_DB7
+0066 C2B5             35             CLR E
+0068 20E7F1           36             JB ACC.7,BUSY_LOOP
+006B D0E0             37             POP ACC
+006D 120097           38             LCALL DEL
+0070 22               39             RET
+                      40     ;****** 写指令到LCM子程序******
+0071 12005A           41     WRITE_COM:      LCALL CHECK_BUSY
+0074 C2B5             42             CLR E
+0076 C2B3             43             CLR RS 
+0078 C2B4             44             CLR R_W
+007A D2B5             45             SETB E
+007C F590             46             MOV DB0_DB7,A
+007E C2B5             47             CLR E
+0080 22               48             RET
+                      49     ;****** 写数据到LCM子程序******
+0081 12005A           50     WRITE_DATA:     LCALL CHECK_BUSY
+0084 C2B5             51             CLR E
+0086 D2B3             52             SETB RS 
+0088 C2B4             53             CLR R_W
+008A D2B5             54             SETB E
+008C F590             55             MOV  DB0_DB7,A
+008E C2B5             56             CLR E
+0090 22               57             RET
+                      58     ;*******清除LCM子程序*******
+A51 MACRO ASSEMBLER  S19_4                                                                02/29/2004 11:26:42 PAGE     2
+
+0091 7401             59     CLS:    MOV A,#00000001B
+0093 120071           60             LCALL WRITE_COM
+0096 22               61             RET
+                      62     ;****延时2.7mS子程序****
+0097 7E05             63     DEL:    MOV R6,#5
+0099 7FF8             64     L1:     MOV R7,#248
+009B DFFE             65             DJNZ R7,$
+009D DEFA             66             DJNZ R6,L1
+009F 22               67             RET
+                      68     ;*******自定义图形写入CGRAM子程序********
+00A0 7440             69     SAVE_CGRAM:     MOV A,#01000000B
+00A2 120071           70             LCALL WRITE_COM
+00A5 9000B1           71             MOV DPTR,#TAB
+00A8 E4               72     CGRAM_LOOP:      CLR A
+00A9 93               73             MOVC A,@A+DPTR
+00AA 120081           74             LCALL WRITE_DATA
+00AD A3               75             INC DPTR
+00AE DCF8             76             DJNZ R4, CGRAM_LOOP
+00B0 22               77             RET
+                      78     ;*******字符串************
+00B1 04041F15         79     TAB:    DB 04H,04H,1FH,15H,1FH,04H,04H,00H
+00B5 1F040400                
+                      80             END
+A51 MACRO ASSEMBLER  S19_4                                                                02/29/2004 11:26:42 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+BUSY_LOOP. . . . .  C ADDR   005CH   A   
+CGRAM_LOOP . . . .  C ADDR   00A8H   A   
+CHECK_BUSY . . . .  C ADDR   005AH   A   
+CLS. . . . . . . .  C ADDR   0091H   A   
+DB0_DB7. . . . . .  D ADDR   0090H   A   
+DEL. . . . . . . .  C ADDR   0097H   A   
+E. . . . . . . . .  B ADDR   00B0H.5 A   
+INITIAL. . . . . .  C ADDR   004AH   A   
+L1 . . . . . . . .  C ADDR   0099H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+RS . . . . . . . .  B ADDR   00B0H.3 A   
+R_W. . . . . . . .  B ADDR   00B0H.4 A   
+SAVE_CGRAM . . . .  C ADDR   00A0H   A   
+SP . . . . . . . .  D ADDR   0081H   A   
+TAB. . . . . . . .  C ADDR   00B1H   A   
+WRITE_COM. . . . .  C ADDR   0071H   A   
+WRITE_DATA . . . .  C ADDR   0081H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

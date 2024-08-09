@@ -1,0 +1,15 @@
+<html>
+<body>
+<pre>
+<h1>礦ision2 Build Log</h1>
+<h2>Project:</h2>
+D:\文稿\手把手教你学单片机第二版配书光盘\手把手教你学单片机实验程序\第21章实验程序\S21-2\S21-2.uv2
+Project File Date:  10/04/2006
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling S21-2.asm...
+linking...
+Program Size: data=8.0 xdata=0 code=129
+creating hex file from "S21-2"...
+"S21-2" - 0 Error(s), 0 Warning(s).

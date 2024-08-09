@@ -1,0 +1,69 @@
+BL51 BANKED LINKER/LOCATER V4.14                                                        10/05/2003  15:16:28  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V4.14, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE S10-2.obj TO S10-2
+
+
+INPUT MODULES INCLUDED:
+  S10-2.obj (S10_2)
+
+
+LINK MAP OF MODULE:  S10-2 (S10_2)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     005EH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  S10-2 (S10_2)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        S10_2
+  C:0055H         SYMBOL        DEL
+  C:0057H         SYMBOL        DEL1
+  C:0059H         SYMBOL        DEL2
+  C:0047H         SYMBOL        L1
+  C:004FH         SYMBOL        L2
+  C:0030H         SYMBOL        MAIN
+  D:0080H         SYMBOL        P0
+  D:0090H         SYMBOL        P1
+  D:00A0H         SYMBOL        P2
+  D:00B0H         SYMBOL        P3
+  C:0000H         LINE#         2
+  C:0030H         LINE#         4
+  C:0033H         LINE#         5
+  C:0036H         LINE#         6
+  C:0039H         LINE#         7
+  C:003CH         LINE#         8
+  C:003EH         LINE#         9
+  C:0041H         LINE#         10
+  C:0043H         LINE#         11
+  C:0045H         LINE#         12
+  C:0047H         LINE#         13
+  C:0049H         LINE#         14
+  C:004BH         LINE#         15
+  C:004DH         LINE#         16
+  C:004FH         LINE#         17
+  C:0051H         LINE#         18
+  C:0053H         LINE#         19
+  C:0055H         LINE#         20
+  C:0057H         LINE#         21
+  C:0059H         LINE#         22
+BL51 BANKED LINKER/LOCATER V4.14                                                      10/05/2003  15:16:28  PAGE 2
+
+
+  C:005BH         LINE#         23
+  C:005DH         LINE#         24
+  -------         ENDMOD        S10_2
+
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

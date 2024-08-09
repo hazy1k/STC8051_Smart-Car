@@ -1,0 +1,56 @@
+BL51 BANKED LINKER/LOCATER V5.03                                                        03/03/2004  19:51:06  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.03, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE S7-1.obj TO S7-1
+
+
+INPUT MODULES INCLUDED:
+  S7-1.obj (S7_1)
+
+
+LINK MAP OF MODULE:  S7-1 (S7_1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0049H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  S7-1 (S7_1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        S7_1
+  C:003CH         SYMBOL        DEL
+  C:003EH         SYMBOL        DEL1
+  C:0040H         SYMBOL        DEL2
+  C:0042H         SYMBOL        DEL3
+  C:0030H         SYMBOL        MAIN
+  D:0090H         SYMBOL        P1
+  C:0000H         LINE#         2
+  C:0030H         LINE#         4
+  C:0032H         LINE#         5
+  C:0034H         LINE#         6
+  C:0036H         LINE#         7
+  C:0037H         LINE#         8
+  C:0038H         LINE#         9
+  C:003AH         LINE#         10
+  C:003CH         LINE#         11
+  C:003EH         LINE#         12
+  C:0040H         LINE#         13
+  C:0042H         LINE#         14
+  C:0044H         LINE#         15
+  C:0046H         LINE#         16
+  C:0048H         LINE#         17
+  -------         ENDMOD        S7_1
+
+Program Size: data=8.0 xdata=0 code=73
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

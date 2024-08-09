@@ -1,0 +1,52 @@
+A51 MACRO ASSEMBLER  S13_1                                                                07/17/2006 10:05:52 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN S13-1.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE S13-1.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 020030            2             LJMP MAIN
+001B                   3             ORG 001BH
+001B 020200            4             LJMP INSER
+0030                   5             ORG 030H
+0030 758900            6     MAIN:   MOV TMOD,#00H
+0033 758DF0            7             MOV TH1,#0F0H
+0036 758B0C            8             MOV TL1,#0CH
+0039 D2AF              9             SETB EA
+003B D2AB             10             SETB ET1
+003D D28E             11     LOOP:   SETB TR1
+003F 80FE             12     HERE:   SJMP HERE
+0200                  13             ORG 0200H
+0200 758DF0           14     INSER : MOV TH1,#0F0H
+0203 758B0C           15             MOV TL1,#0CH
+0206 B297             16             CPL P1.7 
+0208 32               17             RETI
+                      18             END
+A51 MACRO ASSEMBLER  S13_1                                                                07/17/2006 10:05:52 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ET1. . . . . . . .  B ADDR   00A8H.3 A   
+HERE . . . . . . .  C ADDR   003FH   A   
+INSER. . . . . . .  C ADDR   0200H   A   
+LOOP . . . . . . .  C ADDR   003DH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

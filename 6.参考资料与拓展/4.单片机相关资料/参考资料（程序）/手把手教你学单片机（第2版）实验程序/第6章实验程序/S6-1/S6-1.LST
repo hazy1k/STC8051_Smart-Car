@@ -1,0 +1,45 @@
+A51 MACRO ASSEMBLER  S6_1                                                                 03/03/2004 19:46:49 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN .\S6-1.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S6-1.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 0130              2             AJMP MAIN
+0030                   3             ORG 030H
+0030 7580FE            4     MAIN:   MOV P0,#0FEH
+0033 113C              5             ACALL DEL
+0035 7580FF            6             MOV P0,#0FFH
+0038 113C              7             ACALL DEL
+003A 0130              8             AJMP MAIN
+003C 7D04              9     DEL:    MOV R5,#04H
+003E 7EFF             10     DEL1:   MOV R6,#0FFH
+0040 7FFF             11     DEL2:   MOV R7,#0FFH
+0042 DFFE             12     DEL3:   DJNZ R7, DEL3
+0044 DEFA             13             DJNZ R6, DEL2
+0046 DDF6             14             DJNZ R5, DEL1
+0048 22               15             RET
+                      16             END
+A51 MACRO ASSEMBLER  S6_1                                                                 03/03/2004 19:46:49 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEL. . . . . . . .  C ADDR   003CH   A   
+DEL1 . . . . . . .  C ADDR   003EH   A   
+DEL2 . . . . . . .  C ADDR   0040H   A   
+DEL3 . . . . . . .  C ADDR   0042H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

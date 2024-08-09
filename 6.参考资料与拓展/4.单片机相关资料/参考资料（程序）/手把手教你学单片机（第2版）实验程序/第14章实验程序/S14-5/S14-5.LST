@@ -1,0 +1,126 @@
+A51 MACRO ASSEMBLER  S14_5                                                                10/19/2003 12:21:02 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.14
+OBJECT MODULE PLACED IN .\S14-5.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S14-5.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 0130              2             AJMP MAIN
+0030                   3             ORG 030H
+0030 78FF              4     MAIN:   MOV R0,#0FFH
+0032 90007B            5             MOV DPTR,#TAB
+0035 30A014            6     START:  JNB P2.0,L0                             
+0038 30A11A            7             JNB P2.1,L1                     
+003B 30A220            8             JNB P2.2,L2     
+003E 30A326            9             JNB P2.3,L3                     
+0041 30A72D           10             JNB P2.7,L7
+0044 B8FF02           11             CJNE R0,#0FFH, NEXT
+0047 0135             12             AJMP START
+0049 E8               13     NEXT:   MOV A,R0
+004A 23               14             RL A
+004B 73               15             JMP @A+DPTR
+004C 11B9             16     L0:     ACALL  DEL10MS
+004E 20A0E4           17             JB P2.0,START
+0051 7800             18             MOV R0,#00H
+0053 0135             19             AJMP START 
+0055 11B9             20     L1:     ACALL  DEL10MS
+0057 20A1DB           21             JB P2.1, START 
+005A 7801             22             MOV R0,#01H
+005C 0135             23             AJMP START 
+005E 11B9             24     L2:     ACALL  DEL10MS
+0060 20A2D2           25             JB P2.2, START 
+0063 7802             26             MOV R0,#02H
+0065 0135             27             AJMP START 
+0067 11B9             28     L3:     ACALL  DEL10MS
+0069 20A3C9           29             JB P2.3, START 
+006C 7803             30             MOV R0,#03H
+006E 020035           31             LJMP START 
+0071 1200B9           32     L7:     LCALL  DEL10MS
+0074 20A7BE           33             JB P2.7, START 
+0077 7804             34             MOV R0,#04H
+0079 0135             35             AJMP START 
+007B 0185             36     TAB:    AJMP SUADD
+007D 0190             37             AJMP SUSUB
+007F 019B             38             AJMP SUMUL
+0081 01A6             39             AJMP SUDIV
+0083 01B1             40             AJMP DIS
+0085 E590             41     SUADD : MOV A,P1
+0087 25B0             42             ADD A,P3
+0089 F9               43             MOV R1,A
+008A E4               44             CLR A
+008B 3400             45             ADDC A,#00H
+008D FB               46             MOV R3,A
+008E 0135             47             AJMP START
+0090 E590             48     SUSUB : MOV A,P1
+0092 C3               49             CLR C
+0093 95B0             50             SUBB A,P3
+0095 F9               51             MOV R1,A
+0096 E4               52             CLR A
+0097 33               53             RLC A
+0098 FB               54             MOV R3,A
+0099 0135             55             AJMP START
+009B E590             56     SUMUL : MOV A,P1
+009D 85B0F0           57             MOV B,P3
+00A0 A4               58             MUL AB
+A51 MACRO ASSEMBLER  S14_5                                                                10/19/2003 12:21:02 PAGE     2
+
+00A1 F9               59             MOV R1,A
+00A2 ABF0             60             MOV R3,B
+00A4 0135             61             AJMP START
+00A6 E590             62     SUDIV : MOV A,P1
+00A8 85B0F0           63             MOV B,P3
+00AB 84               64             DIV AB
+00AC F9               65             MOV R1,A
+00AD ABF0             66             MOV R3,B
+00AF 0135             67             AJMP START
+00B1 8990             68     DIS:    MOV P1,R1
+00B3 8BB0             69             MOV P3,R3
+00B5 11B9             70             ACALL DEL10MS
+00B7 0135             71             AJMP START
+00B9 7D0B             72     DEL10MS:MOV R5,#0BH                     
+00BB 7F02             73     F1:     MOV R7,#02H
+00BD 7EFF             74     F2:     MOV R6,#0FFH
+00BF DEFE             75     F3:     DJNZ R6,F3
+00C1 DFFA             76             DJNZ R7,F2
+00C3 DDF6             77             DJNZ R5,F1
+00C5 22               78             RET
+                      79             END
+A51 MACRO ASSEMBLER  S14_5                                                                10/19/2003 12:21:02 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+DEL10MS. . . . . .  C ADDR   00B9H   A   
+DIS. . . . . . . .  C ADDR   00B1H   A   
+F1 . . . . . . . .  C ADDR   00BBH   A   
+F2 . . . . . . . .  C ADDR   00BDH   A   
+F3 . . . . . . . .  C ADDR   00BFH   A   
+L0 . . . . . . . .  C ADDR   004CH   A   
+L1 . . . . . . . .  C ADDR   0055H   A   
+L2 . . . . . . . .  C ADDR   005EH   A   
+L3 . . . . . . . .  C ADDR   0067H   A   
+L7 . . . . . . . .  C ADDR   0071H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+NEXT . . . . . . .  C ADDR   0049H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+START. . . . . . .  C ADDR   0035H   A   
+SUADD. . . . . . .  C ADDR   0085H   A   
+SUDIV. . . . . . .  C ADDR   00A6H   A   
+SUMUL. . . . . . .  C ADDR   009BH   A   
+SUSUB. . . . . . .  C ADDR   0090H   A   
+TAB. . . . . . . .  C ADDR   007BH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

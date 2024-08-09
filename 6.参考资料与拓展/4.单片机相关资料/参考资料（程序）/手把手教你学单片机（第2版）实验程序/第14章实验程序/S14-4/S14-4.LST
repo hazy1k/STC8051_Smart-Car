@@ -1,0 +1,50 @@
+A51 MACRO ASSEMBLER  S14_4                                                                10/18/2003 17:04:04 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.14
+OBJECT MODULE PLACED IN .\S14-4.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S14-4.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 020030            2             LJMP MAIN
+0030                   3             ORG 030H
+0030 7800              4     MAIN:   MOV R0,#0
+0032 74FF              5             MOV A,#0FFH
+0034 F4                6     LOOP:   CPL A
+0035 F580              7             MOV P0,A
+0037 113E              8             ACALL DEL
+0039 B828F8            9             CJNE R0,#40,LOOP
+003C 80FE             10             SJMP $
+003E 7FFF             11     DEL:    MOV R7,#0FFH
+0040 7EFF             12     DEL1:   MOV R6,#0FFH
+0042 7D08             13     DEL2:   MOV R5,#08H
+0044 DDFE             14     DEL3:   DJNZ R5,DEL3
+0046 DEFA             15             DJNZ R6,DEL2
+0048 DFF6             16             DJNZ R7,DEL1
+004A 08               17             INC R0
+004B 22               18             RET
+                      19             END
+                             
+A51 MACRO ASSEMBLER  S14_4                                                                10/18/2003 17:04:04 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEL. . . . . . . .  C ADDR   003EH   A   
+DEL1 . . . . . . .  C ADDR   0040H   A   
+DEL2 . . . . . . .  C ADDR   0042H   A   
+DEL3 . . . . . . .  C ADDR   0044H   A   
+LOOP . . . . . . .  C ADDR   0034H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

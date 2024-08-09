@@ -1,0 +1,298 @@
+A51 MACRO ASSEMBLER  S19_3                                                                02/29/2004 11:21:49 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN .\S19-3.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S19-3.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;********89C51引脚定义********
+  00B3                 2             RS BIT P3.3
+  00B4                 3             R_W BIT P3.4
+  00B5                 4             E BIT P3.5
+  0090                 5             DB0_DB7 EQU P1
+                       6     ;*******定义时、分、秒及50mS单元********
+  0020                 7             DI_DA DATA 20H
+  0021                 8             SEC DATA 21H
+  0022                 9             MIN DATA 22H
+  0023                10             HOUR DATA 23H
+                      11     ;*******程序开始*******
+0000                  12             ORG 0000H
+0000 020030           13             LJMP MAIN
+000B                  14             ORG 000BH
+000B 02012E           15             LJMP CLOCK
+0030                  16             ORG 030H
+0030 758901           17     MAIN:   MOV TMOD,#01H
+0033 758AB0           18             MOV TL0,#0B0H
+0036 758C3C           19             MOV TH0,#3CH
+0039 D2A9             20             SETB ET0
+003B D28C             21             SETB TR0
+003D 752000           22             MOV DI_DA,#00H
+0040 D2AF             23             SETB EA
+0042 758160           24             MOV SP,#60H
+0045 120146           25             LCALL INITIAL
+0048 12018D           26             LCALL CLS
+                      27     ;*****显示--Beijing Time--*****
+004B 7480             28             MOV A,#10000000B
+004D 12016D           29             LCALL WRITE_COM
+0050 9001AC           30             MOV DPTR,#LINE0
+0053 120137           31             LCALL DISP
+                      32     ;******************************
+0056 74C0             33             MOV A,#11000000B
+0058 12016D           34             LCALL WRITE_COM
+005B 9001BD           35             MOV DPTR,#LINE1
+005E 120137           36             LCALL DISP
+                      37     ;******************************
+0061 74CC             38             MOV A,#11001100B
+0063 12016D           39             LCALL WRITE_COM
+0066 9001BD           40             MOV DPTR,#LINE1
+0069 120137           41             LCALL DISP
+                      42     ;*******计时开始********
+006C 75B07F           43     BEGIN:  MOV P3,#7FH
+006F E5B0             44             MOV A,P3
+0071 B47F08           45             CJNE A,#7FH,NEXT
+0074 D2B7             46             SETB P3.7
+0076 11B5             47             ACALL CONV
+0078 11E5             48             ACALL DIS
+007A 016C             49             AJMP BEGIN
+007C 1180             50     NEXT:   ACALL KEY
+007E 016C             51             AJMP BEGIN
+                      52     ;*******扫描按键********
+0080 319C             53     KEY:    ACALL DEL10MS
+0082 20B015           54             JB P3.0,HOUR_KEY
+0085 C3               55     MIN_ADJ:CLR C
+0086 E522             56             MOV A,MIN
+0088 04               57             INC A
+0089 D4               58             DA A
+A51 MACRO ASSEMBLER  S19_3                                                                02/29/2004 11:21:49 PAGE     2
+
+008A B46001           59             CJNE A,#60H,X1
+008D E4               60             CLR A
+008E F522             61     X1:     MOV MIN,A
+0090 11E5             62             ACALL DIS
+0092 31A5             63             ACALL DEL200MS
+0094 75B07F           64             MOV P3,#7FH
+0097 30B0EB           65             JNB P3.0,MIN_ADJ
+009A 20B10F           66     HOUR_KEY:       JB P3.1,X2
+009D C3               67     HOUR_ADJ:       CLR C
+009E E523             68             MOV A,HOUR
+00A0 04               69             INC A
+00A1 D4               70             DA A
+00A2 B42401           71             CJNE A,#24H,X3
+00A5 E4               72             CLR A
+00A6 F523             73     X3:     MOV HOUR,A
+00A8 11E5             74             ACALL DIS
+00AA 31A5             75             ACALL DEL200MS
+00AC 75B07F           76     X2:     MOV P3,#7FH
+00AF 30B1EB           77             JNB P3.1,HOUR_ADJ
+00B2 D2B7             78             SETB P3.7
+00B4 22               79             RET
+                      80     ;*******计时转换*******
+00B5 E520             81     CONV:   MOV A,DI_DA
+00B7 B4142A           82             CJNE A,#14H,DONE
+00BA 752000           83             MOV DI_DA,#00H
+00BD E521             84             MOV A,SEC
+00BF 2401             85             ADD A,#01H
+00C1 D4               86             DA A
+00C2 F521             87             MOV SEC,A
+00C4 B4601D           88             CJNE A,#60H,DONE
+00C7 752100           89             MOV SEC,#00H
+00CA E522             90             MOV A,MIN
+00CC 2401             91             ADD A,#01H
+00CE D4               92             DA A
+00CF F522             93             MOV MIN,A
+00D1 B46010           94             CJNE A,#60H,DONE
+00D4 752200           95             MOV MIN,#00H
+00D7 E523             96             MOV A,HOUR
+00D9 2401             97             ADD A,#01H
+00DB D4               98             DA A
+00DC F523             99             MOV HOUR,A
+00DE B42403          100             CJNE A,#24H,DONE
+00E1 752300          101             MOV HOUR,#00H
+00E4 22              102     DONE:   RET
+                     103     ;*******显示时间*******
+00E5 74C4            104     DIS:    MOV A,#11000100B
+00E7 12016D          105             LCALL WRITE_COM
+00EA E523            106             MOV A,HOUR
+00EC C4              107             SWAP  A
+00ED 540F            108             ANL A,#0FH
+00EF 2430            109             ADD A,#30H
+00F1 12017D          110             LCALL WRITE_DATA
+00F4 E523            111             MOV A,HOUR
+00F6 540F            112             ANL A,#0FH
+00F8 2430            113             ADD A,#30H
+00FA 12017D          114             LCALL WRITE_DATA
+00FD 743A            115             MOV A,#3AH
+00FF 12017D          116             LCALL WRITE_DATA
+0102 E522            117             MOV A,MIN
+0104 C4              118             SWAP  A
+0105 540F            119             ANL A,#0FH
+0107 2430            120             ADD A,#30H
+0109 12017D          121             LCALL WRITE_DATA
+010C E522            122             MOV A,MIN
+010E 540F            123             ANL A,#0FH
+0110 2430            124             ADD A,#30H
+A51 MACRO ASSEMBLER  S19_3                                                                02/29/2004 11:21:49 PAGE     3
+
+0112 12017D          125             LCALL WRITE_DATA
+0115 743A            126             MOV A,#3AH
+0117 12017D          127             LCALL WRITE_DATA
+011A E521            128             MOV A,SEC
+011C C4              129             SWAP  A
+011D 540F            130             ANL A,#0FH
+011F 2430            131             ADD A,#30H
+0121 12017D          132             LCALL WRITE_DATA
+0124 E521            133             MOV A,SEC
+0126 540F            134             ANL A,#0FH
+0128 2430            135             ADD A,#30H
+012A 12017D          136             LCALL WRITE_DATA
+012D 22              137             RET
+                     138     ;*******50mS定时中断服务子程序*******
+012E 758AB0          139     CLOCK:  MOV TL0,#0B0H
+0131 758C3C          140             MOV TH0,#3CH
+0134 0520            141             INC DI_DA
+0136 32              142             RETI
+                     143     ;*******显示字符串到LCM子程序********
+0137 C0E0            144     DISP:   PUSH ACC
+0139 E4              145     DISP_LOOP:      CLR A
+013A 93              146             MOVC A,@A+DPTR
+013B 6006            147             JZ END_DISP
+013D 12017D          148             LCALL WRITE_DATA
+0140 A3              149             INC DPTR
+0141 80F6            150             SJMP DISP_LOOP
+0143 D0E0            151     END_DISP:       POP ACC
+0145 22              152             RET
+                     153     ;****** 启动LCM子程序******
+0146 7438            154     INITIAL:MOV A,#00111000B
+0148 12016D          155             LCALL WRITE_COM
+014B 740C            156             MOV A,#00001100B 
+014D 12016D          157             LCALL WRITE_COM 
+0150 7406            158             MOV A,#00000110B 
+0152 12016D          159             LCALL WRITE_COM 
+0155 22              160             RET
+                     161     ;******查询忙碌标志信号子程序******
+0156 C0E0            162     CHECK_BUSY:     PUSH ACC
+0158 C2B5            163     BUSY_LOOP:      CLR E
+015A D2B4            164             SETB R_W
+015C C2B3            165             CLR RS
+015E D2B5            166             SETB E
+0160 E590            167             MOV A, DB0_DB7
+0162 C2B5            168             CLR E
+0164 20E7F1          169             JB ACC.7,BUSY_LOOP
+0167 D0E0            170             POP ACC
+0169 120193          171             LCALL DEL
+016C 22              172             RET
+                     173     ;****** 写指令到LCM子程序******
+016D 120156          174     WRITE_COM:      LCALL CHECK_BUSY
+0170 C2B5            175             CLR E
+0172 C2B3            176             CLR RS 
+0174 C2B4            177             CLR R_W
+0176 D2B5            178             SETB E
+0178 F590            179             MOV DB0_DB7,A
+017A C2B5            180             CLR E
+017C 22              181             RET
+                     182     ;****** 写数据到LCM子程序******
+017D 120156          183     WRITE_DATA:     LCALL CHECK_BUSY
+0180 C2B5            184             CLR E
+0182 D2B3            185             SETB RS 
+0184 C2B4            186             CLR R_W
+0186 D2B5            187             SETB E
+0188 F590            188             MOV  DB0_DB7,A
+018A C2B5            189             CLR E
+018C 22              190             RET
+A51 MACRO ASSEMBLER  S19_3                                                                02/29/2004 11:21:49 PAGE     4
+
+                     191     ;*******清除LCM子程序*******
+018D 7401            192     CLS:    MOV A,#00000001B
+018F 12016D          193             LCALL WRITE_COM
+0192 22              194             RET
+                     195     ;****延时2.7mS子程序****
+0193 7E05            196     DEL:    MOV R6,#5
+0195 7FF8            197     L1:     MOV R7,#248
+0197 DFFE            198             DJNZ R7,$
+0199 DEFA            199             DJNZ R6,L1
+019B 22              200             RET
+                     201     ;******* 延时10mS子程序********
+019C 7D10            202     DEL10MS:MOV R5,#10H
+019E 7CFF            203     TX1:    MOV R4,#0FFH
+01A0 DCFE            204             DJNZ R4,$
+01A2 DDFA            205             DJNZ R5,TX1
+01A4 22              206             RET
+                     207     ;******** 延时200mS子程序********
+01A5 7B14            208     DEL200MS:MOV R3,#14H
+01A7 319C            209     TX2:    ACALL DEL10MS
+01A9 DBFC            210             DJNZ R3,TX2
+01AB 22              211             RET
+                     212     ;*******字符串************
+01AC 2D2D4265        213     LINE0:  DB "--Beijing Time--",00H
+01B0 696A696E                
+01B4 67205469                
+01B8 6D652D2D                
+01BC 00                      
+01BD 2D2D2D2D        214     LINE1:  DB "----",00H
+01C1 00                      
+                     215             END
+A51 MACRO ASSEMBLER  S19_3                                                                02/29/2004 11:21:49 PAGE     5
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+BEGIN. . . . . . .  C ADDR   006CH   A   
+BUSY_LOOP. . . . .  C ADDR   0158H   A   
+CHECK_BUSY . . . .  C ADDR   0156H   A   
+CLOCK. . . . . . .  C ADDR   012EH   A   
+CLS. . . . . . . .  C ADDR   018DH   A   
+CONV . . . . . . .  C ADDR   00B5H   A   
+DB0_DB7. . . . . .  D ADDR   0090H   A   
+DEL. . . . . . . .  C ADDR   0193H   A   
+DEL10MS. . . . . .  C ADDR   019CH   A   
+DEL200MS . . . . .  C ADDR   01A5H   A   
+DIS. . . . . . . .  C ADDR   00E5H   A   
+DISP . . . . . . .  C ADDR   0137H   A   
+DISP_LOOP. . . . .  C ADDR   0139H   A   
+DI_DA. . . . . . .  D ADDR   0020H   A   
+DONE . . . . . . .  C ADDR   00E4H   A   
+E. . . . . . . . .  B ADDR   00B0H.5 A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+END_DISP . . . . .  C ADDR   0143H   A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+HOUR . . . . . . .  D ADDR   0023H   A   
+HOUR_ADJ . . . . .  C ADDR   009DH   A   
+HOUR_KEY . . . . .  C ADDR   009AH   A   
+INITIAL. . . . . .  C ADDR   0146H   A   
+KEY. . . . . . . .  C ADDR   0080H   A   
+L1 . . . . . . . .  C ADDR   0195H   A   
+LINE0. . . . . . .  C ADDR   01ACH   A   
+LINE1. . . . . . .  C ADDR   01BDH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+MIN. . . . . . . .  D ADDR   0022H   A   
+MIN_ADJ. . . . . .  C ADDR   0085H   A   
+NEXT . . . . . . .  C ADDR   007CH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+RS . . . . . . . .  B ADDR   00B0H.3 A   
+R_W. . . . . . . .  B ADDR   00B0H.4 A   
+SEC. . . . . . . .  D ADDR   0021H   A   
+SP . . . . . . . .  D ADDR   0081H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TX1. . . . . . . .  C ADDR   019EH   A   
+TX2. . . . . . . .  C ADDR   01A7H   A   
+WRITE_COM. . . . .  C ADDR   016DH   A   
+WRITE_DATA . . . .  C ADDR   017DH   A   
+X1 . . . . . . . .  C ADDR   008EH   A   
+X2 . . . . . . . .  C ADDR   00ACH   A   
+X3 . . . . . . . .  C ADDR   00A6H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

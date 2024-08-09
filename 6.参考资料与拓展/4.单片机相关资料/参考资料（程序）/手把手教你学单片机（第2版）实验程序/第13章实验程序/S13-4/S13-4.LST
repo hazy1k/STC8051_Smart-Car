@@ -1,0 +1,110 @@
+A51 MACRO ASSEMBLER  S13_4                                                                10/18/2003 16:50:51 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.14
+OBJECT MODULE PLACED IN .\S13-4.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S13-4.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 020030            2             LJMP MAIN
+0003                   3             ORG 0003H
+0003 020069            4             LJMP ZD0
+0013                   5             ORG 0013H
+0013 020079            6             LJMP ZD1
+0030                   7             ORG 030H
+0030 758170            8     MAIN:   MOV SP,#70H
+0033 75A885            9             MOV IE,#85H
+0036 D291             10     LOOP:   SETB P1.1
+0038 D292             11             SETB P1.2
+003A C290             12             CLR P1.0
+003C D293             13             SETB P1.3
+003E D294             14             SETB P1.4
+0040 C295             15             CLR P1.5
+0042 1196             16             ACALL DEL90S
+0044 115C             17             ACALL YELL
+0046 1189             18             ACALL DEL2S
+0048 D290             19             SETB P1.0
+004A D291             20             SETB P1.1
+004C C292             21             CLR P1.2
+004E D294             22             SETB P1.4
+0050 D295             23             SETB P1.5
+0052 C293             24             CLR P1.3
+0054 1196             25             ACALL DEL90S
+0056 115C             26             ACALL YELL
+0058 1189             27             ACALL DEL2S
+005A 80DA             28             SJMP LOOP
+005C D290             29     YELL:   SETB P1.0
+005E D292             30             SETB P1.2
+0060 C291             31             CLR P1.1
+0062 D293             32             SETB P1.3
+0064 D295             33             SETB P1.5
+0066 C294             34             CLR P1.4
+0068 22               35             RET
+0069 C290             36     ZD0:    CLR P1.0 
+006B D291             37             SETB P1.1
+006D D292             38             SETB P1.2
+006F D293             39             SETB P1.3
+0071 D294             40             SETB P1.4
+0073 C295             41             CLR P1.5
+0075 30B2F1           42             JNB P3.2,ZD0
+0078 32               43             RETI
+0079 C293             44     ZD1:    CLR P1.3 
+007B C292             45             CLR P1.2
+007D D291             46             SETB P1.1
+007F D290             47             SETB P1.0
+0081 D294             48             SETB P1.4
+0083 D295             49             SETB P1.5
+0085 30B3F1           50             JNB P3.3,ZD1
+0088 32               51             RETI
+0089 7D10             52     DEL2S:  MOV R5,#10H
+008B 7EFF             53     F3:     MOV R6,#0FFH
+008D 7FE1             54     F2:     MOV R7,#0E1H
+008F DFFE             55     F1:     DJNZ R7,F1
+0091 DEFA             56             DJNZ R6,F2
+0093 DDF6             57             DJNZ R5,F3
+0095 22               58             RET
+A51 MACRO ASSEMBLER  S13_4                                                                10/18/2003 16:50:51 PAGE     2
+
+0096 7D03             59     DEL90S: MOV R5,#03H
+0098 7EF0             60     F6:     MOV R6,#0F0H
+009A 7FF0             61     F5:     MOV R7,#0F0H
+009C 78F0             62     F4:     MOV R0,#0F0H
+009E D8FE             63             DJNZ R0,$
+00A0 DFFA             64             DJNZ R7,F4
+00A2 DEF6             65             DJNZ R6,F5
+00A4 DDF2             66             DJNZ R5,F6
+00A6 22               67             RET
+                      68             END
+A51 MACRO ASSEMBLER  S13_4                                                                10/18/2003 16:50:51 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEL2S. . . . . . .  C ADDR   0089H   A   
+DEL90S . . . . . .  C ADDR   0096H   A   
+F1 . . . . . . . .  C ADDR   008FH   A   
+F2 . . . . . . . .  C ADDR   008DH   A   
+F3 . . . . . . . .  C ADDR   008BH   A   
+F4 . . . . . . . .  C ADDR   009CH   A   
+F5 . . . . . . . .  C ADDR   009AH   A   
+F6 . . . . . . . .  C ADDR   0098H   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+LOOP . . . . . . .  C ADDR   0036H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+SP . . . . . . . .  D ADDR   0081H   A   
+YELL . . . . . . .  C ADDR   005CH   A   
+ZD0. . . . . . . .  C ADDR   0069H   A   
+ZD1. . . . . . . .  C ADDR   0079H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

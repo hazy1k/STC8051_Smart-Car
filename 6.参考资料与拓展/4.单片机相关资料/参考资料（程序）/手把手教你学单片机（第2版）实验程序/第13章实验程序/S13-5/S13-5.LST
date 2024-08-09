@@ -1,0 +1,83 @@
+A51 MACRO ASSEMBLER  S13_5                                                                02/29/2004 10:23:03 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN .\S13-5.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S13-5.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0000                 1             BIT_FLAG BIT 20H.0
+  0030                 2             X DATA 30H
+0000                   3             ORG 0000H
+0000 020030            4             LJMP MAIN
+0003                   5             ORG 0003H 
+0003 020200            6             LJMP 0200H
+0030                   7             ORG 030H
+0030 753000            8     MAIN:   MOV X,#00H
+0033 D200              9             SETB BIT_FLAG
+0035 7580FF           10             MOV P0,#0FFH 
+0038 C2B5             11     ST:     CLR P3.5 
+003A D288             12             SETB IT0 
+003C D2A8             13             SETB EX0 
+003E D2AF             14             SETB EA 
+0040 30000A           15             JNB BIT_FLAG,NEXT
+0043 E530             16             MOV A,X
+0045 04               17             INC A
+0046 B40A02           18             CJNE A,#0AH,SF
+0049 7400             19             MOV A,#00H 
+004B F530             20     SF:     MOV X,A 
+004D E530             21     NEXT:   MOV A,X
+004F 900213           22             MOV DPTR,#TAB
+0052 93               23             MOVC A,@A+DPTR 
+0053 F580             24             MOV P0,A 
+0055 510C             25             ACALL DEL0_5S 
+0057 0138             26             AJMP ST 
+0200                  27             ORG 0200H 
+0200 B200             28             CPL BIT_FLAG 
+0202 32               29             RETI 
+0203 7F04             30     DEL4MS: MOV R7,#04H 
+0205 7EFF             31     DL0:    MOV R6,#0FFH
+0207 DEFE             32     DL1:    DJNZ R6,DL1
+0209 DFFA             33             DJNZ R7,DL0
+020B 22               34             RET
+020C ADFF             35     DEL0_5S:MOV R5,0FFH 
+020E 5103             36     FX:     ACALL DEL4MS
+0210 DDFC             37             DJNZ R5,FX
+0212 22               38             RET
+0213 C0F9A4B0         39     TAB:    DB 0C0H,0F9H,0A4H,0B0H,099H 
+0217 99                      
+0218 9282F880         40             DB 092H,082H,0F8H,080H,090H
+021C 90                      
+                      41             END
+A51 MACRO ASSEMBLER  S13_5                                                                02/29/2004 10:23:03 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BIT_FLAG . . . . .  B ADDR   0020H.0 A   
+DEL0_5S. . . . . .  C ADDR   020CH   A   
+DEL4MS . . . . . .  C ADDR   0203H   A   
+DL0. . . . . . . .  C ADDR   0205H   A   
+DL1. . . . . . . .  C ADDR   0207H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+EX0. . . . . . . .  B ADDR   00A8H.0 A   
+FX . . . . . . . .  C ADDR   020EH   A   
+IT0. . . . . . . .  B ADDR   0088H.0 A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+NEXT . . . . . . .  C ADDR   004DH   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+SF . . . . . . . .  C ADDR   004BH   A   
+ST . . . . . . . .  C ADDR   0038H   A   
+TAB. . . . . . . .  C ADDR   0213H   A   
+X. . . . . . . . .  D ADDR   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

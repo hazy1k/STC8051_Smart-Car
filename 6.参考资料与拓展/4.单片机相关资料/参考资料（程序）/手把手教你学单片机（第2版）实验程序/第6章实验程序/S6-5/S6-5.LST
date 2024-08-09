@@ -1,0 +1,69 @@
+A51 MACRO ASSEMBLER  S6_5                                                                 10/05/2003 08:54:13 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.14
+OBJECT MODULE PLACED IN .\S6-5.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S6-5.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 020030            2             LJMP MAIN
+0030                   3             ORG 030H
+0030 75B0C0            4      MAIN:  MOV P3,#0C0H
+0033 116E              5             ACALL DEL4MS
+0035 75B0F0            6             MOV P3,#0F0H
+0038 E5B0              7             MOV A,P3
+003A B4F002            8             CJNE A,#0F0H,F1
+003D 0130              9             AJMP MAIN
+003F 75B0F9           10     F1:     MOV P3,#0F9H
+0042 1177             11             ACALL DEL1S
+0044 75B0A4           12             MOV P3,#0A4H
+0047 1177             13             ACALL DEL1S
+0049 75B0B0           14             MOV P3,#0B0H
+004C 1177             15             ACALL DEL1S
+004E 75B099           16             MOV P3,#099H
+0051 1177             17             ACALL DEL1S
+0053 75B092           18             MOV P3,#092H
+0056 1177             19             ACALL DEL1S
+0058 75B082           20             MOV P3,#082H
+005B 1177             21             ACALL DEL1S
+005D 75B0F8           22             MOV P3,#0F8H
+0060 1177             23             ACALL DEL1S
+0062 75B080           24             MOV P3,#080H
+0065 1177             25             ACALL DEL1S
+0067 75B090           26             MOV P3,#090H
+006A 1177             27             ACALL DEL1S
+006C 0130             28             AJMP MAIN
+006E 7F04             29     DEL4MS: MOV R7,#04H
+0070 7EFF             30     DL0:    MOV R6,#0FFH
+0072 DEFE             31     DL1:    DJNZ R6,DL1
+0074 DFFA             32             DJNZ R7,DL0
+0076 22               33             RET
+0077 ADFF             34     DEL1S:  MOV R5,0FFH
+0079 116E             35     F2:     ACALL DEL4MS
+007B DDFC             36             DJNZ R5,F2
+007D 22               37             RET
+                      38             END
+A51 MACRO ASSEMBLER  S6_5                                                                 10/05/2003 08:54:13 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEL1S. . . . . . .  C ADDR   0077H   A   
+DEL4MS . . . . . .  C ADDR   006EH   A   
+DL0. . . . . . . .  C ADDR   0070H   A   
+DL1. . . . . . . .  C ADDR   0072H   A   
+F1 . . . . . . . .  C ADDR   003FH   A   
+F2 . . . . . . . .  C ADDR   0079H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

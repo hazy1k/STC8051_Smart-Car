@@ -1,0 +1,80 @@
+A51 MACRO ASSEMBLER  S14_7                                                                03/03/2004 20:24:45 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN .\S14-7.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S14-7.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 020030            2             LJMP MAIN
+0030                   3             ORG 0030H
+0030 752050            4     MAIN:   MOV 20H,#50H
+0033 752138            5             MOV 21H,#38H
+0036 752207            6             MOV 22H,#07H
+0039 752313            7             MOV 23H,#13H
+003C 752459            8             MOV 24H,#59H
+003F 752544            9             MOV 25H,#44H
+0042 752678           10             MOV 26H,#78H
+0045 752722           11             MOV 27H,#22H
+0048 7820             12     SORT:   MOV R0,#20H
+004A 7F07             13             MOV R7,#07H
+004C C28C             14             CLR TR0
+004E E6               15     LOOP:   MOV A,@R0
+004F F52B             16             MOV 2BH,A
+0051 08               17             INC R0
+0052 862A             18             MOV 2AH,@R0
+0054 C3               19             CLR C
+0055 96               20             SUBB A,@R0
+0056 4008             21             JC NEXT
+0058 A62B             22             MOV @R0,2BH
+005A 18               23             DEC R0
+005B A62A             24             MOV @R0,2AH
+005D 08               25             INC R0
+005E D28C             26             SETB TR0
+0060 DFEC             27     NEXT:  DJNZ R7,LOOP
+0062 208CE3           28             JB TR0,SORT
+0065 C290             29             CLR P1.0
+0067 1178             30             ACALL DEL
+0069 7820             31             MOV R0,#20H
+006B 2097FD           32     HERE:  JB P1.7,HERE
+006E 8680             33             MOV P0,@R0
+0070 08               34             INC R0
+0071 1178             35             ACALL DEL
+0073 B828F5           36             CJNE R0,#28H,HERE
+0076 80FE             37             SJMP $
+0078 7D04             38     DEL:    MOV R5,#04H
+007A 7EFF             39     F3:     MOV R6,#0FFH
+007C 7FFF             40     F2:     MOV R7,#0FFH
+007E DFFE             41     F1:     DJNZ R7,F1
+0080 DEFA             42             DJNZ R6,F2
+0082 DDF6             43             DJNZ R5,F3
+0084 22               44             RET
+                      45             END
+A51 MACRO ASSEMBLER  S14_7                                                                03/03/2004 20:24:45 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEL. . . . . . . .  C ADDR   0078H   A   
+F1 . . . . . . . .  C ADDR   007EH   A   
+F2 . . . . . . . .  C ADDR   007CH   A   
+F3 . . . . . . . .  C ADDR   007AH   A   
+HERE . . . . . . .  C ADDR   006BH   A   
+LOOP . . . . . . .  C ADDR   004EH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+NEXT . . . . . . .  C ADDR   0060H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+SORT . . . . . . .  C ADDR   0048H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

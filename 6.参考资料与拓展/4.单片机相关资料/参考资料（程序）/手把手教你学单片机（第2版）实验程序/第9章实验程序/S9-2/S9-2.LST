@@ -1,0 +1,80 @@
+A51 MACRO ASSEMBLER  S9_2                                                                 10/12/2003 14:37:41 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.14
+OBJECT MODULE PLACED IN .\S9-2.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S9-2.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 020030            2             LJMP MAIN
+0030                   3             ORG 030H
+0030 900100            4     MAIN:   MOV DPTR,#TAB
+0033 7920              5             MOV R1,#20H
+0035 7F20              6             MOV R7,#20H
+0037 E4                7     C01:    CLR A
+0038 93                8             MOVC A,@A+DPTR
+0039 F7                9             MOV @R1,A
+003A A3               10             INC DPTR
+003B 09               11             INC R1
+003C DFF9             12             DJNZ R7,C01
+003E 756000           13     START:  MOV 60H,#00H
+0041 7F20             14             MOV R7,#20H
+0043 7920             15             MOV R1,#20H
+0045 E7               16     START1: MOV A,@R1
+0046 B45802           17             CJNE A,#58H,LOOP
+0049 0560             18             INC 60H
+004B 09               19     LOOP:   INC R1
+004C DFF7             20             DJNZ R7,START1
+004E 856080           21             MOV P0,60H
+0051 3150             22             ACALL DEL
+0053 80FE             23             SJMP $
+0100                  24             ORG 0100H
+0100 FE2502FE         25     TAB:    DB 0FEH,25H,02H,0FEH,25H 
+0104 25                      
+0105 582504FD         26             DB 58H,25H,04H,0FDH,80H
+0109 80                      
+010A FA8402FE         27             DB 0FAH,84H,02H,0FEH,84H
+010E 84                      
+010F FE8404FE         28             DB 0FEH,84H,04H,0FEH,25H
+0113 25                      
+0114 582502FE         29             DB 58H,25H,02H,0FEH,84H
+0118 84                      
+0119 FEC004FE         30             DB 0FEH,0C0H,04H,0FEH,0C0H
+011D C0                      
+011E FB98             31             DB 0FBH,98H
+0150                  32             ORG 0150H
+0150 7D0B             33     DEL:    MOV R5,#0BH             
+0152 7F02             34     F1:     MOV R7,#02H
+0154 7EFF             35     F2:     MOV R6,#0FFH
+0156 DEFE             36     F3:     DJNZ R6,F3
+0158 DFFA             37             DJNZ R7,F2
+015A DDF6             38             DJNZ R5,F1
+015C 22               39             RET
+                      40             END
+A51 MACRO ASSEMBLER  S9_2                                                                 10/12/2003 14:37:41 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+C01. . . . . . . .  C ADDR   0037H   A   
+DEL. . . . . . . .  C ADDR   0150H   A   
+F1 . . . . . . . .  C ADDR   0152H   A   
+F2 . . . . . . . .  C ADDR   0154H   A   
+F3 . . . . . . . .  C ADDR   0156H   A   
+LOOP . . . . . . .  C ADDR   004BH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+START. . . . . . .  C ADDR   003EH   A   
+START1 . . . . . .  C ADDR   0045H   A   
+TAB. . . . . . . .  C ADDR   0100H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

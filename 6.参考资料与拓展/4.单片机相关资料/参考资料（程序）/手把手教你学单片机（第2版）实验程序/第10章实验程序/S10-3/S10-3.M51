@@ -1,0 +1,58 @@
+BL51 BANKED LINKER/LOCATER V4.14                                                        10/12/2003  16:06:19  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V4.14, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE S10-3.obj TO S10-3
+
+
+INPUT MODULES INCLUDED:
+  S10-3.obj (S10_3)
+
+
+LINK MAP OF MODULE:  S10-3 (S10_3)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0050H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  S10-3 (S10_3)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        S10_3
+  C:0043H         SYMBOL        DEL1S
+  C:0049H         SYMBOL        F1
+  C:0047H         SYMBOL        F2
+  C:0045H         SYMBOL        F3
+  C:0030H         SYMBOL        MAIN
+  C:0037H         SYMBOL        OUT
+  D:0090H         SYMBOL        P1
+  C:0000H         LINE#         2
+  C:0030H         LINE#         4
+  C:0033H         LINE#         5
+  C:0035H         LINE#         6
+  C:0037H         LINE#         7
+  C:0038H         LINE#         8
+  C:003AH         LINE#         9
+  C:003CH         LINE#         10
+  C:003EH         LINE#         11
+  C:0041H         LINE#         12
+  C:0043H         LINE#         13
+  C:0045H         LINE#         14
+  C:0047H         LINE#         15
+  C:0049H         LINE#         16
+  C:004BH         LINE#         17
+  C:004DH         LINE#         18
+  C:004FH         LINE#         19
+  -------         ENDMOD        S10_3
+
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,57 @@
+A51 MACRO ASSEMBLER  S21_3                                                                10/03/2006 11:51:08 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN S21-3.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE S21-3.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     ORG 0000H
+0000 0130              2                     AJMP MAIN
+0030                   3                     ORG 0030H
+0030 7820              4     MAIN:   MOV R0,#20H
+0032 7930              5                     MOV R1,#30H
+0034 7410              6                     MOV A,#10H
+0036 F6                7     HERE1:MOV @R0,A
+0037 08                8                     INC R0
+0038 04                9                     INC A
+0039 D9FB             10                     DJNZ R1,HERE1
+003B 7820             11                     MOV R0,#20H
+                      12                     ;**************
+003D 900000           13                     MOV DPTR,#0000H
+0040 7930             14                     MOV R1,#30H
+0042 E6               15     HERE2:MOV A,@R0
+0043 F0               16                     MOVX @DPTR,A
+0044 08               17                     INC R0
+0045 A3               18                     INC DPTR
+0046 D9FA             19                     DJNZ R1,HERE2
+0048 7830             20                     MOV R0,#30H
+                      21                     ;**************
+004A 900000           22                     MOV DPTR,#0000H
+004D 7920             23                     MOV R1,#20H
+004F E0               24     HERE3:MOVX A,@DPTR
+0050 F6               25                     MOV @R0,A
+0051 08               26                     INC R0
+0052 A3               27                     INC DPTR
+0053 D9FA             28                     DJNZ R1,HERE3
+0055 80FE             29                     SJMP $
+                      30                     END
+A51 MACRO ASSEMBLER  S21_3                                                                10/03/2006 11:51:08 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+HERE1. . . . . . .  C ADDR   0036H   A   
+HERE2. . . . . . .  C ADDR   0042H   A   
+HERE3. . . . . . .  C ADDR   004FH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

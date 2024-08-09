@@ -1,0 +1,42 @@
+A51 MACRO ASSEMBLER  S10_1                                                                03/03/2004 20:03:28 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN .\S10-1.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S10-1.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 020030            2             LJMP MAIN
+0030                   3             ORG 030H
+0030 A290              4     MAIN:   MOV C,P1.0
+0032 92A0              5             MOV P2.0,C
+0034 1138              6             ACALL DEL
+0036 0130              7             AJMP MAIN
+0038 7FFF              8     DEL:    MOV R7,#0FFH
+003A 7EFF              9     DEL1:   MOV R6,#0FFH
+003C DEFE             10     DEL2:   DJNZ R6,DEL2
+003E DFFA             11             DJNZ R7,DEL1
+0040 22               12             RET
+                      13             END
+A51 MACRO ASSEMBLER  S10_1                                                                03/03/2004 20:03:28 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEL. . . . . . . .  C ADDR   0038H   A   
+DEL1 . . . . . . .  C ADDR   003AH   A   
+DEL2 . . . . . . .  C ADDR   003CH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

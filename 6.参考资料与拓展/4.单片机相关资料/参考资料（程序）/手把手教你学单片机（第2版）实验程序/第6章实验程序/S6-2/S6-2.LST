@@ -1,0 +1,75 @@
+A51 MACRO ASSEMBLER  S6_2                                                                 12/30/2005 19:19:50 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN S6-2.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE S6-2.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 0130              2             AJMP MAIN
+0030                   3             ORG 030H
+0030 7580FE            4     MAIN:   MOV P0,#0FEH
+0033 1150              5             ACALL DELX
+0035 7580FF            6             MOV P0,#0FFH
+0038 1150              7             ACALL DELX
+003A 7580FE            8             MOV P0,#0FEH
+003D 115D              9             ACALL DELY
+003F 7580FF           10             MOV P0,#0FFH
+0042 115D             11             ACALL DELY
+0044 7580FE           12             MOV P0,#0FEH
+0047 116A             13             ACALL DELZ
+0049 7580FF           14             MOV P0,#0FFH
+004C 116A             15             ACALL DELZ
+004E 0130             16             AJMP MAIN
+0050 7D02             17     DELX:   MOV R5,#02H
+0052 7EFF             18     DELX1:  MOV R6,#0FFH
+0054 7FFF             19     DELX2:  MOV R7,#0FFH
+0056 DFFE             20     DELX3:  DJNZ R7, DELX3
+0058 DEFA             21             DJNZ R6, DELX2
+005A DDF6             22             DJNZ R5, DELX1
+005C 22               23             RET
+005D 7D08             24     DELY:   MOV R5,#08H
+005F 7EFF             25     DELY1:  MOV R6,#0FFH
+0061 7FFF             26     DELY2:  MOV R7,#0FFH
+0063 DFFE             27     DELY3:  DJNZ R7, DELY3
+0065 DEFA             28             DJNZ R6, DELY2
+0067 DDF6             29             DJNZ R5, DELY1
+0069 22               30             RET
+006A 7D1F             31     DELZ:   MOV R5,#1FH
+006C 7EFF             32     DELZ1:  MOV R6,#0FFH
+006E 7FFF             33     DELZ2:  MOV R7,#0FFH
+0070 DFFE             34     DELZ3:  DJNZ R7, DELZ3
+0072 DEFA             35             DJNZ R6, DELZ2
+0074 DDF6             36             DJNZ R5, DELZ1
+0076 22               37             RET
+                      38             END
+A51 MACRO ASSEMBLER  S6_2                                                                 12/30/2005 19:19:50 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELX . . . . . . .  C ADDR   0050H   A   
+DELX1. . . . . . .  C ADDR   0052H   A   
+DELX2. . . . . . .  C ADDR   0054H   A   
+DELX3. . . . . . .  C ADDR   0056H   A   
+DELY . . . . . . .  C ADDR   005DH   A   
+DELY1. . . . . . .  C ADDR   005FH   A   
+DELY2. . . . . . .  C ADDR   0061H   A   
+DELY3. . . . . . .  C ADDR   0063H   A   
+DELZ . . . . . . .  C ADDR   006AH   A   
+DELZ1. . . . . . .  C ADDR   006CH   A   
+DELZ2. . . . . . .  C ADDR   006EH   A   
+DELZ3. . . . . . .  C ADDR   0070H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,65 @@
+BL51 BANKED LINKER/LOCATER V4.14                                                        10/18/2003  16:35:53  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V4.14, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE S12-3.obj TO S12-3
+
+
+INPUT MODULES INCLUDED:
+  S12-3.obj (S12_3)
+
+
+LINK MAP OF MODULE:  S12-3 (S12_3)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     005FH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  S12-3 (S12_3)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        S12_3
+  D:00A8H         SYMBOL        IE
+  C:0044H         SYMBOL        LOOP
+  C:0049H         SYMBOL        LOOP1
+  C:0030H         SYMBOL        MAIN
+  D:0090H         SYMBOL        P1
+  B:0088H.7       SYMBOL        TF1
+  D:008DH         SYMBOL        TH1
+  D:008BH         SYMBOL        TL1
+  D:0089H         SYMBOL        TMOD
+  B:0088H.6       SYMBOL        TR1
+  C:0000H         LINE#         2
+  C:0030H         LINE#         4
+  C:0033H         LINE#         5
+  C:0036H         LINE#         6
+  C:0039H         LINE#         7
+  C:003CH         LINE#         8
+  C:003FH         LINE#         9
+  C:0042H         LINE#         10
+  C:0044H         LINE#         11
+  C:0047H         LINE#         12
+  C:0049H         LINE#         13
+  C:004CH         LINE#         14
+  C:004FH         LINE#         15
+  C:0052H         LINE#         16
+  C:0055H         LINE#         17
+  C:0058H         LINE#         18
+  C:005BH         LINE#         19
+  C:005DH         LINE#         20
+  -------         ENDMOD        S12_3
+
+BL51 BANKED LINKER/LOCATER V4.14                                                      10/18/2003  16:35:53  PAGE 2
+
+
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

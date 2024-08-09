@@ -1,0 +1,57 @@
+BL51 BANKED LINKER/LOCATER V4.14                                                        10/18/2003  17:04:06  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V4.14, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE S14-4.obj TO S14-4
+
+
+INPUT MODULES INCLUDED:
+  S14-4.obj (S14_4)
+
+
+LINK MAP OF MODULE:  S14-4 (S14_4)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     004CH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  S14-4 (S14_4)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        S14_4
+  C:003EH         SYMBOL        DEL
+  C:0040H         SYMBOL        DEL1
+  C:0042H         SYMBOL        DEL2
+  C:0044H         SYMBOL        DEL3
+  C:0034H         SYMBOL        LOOP
+  C:0030H         SYMBOL        MAIN
+  D:0080H         SYMBOL        P0
+  C:0000H         LINE#         2
+  C:0030H         LINE#         4
+  C:0032H         LINE#         5
+  C:0034H         LINE#         6
+  C:0035H         LINE#         7
+  C:0037H         LINE#         8
+  C:0039H         LINE#         9
+  C:003CH         LINE#         10
+  C:003EH         LINE#         11
+  C:0040H         LINE#         12
+  C:0042H         LINE#         13
+  C:0044H         LINE#         14
+  C:0046H         LINE#         15
+  C:0048H         LINE#         16
+  C:004AH         LINE#         17
+  C:004BH         LINE#         18
+  -------         ENDMOD        S14_4
+
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

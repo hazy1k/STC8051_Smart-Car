@@ -1,0 +1,140 @@
+A51 MACRO ASSEMBLER  S18_3                                                                02/29/2004 10:42:17 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN .\S18-3.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S18-3.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;********89C51引脚定义********
+  00B3                 2             RS BIT P3.3
+  00B4                 3             R_W BIT P3.4
+  00B5                 4             E BIT P3.5
+  0090                 5             DB0_DB7 EQU P1
+                       6     ;*******程序开始********
+0000                   7             ORG 0000H
+0000 020030            8             LJMP MAIN
+                       9     ;*******主程序*******
+0030                  10             ORG 0030H
+0030 758170           11     MAIN:   MOV SP,#70H
+0033 120073           12             LCALL INITIAL
+0036 1200BA           13             LCALL CLS
+0039 7480             14             MOV A,#10000000B
+003B 12009A           15             LCALL WRITE_COM
+003E 900051           16             MOV DPTR,#LINE1
+0041 1200C9           17             LCALL DISP
+0044 74C0             18             MOV A,#11000000B
+0046 12009A           19             LCALL WRITE_COM
+0049 900062           20             MOV DPTR,#LINE2
+004C 1200C9           21             LCALL DISP
+004F 80FE             22             SJMP $
+                      23     ;*****LCM第一、二行显示字符串*****
+0051 57656C63         24     LINE1:  DB "Welcome to LCD!!",00H
+0055 6F6D6520                
+0059 746F204C                
+005D 43442121                
+0061 00                      
+0062 41424344         25     LINE2:  DB "ABCDEFGHIJKLMNOP",00H
+0066 45464748                
+006A 494A4B4C                
+006E 4D4E4F50                
+0072 00                      
+                      26     ;****** 启动LCM子程序******
+0073 7438             27     INITIAL:MOV A,#00111000B
+0075 12009A           28             LCALL WRITE_COM
+0078 740E             29             MOV A,#00001110B 
+007A 12009A           30             LCALL WRITE_COM 
+007D 7406             31             MOV A,#00000110B 
+007F 12009A           32             LCALL WRITE_COM 
+0082 22               33             RET
+                      34     ;*******查询忙碌标志信号子程序********
+0083 C0E0             35     CHECK_BUSY:     PUSH ACC
+0085 C2B5             36     BUSY_LOOP:      CLR E
+0087 D2B4             37             SETB R_W
+0089 C2B3             38             CLR RS
+008B D2B5             39             SETB E
+008D E590             40             MOV A, DB0_DB7
+008F C2B5             41             CLR E
+0091 20E7F1           42             JB ACC.7,BUSY_LOOP
+0094 D0E0             43             POP ACC
+0096 1200C0           44             LCALL DEL
+0099 22               45             RET
+                      46     ;****** 写指令到LCM子程序*******
+009A 120083           47     WRITE_COM:      LCALL CHECK_BUSY
+009D C2B5             48             CLR E
+009F C2B3             49             CLR RS 
+00A1 C2B4             50             CLR R_W
+A51 MACRO ASSEMBLER  S18_3                                                                02/29/2004 10:42:17 PAGE     2
+
+00A3 D2B5             51             SETB E
+00A5 F590             52             MOV  DB0_DB7,A
+00A7 C2B5             53             CLR E
+00A9 22               54             RET
+                      55     ;****** 写数据到LCM子程序******
+00AA 120083           56     WRITE_DATA:     LCALL CHECK_BUSY
+00AD C2B5             57             CLR E
+00AF D2B3             58             SETB RS 
+00B1 C2B4             59             CLR R_W
+00B3 D2B5             60             SETB E
+00B5 F590             61             MOV  DB0_DB7,A
+00B7 C2B5             62             CLR E
+00B9 22               63             RET
+                      64     ;*******清除LCM子程序*******
+00BA 7401             65     CLS:    MOV A,#00000001B
+00BC 12009A           66             LCALL WRITE_COM
+00BF 22               67             RET
+                      68     ;****延时子程序****
+00C0 7E05             69     DEL:    MOV R6,#5
+00C2 7FF8             70     L1:     MOV R7,#248
+00C4 DFFE             71             DJNZ R7,$
+00C6 DEFA             72             DJNZ R6,L1
+00C8 22               73             RET
+                      74     ;*******显示字符串到LCM子程序********
+00C9 C0E0             75     DISP:   PUSH ACC
+00CB E4               76     DISP_LOOP:      CLR A
+00CC 93               77             MOVC A,@A+DPTR
+00CD 6006             78             JZ END_DISP
+00CF 1200AA           79             LCALL WRITE_DATA
+00D2 A3               80             INC DPTR
+00D3 80F6             81             SJMP DISP_LOOP
+00D5 D0E0             82     END_DISP:       POP ACC
+00D7 22               83             RET
+                      84     ;*************************
+                      85             END
+A51 MACRO ASSEMBLER  S18_3                                                                02/29/2004 10:42:17 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+BUSY_LOOP. . . . .  C ADDR   0085H   A   
+CHECK_BUSY . . . .  C ADDR   0083H   A   
+CLS. . . . . . . .  C ADDR   00BAH   A   
+DB0_DB7. . . . . .  D ADDR   0090H   A   
+DEL. . . . . . . .  C ADDR   00C0H   A   
+DISP . . . . . . .  C ADDR   00C9H   A   
+DISP_LOOP. . . . .  C ADDR   00CBH   A   
+E. . . . . . . . .  B ADDR   00B0H.5 A   
+END_DISP . . . . .  C ADDR   00D5H   A   
+INITIAL. . . . . .  C ADDR   0073H   A   
+L1 . . . . . . . .  C ADDR   00C2H   A   
+LINE1. . . . . . .  C ADDR   0051H   A   
+LINE2. . . . . . .  C ADDR   0062H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+RS . . . . . . . .  B ADDR   00B0H.3 A   
+R_W. . . . . . . .  B ADDR   00B0H.4 A   
+SP . . . . . . . .  D ADDR   0081H   A   
+WRITE_COM. . . . .  C ADDR   009AH   A   
+WRITE_DATA . . . .  C ADDR   00AAH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

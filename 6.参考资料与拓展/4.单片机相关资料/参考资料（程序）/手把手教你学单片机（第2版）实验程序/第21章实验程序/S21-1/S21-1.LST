@@ -1,0 +1,102 @@
+A51 MACRO ASSEMBLER  S21_1                                                                10/02/2006 17:43:09 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN S21-1.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE S21-1.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  00A6                 1             WDTRST EQU 0A6H
+0000                   2             ORG 0000H
+0000 020030            3             LJMP START
+0030                   4             ORG 030H
+0030 75A61E            5     START:MOV WDTRST,#01EH
+0033 75A6E1            6                     MOV WDTRST,#0E1H
+                       7             ;*****************
+0036 7808              8     MAIN:   MOV R0,#08H
+0038 C3                9             CLR C
+0039 74FF             10             MOV A,#0FFH
+003B 33               11     PLAYP1: RLC A
+003C F590             12             MOV P1,A
+003E 1190             13             ACALL D10MS
+0040 75A61E           14             MOV WDTRST,#01EH
+0043 75A6E1           15             MOV WDTRST,#0E1H
+0046 C3               16             CLR C
+0047 D8F2             17             DJNZ R0, PLAYP1
+                      18             ;***************
+0049 7808             19             MOV R0,#08H
+004B C3               20             CLR C
+004C 74FF             21             MOV A,#0FFH
+004E 33               22     PLAYP3: RLC A
+004F F5B0             23             MOV P3,A
+0051 1190             24             ACALL D10MS
+0053 75A61E           25             MOV WDTRST,#01EH
+0056 75A6E1           26             MOV WDTRST,#0E1H
+0059 C3               27             CLR C
+005A D8F2             28             DJNZ R0, PLAYP3
+                      29             ;***************
+005C 7808             30             MOV R0,#08H
+005E C3               31             CLR C
+005F 74FF             32             MOV A,#0FFH
+0061 33               33     PLAYP2: RLC A
+0062 F5A0             34             MOV P2,A
+0064 1190             35             ACALL D10MS
+0066 75A61E           36             MOV WDTRST,#01EH
+0069 75A6E1           37             MOV WDTRST,#0E1H
+006C C3               38             CLR C
+006D D8F2             39             DJNZ R0, PLAYP2
+                      40             ;***************
+006F 7808             41             MOV R0,#08H
+0071 C3               42             CLR C
+0072 74FF             43             MOV A,#0FFH
+0074 13               44     PLAYP0: RRC A
+0075 F580             45             MOV P0,A
+0077 1190             46             ACALL D10MS
+0079 75A61E           47             MOV WDTRST,#01EH
+007C 75A6E1           48             MOV WDTRST,#0E1H
+007F C3               49             CLR C
+0080 D8F2             50             DJNZ R0, PLAYP0
+                      51             ;***************
+0082 7580FF           52             MOV P0,#0FFH
+0085 7590FF           53             MOV P1,#0FFH
+0088 75A0FF           54             MOV P2,#0FFH
+008B 75B0FF           55             MOV P3,#0FFH
+008E 0136             56             AJMP MAIN
+                      57             ;***************
+0090 7F12             58     D10MS:  MOV R7,#18
+A51 MACRO ASSEMBLER  S21_1                                                                10/02/2006 17:43:09 PAGE     2
+
+0092 7EFF             59     DEL1:   MOV R6,#255
+0094 DEFE             60     DEL2:   DJNZ R6,DEL2
+0096 DFFA             61             DJNZ R7,DEL1
+0098 22               62             RET
+                      63             END
+A51 MACRO ASSEMBLER  S21_1                                                                10/02/2006 17:43:09 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+D10MS. . . . . . .  C ADDR   0090H   A   
+DEL1 . . . . . . .  C ADDR   0092H   A   
+DEL2 . . . . . . .  C ADDR   0094H   A   
+MAIN . . . . . . .  C ADDR   0036H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+PLAYP0 . . . . . .  C ADDR   0074H   A   
+PLAYP1 . . . . . .  C ADDR   003BH   A   
+PLAYP2 . . . . . .  C ADDR   0061H   A   
+PLAYP3 . . . . . .  C ADDR   004EH   A   
+START. . . . . . .  C ADDR   0030H   A   
+WDTRST . . . . . .  N NUMB   00A6H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

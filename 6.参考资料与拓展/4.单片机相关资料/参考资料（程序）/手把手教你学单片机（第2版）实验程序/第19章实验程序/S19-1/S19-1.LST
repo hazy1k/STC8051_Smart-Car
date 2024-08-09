@@ -1,0 +1,407 @@
+A51 MACRO ASSEMBLER  S19_1                                                                02/29/2004 11:03:45 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN .\S19-1.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S19-1.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;********89C51引脚定义********
+  00B3                 2             RS BIT P3.3
+  00B4                 3             R_W BIT P3.4
+  00B5                 4             E BIT P3.5
+  0090                 5             DB0_DB7 EQU P1
+                       6     ;------计数器A缓存单元定义--------
+  0040                 7             A4 EQU 40H
+  0041                 8             A3 EQU 41H
+  0042                 9             A2 EQU 42H
+  0043                10             A1 EQU 43H
+  0044                11             A0 EQU 44H
+                      12     ;-----计数器B缓存单元定义------
+  0045                13             B4 EQU 45H
+  0046                14             B3 EQU 46H
+  0047                15             B2 EQU 47H
+  0048                16             B1 EQU 48H
+  0049                17             B0 EQU 49H
+                      18     ;-----计数器C缓存单元定义------
+  004A                19             C4 EQU 4AH
+  004B                20             C3 EQU 4BH
+  004C                21             C2 EQU 4CH
+  004D                22             C1 EQU 4DH
+  004E                23             C0 EQU 4EH
+                      24     ;-----计数器D缓存单元定义-----
+  004F                25             D4 EQU 4FH
+  0050                26             D3 EQU 50H
+  0051                27             D2 EQU 51H
+  0052                28             D1 EQU 52H
+  0053                29             D0 EQU 53H
+                      30     ;------LCD显示缓存指针------
+  0054                31             LCD_POINT EQU 54H
+                      32     ;*******程序开始********
+0000                  33             ORG 0000H
+0000 020030           34             LJMP MAIN
+000B                  35             ORG 000BH
+000B 0200D6           36             LJMP TIMER0
+                      37     ;*******主程序*******
+0030                  38             ORG 0030H
+0030 758901           39     MAIN:   MOV TMOD,#01H
+0033 758A00           40             MOV TL0,#00H
+0036 758C00           41             MOV TH0,#00H
+0039 D2AF             42             SETB EA
+003B D2A9             43             SETB ET0
+003D D28C             44             SETB TR0
+003F 758160           45             MOV SP,#60H
+0042 120221           46             LCALL INITIAL
+0045 1200CC           47             LCALL CLN
+                      48     ;*****显示A:*************
+0048 7480             49     AGAIN:  MOV A,#10000000B
+004A 120248           50             LCALL WRITE_COM
+004D 7441             51             MOV A,#41H
+004F 120258           52             LCALL WRITE_DATA
+0052 7481             53             MOV A,#10000001B
+0054 120248           54             LCALL WRITE_COM
+0057 743A             55             MOV A,#3AH
+0059 120258           56             LCALL WRITE_DATA
+                      57     ;--------- 显示B:--------------------
+005C 7489             58             MOV A,#10001001B
+A51 MACRO ASSEMBLER  S19_1                                                                02/29/2004 11:03:45 PAGE     2
+
+005E 120248           59             LCALL WRITE_COM
+0061 7442             60             MOV A,#42H
+0063 120258           61             LCALL WRITE_DATA
+0066 748A             62             MOV A,#10001010B
+0068 120248           63             LCALL WRITE_COM
+006B 743A             64             MOV A,#3AH
+006D 120258           65             LCALL WRITE_DATA
+                      66     ;---------- 显示C:-------------------
+0070 74C0             67             MOV A,#11000000B
+0072 120248           68             LCALL WRITE_COM
+0075 7443             69             MOV A,#43H
+0077 120258           70             LCALL WRITE_DATA
+007A 74C1             71             MOV A,#11000001B
+007C 120248           72             LCALL WRITE_COM
+007F 743A             73             MOV A,#3AH
+0081 120258           74             LCALL WRITE_DATA
+                      75     ;---------- 显示D:---------------------
+0084 74C9             76             MOV A,#11001001B
+0086 120248           77             LCALL WRITE_COM
+0089 7444             78             MOV A,#44H
+008B 120258           79             LCALL WRITE_DATA
+008E 74CA             80             MOV A,#11001010B
+0090 120248           81             LCALL WRITE_COM
+0093 743A             82             MOV A,#3AH
+0095 120258           83             LCALL WRITE_DATA
+                      84     ;*******计数程序启动********
+0098 755482           85     START:  MOV LCD_POINT,#10000010B
+009B 7840             86             MOV R0,#A4
+009D 1200BB           87             LCALL DISP
+00A0 75548B           88             MOV LCD_POINT,#10001011B
+00A3 7845             89             MOV R0,#B4
+00A5 1200BB           90             LCALL DISP
+00A8 7554C2           91             MOV LCD_POINT,#11000010B
+00AB 784A             92             MOV R0,#C4
+00AD 1200BB           93             LCALL DISP
+00B0 7554CB           94             MOV LCD_POINT,#11001011B
+00B3 784F             95             MOV R0,#D4
+00B5 1200BB           96             LCALL DISP
+00B8 020098           97             LJMP START
+                      98     ;*******显示计数值********
+00BB 7A05             99     DISP:   MOV R2,#05H
+00BD E554            100             MOV A,LCD_POINT
+00BF 120248          101             LCALL WRITE_COM
+00C2 E6              102     LL0:    MOV A,@R0
+00C3 2430            103             ADD A,#30H
+00C5 120258          104             LCALL WRITE_DATA
+00C8 08              105             INC R0
+00C9 DAF7            106             DJNZ R2,LL0
+00CB 22              107             RET
+                     108     ;******清除计数缓存（40H~53H）单元*******
+00CC 7914            109      CLN:   MOV R1,#20
+00CE 7840            110             MOV R0,#40H
+00D0 E4              111             CLR A
+00D1 F6              112     THERE:  MOV @R0,A
+00D2 08              113             INC R0
+00D3 D9FC            114             DJNZ R1,THERE
+00D5 22              115             RET
+                     116     ;*******定时器T0中断服务子程序********
+00D6 758A00          117     TIMER0: MOV TL0,#00H
+00D9 758C00          118             MOV TH0,#00H
+00DC C2B7            119             CLR P3.7
+00DE D2B6            120             SETB P3.6
+00E0 20B009          121             JB P3.0,NEXT1
+00E3 12026E          122             LCALL DEL
+00E6 20B003          123             JB P3.0,NEXT1
+00E9 120158          124             LCALL CONV_B
+A51 MACRO ASSEMBLER  S19_1                                                                02/29/2004 11:03:45 PAGE     3
+
+00EC 20B109          125     NEXT1:  JB P3.1,NEXT2
+00EF 12026E          126             LCALL DEL
+00F2 20B103          127             JB P3.1, NEXT2
+00F5 1201DE          128             LCALL CONV_D
+                     129     ;---------------------------------
+00F8 C2B6            130     NEXT2:  CLR P3.6
+00FA D2B7            131             SETB P3.7
+00FC 20B009          132             JB P3.0,NEXT3
+00FF 12026E          133             LCALL DEL
+0102 20B003          134             JB P3.0,NEXT3
+0105 120115          135             LCALL CONV_A
+0108 20B109          136     NEXT3:   JB P3.1,NEXT4
+010B 12026E          137             LCALL DEL
+010E 20B103          138             JB P3.1, NEXT4
+0111 12019B          139             LCALL CONV_C
+0114 32              140     NEXT4:  RETI
+                     141     ;*******计数器A进行计算********
+0115 C0E0            142     CONV_A: PUSH ACC
+0117 C0D0            143             PUSH PSW
+0119 0544            144             INC A0
+011B E544            145             MOV A,A0
+011D B40A33          146             CJNE A,#0AH,DONE_A
+0120 754400          147             MOV A0,#00H
+0123 E543            148             MOV A,A1
+0125 2401            149             ADD A,#01H
+0127 F543            150             MOV A1,A
+0129 B40A27          151             CJNE A,#0AH,DONE_A
+012C 754300          152             MOV A1,#00H
+012F E542            153             MOV A,A2
+0131 2401            154             ADD A,#01H
+0133 F542            155             MOV A2,A
+0135 B40A1B          156             CJNE A,#0AH,DONE_A
+0138 754200          157             MOV A2,#00H
+013B E541            158             MOV A,A3
+013D 2401            159             ADD A,#01H
+013F F541            160             MOV A3,A
+0141 B40A0F          161             CJNE A,#0AH,DONE_A
+0144 754100          162             MOV A3,#00H
+0147 E540            163             MOV A,A4
+0149 2401            164             ADD A,#01H
+014B F540            165             MOV A4,A
+014D B40A03          166             CJNE A,#0AH,DONE_A
+0150 754000          167             MOV A4,#00H
+0153 D0D0            168     DONE_A: POP PSW
+0155 D0E0            169             POP ACC
+0157 22              170             RET
+                     171     ;*******计数器B进行计算********
+0158 C0E0            172     CONV_B: PUSH ACC
+015A C0D0            173             PUSH PSW
+015C 0549            174             INC B0
+015E E549            175             MOV A,B0
+0160 B40A33          176             CJNE A,#0AH,DONE_B
+0163 754900          177             MOV B0,#00H
+0166 E548            178             MOV A,B1
+0168 2401            179             ADD A,#01H
+016A F548            180             MOV B1,A
+016C B40A27          181             CJNE A,#0AH,DONE_B
+016F 754800          182             MOV B1,#00H
+0172 E547            183             MOV A,B2
+0174 2401            184             ADD A,#01H
+0176 F547            185             MOV B2,A
+0178 B40A1B          186             CJNE A,#0AH,DONE_B
+017B 754700          187             MOV B2,#00H
+017E E546            188             MOV A,B3
+0180 2401            189             ADD A,#01H
+0182 F546            190             MOV B3,A
+A51 MACRO ASSEMBLER  S19_1                                                                02/29/2004 11:03:45 PAGE     4
+
+0184 B40A0F          191             CJNE A,#0AH,DONE_B
+0187 754600          192             MOV B3,#00H
+018A E545            193             MOV A,B4
+018C 2401            194             ADD A,#01H
+018E F545            195             MOV B4,A
+0190 B40A03          196             CJNE A,#0AH,DONE_B
+0193 754500          197             MOV B4,#00H
+0196 D0D0            198     DONE_B: POP PSW
+0198 D0E0            199             POP ACC
+019A 22              200             RET
+                     201     ;*******计数器C进行计算********
+019B C0E0            202     CONV_C: PUSH ACC
+019D C0D0            203             PUSH PSW
+019F 054E            204             INC C0
+01A1 E54E            205             MOV A,C0
+01A3 B40A33          206             CJNE A,#0AH,DONE_C
+01A6 754E00          207             MOV C0,#00H
+01A9 E54D            208             MOV A,C1
+01AB 2401            209             ADD A,#01H
+01AD F54D            210             MOV C1,A
+01AF B40A27          211             CJNE A,#0AH,DONE_C
+01B2 754D00          212             MOV C1,#00H
+01B5 E54C            213             MOV A,C2
+01B7 2401            214             ADD A,#01H
+01B9 F54C            215             MOV C2,A
+01BB B40A1B          216             CJNE A,#0AH,DONE_C
+01BE 754C00          217             MOV C2,#00H
+01C1 E54B            218             MOV A,C3
+01C3 2401            219             ADD A,#01H
+01C5 F54B            220             MOV C3,A
+01C7 B40A0F          221             CJNE A,#0AH,DONE_C
+01CA 754B00          222             MOV C3,#00H
+01CD E54A            223             MOV A,C4
+01CF 2401            224             ADD A,#01H
+01D1 F54A            225             MOV C4,A
+01D3 B40A03          226             CJNE A,#0AH,DONE_C
+01D6 754A00          227             MOV C4,#00H
+01D9 D0D0            228     DONE_C: POP PSW
+01DB D0E0            229             POP ACC
+01DD 22              230             RET
+                     231     ;*******计数器D进行计算********
+01DE C0E0            232     CONV_D: PUSH ACC
+01E0 C0D0            233             PUSH PSW
+01E2 0553            234             INC D0
+01E4 E553            235             MOV A,D0
+01E6 B40A33          236             CJNE A,#0AH,DONE_D
+01E9 755300          237             MOV D0,#00H
+01EC E552            238             MOV A,D1
+01EE 2401            239             ADD A,#01H
+01F0 F552            240             MOV D1,A
+01F2 B40A27          241             CJNE A,#0AH,DONE_D
+01F5 755200          242             MOV D1,#00H
+01F8 E551            243             MOV A,D2
+01FA 2401            244             ADD A,#01H
+01FC F551            245             MOV D2,A
+01FE B40A1B          246             CJNE A,#0AH,DONE_D
+0201 755100          247             MOV D2,#00H
+0204 E550            248             MOV A,D3
+0206 2401            249             ADD A,#01H
+0208 F550            250             MOV D3,A
+020A B40A0F          251             CJNE A,#0AH,DONE_D
+020D 755000          252             MOV D3,#00H
+0210 E54F            253             MOV A,D4
+0212 2401            254             ADD A,#01H
+0214 F54F            255             MOV D4,A
+0216 B40A03          256             CJNE A,#0AH,DONE_D
+A51 MACRO ASSEMBLER  S19_1                                                                02/29/2004 11:03:45 PAGE     5
+
+0219 754F00          257             MOV D4,#00H
+021C D0D0            258     DONE_D: POP PSW
+021E D0E0            259             POP ACC
+0220 22              260             RET
+                     261     ;****** 启动LCM子程序******
+0221 7438            262     INITIAL:MOV A,#00111000B
+0223 120248          263             LCALL WRITE_COM
+0226 740C            264             MOV A,#00001100B 
+0228 120248          265             LCALL WRITE_COM 
+022B 7406            266             MOV A,#00000110B 
+022D 120248          267             LCALL WRITE_COM 
+0230 22              268             RET
+                     269     ;******查询忙碌标志信号子程序******
+0231 C0E0            270     CHECK_BUSY:     PUSH ACC
+0233 C2B5            271     BUSY_LOOP:      CLR E
+0235 D2B4            272             SETB R_W
+0237 C2B3            273             CLR RS
+0239 D2B5            274             SETB E
+023B E590            275             MOV A, DB0_DB7
+023D C2B5            276             CLR E
+023F 20E7F1          277             JB ACC.7,BUSY_LOOP
+0242 D0E0            278             POP ACC
+0244 12026E          279             LCALL DEL
+0247 22              280             RET
+                     281     ;****** 写指令到LCM子程序******
+0248 120231          282     WRITE_COM:      LCALL CHECK_BUSY
+024B C2B5            283             CLR E
+024D C2B3            284             CLR RS 
+024F C2B4            285             CLR R_W
+0251 D2B5            286             SETB E
+0253 F590            287             MOV DB0_DB7,A
+0255 C2B5            288             CLR E
+0257 22              289             RET
+                     290     ;****** 写数据到LCM子程序******
+0258 120231          291     WRITE_DATA:     LCALL CHECK_BUSY
+025B C2B5            292             CLR E
+025D D2B3            293             SETB RS 
+025F C2B4            294             CLR R_W
+0261 D2B5            295             SETB E
+0263 F590            296             MOV  DB0_DB7,A
+0265 C2B5            297             CLR E
+0267 22              298             RET
+                     299     ;*******清除LCM子程序*******
+0268 7401            300     CLS:    MOV A,#00000001B
+026A 120248          301             LCALL WRITE_COM
+026D 22              302             RET
+                     303     ;****延时子程序****
+026E 7E05            304     DEL:    MOV R6,#5
+0270 7FF8            305     L1:     MOV R7,#248
+0272 DFFE            306             DJNZ R7,$
+0274 DEFA            307             DJNZ R6,L1
+0276 22              308             RET
+                     309     ;********************
+                     310             END
+A51 MACRO ASSEMBLER  S19_1                                                                02/29/2004 11:03:45 PAGE     6
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+A0 . . . . . . . .  N NUMB   0044H   A   
+A1 . . . . . . . .  N NUMB   0043H   A   
+A2 . . . . . . . .  N NUMB   0042H   A   
+A3 . . . . . . . .  N NUMB   0041H   A   
+A4 . . . . . . . .  N NUMB   0040H   A   
+ACC. . . . . . . .  D ADDR   00E0H   A   
+AGAIN. . . . . . .  C ADDR   0048H   A   
+B0 . . . . . . . .  N NUMB   0049H   A   
+B1 . . . . . . . .  N NUMB   0048H   A   
+B2 . . . . . . . .  N NUMB   0047H   A   
+B3 . . . . . . . .  N NUMB   0046H   A   
+B4 . . . . . . . .  N NUMB   0045H   A   
+BUSY_LOOP. . . . .  C ADDR   0233H   A   
+C0 . . . . . . . .  N NUMB   004EH   A   
+C1 . . . . . . . .  N NUMB   004DH   A   
+C2 . . . . . . . .  N NUMB   004CH   A   
+C3 . . . . . . . .  N NUMB   004BH   A   
+C4 . . . . . . . .  N NUMB   004AH   A   
+CHECK_BUSY . . . .  C ADDR   0231H   A   
+CLN. . . . . . . .  C ADDR   00CCH   A   
+CLS. . . . . . . .  C ADDR   0268H   A   
+CONV_A . . . . . .  C ADDR   0115H   A   
+CONV_B . . . . . .  C ADDR   0158H   A   
+CONV_C . . . . . .  C ADDR   019BH   A   
+CONV_D . . . . . .  C ADDR   01DEH   A   
+D0 . . . . . . . .  N NUMB   0053H   A   
+D1 . . . . . . . .  N NUMB   0052H   A   
+D2 . . . . . . . .  N NUMB   0051H   A   
+D3 . . . . . . . .  N NUMB   0050H   A   
+D4 . . . . . . . .  N NUMB   004FH   A   
+DB0_DB7. . . . . .  D ADDR   0090H   A   
+DEL. . . . . . . .  C ADDR   026EH   A   
+DISP . . . . . . .  C ADDR   00BBH   A   
+DONE_A . . . . . .  C ADDR   0153H   A   
+DONE_B . . . . . .  C ADDR   0196H   A   
+DONE_C . . . . . .  C ADDR   01D9H   A   
+DONE_D . . . . . .  C ADDR   021CH   A   
+E. . . . . . . . .  B ADDR   00B0H.5 A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+INITIAL. . . . . .  C ADDR   0221H   A   
+L1 . . . . . . . .  C ADDR   0270H   A   
+LCD_POINT. . . . .  N NUMB   0054H   A   
+LL0. . . . . . . .  C ADDR   00C2H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+NEXT1. . . . . . .  C ADDR   00ECH   A   
+NEXT2. . . . . . .  C ADDR   00F8H   A   
+NEXT3. . . . . . .  C ADDR   0108H   A   
+NEXT4. . . . . . .  C ADDR   0114H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+RS . . . . . . . .  B ADDR   00B0H.3 A   
+R_W. . . . . . . .  B ADDR   00B0H.4 A   
+SP . . . . . . . .  D ADDR   0081H   A   
+START. . . . . . .  C ADDR   0098H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+THERE. . . . . . .  C ADDR   00D1H   A   
+TIMER0 . . . . . .  C ADDR   00D6H   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+A51 MACRO ASSEMBLER  S19_1                                                                02/29/2004 11:03:45 PAGE     7
+
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+WRITE_COM. . . . .  C ADDR   0248H   A   
+WRITE_DATA . . . .  C ADDR   0258H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

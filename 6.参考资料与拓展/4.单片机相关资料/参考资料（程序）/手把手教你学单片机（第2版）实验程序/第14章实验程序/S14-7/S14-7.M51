@@ -1,0 +1,92 @@
+BL51 BANKED LINKER/LOCATER V5.03                                                        03/03/2004  20:24:46  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.03, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE S14-7.obj TO S14-7
+
+
+INPUT MODULES INCLUDED:
+  S14-7.obj (S14_7)
+
+
+LINK MAP OF MODULE:  S14-7 (S14_7)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0085H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  S14-7 (S14_7)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        S14_7
+  C:0078H         SYMBOL        DEL
+  C:007EH         SYMBOL        F1
+  C:007CH         SYMBOL        F2
+  C:007AH         SYMBOL        F3
+  C:006BH         SYMBOL        HERE
+  C:004EH         SYMBOL        LOOP
+  C:0030H         SYMBOL        MAIN
+  C:0060H         SYMBOL        NEXT
+  D:0080H         SYMBOL        P0
+  D:0090H         SYMBOL        P1
+  C:0048H         SYMBOL        SORT
+  B:0088H.4       SYMBOL        TR0
+  C:0000H         LINE#         2
+  C:0030H         LINE#         4
+  C:0033H         LINE#         5
+  C:0036H         LINE#         6
+  C:0039H         LINE#         7
+  C:003CH         LINE#         8
+  C:003FH         LINE#         9
+  C:0042H         LINE#         10
+  C:0045H         LINE#         11
+  C:0048H         LINE#         12
+  C:004AH         LINE#         13
+  C:004CH         LINE#         14
+  C:004EH         LINE#         15
+  C:004FH         LINE#         16
+  C:0051H         LINE#         17
+  C:0052H         LINE#         18
+  C:0054H         LINE#         19
+  C:0055H         LINE#         20
+BL51 BANKED LINKER/LOCATER V5.03                                                      03/03/2004  20:24:46  PAGE 2
+
+
+  C:0056H         LINE#         21
+  C:0058H         LINE#         22
+  C:005AH         LINE#         23
+  C:005BH         LINE#         24
+  C:005DH         LINE#         25
+  C:005EH         LINE#         26
+  C:0060H         LINE#         27
+  C:0062H         LINE#         28
+  C:0065H         LINE#         29
+  C:0067H         LINE#         30
+  C:0069H         LINE#         31
+  C:006BH         LINE#         32
+  C:006EH         LINE#         33
+  C:0070H         LINE#         34
+  C:0071H         LINE#         35
+  C:0073H         LINE#         36
+  C:0076H         LINE#         37
+  C:0078H         LINE#         38
+  C:007AH         LINE#         39
+  C:007CH         LINE#         40
+  C:007EH         LINE#         41
+  C:0080H         LINE#         42
+  C:0082H         LINE#         43
+  C:0084H         LINE#         44
+  -------         ENDMOD        S14_7
+
+Program Size: data=8.0 xdata=0 code=133
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

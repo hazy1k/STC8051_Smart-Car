@@ -1,0 +1,62 @@
+A51 MACRO ASSEMBLER  S7_4                                                                 07/22/2006 19:35:50 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN S7-4.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE S7-4.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 020030            2             LJMP MAIN
+0030                   3             ORG 030H
+0030 752000            4     MAIN:   MOV 20H,#00H
+0033 E520              5     GOON:   MOV A,20H
+0035 540F              6             ANL A,#0FH
+0037 900100            7             MOV DPTR,#TAB
+003A 93                8             MOVC A,@A+DPTR
+003B F580              9             MOV P0,A
+003D E520             10             MOV A,20H
+003F C4               11             SWAP  A
+0040 540F             12             ANL A,#0FH
+0042 93               13             MOVC A,@A+DPTR
+0043 F590             14             MOV P1,A
+0045 114B             15             ACALL DEL
+0047 0520             16             INC 20H
+0049 0133             17             AJMP GOON
+004B 7F14             18     DEL:    MOV R7,#014H
+004D 7EFF             19     DEL1:   MOV R6,#0FFH
+004F 7D1F             20     DEL2:   MOV R5,#01FH
+0051 DDFE             21     DEL3:   DJNZ R5,DEL3
+0053 DEFA             22             DJNZ R6,DEL2
+0055 DFF6             23             DJNZ R7,DEL1
+0057 22               24             RET
+0100                  25             ORG 0100H
+0100 C0F9A4B0         26     TAB:    DB 0C0H,0F9H,0A4H,0B0H,099H,092H,082H,0F8H
+0104 999282F8                
+0108 80908883         27             DB 080H,090H,088H,083H,0C6H,0A1H,086H,08EH
+010C C6A1868E                
+                      28             END
+A51 MACRO ASSEMBLER  S7_4                                                                 07/22/2006 19:35:50 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEL. . . . . . . .  C ADDR   004BH   A   
+DEL1 . . . . . . .  C ADDR   004DH   A   
+DEL2 . . . . . . .  C ADDR   004FH   A   
+DEL3 . . . . . . .  C ADDR   0051H   A   
+GOON . . . . . . .  C ADDR   0033H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TAB. . . . . . . .  C ADDR   0100H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

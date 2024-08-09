@@ -1,0 +1,138 @@
+BL51 BANKED LINKER/LOCATER V4.14                                                        10/19/2003  12:21:03  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V4.14, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE S14-5.obj TO S14-5
+
+
+INPUT MODULES INCLUDED:
+  S14-5.obj (S14_5)
+
+
+LINK MAP OF MODULE:  S14-5 (S14_5)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     00C6H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  S14-5 (S14_5)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        S14_5
+  D:00F0H         SYMBOL        B
+  C:00B9H         SYMBOL        DEL10MS
+  C:00B1H         SYMBOL        DIS
+  C:00BBH         SYMBOL        F1
+  C:00BDH         SYMBOL        F2
+  C:00BFH         SYMBOL        F3
+  C:004CH         SYMBOL        L0
+  C:0055H         SYMBOL        L1
+  C:005EH         SYMBOL        L2
+  C:0067H         SYMBOL        L3
+  C:0071H         SYMBOL        L7
+  C:0030H         SYMBOL        MAIN
+  C:0049H         SYMBOL        NEXT
+  D:0090H         SYMBOL        P1
+  D:00A0H         SYMBOL        P2
+  D:00B0H         SYMBOL        P3
+  C:0035H         SYMBOL        START
+  C:0085H         SYMBOL        SUADD
+  C:00A6H         SYMBOL        SUDIV
+  C:009BH         SYMBOL        SUMUL
+  C:0090H         SYMBOL        SUSUB
+  C:007BH         SYMBOL        TAB
+  C:0000H         LINE#         2
+  C:0030H         LINE#         4
+  C:0032H         LINE#         5
+  C:0035H         LINE#         6
+  C:0038H         LINE#         7
+  C:003BH         LINE#         8
+  C:003EH         LINE#         9
+  C:0041H         LINE#         10
+BL51 BANKED LINKER/LOCATER V4.14                                                      10/19/2003  12:21:03  PAGE 2
+
+
+  C:0044H         LINE#         11
+  C:0047H         LINE#         12
+  C:0049H         LINE#         13
+  C:004AH         LINE#         14
+  C:004BH         LINE#         15
+  C:004CH         LINE#         16
+  C:004EH         LINE#         17
+  C:0051H         LINE#         18
+  C:0053H         LINE#         19
+  C:0055H         LINE#         20
+  C:0057H         LINE#         21
+  C:005AH         LINE#         22
+  C:005CH         LINE#         23
+  C:005EH         LINE#         24
+  C:0060H         LINE#         25
+  C:0063H         LINE#         26
+  C:0065H         LINE#         27
+  C:0067H         LINE#         28
+  C:0069H         LINE#         29
+  C:006CH         LINE#         30
+  C:006EH         LINE#         31
+  C:0071H         LINE#         32
+  C:0074H         LINE#         33
+  C:0077H         LINE#         34
+  C:0079H         LINE#         35
+  C:007BH         LINE#         36
+  C:007DH         LINE#         37
+  C:007FH         LINE#         38
+  C:0081H         LINE#         39
+  C:0083H         LINE#         40
+  C:0085H         LINE#         41
+  C:0087H         LINE#         42
+  C:0089H         LINE#         43
+  C:008AH         LINE#         44
+  C:008BH         LINE#         45
+  C:008DH         LINE#         46
+  C:008EH         LINE#         47
+  C:0090H         LINE#         48
+  C:0092H         LINE#         49
+  C:0093H         LINE#         50
+  C:0095H         LINE#         51
+  C:0096H         LINE#         52
+  C:0097H         LINE#         53
+  C:0098H         LINE#         54
+  C:0099H         LINE#         55
+  C:009BH         LINE#         56
+  C:009DH         LINE#         57
+  C:00A0H         LINE#         58
+  C:00A1H         LINE#         59
+  C:00A2H         LINE#         60
+  C:00A4H         LINE#         61
+  C:00A6H         LINE#         62
+  C:00A8H         LINE#         63
+  C:00ABH         LINE#         64
+  C:00ACH         LINE#         65
+  C:00ADH         LINE#         66
+  C:00AFH         LINE#         67
+BL51 BANKED LINKER/LOCATER V4.14                                                      10/19/2003  12:21:03  PAGE 3
+
+
+  C:00B1H         LINE#         68
+  C:00B3H         LINE#         69
+  C:00B5H         LINE#         70
+  C:00B7H         LINE#         71
+  C:00B9H         LINE#         72
+  C:00BBH         LINE#         73
+  C:00BDH         LINE#         74
+  C:00BFH         LINE#         75
+  C:00C1H         LINE#         76
+  C:00C3H         LINE#         77
+  C:00C5H         LINE#         78
+  -------         ENDMOD        S14_5
+
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

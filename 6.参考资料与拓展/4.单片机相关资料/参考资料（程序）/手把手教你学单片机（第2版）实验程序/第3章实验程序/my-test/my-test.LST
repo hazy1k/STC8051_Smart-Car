@@ -1,0 +1,55 @@
+A51 MACRO ASSEMBLER  MY_TEST                                                              06/25/2021 08:53:31 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN my-test.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE my-test.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 020030            2             LJMP MAIN
+0030                   3             ORG 030H
+0030 758000            4     MAIN:   MOV P0,#00H
+0033 759000            5             MOV P1 ,#00H
+0036 75A000            6             MOV P2 ,#00H
+0039 75B000            7             MOV P3 ,#00H
+003C 5100              8             ACALL DEL
+003E 7580FF            9             MOV P0 ,#0FFH
+0041 7590FF           10             MOV P1 ,#0FFH
+0044 75A0FF           11             MOV P2 ,#0FFH
+0047 75B0FF           12             MOV P3 ,#0FFH
+004A 5100             13             ACALL DEL
+004C 0130             14             AJMP MAIN
+0200                  15             ORG 0200H
+0200 7D04             16     DEL:    MOV R5,#04H
+0202 7EFF             17     F3:     MOV R6,#0FFH
+0204 7FFF             18     F2:     MOV R7,#0FFH
+0206 DFFE             19     F1:     DJNZ R7,F1
+0208 DEFA             20             DJNZ R6,F2
+020A DDF6             21             DJNZ R5,F3
+020C 22               22             RET
+                      23             END
+A51 MACRO ASSEMBLER  MY_TEST                                                              06/25/2021 08:53:31 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEL. . . . . . . .  C ADDR   0200H   A   
+F1 . . . . . . . .  C ADDR   0206H   A   
+F2 . . . . . . . .  C ADDR   0204H   A   
+F3 . . . . . . . .  C ADDR   0202H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

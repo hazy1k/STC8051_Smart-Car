@@ -1,0 +1,38 @@
+A51 MACRO ASSEMBLER  S11_2                                                                10/13/2003 20:31:17 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.14
+OBJECT MODULE PLACED IN .\S11-2.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S11-2.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 0130              2             AJMP MAIN
+0030                   3             ORG 030H
+0030 C2A0              4     MAIN:   CLR P2.0
+0032 00                5             NOP
+0033 00                6             NOP
+0034 00                7             NOP
+0035 00                8             NOP
+0036 D2A0              9             SETB P2.0
+0038 00               10             NOP
+0039 00               11             NOP
+003A 0130             12             AJMP MAIN
+                      13             END
+A51 MACRO ASSEMBLER  S11_2                                                                10/13/2003 20:31:17 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+MAIN . . . . . . .  C ADDR   0030H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

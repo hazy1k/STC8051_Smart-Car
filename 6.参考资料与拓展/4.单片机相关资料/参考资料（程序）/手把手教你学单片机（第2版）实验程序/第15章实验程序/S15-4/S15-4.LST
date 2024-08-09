@@ -1,0 +1,82 @@
+A51 MACRO ASSEMBLER  S15_4                                                                12/22/2003 17:41:02 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN .\S15-4.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S15-4.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 0130              2             AJMP MAIN
+000B                   3             ORG 000BH
+000B 014B              4             AJMP CTC0
+0030                   5             ORG 0030H
+0030 758900            6     MAIN:   MOV TMOD,#00H
+0033 758AFF            7             MOV TL0,#0FFH
+0036 758CFF            8             MOV TH0,#0FFH
+0039 D2AF              9             SETB EA
+003B D2A9             10             SETB ET0
+003D D28C             11             SETB TR0
+003F 758000           12     GOON:   MOV P0,#00H
+0042 116F             13             ACALL DEL25S
+0044 7580FF           14             MOV P0,#0FFH
+0047 116F             15             ACALL DEL25S
+0049 013F             16             AJMP GOON
+004B 758AFF           17     CTC0:   MOV TL0,#0FFH
+004E 758CFF           18             MOV TH0,#0FFH
+0051 20B011           19             JB P3.0,RE
+0054 C28C             20             CLR TR0
+0056 B3               21             CPL C
+0057 4005             22             JC NEXT
+0059 759000           23             MOV P1,#00H
+005C 0161             24             AJMP NEXT1
+005E 7590FF           25     NEXT:   MOV P1,#0FFH
+0061 1166             26     NEXT1:  ACALL DEL1S
+0063 D28C             27             SETB TR0
+0065 32               28     RE:     RETI
+0066 7DFF             29     DEL1S:  MOV R5,#0FFH
+0068 7EFF             30     F1:     MOV R6,#0FFH
+006A DEFE             31     F2:     DJNZ R6,F2
+006C DDFA             32             DJNZ R5,F1
+006E 22               33             RET
+006F A80A             34     DEL25S: MOV R0,0AH
+0071 1166             35     LOOP:   ACALL DEL1S
+0073 D8FC             36             DJNZ R0,LOOP
+0075 22               37             RET
+                      38             END
+                             
+A51 MACRO ASSEMBLER  S15_4                                                                12/22/2003 17:41:02 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CTC0 . . . . . . .  C ADDR   004BH   A   
+DEL1S. . . . . . .  C ADDR   0066H   A   
+DEL25S . . . . . .  C ADDR   006FH   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+F1 . . . . . . . .  C ADDR   0068H   A   
+F2 . . . . . . . .  C ADDR   006AH   A   
+GOON . . . . . . .  C ADDR   003FH   A   
+LOOP . . . . . . .  C ADDR   0071H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+NEXT . . . . . . .  C ADDR   005EH   A   
+NEXT1. . . . . . .  C ADDR   0061H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+RE . . . . . . . .  C ADDR   0065H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

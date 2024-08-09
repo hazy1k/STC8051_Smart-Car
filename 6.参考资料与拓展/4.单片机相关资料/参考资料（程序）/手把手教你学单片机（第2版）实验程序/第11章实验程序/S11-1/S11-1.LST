@@ -1,0 +1,134 @@
+A51 MACRO ASSEMBLER  S11_1                                                                10/09/2003 20:51:03 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.14
+OBJECT MODULE PLACED IN .\S11-1.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S11-1.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 0130              2             AJMP MAIN
+0030                   3             ORG 030H
+0030 120200            4     MAIN:   LCALL SCAN_KEY
+0033 60FB              5             JZ MAIN
+0035 120250            6             LCALL DEL10MS
+0038 120200            7             LCALL SCAN_KEY
+003B 60F3              8             JZ MAIN
+003D 75B07F            9             MOV P3,#7FH
+0040 30B02F           10             JNB P3.0,L3
+0043 30B138           11             JNB P3.1,L6     
+0046 30B241           12             JNB P3.2,L9     
+0049 75B0BF           13             MOV P3,#0BFH
+004C 30B01F           14             JNB P3.0,L2
+004F 30B128           15             JNB P3.1,L5                             
+0052 30B231           16             JNB P3.2,L8
+0055 30B30E           17             JNB P3.3,L0
+0058 75B0DF           18             MOV P3,#0DFH
+005B 30B00C           19             JNB P3.0,L1
+005E 30B115           20             JNB P3.1,L4             
+0061 30B21E           21             JNB P3.2,L7
+0064 0130             22             AJMP MAIN
+0066 7400             23     L0:     MOV A,#00H
+0068 018C             24             AJMP GOON
+006A 7401             25     L1:     MOV A,#01H
+006C 018C             26             AJMP GOON
+006E 7402             27     L2:     MOV A,#02H
+0070 018C             28             AJMP GOON
+0072 7403             29     L3:     MOV A,#03H
+0074 018C             30             AJMP GOON
+0076 7404             31     L4:     MOV A,#04H
+0078 018C             32             AJMP GOON
+007A 7405             33     L5:     MOV A,#05H
+007C 018C             34             AJMP GOON
+007E 7406             35     L6:     MOV A,#06H
+0080 018C             36             AJMP GOON
+0082 7407             37     L7:     MOV A,#07H
+0084 018C             38             AJMP GOON
+0086 7408             39     L8:     MOV A,#08H
+0088 018C             40             AJMP GOON
+008A 7409             41     L9:     MOV A,#09H
+008C F530             42     GOON:   MOV 30H,A
+008E 900350           43             MOV DPTR,#DIS_TAB
+0091 93               44             MOVC A,@A+DPTR
+0092 F5A0             45             MOV P2,A
+0094 E530             46             MOV A,30H
+0096 900300           47             MOV DPTR,#TAB
+0099 93               48             MOVC A,@A+DPTR
+009A 900350           49             MOV DPTR,#DIS_TAB
+009D C0E0             50             PUSH ACC
+009F 540F             51             ANL A,#0FH
+00A1 93               52             MOVC A,@A+DPTR
+00A2 F580             53             MOV P0,A
+00A4 D0E0             54             POP ACC
+00A6 C4               55             SWAP A
+00A7 540F             56             ANL A,#0FH
+00A9 93               57             MOVC A,@A+DPTR
+00AA F590             58             MOV P1,A
+A51 MACRO ASSEMBLER  S11_1                                                                10/09/2003 20:51:03 PAGE     2
+
+00AC 120250           59             LCALL DEL10MS
+00AF 020030           60             LJMP MAIN
+0200                  61             ORG 0200H
+0200 75B00F           62     SCAN_KEY:MOV P3,#0FH
+0203 E5B0             63             MOV A,P3
+0205 44F0             64             ORL A,#0F0H
+0207 F4               65             CPL A
+0208 22               66             RET
+0250                  67             ORG 0250H
+0250 7D0B             68     DEL10MS:MOV R5,#0BH                     
+0252 7F02             69     F1:     MOV R7,#02H
+0254 7EFF             70     F2:     MOV R6,#0FFH
+0256 DEFE             71     F3:     DJNZ R6,F3
+0258 DFFA             72             DJNZ R7,F2
+025A DDF6             73             DJNZ R5,F1
+025C 22               74             RET
+0300                  75             ORG 0300H
+0300 00010409         76     TAB:    DB 00H,01H,04H,09H,16H
+0304 16                      
+0305 25364964         77             DB 25H,36H,49H,64H,81H
+0309 81                      
+0350                  78             ORG 0350H
+0350 C0F9A4B0         79     DIS_TAB:DB 0C0H,0F9H,0A4H,0B0H,099H,092H,082H,0F8H
+0354 999282F8                
+0358 80908883         80             DB 080H,090H,088H,083H,0C6H,0A1H,086H,08EH
+035C C6A1868E                
+                      81             END
+A51 MACRO ASSEMBLER  S11_1                                                                10/09/2003 20:51:03 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+DEL10MS. . . . . .  C ADDR   0250H   A   
+DIS_TAB. . . . . .  C ADDR   0350H   A   
+F1 . . . . . . . .  C ADDR   0252H   A   
+F2 . . . . . . . .  C ADDR   0254H   A   
+F3 . . . . . . . .  C ADDR   0256H   A   
+GOON . . . . . . .  C ADDR   008CH   A   
+L0 . . . . . . . .  C ADDR   0066H   A   
+L1 . . . . . . . .  C ADDR   006AH   A   
+L2 . . . . . . . .  C ADDR   006EH   A   
+L3 . . . . . . . .  C ADDR   0072H   A   
+L4 . . . . . . . .  C ADDR   0076H   A   
+L5 . . . . . . . .  C ADDR   007AH   A   
+L6 . . . . . . . .  C ADDR   007EH   A   
+L7 . . . . . . . .  C ADDR   0082H   A   
+L8 . . . . . . . .  C ADDR   0086H   A   
+L9 . . . . . . . .  C ADDR   008AH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+SCAN_KEY . . . . .  C ADDR   0200H   A   
+TAB. . . . . . . .  C ADDR   0300H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,66 @@
+A51 MACRO ASSEMBLER  S7_5                                                                 07/22/2006 19:58:46 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN S7-5.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE S7-5.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 020030            2             LJMP MAIN
+0030                   3             ORG 030H
+0030 752000            4     MAIN:   MOV 20H,#00H
+0033 E520              5             MOV A,20H
+0035 C3                6     GOON:   CLR C
+0036 540F              7             ANL A,#0FH
+0038 900100            8             MOV DPTR,#TAB
+003B 93                9             MOVC A,@A+DPTR
+003C F580             10             MOV P0,A
+003E E520             11             MOV A,20H
+0040 C4               12             SWAP  A
+0041 540F             13             ANL A,#0FH
+0043 93               14             MOVC A,@A+DPTR
+0044 F590             15             MOV P1,A
+0046 1150             16             ACALL DEL
+0048 E520             17             MOV A,20H
+004A 04               18             INC A
+004B D4               19             DA A
+004C F520             20             MOV 20H, A
+004E 0135             21             AJMP GOON
+0050 7F14             22     DEL:    MOV R7,#014H
+0052 7EFF             23     DEL1:   MOV R6,#0FFH
+0054 7D1F             24     DEL2:   MOV R5,#01FH
+0056 DDFE             25     DEL3:   DJNZ R5,DEL3
+0058 DEFA             26             DJNZ R6,DEL2
+005A DFF6             27             DJNZ R7,DEL1
+005C 22               28             RET
+0100                  29             ORG 0100H
+0100 C0F9A4B0         30     TAB:    DB 0C0H,0F9H,0A4H,0B0H,099H,092H,082H,0F8H
+0104 999282F8                
+0108 80908883         31             DB 080H,090H,088H,083H,0C6H,0A1H,086H,08EH
+010C C6A1868E                
+                      32             END
+A51 MACRO ASSEMBLER  S7_5                                                                 07/22/2006 19:58:46 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEL. . . . . . . .  C ADDR   0050H   A   
+DEL1 . . . . . . .  C ADDR   0052H   A   
+DEL2 . . . . . . .  C ADDR   0054H   A   
+DEL3 . . . . . . .  C ADDR   0056H   A   
+GOON . . . . . . .  C ADDR   0035H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TAB. . . . . . . .  C ADDR   0100H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

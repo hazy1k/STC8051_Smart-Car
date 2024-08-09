@@ -1,0 +1,80 @@
+A51 MACRO ASSEMBLER  S13_3                                                                10/18/2003 16:46:17 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.14
+OBJECT MODULE PLACED IN .\S13-3.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S13-3.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 020030            2             LJMP MAIN
+0003                   3             ORG 0003H
+0003 020100            4             LJMP INSER0
+0013                   5             ORG 0013H
+0013 020150            6             LJMP INSER1
+0030                   7             ORG 030H
+0030 758170            8     MAIN:   MOV SP,#70H
+0033 75A885            9             MOV IE,#85H
+0036 D2BA             10             SETB PX1
+0038 758000           11     LOOP:   MOV P0,#00H
+003B 7590FF           12             MOV P1,#0FFH
+003E 75A0FF           13             MOV P2,#0FFH
+0041 80F5             14             SJMP LOOP
+0100                  15             ORG 0100H
+0100 7D3F             16     INSER0: MOV R5,#3FH 
+0102 7580FF           17     DS0:    MOV P0,#0FFH
+0105 759000           18             MOV P1,#00H
+0108 75A0FF           19             MOV P2,#0FFH
+010B 120200           20             LCALL DEL
+010E DDF2             21             DJNZ R5,DS0
+0110 32               22             RETI
+0150                  23             ORG 0150H
+0150 ED               24     INSER1: MOV A,R5
+0151 C0E0             25             PUSH ACC
+0153 7D0F             26             MOV R5,#0FH 
+0155 7580FF           27     DS1:    MOV P0,#0FFH
+0158 7590FF           28             MOV P1,#0FFH
+015B 75A000           29             MOV P2,#00H
+015E 120200           30             LCALL DEL
+0161 DDF2             31             DJNZ R5,DS1
+0163 D0E0             32             POP ACC
+0165 FD               33             MOV R5,A
+0166 32               34             RETI
+0200                  35             ORG 0200H
+0200 7CFF             36     DEL:    MOV R4,#0FFH
+0202 7BFF             37     DEL1:   MOV R3,#0FFH
+0204 DBFE             38     DEL2:   DJNZ R3,DEL2
+0206 DCFA             39             DJNZ R4,DEL1
+0208 22               40             RET
+                      41             END
+A51 MACRO ASSEMBLER  S13_3                                                                10/18/2003 16:46:17 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+DEL. . . . . . . .  C ADDR   0200H   A   
+DEL1 . . . . . . .  C ADDR   0202H   A   
+DEL2 . . . . . . .  C ADDR   0204H   A   
+DS0. . . . . . . .  C ADDR   0102H   A   
+DS1. . . . . . . .  C ADDR   0155H   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+INSER0 . . . . . .  C ADDR   0100H   A   
+INSER1 . . . . . .  C ADDR   0150H   A   
+LOOP . . . . . . .  C ADDR   0038H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+PX1. . . . . . . .  B ADDR   00B8H.2 A   
+SP . . . . . . . .  D ADDR   0081H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

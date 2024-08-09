@@ -1,0 +1,103 @@
+A51 MACRO ASSEMBLER  S15_1                                                                12/22/2003 17:34:08 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN .\S15-1.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S15-1.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 0130              2             AJMP MAIN
+0030                   3             ORG 030H
+0030 75A0FF            4     MAIN:   MOV P2,#0FFH
+0033 74FF              5             MOV A,#0FFH
+0035 F590              6             MOV P1,A
+0037 E590              7             MOV A,P1
+0039 B4FF02            8             CJNE A,#0FFH,GO1
+003C 0130              9             AJMP MAIN
+003E 119B             10     GO1:    ACALL DEL
+0040 B4FF02           11             CJNE A,#0FFH,GO2
+0043 0130             12             AJMP MAIN
+0045 900053           13     GO2:    MOV DPTR,#TAB
+0048 7800             14             MOV R0,#00H
+004A 13               15     L1:     RRC A
+004B 5003             16             JNC N1
+004D 08               17             INC R0
+004E 80FA             18             SJMP L1
+0050 E8               19     N1:     MOV A,R0
+0051 33               20             RLC A
+0052 73               21             JMP @A+DPTR
+0053 0163             22     TAB:    AJMP PR0
+0055 016A             23             AJMP PR1
+0057 0171             24             AJMP PR2
+0059 0178             25             AJMP PR3
+005B 017F             26             AJMP PR4
+005D 0186             27             AJMP PR5
+005F 018D             28             AJMP PR6
+0061 0194             29             AJMP PR7
+0063 75A0FE           30     PR0:    MOV P2,#0FEH
+0066 119B             31             ACALL DEL
+0068 0130             32             AJMP MAIN
+006A 75A0FC           33     PR1:    MOV P2,#0FCH
+006D 119B             34             ACALL DEL
+006F 0130             35             AJMP MAIN
+0071 75A0F8           36     PR2:    MOV P2,#0F8H
+0074 119B             37             ACALL DEL
+0076 0130             38             AJMP MAIN
+0078 75A0F0           39     PR3:    MOV P2,#0F0H
+007B 119B             40             ACALL DEL 
+007D 0130             41             AJMP MAIN
+007F 75A0E0           42     PR4:    MOV P2,#0E0H
+0082 119B             43             ACALL DEL 
+0084 0130             44             AJMP MAIN
+0086 75A0C0           45     PR5:    MOV P2,#0C0H
+0089 119B             46             ACALL DEL 
+008B 0130             47             AJMP MAIN
+008D 75A080           48     PR6:    MOV P2,#80H
+0090 119B             49             ACALL DEL 
+0092 809C             50             JMP MAIN
+0094 75A000           51     PR7:    MOV P2,#00H
+0097 119B             52             ACALL DEL 
+0099 0130             53             AJMP MAIN
+009B 7FFF             54     DEL:    MOV R7,#0FFH
+009D 7EFF             55     DEL1:   MOV R6,#0FFH
+009F DEFE             56     DEL2:   DJNZ R6,DEL2
+00A1 DFFA             57             DJNZ R7,DEL1
+00A3 22               58             RET
+A51 MACRO ASSEMBLER  S15_1                                                                12/22/2003 17:34:08 PAGE     2
+
+                      59             END
+A51 MACRO ASSEMBLER  S15_1                                                                12/22/2003 17:34:08 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEL. . . . . . . .  C ADDR   009BH   A   
+DEL1 . . . . . . .  C ADDR   009DH   A   
+DEL2 . . . . . . .  C ADDR   009FH   A   
+GO1. . . . . . . .  C ADDR   003EH   A   
+GO2. . . . . . . .  C ADDR   0045H   A   
+L1 . . . . . . . .  C ADDR   004AH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+N1 . . . . . . . .  C ADDR   0050H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+PR0. . . . . . . .  C ADDR   0063H   A   
+PR1. . . . . . . .  C ADDR   006AH   A   
+PR2. . . . . . . .  C ADDR   0071H   A   
+PR3. . . . . . . .  C ADDR   0078H   A   
+PR4. . . . . . . .  C ADDR   007FH   A   
+PR5. . . . . . . .  C ADDR   0086H   A   
+PR6. . . . . . . .  C ADDR   008DH   A   
+PR7. . . . . . . .  C ADDR   0094H   A   
+TAB. . . . . . . .  C ADDR   0053H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

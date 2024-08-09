@@ -1,0 +1,117 @@
+A51 MACRO ASSEMBLER  S6_4                                                                 09/25/2005 10:04:48 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN S6-4.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE S6-4.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 0130              2             AJMP DIS1
+0030                   3             ORG 030H
+0030 7590FE            4     DIS1:   MOV P1,#0FEH
+0033 11DE              5             ACALL DEL
+0035 7590FD            6             MOV P1,#0FDH
+0038 11DE              7             ACALL DEL
+003A 7590FB            8             MOV P1,#0FBH
+003D 11DE              9             ACALL DEL
+003F 7590F7           10             MOV P1,#0F7H
+0042 11DE             11             ACALL DEL
+0044 7590EF           12             MOV P1,#0EFH
+0047 11DE             13             ACALL DEL
+0049 7590DF           14             MOV P1,#0DFH
+004C 11DE             15             ACALL DEL
+004E 7590BF           16             MOV P1,#0BFH
+0051 11DE             17             ACALL DEL
+0053 75907F           18             MOV P1,#07FH
+0056 11DE             19             ACALL DEL
+0058 7590FF           20     DIS3:   MOV P1,#0FFH
+005B 75B0FE           21             MOV P3,#0FEH
+005E 11DE             22             ACALL DEL
+0060 75B0FD           23             MOV P3,#0FDH
+0063 11DE             24             ACALL DEL
+0065 75B0FB           25             MOV P3,#0FBH
+0068 11DE             26             ACALL DEL
+006A 75B0F7           27             MOV P3,#0F7H
+006D 11DE             28             ACALL DEL
+006F 75B0EF           29             MOV P3,#0EFH
+0072 11DE             30             ACALL DEL
+0074 75B0DF           31             MOV P3,#0DFH
+0077 11DE             32             ACALL DEL
+0079 75B0BF           33             MOV P3,#0BFH
+007C 11DE             34             ACALL DEL
+007E 75B07F           35             MOV P3,#07FH
+0081 11DE             36             ACALL DEL
+0083 75B0FF           37     DIS2:   MOV P3,#0FFH
+0086 75A0FE           38             MOV P2,#0FEH
+0089 11DE             39             ACALL DEL
+008B 75A0FD           40             MOV P2,#0FDH
+008E 11DE             41             ACALL DEL
+0090 75A0FB           42             MOV P2,#0FBH
+0093 11DE             43             ACALL DEL
+0095 75A0F7           44             MOV P2,#0F7H
+0098 11DE             45             ACALL DEL
+009A 75A0EF           46             MOV P2,#0EFH
+009D 11DE             47             ACALL DEL
+009F 75A0DF           48             MOV P2,#0DFH
+00A2 11DE             49             ACALL DEL
+00A4 75A0BF           50             MOV P2,#0BFH
+00A7 11DE             51             ACALL DEL
+00A9 75A07F           52             MOV P2,#07FH
+00AC 11DE             53             ACALL DEL
+00AE 75A0FF           54     DIS0:   MOV P2,#0FFH
+00B1 75807F           55             MOV P0,#07FH
+00B4 11DE             56             ACALL DEL
+00B6 7580BF           57             MOV P0,#0BFH
+00B9 11DE             58             ACALL DEL
+A51 MACRO ASSEMBLER  S6_4                                                                 09/25/2005 10:04:48 PAGE     2
+
+00BB 7580DF           59             MOV P0,#0DFH
+00BE 11DE             60             ACALL DEL
+00C0 7580EF           61             MOV P0,#0EFH
+00C3 11DE             62             ACALL DEL
+00C5 7580F7           63             MOV P0,#0F7H
+00C8 11DE             64             ACALL DEL
+00CA 7580FB           65             MOV P0,#0FBH
+00CD 11DE             66             ACALL DEL
+00CF 7580FD           67             MOV P0,#0FDH
+00D2 11DE             68             ACALL DEL
+00D4 7580FE           69             MOV P0,#0FEH
+00D7 11DE             70             ACALL DEL
+00D9 7580FF           71             MOV P0,#0FFH
+00DC 0130             72             AJMP DIS1
+00DE 7D04             73     DEL:    MOV R5,#04H
+00E0 7EFF             74     DEL1:   MOV R6,#0FFH
+00E2 7FFF             75     DEL2:   MOV R7,#0FFH
+00E4 DFFE             76     DEL3:   DJNZ R7, DEL3
+00E6 DEFA             77             DJNZ R6, DEL2
+00E8 DDF6             78             DJNZ R5, DEL1
+00EA 22               79             RET
+                      80             END
+A51 MACRO ASSEMBLER  S6_4                                                                 09/25/2005 10:04:48 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEL. . . . . . . .  C ADDR   00DEH   A   
+DEL1 . . . . . . .  C ADDR   00E0H   A   
+DEL2 . . . . . . .  C ADDR   00E2H   A   
+DEL3 . . . . . . .  C ADDR   00E4H   A   
+DIS0 . . . . . . .  C ADDR   00AEH   A   
+DIS1 . . . . . . .  C ADDR   0030H   A   
+DIS2 . . . . . . .  C ADDR   0083H   A   
+DIS3 . . . . . . .  C ADDR   0058H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

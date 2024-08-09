@@ -1,0 +1,68 @@
+A51 MACRO ASSEMBLER  S14_3                                                                10/01/2006 19:58:34 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN S14-3.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE S14-3.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 020030            2             LJMP MAIN
+0030                   3             ORG 030H
+0030 7A28              4     MAIN:   MOV R2,#40
+0032 7900              5             MOV R1,#00H
+0034 7820              6             MOV R0,#20H
+0036 E9                7     THERE:  MOV A,R1
+0037 F6                8             MOV @R0,A
+0038 08                9             INC R0  
+0039 09               10             INC R1
+003A DAFA             11             DJNZ R2, THERE
+003C 7A28             12             MOV R2,#40
+003E 7820             13             MOV R0,#20H
+0040 7950             14             MOV R1,#50H
+0042 E6               15     LOOP:   MOV A,@R0
+0043 B42406           16             CJNE A,#24H,LOOP2
+0046 F590             17             MOV P1,A
+0048 1157             18             ACALL DEL
+004A 0155             19             AJMP LOOP1
+004C F7               20     LOOP2:  MOV @R1,A
+004D F580             21             MOV P0,A
+004F 1157             22             ACALL DEL
+0051 08               23             INC R0
+0052 09               24             INC R1
+0053 DAED             25             DJNZ R2,LOOP
+0055 80FE             26     LOOP1:  SJMP $
+0057 7FFF             27     DEL:    MOV R7,#0FFH
+0059 7EFF             28     DEL1:   MOV R6,#0FFH
+005B 7D08             29     DEL2:   MOV R5,#08H
+005D DDFE             30     DEL3:   DJNZ R5,DEL3
+005F DEFA             31             DJNZ R6,DEL2
+0061 DFF6             32             DJNZ R7,DEL1
+0063 22               33             RET
+                      34             END
+A51 MACRO ASSEMBLER  S14_3                                                                10/01/2006 19:58:34 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEL. . . . . . . .  C ADDR   0057H   A   
+DEL1 . . . . . . .  C ADDR   0059H   A   
+DEL2 . . . . . . .  C ADDR   005BH   A   
+DEL3 . . . . . . .  C ADDR   005DH   A   
+LOOP . . . . . . .  C ADDR   0042H   A   
+LOOP1. . . . . . .  C ADDR   0055H   A   
+LOOP2. . . . . . .  C ADDR   004CH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+THERE. . . . . . .  C ADDR   0036H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

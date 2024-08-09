@@ -1,0 +1,46 @@
+A51 MACRO ASSEMBLER  S7_3                                                                 10/05/2003 10:20:20 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.14
+OBJECT MODULE PLACED IN .\S7-3.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S7-3.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 020030            2             LJMP MAIN
+0030                   3             ORG 030H
+0030 7400              4     MAIN:   MOV A,#00H
+0032 F590              5     PLAY:   MOV P1,A
+0034 1139              6             ACALL DEL
+0036 04                7             INC A
+0037 0132              8             AJMP PLAY
+0039 7FFF              9     DEL:    MOV R7,#0FFH
+003B 7EFF             10     DEL1:   MOV R6,#0FFH
+003D 7D1F             11     DEL2:   MOV R5,#01FH
+003F DDFE             12     DEL3:   DJNZ R5,DEL3
+0041 DEFA             13             DJNZ R6,DEL2
+0043 DFF6             14             DJNZ R7,DEL1
+0045 22               15             RET
+                      16             END
+A51 MACRO ASSEMBLER  S7_3                                                                 10/05/2003 10:20:20 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEL. . . . . . . .  C ADDR   0039H   A   
+DEL1 . . . . . . .  C ADDR   003BH   A   
+DEL2 . . . . . . .  C ADDR   003DH   A   
+DEL3 . . . . . . .  C ADDR   003FH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+PLAY . . . . . . .  C ADDR   0032H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

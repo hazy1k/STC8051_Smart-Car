@@ -1,0 +1,55 @@
+BL51 BANKED LINKER/LOCATER V4.14                                                        10/05/2003  08:51:08  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V4.14, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE S6-3.obj TO S6-3
+
+
+INPUT MODULES INCLUDED:
+  S6-3.obj (S6_3)
+
+
+LINK MAP OF MODULE:  S6-3 (S6_3)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     004EH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  S6-3 (S6_3)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        S6_3
+  C:0041H         SYMBOL        DEL
+  C:0043H         SYMBOL        DEL1
+  C:0045H         SYMBOL        DEL2
+  C:0047H         SYMBOL        DEL3
+  C:0030H         SYMBOL        MAIN
+  D:0090H         SYMBOL        P1
+  C:0000H         LINE#         2
+  C:0030H         LINE#         4
+  C:0033H         LINE#         5
+  C:0035H         LINE#         6
+  C:0038H         LINE#         7
+  C:003AH         LINE#         8
+  C:003DH         LINE#         9
+  C:003FH         LINE#         10
+  C:0041H         LINE#         11
+  C:0043H         LINE#         12
+  C:0045H         LINE#         13
+  C:0047H         LINE#         14
+  C:0049H         LINE#         15
+  C:004BH         LINE#         16
+  C:004DH         LINE#         17
+  -------         ENDMOD        S6_3
+
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

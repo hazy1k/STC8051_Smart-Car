@@ -1,0 +1,103 @@
+A51 MACRO ASSEMBLER  S14_6                                                                10/19/2003 12:32:38 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.14
+OBJECT MODULE PLACED IN .\S14-6.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S14-6.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 020100            2             LJMP MAIN
+000B                   3             ORG 0BH
+000B 898C              4             MOV TH0,R1
+000D 888A              5             MOV TL0,R0
+000F B297              6             CPL P1.7
+0011 32                7             RETI
+0100                   8             ORG 0100H
+0100 758901            9     MAIN:   MOV TMOD,#01H
+0103 75A882           10             MOV IE,#82H
+0106 90013B           11             MOV DPTR,#TAB
+0109 E4               12     LOOP:   CLR A
+010A 93               13             MOVC A,@A+DPTR 
+010B F9               14             MOV R1,A
+010C A3               15             INC DPTR
+010D E4               16             CLR A
+010E 93               17             MOVC A,@A+DPTR 
+010F F8               18             MOV R0,A
+0110 49               19             ORL A,R1
+0111 600F             20             JZ NEXT0
+0113 E8               21             MOV A,R0
+0114 59               22             ANL A,R1
+0115 B4FF02           23             CJNE A,#0FFH,NEXT
+0118 80E6             24             SJMP MAIN
+011A 898C             25     NEXT:   MOV TH0,R1
+011C 888A             26             MOV TL0,R0
+011E D28C             27             SETB TR0
+0120 8002             28             SJMP NEXT1
+0122 C28C             29     NEXT0:  CLR TR0
+0124 E4               30     NEXT1:  CLR A
+0125 A3               31             INC DPTR
+0126 93               32             MOVC A,@A+DPTR 
+0127 FA               33             MOV R2,A
+0128 312F             34     LOOP1:  ACALL D200
+012A DAFC             35             DJNZ    R2,LOOP1
+012C A3               36             INC DPTR
+012D 2109             37             AJMP LOOP
+012F 7B81             38     D200:   MOV R3,#81H
+0131 74FF             39     D200B:  MOV A,#0FFH
+0133 14               40     D200A:  DEC A
+0134 70FD             41             JNZ D200A
+0136 1B               42             DEC R3
+0137 BB00F7           43             CJNE R3,#00H,D200B
+013A 22               44             RET
+013B FE2502FE         45     TAB:    DB 0FEH,25H,02H,0FEH,25H,02H 
+013F 2502                    
+0141 FE2504FD         46             DB 0FEH,25H,04H,0FDH,80H,04H
+0145 8004                    
+0147 FE8402FE         47             DB 0FEH,84H,02H,0FEH,84H,02H
+014B 8402                    
+014D FE8404FE         48             DB 0FEH,84H,04H,0FEH,25H,04H
+0151 2504                    
+0153 FE2502FE         49             DB 0FEH,25H,02H,0FEH,84H,02H
+0157 8402                    
+0159 FEC004FE         50             DB 0FEH,0C0H,04H,0FEH,0C0H,04H
+015D C004                    
+015F FE9802FE         51             DB 0FEH,98H,02H,0FEH,84H,02H
+0163 8402                    
+A51 MACRO ASSEMBLER  S14_6                                                                10/19/2003 12:32:38 PAGE     2
+
+0165 FE570800         52             DB 0FEH,57H,08H,00H,00H,04H
+0169 0004                    
+016B FFFF             53             DB 0FFH,0FFH
+                      54             END
+A51 MACRO ASSEMBLER  S14_6                                                                10/19/2003 12:32:38 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+D200 . . . . . . .  C ADDR   012FH   A   
+D200A. . . . . . .  C ADDR   0133H   A   
+D200B. . . . . . .  C ADDR   0131H   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+LOOP . . . . . . .  C ADDR   0109H   A   
+LOOP1. . . . . . .  C ADDR   0128H   A   
+MAIN . . . . . . .  C ADDR   0100H   A   
+NEXT . . . . . . .  C ADDR   011AH   A   
+NEXT0. . . . . . .  C ADDR   0122H   A   
+NEXT1. . . . . . .  C ADDR   0124H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TAB. . . . . . . .  C ADDR   013BH   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

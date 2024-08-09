@@ -1,0 +1,39 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.a*; *.src)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (Target 1), 0x0000 // Tools: 'MCS-51'
+GRPOPT 1,(Source Group 1),1,0,0
+
+OPTFFF 1,1,2,352321538,0,2,6,0,<.\S13-1.asm><S13-1.asm> { 44,0,0,0,2,0,0,0,3,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,233,255,255,255,88,0,0,0,88,0,0,0,98,2,0,0,24,1,0,0 }
+
+
+TARGOPT 1, (Target 1)
+ CLK51=12000000
+  OPTTT 1,1,1,0
+  OPTHX 0,65535,0,0,0
+  OPTLX 120,65,8,<.\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTBL 0,(Add on databooks)<DATASHTS\ADDBOOKS.PDF>
+  OPTBL 1,(80C51 Family Programmer's Guide)<DATASHTS\PHILIPS\P51_PG.PDF>
+  OPTBL 2,(Data Sheet)<DATASHTS\PHILIPS\P89LPC932_DS.PDF>
+  OPTBL 3,(User's Manual)<DATASHTS\PHILIPS\P89LPC932_UM.PDF>
+  OPTDL (S8051.DLL)()(DLPC.DLL)(-pLPC931)(S8051.DLL)()(TLPC.DLL)(-pLPC931)
+  OPTDBG 509,0,()()()()()()()()()() ()()()()
+  OPTKEY 0,(DLGDP51)((98=-1,-1,-1,-1,0)(82=-1,-1,-1,-1,0)(83=517,55,715,151,0)(84=-1,-1,-1,-1,0)(85=-1,-1,-1,-1,0)(80=-1,-1,-1,-1,0)(91=-1,-1,-1,-1,0)(92=512,150,712,393,0))
+  OPTDF 0x80
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

@@ -1,0 +1,105 @@
+BL51 BANKED LINKER/LOCATER V5.03                                                        10/02/2006  17:43:09  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.03, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE S21-1.obj TO S21-1
+
+
+INPUT MODULES INCLUDED:
+  S21-1.obj (S21_1)
+
+
+LINK MAP OF MODULE:  S21-1 (S21_1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0099H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  S21-1 (S21_1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        S21_1
+  C:0090H         SYMBOL        D10MS
+  C:0092H         SYMBOL        DEL1
+  C:0094H         SYMBOL        DEL2
+  C:0036H         SYMBOL        MAIN
+  D:0080H         SYMBOL        P0
+  D:0090H         SYMBOL        P1
+  D:00A0H         SYMBOL        P2
+  D:00B0H         SYMBOL        P3
+  C:0074H         SYMBOL        PLAYP0
+  C:003BH         SYMBOL        PLAYP1
+  C:0061H         SYMBOL        PLAYP2
+  C:004EH         SYMBOL        PLAYP3
+  C:0030H         SYMBOL        START
+  N:00A6H         SYMBOL        WDTRST
+  C:0000H         LINE#         3
+  C:0030H         LINE#         5
+  C:0033H         LINE#         6
+  C:0036H         LINE#         8
+  C:0038H         LINE#         9
+  C:0039H         LINE#         10
+  C:003BH         LINE#         11
+  C:003CH         LINE#         12
+  C:003EH         LINE#         13
+  C:0040H         LINE#         14
+  C:0043H         LINE#         15
+  C:0046H         LINE#         16
+  C:0047H         LINE#         17
+  C:0049H         LINE#         19
+  C:004BH         LINE#         20
+  C:004CH         LINE#         21
+BL51 BANKED LINKER/LOCATER V5.03                                                      10/02/2006  17:43:09  PAGE 2
+
+
+  C:004EH         LINE#         22
+  C:004FH         LINE#         23
+  C:0051H         LINE#         24
+  C:0053H         LINE#         25
+  C:0056H         LINE#         26
+  C:0059H         LINE#         27
+  C:005AH         LINE#         28
+  C:005CH         LINE#         30
+  C:005EH         LINE#         31
+  C:005FH         LINE#         32
+  C:0061H         LINE#         33
+  C:0062H         LINE#         34
+  C:0064H         LINE#         35
+  C:0066H         LINE#         36
+  C:0069H         LINE#         37
+  C:006CH         LINE#         38
+  C:006DH         LINE#         39
+  C:006FH         LINE#         41
+  C:0071H         LINE#         42
+  C:0072H         LINE#         43
+  C:0074H         LINE#         44
+  C:0075H         LINE#         45
+  C:0077H         LINE#         46
+  C:0079H         LINE#         47
+  C:007CH         LINE#         48
+  C:007FH         LINE#         49
+  C:0080H         LINE#         50
+  C:0082H         LINE#         52
+  C:0085H         LINE#         53
+  C:0088H         LINE#         54
+  C:008BH         LINE#         55
+  C:008EH         LINE#         56
+  C:0090H         LINE#         58
+  C:0092H         LINE#         59
+  C:0094H         LINE#         60
+  C:0096H         LINE#         61
+  C:0098H         LINE#         62
+  -------         ENDMOD        S21_1
+
+Program Size: data=8.0 xdata=0 code=153
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

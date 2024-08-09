@@ -1,0 +1,139 @@
+A51 MACRO ASSEMBLER  S9_1                                                                 10/05/2003 14:57:41 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.14
+OBJECT MODULE PLACED IN .\S9-1.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE .\S9-1.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000 020030            2             LJMP MAIN
+0030                   3             ORG 030H
+0030 7580C0            4     MAIN:   MOV P0,#0C0H
+0033 7590C0            5             MOV P1,#0C0H
+0036 75A0C0            6             MOV P2,#0C0H
+0039 7800              7             MOV R0,#00H
+003B 75B00F            8     ST:     MOV P3,#0FH
+003E E5B0              9             MOV A,P3
+0040 B40F04           10             CJNE A,#0FH,F1
+0043 1173             11             ACALL DEL
+0045 013B             12             AJMP ST
+0047 1173             13     F1:     ACALL DEL
+0049 B40F02           14             CJNE A,#0FH,F2
+004C 013B             15             AJMP ST
+004E 08               16     F2:     INC R0
+004F B80A02           17             CJNE R0,#0AH,F3
+0052 7800             18             MOV R0,#00H
+0054 90005F           19     F3:     MOV DPTR,#JPTAB
+0057 E8               20             MOV A,R0
+0058 C3               21             CLR C
+0059 33               22             RLC A
+005A 5002             23             JNC NADD
+005C 0583             24             INC DPH
+005E 73               25     NADD:   JMP @A+DPTR
+005F 00               26     JPTAB:  NOP
+0060 00               27             NOP
+0061 0180             28             AJMP PR1
+0063 018D             29             AJMP PR2
+0065 019A             30             AJMP PR3
+0067 01A7             31             AJMP PR4
+0069 01B4             32             AJMP PR5
+006B 01C1             33             AJMP PR6
+006D 01CE             34             AJMP PR7
+006F 01DB             35             AJMP PR8
+0071 01E8             36             AJMP PR9
+0073 7F14             37     DEL:    MOV R7,#014H
+0075 7EFF             38     DEL1:   MOV R6,#0FFH
+0077 7D1F             39     DEL2:   MOV R5,#01FH
+0079 DDFE             40     DEL3:   DJNZ R5,DEL3
+007B DEFA             41             DJNZ R6,DEL2
+007D DFF6             42             DJNZ R7,DEL1
+007F 22               43             RET
+0080 7580F9           44     PR1:    MOV P0,#0F9H
+0083 7590F9           45             MOV P1,#0F9H
+0086 75A0F9           46             MOV P2,#0F9H
+0089 1173             47             ACALL DEL
+008B 013B             48             AJMP ST
+008D 7580A4           49     PR2:    MOV P0,#0A4H
+0090 7590A4           50             MOV P1,#0A4H
+0093 75A0A4           51             MOV P2,#0A4H
+0096 1173             52             ACALL DEL
+0098 013B             53             AJMP ST
+009A 7580B0           54     PR3:    MOV P0,#0B0H
+009D 7590B0           55             MOV P1,#0B0H
+00A0 75A0B0           56             MOV P2,#0B0H
+00A3 1173             57             ACALL DEL
+00A5 013B             58             AJMP ST
+A51 MACRO ASSEMBLER  S9_1                                                                 10/05/2003 14:57:41 PAGE     2
+
+00A7 758099           59     PR4:    MOV P0,#99H
+00AA 759099           60             MOV P1,#99H
+00AD 75A099           61             MOV P2,#99H
+00B0 1173             62             ACALL DEL
+00B2 013B             63             AJMP ST
+00B4 758092           64     PR5:    MOV P0,#92H
+00B7 759092           65             MOV P1,#92H
+00BA 75A092           66             MOV P2,#92H
+00BD 1173             67             ACALL DEL
+00BF 013B             68             AJMP ST
+00C1 758082           69     PR6:    MOV P0,#82H
+00C4 759082           70             MOV P1,#82H
+00C7 75A082           71             MOV P2,#82H
+00CA 1173             72             ACALL DEL
+00CC 013B             73             AJMP ST
+00CE 7580F8           74     PR7:    MOV P0,#0F8H
+00D1 7590F8           75             MOV P1,#0F8H
+00D4 75A0F8           76             MOV P2,#0F8H
+00D7 1173             77             ACALL DEL
+00D9 013B             78             AJMP ST
+00DB 758080           79     PR8:    MOV P0,#80H
+00DE 759080           80             MOV P1,#80H
+00E1 75A080           81             MOV P2,#80H
+00E4 1173             82             ACALL DEL
+00E6 013B             83             AJMP ST
+00E8 758090           84     PR9:    MOV P0,#90H
+00EB 759090           85             MOV P1,#90H
+00EE 75A090           86             MOV P2,#90H
+00F1 1173             87             ACALL DEL
+00F3 013B             88             AJMP ST
+                      89             END
+A51 MACRO ASSEMBLER  S9_1                                                                 10/05/2003 14:57:41 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEL. . . . . . . .  C ADDR   0073H   A   
+DEL1 . . . . . . .  C ADDR   0075H   A   
+DEL2 . . . . . . .  C ADDR   0077H   A   
+DEL3 . . . . . . .  C ADDR   0079H   A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+F1 . . . . . . . .  C ADDR   0047H   A   
+F2 . . . . . . . .  C ADDR   004EH   A   
+F3 . . . . . . . .  C ADDR   0054H   A   
+JPTAB. . . . . . .  C ADDR   005FH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+NADD . . . . . . .  C ADDR   005EH   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+PR1. . . . . . . .  C ADDR   0080H   A   
+PR2. . . . . . . .  C ADDR   008DH   A   
+PR3. . . . . . . .  C ADDR   009AH   A   
+PR4. . . . . . . .  C ADDR   00A7H   A   
+PR5. . . . . . . .  C ADDR   00B4H   A   
+PR6. . . . . . . .  C ADDR   00C1H   A   
+PR7. . . . . . . .  C ADDR   00CEH   A   
+PR8. . . . . . . .  C ADDR   00DBH   A   
+PR9. . . . . . . .  C ADDR   00E8H   A   
+ST . . . . . . . .  C ADDR   003BH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,127 @@
+BL51 BANKED LINKER/LOCATER V5.03                                                        02/29/2004  10:42:18  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.03, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE S18-3.obj TO S18-3
+
+
+INPUT MODULES INCLUDED:
+  S18-3.obj (S18_3)
+
+
+LINK MAP OF MODULE:  S18-3 (S18_3)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     00D8H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  S18-3 (S18_3)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        S18_3
+  D:00E0H         SYMBOL        ACC
+  C:0085H         SYMBOL        BUSY_LOOP
+  C:0083H         SYMBOL        CHECK_BUSY
+  C:00BAH         SYMBOL        CLS
+  D:0090H         SYMBOL        DB0_DB7
+  C:00C0H         SYMBOL        DEL
+  C:00C9H         SYMBOL        DISP
+  C:00CBH         SYMBOL        DISP_LOOP
+  B:00B0H.5       SYMBOL        E
+  C:00D5H         SYMBOL        END_DISP
+  C:0073H         SYMBOL        INITIAL
+  C:00C2H         SYMBOL        L1
+  C:0051H         SYMBOL        LINE1
+  C:0062H         SYMBOL        LINE2
+  C:0030H         SYMBOL        MAIN
+  D:0090H         SYMBOL        P1
+  D:00B0H         SYMBOL        P3
+  B:00B0H.3       SYMBOL        RS
+  B:00B0H.4       SYMBOL        R_W
+  D:0081H         SYMBOL        SP
+  C:009AH         SYMBOL        WRITE_COM
+  C:00AAH         SYMBOL        WRITE_DATA
+  C:0000H         LINE#         8
+  C:0030H         LINE#         11
+  C:0033H         LINE#         12
+  C:0036H         LINE#         13
+  C:0039H         LINE#         14
+  C:003BH         LINE#         15
+  C:003EH         LINE#         16
+  C:0041H         LINE#         17
+BL51 BANKED LINKER/LOCATER V5.03                                                      02/29/2004  10:42:18  PAGE 2
+
+
+  C:0044H         LINE#         18
+  C:0046H         LINE#         19
+  C:0049H         LINE#         20
+  C:004CH         LINE#         21
+  C:004FH         LINE#         22
+  C:0073H         LINE#         27
+  C:0075H         LINE#         28
+  C:0078H         LINE#         29
+  C:007AH         LINE#         30
+  C:007DH         LINE#         31
+  C:007FH         LINE#         32
+  C:0082H         LINE#         33
+  C:0083H         LINE#         35
+  C:0085H         LINE#         36
+  C:0087H         LINE#         37
+  C:0089H         LINE#         38
+  C:008BH         LINE#         39
+  C:008DH         LINE#         40
+  C:008FH         LINE#         41
+  C:0091H         LINE#         42
+  C:0094H         LINE#         43
+  C:0096H         LINE#         44
+  C:0099H         LINE#         45
+  C:009AH         LINE#         47
+  C:009DH         LINE#         48
+  C:009FH         LINE#         49
+  C:00A1H         LINE#         50
+  C:00A3H         LINE#         51
+  C:00A5H         LINE#         52
+  C:00A7H         LINE#         53
+  C:00A9H         LINE#         54
+  C:00AAH         LINE#         56
+  C:00ADH         LINE#         57
+  C:00AFH         LINE#         58
+  C:00B1H         LINE#         59
+  C:00B3H         LINE#         60
+  C:00B5H         LINE#         61
+  C:00B7H         LINE#         62
+  C:00B9H         LINE#         63
+  C:00BAH         LINE#         65
+  C:00BCH         LINE#         66
+  C:00BFH         LINE#         67
+  C:00C0H         LINE#         69
+  C:00C2H         LINE#         70
+  C:00C4H         LINE#         71
+  C:00C6H         LINE#         72
+  C:00C8H         LINE#         73
+  C:00C9H         LINE#         75
+  C:00CBH         LINE#         76
+  C:00CCH         LINE#         77
+  C:00CDH         LINE#         78
+  C:00CFH         LINE#         79
+  C:00D2H         LINE#         80
+  C:00D3H         LINE#         81
+  C:00D5H         LINE#         82
+  C:00D7H         LINE#         83
+  -------         ENDMOD        S18_3
+BL51 BANKED LINKER/LOCATER V5.03                                                      02/29/2004  10:42:18  PAGE 3
+
+
+
+Program Size: data=8.0 xdata=0 code=216
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
