@@ -1,0 +1,192 @@
+.xspace-layout1 #sideleft {
+	FLOAT: left; WIDTH: 190px
+}
+.xspace-layout1 .mainarea-side {
+	MARGIN-LEFT: 197px; WIDTH: 560px
+}
+.xspace-layout2 #sideright {
+	FLOAT: right; WIDTH: 190px
+}
+.xspace-layout2 .mainarea-side {
+	FLOAT: left; WIDTH: 560px
+}
+.xspace-layout3 #sideleft {
+	FLOAT: left; WIDTH: 190px
+}
+.xspace-layout3 #sideright {
+	FLOAT: right; WIDTH: 190px
+}
+.xspace-layout3 .mainarea-side {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FLOAT: left; PADDING-BOTTOM: 0px; WIDTH: 370px; PADDING-TOP: 0px
+}
+.xspace-imgstyle {
+	BORDER-LEFT-COLOR: #cedaea; BACKGROUND: #ecf3fb; BORDER-BOTTOM-COLOR: #cedaea; BORDER-TOP-COLOR: #cedaea; BORDER-RIGHT-COLOR: #cedaea
+}
+H1.xspace-title {
+	BACKGROUND: #ecf3fb
+}
+.xspace-blocktitle {
+	FONT-SIZE: 1em; OVERFLOW: hidden; COLOR: #3b3bb6
+}
+.sidearea .xspace-blocktitle {
+	PADDING-LEFT: 35px; BACKGROUND: url(../../images/default/sidearea_title_bg.gif) #d7dfef no-repeat left top; LINE-HEIGHT: 32px; HEIGHT: 28px
+}
+#mainarea .xspace-blocktitle {
+	PADDING-LEFT: 40px; BACKGROUND: url(../../images/default/mainarea_title_bg.jpg) #ecf3fb no-repeat left top; LINE-HEIGHT: 37px; HEIGHT: 33px
+}
+LI.xspace-loglist H4.xspace-entrytitle {
+	BACKGROUND-COLOR: #ecf3fb
+}
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: url(../../images/default/background_top.gif) #f5f9fc repeat-x; PADDING-BOTTOM: 0px; MARGIN: 0px; FONT: 12px Arial, Helvetica, sans-serif; COLOR: #000; PADDING-TOP: 0px; TEXT-ALIGN: center
+}
+INPUT {
+	FONT: 1em Arial, Helvetica, sans-serif
+}
+TEXTAREA {
+	FONT: 1em Arial, Helvetica, sans-serif
+}
+SELECT {
+	FONT: 1em Arial, Helvetica, sans-serif
+}
+BUTTON {
+	FONT: 1em Arial, Helvetica, sans-serif
+}
+#wrap {
+	BORDER-RIGHT: #fff 5px solid; BORDER-TOP: #fff 5px solid; BACKGROUND: #fff; MARGIN: 1em auto; OVERFLOW: hidden; BORDER-LEFT: #fff 5px solid; WIDTH: 760px; BORDER-BOTTOM: #fff 5px solid; TEXT-ALIGN: left
+}
+#header {
+	BACKGROUND: url(../../images/default/header_bg.gif) #98c4fb repeat-x 50% top; BORDER-BOTTOM: #fff 1px solid; HEIGHT: 132px
+}
+#header  {
+	COLOR: #3b3bb6
+}
+#spacename {
+	FLOAT: left; OVERFLOW: hidden; WIDTH: 240px; HEIGHT: 132px
+}
+#menu {
+	FLOAT: right; WIDTH: 500px; PADDING-TOP: 40px; HEIGHT: 70px
+}
+#menu UL {
+	FLOAT: right; MARGIN: 0px 1em 0px 0px
+}
+#menu LI {
+	DISPLAY: block; FLOAT: left; MARGIN: 0px; WIDTH: 52px; TEXT-ALIGN: center
+}
+#menu LI A {
+	DISPLAY: block; BACKGROUND: no-repeat 50% top; WIDTH: 52px; PADDING-TOP: 50px; HEIGHT: 20px; TEXT-DECORATION: none
+}
+#menu LI A.xspace-blog {
+	BACKGROUND-IMAGE: url(../../images/default/menu_icon_blog.gif)
+}
+#menu LI A.xspace-image {
+	BACKGROUND-IMAGE: url(../../images/default/menu_icon_photo.gif)
+}
+#menu LI A.xspace-goods {
+	BACKGROUND-IMAGE: url(../../images/default/menu_icon_goods.gif)
+}
+#menu LI A.xspace-friend {
+	BACKGROUND-IMAGE: url(../../images/default/menu_icon_friend.gif)
+}
+#menu LI A.xspace-link {
+	BACKGROUND-IMAGE: url(../../images/default/menu_icon_link.gif)
+}
+#menu LI A.xspace-file {
+	BACKGROUND-IMAGE: url(../../images/default/menu_icon_file.gif)
+}
+#menu LI A.xspace-mybbs {
+	BACKGROUND-IMAGE: url(../../images/default/menu_icon_bbs.gif)
+}
+#menu LI A.xspace-guestbook {
+	BACKGROUND-IMAGE: url(../../images/default/menu_icon_guestbook.gif)
+}
+#menu A:hover {
+	BACKGROUND-POSITION: 0px -70px; COLOR: #fff; TEXT-DECORATION: none
+}
+#content {
+	BACKGROUND: url(../../images/default/header_bg.gif) repeat-x left -133px
+}
+.sidearea {
+	BACKGROUND: url(../../images/default/sidearea_top_bg.gif) #ecf3fb repeat-x 50% top; OVERFLOW: hidden; PADDING-TOP: 10px
+}
+A {
+	COLOR: #006; TEXT-DECORATION: underline
+}
+A:hover {
+	TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #099
+}
+.xspace-noticemsg {
+	BORDER-LEFT-COLOR: #cedaea; BORDER-BOTTOM-COLOR: #cedaea; BORDER-TOP-COLOR: #cedaea; BORDER-RIGHT-COLOR: #cedaea
+}
+#announcement {
+	BORDER-LEFT-COLOR: #cedaea; BORDER-BOTTOM-COLOR: #cedaea; BORDER-TOP-COLOR: #cedaea; BORDER-RIGHT-COLOR: #cedaea
+}
+.xspace-itemlist LI {
+	BORDER-LEFT-COLOR: #cedaea; BORDER-BOTTOM-COLOR: #cedaea; BORDER-TOP-COLOR: #cedaea; BORDER-RIGHT-COLOR: #cedaea
+}
+.xspace-imagebox {
+	BORDER-LEFT-COLOR: #cedaea; BORDER-BOTTOM-COLOR: #cedaea; BORDER-TOP-COLOR: #cedaea; BORDER-RIGHT-COLOR: #cedaea
+}
+#xspace-filebaseinfo LI {
+	BORDER-LEFT-COLOR: #cedaea; BORDER-BOTTOM-COLOR: #cedaea; BORDER-TOP-COLOR: #cedaea; BORDER-RIGHT-COLOR: #cedaea
+}
+#xspace-goodsbaseinfo LI {
+	BORDER-LEFT-COLOR: #cedaea; BORDER-BOTTOM-COLOR: #cedaea; BORDER-TOP-COLOR: #cedaea; BORDER-RIGHT-COLOR: #cedaea
+}
+#xspace-aplist TH {
+	BORDER-LEFT-COLOR: #cedaea; BORDER-BOTTOM-COLOR: #cedaea; BORDER-TOP-COLOR: #cedaea; BORDER-RIGHT-COLOR: #cedaea
+}
+#xspace-aplist TD {
+	BORDER-LEFT-COLOR: #cedaea; BORDER-BOTTOM-COLOR: #cedaea; BORDER-TOP-COLOR: #cedaea; BORDER-RIGHT-COLOR: #cedaea
+}
+.xspace-msgmodule H5 {
+	BORDER-LEFT-COLOR: #cedaea; BORDER-BOTTOM-COLOR: #cedaea; BORDER-TOP-COLOR: #cedaea; BORDER-RIGHT-COLOR: #cedaea
+}
+.xspace-addoninfo {
+	BORDER-LEFT-COLOR: #cedaea; BORDER-BOTTOM-COLOR: #cedaea; BORDER-TOP-COLOR: #cedaea; BORDER-RIGHT-COLOR: #cedaea
+}
+.xspace-itemlinks {
+	BORDER-LEFT-COLOR: #cedaea; BORDER-BOTTOM-COLOR: #cedaea; BORDER-TOP-COLOR: #cedaea; BORDER-RIGHT-COLOR: #cedaea
+}
+.xspace-itemtag {
+	BORDER-LEFT-COLOR: #cedaea; BORDER-BOTTOM-COLOR: #cedaea; BORDER-TOP-COLOR: #cedaea; BORDER-RIGHT-COLOR: #cedaea
+}
+#xspace-itemreply DT {
+	BORDER-LEFT-COLOR: #cedaea; BORDER-BOTTOM-COLOR: #cedaea; BORDER-TOP-COLOR: #cedaea; BORDER-RIGHT-COLOR: #cedaea
+}
+#xspace-itemform FIELDSET {
+	BORDER-LEFT-COLOR: #cedaea; BORDER-BOTTOM-COLOR: #cedaea; BORDER-TOP-COLOR: #cedaea; BORDER-RIGHT-COLOR: #cedaea
+}
+TABLE.xspace-page A {
+	BORDER-LEFT-COLOR: #cedaea; BORDER-BOTTOM-COLOR: #cedaea; BORDER-TOP-COLOR: #cedaea; BORDER-RIGHT-COLOR: #cedaea
+}
+#xspace-ownerinfo {
+	BORDER-LEFT-COLOR: #cedaea; BORDER-BOTTOM-COLOR: #cedaea; BORDER-TOP-COLOR: #cedaea; BORDER-RIGHT-COLOR: #cedaea
+}
+#xspace-imgnavbar {
+	BORDER-LEFT-COLOR: #cedaea; BORDER-BOTTOM-COLOR: #cedaea; BORDER-TOP-COLOR: #cedaea; BORDER-RIGHT-COLOR: #cedaea
+}
+#xspace-aplist .xspace-ontop TD {
+	BACKGROUND: #cedaea
+}
+#xspace-rates A {
+	BACKGROUND: #cedaea
+}
+TABLE.xspace-page TD.xspace-current {
+	BACKGROUND: #cedaea
+}
+TABLE.xspace-page A {
+	BACKGROUND: #ecf3fb
+}
+TABLE.xspace-page TD.xspace-totlerecord {
+	BACKGROUND: #ecf3fb
+}
+TABLE.xspace-page TD.xspace-totlepages {
+	BACKGROUND: #ecf3fb
+}
+.xspace-listtab A {
+	BACKGROUND: #ecf3fb
+}

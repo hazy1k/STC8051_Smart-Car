@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0056)http://blog.21ic.com/user1/3219/archives/2006/31210.html -->
+<HTML><HEAD><TITLE>上拉电阻下拉电阻的总结（ZT）--ARM007的笔记</TITLE>
+<META http-equiv=Content-Language content=zh-CN>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META content="MSHTML 6.00.2800.1226" name=GENERATOR>
+<META content=cyz_arm, name=author>
+<META content=上拉电阻下拉电阻的总结（ZT） name=keyword>
+<META 
+content=上拉电阻下拉电阻的总结===============================================================上拉电阻：1 
+name=description><LINK title=RSS href="/user1/3219/rss2.xml" 
+type=application/rss+xml rel=alternate><LINK 
+href="上拉电阻下拉电阻的总结（ZT）--ARM007的笔记.files/OblogUserDefault4.css" type=text/css 
+rel=stylesheet>
+<SCRIPT src="上拉电阻下拉电阻的总结（ZT）--ARM007的笔记.files/main.js" 
+type=text/javascript></SCRIPT>
+</HEAD>
+<BODY><SPAN id=gg_usertop></SPAN><LINK id=MainStyle 
+href="上拉电阻下拉电阻的总结（ZT）--ARM007的笔记.files/style.css" type=text/css 
+rel=stylesheet></LINK>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD width=184 background=上拉电阻下拉电阻的总结（ZT）--ARM007的笔记.files/banner1.gif></TD>
+    <TD background=上拉电阻下拉电阻的总结（ZT）--ARM007的笔记.files/banner.gif>
+      <DIV class=header style="WIDTH: 289px; HEIGHT: 194px">
+      <DIV class=headerText><SPAN 
+      style="PADDING-LEFT: 0px; FONT-SIZE: 14px; COLOR: #4371a6"></SPAN>&nbsp;</DIV>
+      <DIV class=headerText><SPAN 
+      style="PADDING-LEFT: 0px; FONT-SIZE: 14px; COLOR: #4371a6"></SPAN>&nbsp;</DIV>
+      <DIV class=headerText><SPAN 
+      style="PADDING-LEFT: 0px; FONT-SIZE: 14px; COLOR: #4371a6"></SPAN>&nbsp;</DIV>
+      <DIV class=headerText><FONT size=5><SPAN 
+      style="PADDING-LEFT: 0px; FONT-SIZE: 14px; COLOR: #4371a6"><FONT 
+      color=#0909f7 
+    size=6>ARM007的笔记</FONT></SPAN></A>&nbsp;</FONT></DIV></DIV></TD>
+    <TD width=295 
+  background=上拉电阻下拉电阻的总结（ZT）--ARM007的笔记.files/banner2.gif></TD></TR></TBODY></TABLE>
+<DIV id=mylinks><FONT color=#338fcc>
+<DIV id=subject_l>载入中...</DIV></FONT></DIV>
+<DIV id=mytopmenu></DIV>
+<DIV id=leftcontent>
+<DIV id=leftcontentcontainer>
+<DIV id=calendar>载入中...</DIV><BR>
+<H1 class=catListTitle>留言簿：</H1>
+<UL class=catList>
+  <LI>
+  <DIV align=left>
+  <DIV id=newmessage>载入中...</DIV></DIV></LI></UL>
+<H1 class=catListTitle>日志公告:</H1>
+<UL class=catList>
+  <LI class=catListItem>
+  <DIV align=left><FONT color=#1a1ae6 size=4>传递价值，成就你我！</FONT> </DIV></LI></UL>
+<H1 class=catListTitle>最新日志:</H1>
+<UL class=catList>
+  <LI class=catListItem>
+  <DIV align=left>
+  <DIV id=newblog>载入中...</DIV></DIV></LI></UL>
+<H1 class=catListTitle>最新评论:</H1>
+<UL class=catList>
+  <LI class=catListItem>
+  <DIV id=comment>载入中...</DIV></LI></UL>
+<H1 class=catListTitle>搜索日志:</H1>
+<UL class=catList>
+  <LI class=catListItem>
+  <DIV id=search>载入中...</DIV></LI></UL>
+<H1 class=catListTitle>站长入口:</H1>
+<UL class=catList>
+  <LI class=catListItem>
+  <DIV id=ob_login>载入中...</DIV></LI></UL>
+<H1 class=catListTitle>友情连接:</H1>
+<UL class=catList>
+  <LI class=catListItem>
+  <DIV id=links></DIV>
+  <DIV id=gg_userlinks></DIV></LI></UL>
+<H1 class=listtitle>最新统计:</H1>
+<UL class=catList>
+  <LI class=catListItem>
+  <DIV id=info>载入中...</DIV>
+  <DIV id=aobomusic></DIV><BR></LI></UL></DIV></DIV>
+<DIV id=centercontent>
+<DIV class=day>
+<DIV class=dayTitle>2006-10-26 16:07:00 </DIV>
+<DIV class=postTitle>上拉电阻下拉电阻的总结（ZT） </DIV>
+<TABLE style="TABLE-LAYOUT: fixed" border=0>
+  <TBODY>
+  <TR>
+    <TD><SPAN id=ob_logd31210></SPAN>
+      <P>上拉电阻下拉电阻的总结<BR>===============================================================<BR>上拉电阻：<BR>1、当TTL电路驱动COMS电路时，如果TTL电路输出的高电平低于COMS电路的最低高电平（一般为3.5V），这时就需要在TTL的输出端接上拉电阻，以提高输出高电平的值。<BR>2、OC门电路必须加上拉电阻，才能使用。<BR>3、为加大输出引脚的驱动能力，有的单片机管脚上也常使用上拉电阻。<BR>4、在COMS芯片上，为了防止静电造成损坏，不用的管脚不能悬空，一般接上拉电阻产生降低输入阻抗，提供泄荷通路。<BR>5、芯片的管脚加上拉电阻来提高输出电平，从而提高芯片输入信号的噪声容限增强抗干扰能力。<BR>6、提高总线的抗电磁干扰能力。管脚悬空就比较容易接受外界的电磁干扰。<BR>7、长线传输中电阻不匹配容易引起反射波干扰，加上下拉电阻是电阻匹配，有效的抑制反射波干扰。</P>
+      <P>上拉电阻阻值的选择原则包括:<BR>1、从节约功耗及芯片的灌电流能力考虑应当足够大；电阻大，电流小。<BR>2、从确保足够的驱动电流考虑应当足够小；电阻小，电流大。<BR>3、对于高速电路，过大的上拉电阻可能边沿变平缓。综合考虑<BR>以上三点,通常在1k到10k之间选取。对下拉电阻也有类似道理 
+      <BR></P>
+      <P>对上拉电阻和下拉电阻的选择应结合开关管特性和下级电路的输入特性进行设定，主要需要考虑以下几个因素：<BR>1． 
+      驱动能力与功耗的平衡。以上拉电阻为例，一般地说，上拉电阻越小，驱动能力越强，但功耗越大，设计是应注意两者之间的均衡。<BR>2． 
+      下级电路的驱动需求。同样以上拉电阻为例，当输出高电平时，开关管断开，上拉电阻应适当选择以能够向下级电路提供足够的电流。<BR>3． 
+      高低电平的设定。不同电路的高低电平的门槛电平会有不同，电阻应适当设定以确保能输出正确的电平。以上拉电阻为例，当输出低电平时，开关管导通，上拉电阻和开关管导通电阻分压值应确保在零电平门槛之下。<BR>4． 
+      频率特性。以上拉电阻为例，上拉电阻和开关管漏源级之间的电容和下级电路之间的输入电容会形成RC延迟，电阻越大，延迟越大。上拉电阻的设定应考虑电路在这方面的需求。</P>
+      <P>下拉电阻的设定的原则和上拉电阻是一样的。<BR>OC门输出高电平时是一个高阻态，其上拉电流要由上拉电阻来提供，设输入端每端口不大于100uA,设输出口驱动电流约500uA，标准工作电压是5V，输入口的高低电平门限为0.8V(低于此值为低电平)；2V(高电平门限值)。<BR>选上拉电阻时：<BR>500uA 
+      x 8.4K= 
+      4.2即选大于8.4K时输出端能下拉至0.8V以下，此为最小阻值，再小就拉不下来了。如果输出口驱动电流较大，则阻值可减小，保证下拉时能低于0.8V即可。<BR>当输出高电平时，忽略管子的漏电流，两输入口需200uA<BR>200uA 
+      x15K=3V即上拉电阻压降为3V，输出口可达到2V，此阻值为最大阻值，再大就拉不到2V了。选10K可用。COMS门的可参考74HC系列<BR>设计时管子的漏电流不可忽略，IO口实际电流在不同电平下也是不同的，上述仅仅是原理，一句话概括为：输出高电平时要喂饱后面的输入口，输出低电平不要把输出口喂撑了（否则多余的电流喂给了级联的输入口，高于低电平门限值就不可靠了）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </P>
+      <P>在数字电路中不用的输入脚都要接固定电平，通过1k电阻接高电平或接地。 <BR>1. 电阻作用： <BR>l 接电组就是为了防止输入端悬空 
+      <BR>l 减弱外部电流对芯片产生的干扰 <BR>l 保护cmos内的保护二极管,一般电流不大于10mA <BR>l 上拉和下拉、限流 <BR>l 
+      1. 改变电平的电位，常用在TTL-CMOS匹配 <BR>2. 在引脚悬空时有确定的状态 <BR>3.增加高电平输出时的驱动能力。 
+      <BR>4、为OC门提供电流 <BR>l 那要看输出口驱动的是什么器件，如果该器件需要高电压的话，而输出口的输出电压又不够，就需要加上拉电阻。 
+      <BR>l 
+      如果有上拉电阻那它的端口在默认值为高电平你要控制它必须用低电平才能控制如三态门电路三极管的集电极，或二极管正极去控制把上拉电阻的电流拉下来成为低电平。反之， 
+      <BR>l 
+      尤其用在接口电路中,为了得到确定的电平,一般采用这种方法,以保证正确的电路状态,以免发生意外,比如,在电机控制中,逆变桥上下桥臂不能直通,如果它们都用同一个单片机来驱动,必须设置初始状态.防止直通! 
+      </P>
+      <P>2、定义： <BR>l 上拉就是将不确定的信号通过一个电阻嵌位在高电平！电阻同时起限流作用！下拉同理！ <BR>l 
+      上拉是对器件注入电流，下拉是输出电流 <BR>l 弱强只是上拉电阻的阻值不同，没有什么严格区分 <BR>l 
+      对于非集电极（或漏极）开路输出型电路（如普通门电路）提升电流和电压的能力是有限的，上拉电阻的功能主要是为集电极开路输出型电路输出电流通道。 </P>
+      <P>3、为什么要使用拉电阻： <BR>l 
+      一般作单键触发使用时，如果IC本身没有内接电阻，为了使单键维持在不被触发的状态或是触发后回到原状态，必须在IC外部另接一电阻。 <BR>l 
+      数字电路有三种状态：高电平、低电平、和高阻状态，有些应用场合不希望出现高阻状态，可以通过上拉电阻或下拉电阻的方式使处于稳定状态，具体视设计要求而定！ 
+      <BR>l 
+      一般说的是I/O端口，有的可以设置，有的不可以设置，有的是内置，有的是需要外接，I/O端口的输出类似与一个三极管的C，当C接通过一个电阻和电源连接在一起的时候，该电阻成为上C拉电阻，也就是说，如果该端口正常时为高电平，C通过一个电阻和地连接在一起的时候，该电阻称为下拉电阻，使该端口平时为低电平，作用吗： 
+      <BR>比如：当一个接有上拉电阻的端口设为输如状态时，他的常态就为高电平，用于检测低电平的输入。 <BR>l 
+      上拉电阻是用来解决总线驱动能力不足时提供电流的。一般说法是拉电流，下拉电阻是用来吸收电流的，也就是你同学说的灌电流</P>
+      <P>---------------------------------------------------------------------------------<BR>有可商讨的地方。<BR>1 
+      、长线传输中电阻不匹配容易引起反射波干扰，加上下拉电阻是电阻匹配，有效的抑制反射波干扰。<BR>&nbsp; 
+      电阻串联才是实现阻抗匹配的好方法。通常线阻的数量级都在几十ohm，如果加上下拉的话，功耗太大。</P>
+      <P>电阻串联和拉电阻都是阻抗匹配的方法，只是使用范围不同，依电路工作频率而定</P>
+      <P>21、当TTL电路驱动COMS电路时，如果TTL电路输出的高电平低于COMS电路的最低高电平（一般为3.5V），这时就需要在TTL的输出端接上拉电阻，以提高输出高电平的值。<BR>不建议采用这种方法。缺点有2。1 
+      TTL输出地电平时，功耗大。2TTL 输出高电平时，上拉电源可能会有电流灌到TTL电路的电源，影响系统稳定性。<BR>3 
+      3、对于高速电路，过大的上拉电阻可能边沿变平缓。<BR>应该不会。做输入时，上拉电阻又不吸收电流。做输出时，驱动电流为 
+      电路输出电流+上拉通道输出电流。 电阻的容性特征很小，可忽略。<BR>4&nbsp; 2． 
+      下级电路的驱动需求。同样以上拉电阻为例，当输出高电平时，开关管断开，上拉电阻应适当选择以能够向下级电路提供足够的电流。<BR>当输出高电平时，开关管怎么回关断呢? 
+      CMOS电路的输出级基本上是推拉时。输出地电平时，下面的MOSFET关断，上面的导通。高电平时反过来。该条只适合OC电路。&nbsp; 
+  </P></TD></TR></TBODY></TABLE>
+<DIV class=postDesc>posted @ 2006-10-26 16:07:00 cyz_arm <A 
+href="http://blog.21ic.com/user1/3219/archives/2006/31210.html#">阅读全文<SPAN 
+id=ob_logreaded></SPAN></A> | <A 
+href="http://blog.21ic.com/user1/3219/archives/2006/31210.html#cmt">回复(0)</A> 
+<SPAN id=ob_logm31210></SPAN>| <A 
+href="http://blog.21ic.com/showtb.asp?id=31210" target=_blank>引用通告<SPAN 
+id=ob_tbnum></SPAN></A> | <A 
+href="http://blog.21ic.com/user_post.asp?logid=31210" 
+target=_blank>编辑</A></DIV></DIV>
+<DIV id=morelog>
+<UL>
+  <LI>上一篇：<A 
+  href="http://blog.21ic.com/user1/3219/archives/2006/31203.html">贴片电容的小知识</A> 
+  <LI>下一篇：<A 
+  href="http://blog.21ic.com/user1/3219/archives/2006/31261.html">华为新员工转正笔试题(附答案)</A> 
+  </LI></UL></DIV>
+<DIV id=form_comment>
+<DIV id=gg_usercomment></DIV><A name=cmt></A>
+<DIV class=title>发表评论：</DIV>
+<FORM id=commentform name=commentform onsubmit="return Verifycomment()" 
+action=/savecomment.asp?logid=31210 method=post>
+<DIV class=d1><LABEL>昵称：<INPUT id=UserName maxLength=20 
+name=UserName></LABEL></DIV>
+<DIV class=d2><LABEL>密码：<INPUT id=Password type=password maxLength=20 
+name=Password> (游客无须输入密码)</LABEL></DIV>
+<DIV class=d3><LABEL>主页：<INPUT id=homepage maxLength=50 size=42 value=http:// 
+name=homepage></LABEL></DIV>
+<DIV class=d4><LABEL>标题：<INPUT id=commenttopic maxLength=50 size=42 
+value=Re:上拉电阻下拉电阻的总结（ZT） name=commenttopic></LABEL></DIV>
+<DIV class=d5><INPUT id=edit type=hidden name=edit> 
+<DIV id=oblog_edit>载入中...</DIV></DIV>
+<DIV class=d6><SPAN id=ob_code></SPAN><INPUT onclick='oblog_edittext.createTextRange().execCommand("Copy");' type=submit value=&nbsp;提&nbsp;交&nbsp;></DIV></FORM></DIV></DIV>
+<DIV align=left>
+<DIV class=footer style="WIDTH: 522px; HEIGHT: 70px">Copyright &copy;2006 <FONT 
+face=楷体_GB2312 color=#000000>陈勇志</FONT></DIV></DIV><SPAN id=gg_userbot></SPAN>
+<SCRIPT src="上拉电阻下拉电阻的总结（ZT）--ARM007的笔记.files/200610.htm"></SCRIPT>
+
+<SCRIPT src="上拉电阻下拉电阻的总结（ZT）--ARM007的笔记.files/count.asp"></SCRIPT>
+
+<SCRIPT src="上拉电阻下拉电阻的总结（ZT）--ARM007的笔记.files/commentedit.asp"></SCRIPT>
+
+<SCRIPT src="E:\电容知识\上拉电阻下拉电阻的总结（ZT）--ARM007的笔记.files\count(1).asp"></SCRIPT>
+
+<SCRIPT src="上拉电阻下拉电阻的总结（ZT）--ARM007的笔记.files/login.asp"></SCRIPT>
+
+<SCRIPT src="上拉电阻下拉电阻的总结（ZT）--ARM007的笔记.files/ShowXml.asp"></SCRIPT>
+
+<SCRIPT src="E:\电容知识\上拉电阻下拉电阻的总结（ZT）--ARM007的笔记.files\count(2).asp"></SCRIPT>
+</BODY></HTML>

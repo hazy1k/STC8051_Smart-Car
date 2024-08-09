@@ -1,0 +1,123 @@
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+FORM {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+P {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+DL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+DD {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+DT {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+BODY {
+	FONT-SIZE: 12px; FONT-FAMILY: Arial, Helvetica, sans-serif, "宋体"
+}
+TD {
+	FONT-SIZE: 12px; FONT-FAMILY: Arial, Helvetica, sans-serif, "宋体"
+}
+INPUT {
+	FONT-SIZE: 12px; FONT-FAMILY: Arial, Helvetica, sans-serif, "宋体"
+}
+SELECT {
+	FONT-SIZE: 12px; FONT-FAMILY: Arial, Helvetica, sans-serif, "宋体"
+}
+TEXTAREA {
+	FONT-SIZE: 12px; FONT-FAMILY: Arial, Helvetica, sans-serif, "宋体"
+}
+BUTTON {
+	FONT-SIZE: 12px; FONT-FAMILY: Arial, Helvetica, sans-serif, "宋体"
+}
+A {
+	COLOR: #333; TEXT-DECORATION: none
+}
+#toolbar {
+	BACKGROUND: url(../images/base/toolbar_bg.gif) #f3f5fc repeat-x left top; OVERFLOW: hidden; BORDER-BOTTOM: #a3a2b3 1px solid; HEIGHT: 29px
+}
+#toolbar UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 4px; LIST-STYLE-TYPE: none
+}
+#toolbar LI {
+	PADDING-RIGHT: 1px; DISPLAY: block; PADDING-LEFT: 3px; BACKGROUND: url(../images/base/toolbar_line.gif) no-repeat left 50%; FLOAT: left; PADDING-BOTTOM: 0px; LINE-HEIGHT: 24px; PADDING-TOP: 0px
+}
+#toolbar A {
+	PADDING-RIGHT: 2px; DISPLAY: block; PADDING-LEFT: 23px; FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 1px; OVERFLOW: hidden; LINE-HEIGHT: 22px; PADDING-TOP: 0px; HEIGHT: 20px
+}
+#toolbar .right {
+	FLOAT: right; WIDTH: 300px
+}
+#toolbar .right LI {
+	FLOAT: right; MARGIN-LEFT: 4px
+}
+#toolbar A:hover {
+	BORDER-RIGHT: #808080 1px solid; BORDER-TOP: #fff 1px solid; MARGIN: 0px 1px 0px 0px; BORDER-LEFT: #fff 1px solid; BORDER-BOTTOM: #808080 1px solid; TEXT-DECORATION: none
+}
+#toolbar INPUT {
+	BORDER-RIGHT: #f5f5f5 1px solid; BORDER-TOP: #333 1px solid; VERTICAL-ALIGN: middle; BORDER-LEFT: #333 1px solid; BORDER-BOTTOM: #f5f5f5 1px solid
+}
+#toolbar BUTTON.login {
+	PADDING-LEFT: 17px; BACKGROUND: url(../images/base/toolbar_icon_login.gif) no-repeat 3px 2px; MARGIN: 1px; VERTICAL-ALIGN: middle; CURSOR: pointer; BORDER-TOP-STYLE: none; LINE-HEIGHT: 22px; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; HEIGHT: 22px; BORDER-BOTTOM-STYLE: none
+}
+#toolbar A.register {
+	BACKGROUND: url(../images/base/toolbar_icon_reg.gif) no-repeat 3px 1px
+}
+#toolbar A.video {
+	BACKGROUND: url(../images/base/toolbar_icon_reg.gif) no-repeat 3px 1px
+}
+#toolbar A.blog {
+	BACKGROUND: url(../images/base/toolbar_icon_post.gif) no-repeat 3px 2px
+}
+#toolbar A.logout {
+	BACKGROUND: url(../images/base/toolbar_icon_logout.gif) no-repeat 3px 2px
+}
+#toolbar A.image {
+	BACKGROUND: url(../images/base/toolbar_icon_postimg.gif) no-repeat 3px 2px
+}
+#toolbar A.manage {
+	BACKGROUND: url(../images/base/toolbar_icon_mngspace.gif) no-repeat 3px 1px
+}
+#toolbar A.pm {
+	BACKGROUND: url(../images/base/toolbar_icon_pm.gif) no-repeat 3px 2px
+}
+#toolbar A.help {
+	BACKGROUND: url(../images/base/toolbar_icon_help.gif) no-repeat 3px 2px
+}
+#toolbar A.myspace {
+	BACKGROUND: url(../images/base/toolbar_icon_myspace.gif) no-repeat 3px 2px
+}
+#toolbar A.getpass {
+	BACKGROUND: url(../images/base/toolbar_icon_getpass.gif) no-repeat 3px 2px
+}
+#toolbar A.file {
+	BACKGROUND: url(../images/base/toolbar_icon_download.gif) no-repeat 3px 2px
+}
+#toolbar A.link {
+	BACKGROUND: url(../images/base/toolbar_icon_bookmark.gif) no-repeat 3px 2px
+}
+#toolbar A.goods {
+	BACKGROUND: url(../images/base/toolbar_icon_goods.gif) no-repeat 3px 2px
+}
+#toolbar A.showmnglink {
+	BACKGROUND: url(../images/base/toolbar_icon_hidemnglink.gif) no-repeat 3px 2px
+}
+#toolbar A.random {
+	BACKGROUND: url(../images/base/toolbar_icon_random.gif) no-repeat 3px 2px
+}
+#toolbar A.close {
+	PADDING-LEFT: 2px; BACKGROUND: url(../images/base/btn_close.gif) no-repeat 3px 2px; WIDTH: 20px; TEXT-INDENT: -9999px
+}
+#toolbar LI.noborder {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}

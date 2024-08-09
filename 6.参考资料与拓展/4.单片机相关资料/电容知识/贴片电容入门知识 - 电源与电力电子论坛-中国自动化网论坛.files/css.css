@@ -1,0 +1,126 @@
+BODY {
+	FONT-SIZE: 12px; MARGIN: 0px; LINE-HEIGHT: 18px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #333; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #333; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #d50501; TEXT-DECORATION: underline
+}
+active {
+	COLOR: #d50501; TEXT-DECORATION: underline
+}
+.reg A:link {
+	COLOR: #bd0600
+}
+.reg A:visited {
+	COLOR: #bd0600
+}
+.reg A:hover {
+	COLOR: #bd0600
+}
+.reg A:active {
+	COLOR: #bd0600
+}
+.reg1 A:link {
+	WIDTH: 40px; COLOR: #bd0600; HEIGHT: 15px
+}
+.reg1 A:visited {
+	COLOR: #bd0600
+}
+.reg1 A:hover {
+	COLOR: #ffffff; BACKGROUND-COLOR: #bd0600; TEXT-DECORATION: none
+}
+.reg1 A:active {
+	COLOR: #ffffff; BACKGROUND-COLOR: #bd0600; TEXT-DECORATION: none
+}
+.lan A:link {
+	COLOR: #003366
+}
+.lan A:visited {
+	COLOR: #003366
+}
+.lan A:hover {
+	COLOR: #003366
+}
+.lan A:active {
+	COLOR: #003366
+}
+.t3 A:link {
+	COLOR: #222
+}
+.t3 A:visited {
+	COLOR: #222
+}
+.t3 A:hover {
+	COLOR: #bd0600; TEXT-DECORATION: underline
+}
+.t3 A:active {
+	COLOR: #bd0600; TEXT-DECORATION: underline
+}
+.s14 {
+	FONT-SIZE: 14px
+}
+.px16 {
+	LINE-HEIGHT: 16px
+}
+.sub {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 24px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px
+}
+.fb {
+	FONT-WEIGHT: bold
+}
+.fj {
+	LETTER-SPACING: 1px
+}
+.le8 {
+	PADDING-LEFT: 8px
+}
+.px10 {
+	FONT: 11px/16px Arial, Helvetica, sans-serif
+}
+.hui {
+	COLOR: #444444
+}
+.red {
+	COLOR: #bd0600
+}
+.blue {
+	COLOR: #008abf
+}
+.wblue {
+	COLOR: #003366
+}
+.hong {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ff0000
+}
+.lv {
+	COLOR: #006633
+}
+.emenu {
+	PADDING-LEFT: 20px; BACKGROUND-IMAGE: url(img/a.gif); CURSOR: hand; BACKGROUND-REPEAT: no-repeat
+}
+.file {
+	PADDING-LEFT: 10px; BACKGROUND-IMAGE: url(img/c.gif); CURSOR: hand; COLOR: #003366; LINE-HEIGHT: 180%; BACKGROUND-REPEAT: no-repeat
+}
+.tab {
+	BORDER-RIGHT: #5a94ce 1px solid; BORDER-LEFT: #5a94ce 1px solid; BORDER-BOTTOM: #5a94ce 1px solid
+}
+.ad {
+	MARGIN-BOTTOM: 5px
+}
+.padleft8 {
+	PADDING-LEFT: 12px
+}
+.in {
+	BORDER-RIGHT: #020202 1px solid; BORDER-TOP: #020202 1px solid; BORDER-LEFT: #020202 1px solid; BORDER-BOTTOM: #020202 1px solid; HEIGHT: 16px
+}
+.textfield {
+	BORDER-RIGHT: #020202 1px solid; BORDER-TOP: #020202 1px solid; BORDER-LEFT: #020202 1px solid; BORDER-BOTTOM: #020202 1px solid
+}
+.xiugai {
+	PADDING-BOTTOM: 5px; FONT: 12px/16px "ËÎÌו"; COLOR: #666; TEXT-ALIGN: right
+}

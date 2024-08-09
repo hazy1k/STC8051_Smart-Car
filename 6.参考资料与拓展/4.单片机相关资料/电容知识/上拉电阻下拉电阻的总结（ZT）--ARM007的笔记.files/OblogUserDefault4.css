@@ -1,0 +1,240 @@
+BODY {
+	MARGIN: 0px; WORD-BREAK: break-all
+}
+TABLE {
+	FONT-SIZE: 12px
+}
+INPUT {
+	FONT-SIZE: 12px
+}
+IMG {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+H1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; MARGIN: auto auto auto 0px; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: left
+}
+H2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; MARGIN-LEFT: 20px! important; WIDTH: 100%; TEXT-ALIGN: left
+}
+.ob_face {
+	BORDER-RIGHT: #666 1px solid; BORDER-TOP: #666 1px solid; FLOAT: left; MARGIN: 0px 10px 5px 5px; BORDER-LEFT: #666 1px solid; BORDER-BOTTOM: #666 1px solid
+}
+#saveurl {
+	CLEAR: both
+}
+#form_comment {
+	
+}
+#form_comment .title {
+	FONT-WEIGHT: 600; MARGIN: 0px 0px 10px
+}
+#form_comment .d1 {
+	MARGIN: 0px 0px 5px; TEXT-ALIGN: left
+}
+#form_comment .d2 {
+	MARGIN: 0px 0px 5px; TEXT-ALIGN: left
+}
+#form_comment .d3 {
+	MARGIN: 0px 0px 5px; TEXT-ALIGN: left
+}
+#form_comment .d4 {
+	MARGIN: 0px 0px 5px; TEXT-ALIGN: left
+}
+#form_comment .d5 {
+	MARGIN: 0px 0px 5px; TEXT-ALIGN: left
+}
+#form_comment .d6 {
+	MARGIN: 0px 0px 5px; TEXT-ALIGN: left
+}
+#subject UL {
+	MARGIN: 0px; LIST-STYLE-TYPE: none
+}
+#subject_l UL {
+	MARGIN: 0px
+}
+#subject_l LI {
+	DISPLAY: inline; MARGIN: auto 5px; LIST-STYLE-TYPE: none
+}
+#newblog UL {
+	MARGIN: 0px; LIST-STYLE-TYPE: none
+}
+#comment UL {
+	MARGIN: 0px; LIST-STYLE-TYPE: none
+}
+#newmessage UL {
+	MARGIN: 0px; LIST-STYLE-TYPE: none
+}
+#ob_miniphoto {
+	TEXT-ALIGN: center
+}
+#myfriend {
+	TEXT-ALIGN: center
+}
+#myfriend LI {
+	BORDER-RIGHT: #eee 1px solid; BORDER-TOP: #eee 3px solid; BACKGROUND: #f4f4f4; FLOAT: left; MARGIN: 0px 10px 5px 0px; OVERFLOW: hidden; BORDER-LEFT: #eee 1px solid; WIDTH: 64px; BORDER-BOTTOM: #eee 1px solid; HEIGHT: 82px; TEXT-ALIGN: center
+}
+#myfriend LI IMG.ob_face {
+	BORDER-RIGHT: #fff 1px solid; BORDER-TOP: #fff 1px solid; MARGIN: 6px; BORDER-LEFT: #fff 1px solid; WIDTH: 48px; BORDER-BOTTOM: #fff 1px solid; HEIGHT: 48px
+}
+#mygroups {
+	TEXT-ALIGN: center
+}
+#mygroups LI {
+	BORDER-RIGHT: #eee 1px solid; BORDER-TOP: #eee 2px solid; BACKGROUND: #f4f4f4; FLOAT: left; MARGIN: 0px 10px 5px 0px; OVERFLOW: hidden; BORDER-LEFT: #eee 1px solid; WIDTH: 97px; BORDER-BOTTOM: #eee 2px solid; HEIGHT: 96px; TEXT-ALIGN: center
+}
+#mygroups LI IMG.group_logo {
+	BORDER-RIGHT: #999 1px solid; BORDER-TOP: #999 1px solid; MARGIN: 6px; BORDER-LEFT: #999 1px solid; WIDTH: 80px; BORDER-BOTTOM: #999 1px solid; HEIGHT: 60px
+}
+#subject_index UL {
+	FONT-WEIGHT: bold; MARGIN: 10px; WIDTH: 90%; LIST-STYLE-TYPE: none; TEXT-ALIGN: left
+}
+#subject_index LI {
+	MARGIN: 0px
+}
+#subject_index H1 {
+	BORDER-BOTTOM: #ccc 1px solid
+}
+#subject_index SPAN {
+	FONT-STYLE: italic
+}
+#info UL {
+	CLEAR: both; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+#info UL LI {
+	FLOAT: left; WIDTH: 50%
+}
+DIV#ArchivesShowList {
+	CLEAR: both; MARGIN: 0px 0px 20px; HEIGHT: 1%
+}
+DIV#ArchivesShowList #ArchivesShowListTable {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; WIDTH: 100%; BORDER-BOTTOM: 0px; BORDER-COLLAPSE: collapse
+}
+DIV#ArchivesShowList UL.ShowList_UL {
+	BORDER-RIGHT: #eee 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #eee 1px solid; PADDING-LEFT: 2px; BACKGROUND: url(images/cierre_pie.gif) #f4f4f4 no-repeat left top; FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 6px 5px; OVERFLOW: hidden; BORDER-LEFT: #eee 1px solid; WIDTH: 64px; PADDING-TOP: 6px; BORDER-BOTTOM: #eee 1px solid; HEIGHT: 90px; TEXT-ALIGN: center
+}
+DIV#ArchivesShowList UL.ShowList_UL LI.ShowList_UserIco A IMG {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none; ; HEIGHT: expression(this.height > 48 ? 48: true); expression: true)
+}
+DIV#ArchivesShowList UL.ShowList_UL LI.ShowList_UserName {
+	OVERFLOW: hidden; WIDTH: 62px; WHITE-SPACE: nowrap; TEXT-OVERFLOW: ellipsis; TEXT-ALIGN: center
+}
+#oblog_edit {
+	MARGIN: 0px; WIDTH: 360px; TEXT-ALIGN: left
+}
+#oblog_edit DIV.quote {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 5px; BACKGROUND: #f3f3f3; PADDING-BOTTOM: 5px; MARGIN: 5px 20px; BORDER-LEFT: #ccc 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #ccc 1px solid
+}
+#morelog LI {
+	LIST-STYLE-TYPE: none; TEXT-ALIGN: left
+}
+DIV.quote {
+	CLEAR: both; BORDER-RIGHT: #cccccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #cccccc 1px solid; PADDING-LEFT: 5px; BACKGROUND: #fffff3; PADDING-BOTTOM: 5px; MARGIN: 5px 20px; BORDER-LEFT: #cccccc 1px solid; COLOR: #000; PADDING-TOP: 5px; BORDER-BOTTOM: #cccccc 1px solid
+}
+#ob_usertags LI {
+	PADDING-RIGHT: 8px; DISPLAY: inline; PADDING-LEFT: 8px; PADDING-BOTTOM: 8px; WIDTH: 100px; PADDING-TOP: 8px; LIST-STYLE-TYPE: none
+}
+#showpage {
+	TEXT-ALIGN: center
+}
+#blogaddon LI {
+	FONT-WEIGHT: 600; LIST-STYLE-TYPE: none
+}
+#blogaddon LI A {
+	FONT-WEIGHT: 400; TEXT-DECORATION: underline
+}
+#blogaddon LI A:hover {
+	TEXT-DECORATION: none
+}
+DIV#ob_userinfo {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: none transparent scroll repeat 0% 0%; PADDING-BOTTOM: 0px; PADDING-TOP: 13px
+}
+DIV#ob_userinfo UL.top {
+	CLEAR: both; BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; BACKGROUND: none transparent scroll repeat 0% 0%; PADDING-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px
+}
+DIV#ob_userinfo UL.top LI {
+	BACKGROUND: #f4f4f4; FLOAT: left; MARGIN: 0px 3px -1px 0px
+}
+DIV#ob_userinfo UL.top LI A {
+	PADDING-RIGHT: 5px; DISPLAY: block; PADDING-LEFT: 5px; FONT-WEIGHT: 600! important; PADDING-BOTTOM: 3px; WIDTH: 80px; COLOR: #777! important; PADDING-TOP: 3px; LETTER-SPACING: 1px; HEIGHT: 10px; TEXT-ALIGN: center
+}
+DIV#ob_userinfo UL.top LI A:hover {
+	BACKGROUND: #ecf3fc
+}
+DIV#ob_userinfo UL.top LI.nowselect {
+	BORDER-RIGHT: 1px outset; BORDER-TOP: 1px outset; Z-INDEX: 999; BACKGROUND: #fff; BORDER-LEFT: 1px outset; BORDER-BOTTOM: 0px; POSITION: relative
+}
+DIV#ob_userinfo UL.top LI.nowselect A {
+	FONT-WEIGHT: 600; COLOR: #333! important
+}
+DIV#ob_userinfo UL.top LI.nowselect A:hover {
+	BACKGROUND: #fff
+}
+DIV#ob_userinfo UL {
+	CLEAR: both; BORDER-RIGHT: #e0dfe3 1px solid; PADDING-RIGHT: 8px; BORDER-TOP: #e0dfe3 1px solid; PADDING-LEFT: 8px; BACKGROUND: #fff; PADDING-BOTTOM: 8px; MARGIN: 0px; BORDER-LEFT: #e0dfe3 1px solid; PADDING-TOP: 8px; BORDER-BOTTOM: #e0dfe3 1px solid
+}
+DIV#ob_userinfo UL LI {
+	LIST-STYLE-POSITION: outside; LIST-STYLE-TYPE: none
+}
+DIV#ob_userinfo UL.ob_user_info IMG.ob_face_info {
+	BORDER-RIGHT: #999 1px solid; BORDER-TOP: #999 1px solid; FLOAT: left; MARGIN: 8px 18px 500px 8px; BORDER-LEFT: #999 1px solid; WIDTH: 48px; BORDER-BOTTOM: #999 1px solid; HEIGHT: 48px
+}
+DIV#ob_userinfo UL.ob_user_info LI {
+	LIST-STYLE-POSITION: outside; COLOR: #333; LINE-HEIGHT: 1.8; LIST-STYLE-TYPE: none
+}
+DIV#ob_userinfo UL.ob_user_friend {
+	Z-INDEX: 10; POSITION: relative; HEIGHT: 100%
+}
+DIV#ob_userinfo UL.ob_user_friend LI {
+	BORDER-RIGHT: #eee 1px solid; PADDING-RIGHT: 4px; BORDER-TOP: #eee 1px solid; PADDING-LEFT: 4px; BACKGROUND: #f4f4f4; FLOAT: left; PADDING-BOTTOM: 4px; MARGIN: 0px 15px 10px 0px; BORDER-LEFT: #eee 1px solid; WIDTH: 60px; PADDING-TOP: 4px; BORDER-BOTTOM: #eee 1px solid; HEIGHT: 70px; TEXT-ALIGN: center
+}
+DIV#ob_userinfo UL.ob_user_friend LI A {
+	COLOR: #333! important
+}
+DIV#ob_userinfo UL.ob_user_friend LI A:hover {
+	COLOR: #666! important; TEXT-DECORATION: underline
+}
+DIV#ob_userinfo UL.ob_user_friend LI IMG {
+	BORDER-RIGHT: #fff 1px solid; BORDER-TOP: #fff 1px solid; BORDER-LEFT: #fff 1px solid; WIDTH: 48px; BORDER-BOTTOM: #fff 1px solid; HEIGHT: 48px
+}
+DIV#ob_userinfo UL.ob_user_group {
+	Z-INDEX: 10; POSITION: relative; HEIGHT: 100%
+}
+DIV#ob_userinfo UL.ob_user_group LI {
+	BORDER-RIGHT: #eee 1px solid; PADDING-RIGHT: 4px; BORDER-TOP: #eee 1px solid; PADDING-LEFT: 4px; BACKGROUND: #f4f4f4; FLOAT: left; PADDING-BOTTOM: 4px; MARGIN: 0px 15px 10px 0px; BORDER-LEFT: #eee 1px solid; WIDTH: 130px; PADDING-TOP: 4px; BORDER-BOTTOM: #eee 1px solid; HEIGHT: 110px; TEXT-ALIGN: center
+}
+DIV#ob_userinfo UL.ob_user_group LI A {
+	COLOR: #333! important
+}
+DIV#ob_userinfo UL.ob_user_group LI A:hover {
+	COLOR: #666! important; TEXT-DECORATION: underline
+}
+DIV#ob_userinfo UL.ob_user_group LI IMG {
+	BORDER-RIGHT: #fff 1px solid; BORDER-TOP: #fff 1px solid; BORDER-LEFT: #fff 1px solid; WIDTH: 120px; BORDER-BOTTOM: #fff 1px solid; HEIGHT: 90px
+}
+#oblog_usercontent DIV.photo_album {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: url(../Images/photo_album.gif) no-repeat left top; PADDING-BOTTOM: 0px; MARGIN: 8px 0px; WIDTH: 130px; PADDING-TOP: 10px; HEIGHT: 160px
+}
+#oblog_usercontent DIV.photo_ico TABLE {
+	HEIGHT: 100px
+}
+#oblog_usercontent DIV.photo_ico A IMG {
+	VERTICAL-ALIGN: middle; ; WIDTH: expression(this.width >100 && this.height < this.width ? 100: true); ; HEIGHT: expression(this.height > 100 ? 100: true); max-width: 100px; max-height: 100px
+}
+#oblog_usercontent DIV.photo_album_name {
+	OVERFLOW: hidden; WIDTH: 100px; WHITE-SPACE: nowrap; TEXT-OVERFLOW: ellipsis
+}
+#oblog_usercontent DIV.photo_album_list {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 8px 0px; WIDTH: 130px; PADDING-TOP: 10px; HEIGHT: 160px
+}
+#oblog_usercontent DIV.photo_album_list DIV.photo_ico {
+	BORDER-RIGHT: #eee 1px solid; BORDER-TOP: #eee 1px solid; BACKGROUND: #f4f4f4; MARGIN: 0px 0px 10px; BORDER-LEFT: #eee 1px solid; BORDER-BOTTOM: #eee 1px solid; HEIGHT: 120px
+}
+#oblog_usercontent DIV.photo_album_list DIV.photo_ico TABLE {
+	HEIGHT: 120px
+}
+#oblog_usercontent DIV.photo_name {
+	OVERFLOW: hidden; WIDTH: 130px; WHITE-SPACE: nowrap; TEXT-OVERFLOW: ellipsis
+}
+#powered {
+	CLEAR: both; MARGIN: 0px auto; WIDTH: 100%; HEIGHT: 15px; TEXT-ALIGN: center
+}

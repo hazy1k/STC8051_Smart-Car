@@ -1,0 +1,608 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0047)http://bbs.ca800.com/detail.asp?page=1&id=25234 -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>贴片电容入门知识 - 电源与电力电子论坛-中国自动化网论坛</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312"><LINK 
+href="贴片电容入门知识 - 电源与电力电子论坛-中国自动化网论坛.files/css.css" type=text/css rel=stylesheet>
+<SCRIPT type=text/javascript>
+function subwin(loadpos,target,width,height)
+{
+	var newWindow=null
+	if(!newWindow||newWindow.closed)
+		newWindow=window.open(loadpos,"sendmessage","resizable,scrollbars,dependent,width=500,height=400");
+	else
+		newWindow.focus();
+}
+function checkcode()
+   {
+       var code=document.all["vcode"].value;
+	   var xhr=null;
+	   var inflage;		
+if(window.ActiveXObject){
+    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+}else if(window.ActiveXObject){
+    xhr = new ActiveXObject("Msxml2.XMLHTTP.4.0");
+}else if(window.ActiveXObject){
+    xhr = new ActiveXObject("Msxml2.XMLHTTP");
+}else if(window.XMLHttpRequest){
+   xhr = new XMLHttpRequest();
+}	else
+		{
+		alert("创建XMLHTTP对象失败");
+                            xhr=null;
+		}
+	   xhr.open("get","checkcode.asp?code="+code,true);
+	   xhr.onreadystatechange=function()
+	   {
+		  if(xhr.readystate==4)
+		  {
+			 if(xhr.status==200)
+			 {
+				var backstr=xhr.responseText;
+			
+				backstr=unescape(backstr);
+				if(backstr=="" || backstr=="验证码填写有误")
+				{
+						document.getElementById("codeflag").innerHTML=backstr;
+					  document.getElementById("codeflag").style.color="red";
+					  document.all.vcode.value="";
+					  document.all.vcode.focus();
+				}
+				else if(backstr=="验证码填写正确")
+				{
+					 document.getElementById("codeflag").innerHTML=backstr;
+					isCheck=true;
+				}
+				else
+				{
+				    document.getElementById("codeflag").innerHTML=backstr;
+					document.getElementById("codeflag").style.color="red";
+				}
+			 }
+		  }
+	   }
+xhr.send(null);
+   }
+</SCRIPT>
+
+<META content="MSHTML 6.00.2800.1226" name=GENERATOR></HEAD>
+<BODY>
+<STYLE type=text/css>.area {
+	FONT-SIZE: 12px; MARGIN: 0px auto; WIDTH: 980px
+}
+.px12 {
+	FONT-SIZE: 12px
+}
+.hangye A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.hangye A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.hangye A:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.hangye A:active {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.colf {
+	COLOR: #ffffff
+}
+A.colf:link {
+	COLOR: #ffffff
+}
+A.colf:visited {
+	COLOR: #ffffff
+}
+.col5 {
+	COLOR: #555555
+}
+A.col5:link {
+	COLOR: #555555
+}
+A.col5:visited {
+	COLOR: #555555
+}
+.colred {
+	COLOR: #ff0000
+}
+A.colred:link {
+	COLOR: #ff0000
+}
+A.colred:visited {
+	COLOR: #ff0000
+}
+#nav {
+	BACKGROUND: url(http://www.ca800.com/inc/full_top/img/head_blue.gif); FLOAT: right; WIDTH: 805px; HEIGHT: 23px
+}
+#nav UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+#nav LI {
+	FLOAT: left; LINE-HEIGHT: 23px; MARGIN-RIGHT: 16px; HEIGHT: 22px
+}
+#logo {
+	FLOAT: left; WIDTH: 140px
+}
+#menu {
+	FLOAT: right; WIDTH: 840px; PADDING-TOP: 10px
+}
+#menu UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+#menu LI {
+	FLOAT: left; MARGIN-RIGHT: 14px; HEIGHT: 20px
+}
+#menu2 {
+	BACKGROUND: #eff2f7; FLOAT: left; WIDTH: 900px; LINE-HEIGHT: 22px; HEIGHT: 22px
+}
+#menu2 UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+#menu2 LI {
+	FLOAT: left; MARGIN-RIGHT: 16px; HEIGHT: 22px
+}
+.reg {
+	BACKGROUND: #eff2f7; FLOAT: right; WIDTH: 80px; LINE-HEIGHT: 22px; HEIGHT: 22px
+}
+</STYLE>
+
+<TABLE style="FONT-SIZE: 12px; BORDER-BOTTOM: #343434 1px solid" cellSpacing=0 
+cellPadding=0 width=980 align=center bgColor=#ffffff border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width=150 rowSpan=2>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD align=middle height=17><IMG height=50 
+            src="贴片电容入门知识 - 电源与电力电子论坛-中国自动化网论坛.files/ca800logo_new.gif" 
+            width=140></TD></TR>
+        <TR>
+          <TD class=px12 align=middle height=26><A 
+            href="http://www.ca800.com/">中文版</A>　|　<A 
+            href="http://www.chinaautomation.net/">English</A> 
+      </TD></TR></TBODY></TABLE></TD>
+    <TD 
+    style="PADDING-RIGHT: 0px; PADDING-LEFT: 5px; PADDING-BOTTOM: 0px; LINE-HEIGHT: 23px; PADDING-TOP: 0px" 
+    background="贴片电容入门知识 - 电源与电力电子论坛-中国自动化网论坛.files/head_blue.gif" colSpan=2 
+    height=23><A class=colf href="http://www.ca800.com/">首页</A>　 <A class=colf 
+      href="http://www.ca800.com/company/">企业</A>　 <A class=colf 
+      href="http://www.ca800.com/product/">产品</A>　 <A class=colf 
+      href="http://www.ca800.com/supply/">供求</A>　 <A class=colf 
+      href="http://www.ca800.com/apply/">文库</A>　 <A class=colf 
+      href="http://www.ca800.com/download/">下载</A>　 <A class=colf 
+      href="http://www.ca800.com/news/">新闻</A>　 <A class=colf 
+      href="http://www.ca800.com/news/renwu.asp?category=11&amp;categoryname=专访">专访</A>　 
+      <A class=colf href="http://www.ca800.com/products/association/">组织</A>　 <A 
+      class=colf href="http://www.ca800.com/survey/">调查</A>　 <A class=colf 
+      href="http://www.ca800.com/leader/">管理</A>　 <A class=colf 
+      href="http://www.ca800.com/hr/">人才</A>　 <A class=colf 
+      href="http://www.ca800.com/book/">图书</A>　 <A class=colf 
+      href="http://www.ca800.com/expo/">会展</A>　 <A class=colf 
+      href="http://jifen.ca800.com/">积分</A>　 <A class=colf 
+      href="http://tv.ca800.com/">视频</A>　 <A class=colf 
+      href="http://www.ca800.com/zhengji" target=_blank>征文</A>　 <A class=colf 
+      href="http://bbs.ca800.com/" target=_blank>论坛</A>　 <A class=colf 
+      href="http://s.ca800.com/">CA800搜索</A> </TD></TR>
+  <TR>
+    <TD vAlign=top width=490>
+      <TABLE class=px12 style="MARGIN-TOP: 4px" cellSpacing=0 cellPadding=0 
+      width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="17%" height=17><A class=colred 
+            href="http://www.ca800.com/products/inv/">变 频 器</A></TD>
+          <TD width="15%"><A class=colred 
+            href="http://www.ca800.com/products/plc/">P L C</A></TD>
+          <TD width="13%"><A class=colred 
+            href="http://www.ca800.com/products/servo/">伺服系统</A></TD>
+          <TD width="13%"><A class=colred 
+            href="http://www.ca800.com/products/safety/">工业安全</A></TD>
+          <TD width="15%"><A class=colred 
+            href="http://www.ca800.com/products/ethernet/">工业以太网</A></TD>
+          <TD width="14%"><A class=colred 
+            href="http://www.ca800.com/products/bus/">现场总线</A></TD>
+          <TD><A class=colred 
+            href="http://www.ca800.com/products/vision/">机器视觉</A></TD></TR>
+        <TR>
+          <TD height=17><A class=colred 
+            href="http://www.ca800.com/products/sensor/">传 感 器</A></TD>
+          <TD><A class=colred 
+            href="http://www.ca800.com/products/ins/">仪器仪表</A></TD>
+          <TD><A class=col5 
+            href="http://www.ca800.com/products/control/">控制系统</A></TD>
+          <TD><A class=col5 
+            href="http://www.ca800.com/products/Component/">控制元件</A></TD>
+          <TD><A class=colred 
+            href="http://www.ca800.com/products/hmi/">人机界面</A></TD>
+          <TD><A class=colred 
+            href="http://www.ca800.com/products/soft/">自动化软件</A></TD>
+          <TD><A class=colred href="http://www.ca800.com/products/ipc/">工 控 
+            机</A></TD></TR>
+        <TR>
+          <TD height=17><A class=colred 
+            href="http://www.ca800.com/products/rtu/">远程测控通信</A></TD>
+          <TD><A class=colred 
+            href="http://www.ca800.com/products/embedded/">嵌入式系统</A></TD>
+          <TD><A class=col5 
+            href="http://www.ca800.com/products/drive/">电机传动</A></TD>
+          <TD><A class=col5 
+            href="http://www.ca800.com/products/power/">电　　源</A></TD>
+          <TD><A class=colred 
+            href="http://www.ca800.com/products/elec/">电力电子</A></TD>
+          <TD><A class=col5 
+            href="http://www.ca800.com/products/electric/">工业电器</A></TD>
+          <TD><A class=col5 
+            href="http://www.ca800.com/products/fluid/">流体控制</A></TD></TR></TBODY></TABLE></TD>
+    <TD vAlign=top width=330 bgColor=#eff2f7>
+      <TABLE class="hangye px12" style="MARGIN-TOP: 4px" cellSpacing=0 
+      cellPadding=0 width="95%" align=right border=0>
+        <TBODY>
+        <TR>
+          <TD width="20%" height=17><A class=colred 
+            href="http://www.ca800.com/trader/Energy/">节　能</A></TD>
+          <TD height=17><A href="http://electricpower.ca800.com/">电力能源</A></TD>
+          <TD><A class=colred href="http://metallurgy.ca800.com/">冶　金</A></TD>
+          <TD><A href="http://petro.ca800.com/">石油化工</A></TD>
+          <TD width="20%"><A href="http://paper.ca800.com/">造纸印刷</A></TD></TR>
+        <TR>
+          <TD height=17><A href="http://textile.ca800.com/">纺织印染</A></TD>
+          <TD><A href="http://water.ca800.com/">水工业</A></TD>
+          <TD><A href="http://smartbld.ca800.com/">智能建筑</A></TD>
+          <TD><A href="http://logistics.ca800.com/">物　流</A></TD>
+          <TD><A href="http://bm.ca800.com/">建　材</A></TD></TR>
+        <TR>
+          <TD height=17><A href="http://mechanism.ca800.com/">机械制造</A></TD>
+          <TD height=17><A href="http://plastic.ca800.com/">塑　胶</A></TD>
+          <TD><A href="http://traffic.ca800.com/">交　通</A></TD>
+          <TD><A href="http://medicine.ca800.com/">医　药</A></TD>
+          <TD><A 
+  href="http://auto.ca800.com/">汽　车</A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE style="MARGIN-TOP: 5px" cellSpacing=1 cellPadding=0 width=980 
+align=center bgColor=#5a94ce border=0>
+  <TBODY>
+  <TR>
+    <TD background="贴片电容入门知识 - 电源与电力电子论坛-中国自动化网论坛.files/right_ti.gif" 
+      height=24><TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=center align=left height=24><B>&nbsp;您当前的位置为：</B><A 
+            href="http://bbs.ca800.com/index.asp">论坛首页</A> &gt;&gt; <A 
+            href="http://bbs.ca800.com/list.asp?boardid=67">电源与电力电子论坛</A> 
+            &gt;&gt; 贴片电容入门知识</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE style="MARGIN: 5px auto" cellSpacing=0 cellPadding=0 width=980 
+align=center border=0>
+  <TBODY>
+  <TR>
+    <TD style="PADDING-TOP: 3px" vAlign=bottom align=left width="12%"><SPAN 
+      class=lan><A href="http://bbs.ca800.com/detail.asp?id=25157">&lt;&lt; 
+      上一主题</A></SPAN>　|　<SPAN class=lan><A 
+      href="http://bbs.ca800.com/detail.asp?id=25238">下一主题 
+&gt;&gt;</A></SPAN></TD>
+    <TD style="PADDING-TOP: 3px" vAlign=bottom align=right width="13%"><A 
+      href="http://bbs.ca800.com/post.asp?boardid=67"><IMG height=23 
+      src="贴片电容入门知识 - 电源与电力电子论坛-中国自动化网论坛.files/newt.gif" width=82 
+      border=0></A>&nbsp;<A 
+      href="http://bbs.ca800.com/reply.asp?boardid=67&amp;id=25234"><IMG 
+      height=23 src="贴片电容入门知识 - 电源与电力电子论坛-中国自动化网论坛.files/repa.gif" width=82 
+      border=0></A></TD></TR></TBODY></TABLE>
+<TABLE 
+style="BORDER-RIGHT: #5a94ce 1px solid; BORDER-TOP: #5a94ce 1px solid; BORDER-LEFT: #5a94ce 1px solid; BORDER-BOTTOM: #5a94ce 1px solid" 
+cellSpacing=1 cellPadding=0 width=980 align=center border=0>
+  <TBODY>
+  <TR>
+    <TD class="s14 lv" style="PADDING-LEFT: 10px" align=left bgColor=#f0f8ff 
+    height=30><STRONG>标题：贴片电容入门知识</STRONG></TD></TR></TBODY></TABLE>
+<TABLE style="WORD-BREAK: break-all" cellSpacing=1 cellPadding=0 width=980 
+align=center bgColor=#5a94ce border=0>
+  <TBODY>
+  <TR>
+    <TD 
+    style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px" 
+    vAlign=top width="18%" bgColor=#f0f8ff>
+      <TABLE cellSpacing=0 cellPadding=0 width="90%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD align=left><A 
+            href="http://bbs.ca800.com/userinfo.asp?username=舞文弄墨"><B>舞文弄墨</B></A><!--名称<span class="red">[楼主]</span>--></TD></TR>
+        <TR>
+          <TD align=left><BR></TD></TR>
+        <TR>
+          <TD class=wblue align=left>积分：12222</TD></TR>
+        <TR>
+          <TD class=wblue align=left>发表：949</TD></TR>
+        <TR>
+        <TR>
+          <TD class=wblue align=left>回复：2622</TD></TR>
+        <TR>
+          <TD class=wblue align=left>等级: 高级工程师</TD></TR>
+        <TR>
+          <TD></TD></TR></TBODY></TABLE></TD>
+    <TD vAlign=top align=left bgColor=#ffffff>
+      <TABLE style="BORDER-BOTTOM: #ccc 1px dotted" cellSpacing=1 cellPadding=0 
+      width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD class="s14 lv" style="PADDING-LEFT: 5px" align=left 
+            height=24>发表时间：2005-12-13 13:39:51</TD>
+          <TD style="PADDING-LEFT: 5px" align=right><SPAN class="fb lan"><A 
+            href="http://bbs.ca800.com/reply.asp?boardid=67&amp;announceid=76804&amp;id=25234&amp;act=quot">引用</A></SPAN>&nbsp;|&nbsp;<SPAN 
+            class="fb lan"><A 
+            href="javascript:subwin('save.asp?userid=63465&amp;act=addfriend')">加为好友</A></SPAN>&nbsp;|&nbsp;<SPAN 
+            class="fb lan" style="PADDING-RIGHT: 5px"><A 
+            href="javascript:subwin('sendmsg.asp?userid=63465&amp;username=舞文弄墨')">发短消息</A><A 
+            id=76804 
+      name=76804></A>&nbsp;&nbsp;&nbsp;楼主</SPAN></TD></TR></TBODY></TABLE>
+      <DIV class="s14 hui" 
+      style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; WORD-BREAK: break-all; LINE-HEIGHT: 180%; PADDING-TOP: 5px">
+      <P>贴片电容的命名: 
+      贴片电容的命名所包含的参数有贴片电容的尺寸、做这种贴片电容用的材质、要求达到的精度、要求的电压、要求的容量、端头的要求以及包装的要求例风华系列的贴片电容的命名贴片电容的命名: 
+      贴片电容的命名所包含的参数有贴片电容的尺寸、做这种贴片电容用的材质、要求达到的精度、要求的电压、要求的容量、端头的要求以及包装的要求。一般订购贴片电容需提供的参数要有尺寸的大小、要求的精度、电压的要求、容量值、以及要求的品牌即可。例风华系列的贴片电容的命名： 
+      0805CG102J500NT 0805：是指该贴片电容的尺寸套小，是用英寸来表示的08表示长度是0.08英寸、05表示宽度为0.05英寸 CG 
+      ：是表示做这种电容要求用的材质，这个材质一般适合于做小于10000PF以下的电容， 102 
+      ：是指电容容量，前面两位是有效数字、后面的2表示有多少个零102＝10×102也就是＝1000PF J 
+      ：是要求电容的容量值达到的误差精度为5％，介质材料和误差精度是配对的 500 ：是要求电容承受的耐压为50V 
+      同样500前面两位是有效数字，后面是指有多少个零。 N　：是指端头材料，现在一般的端头都是指三层电极（银/铜层）、镍、锡 T 
+      ：是指包装方式，T表示编带包装，B表示塑料盒散包装 
+      贴片电容的颜色，常规见得多的就是比纸板箱浅一点的黄，和青灰色，这在具体的生产过程中会有产生不同差异 
+      贴片电容上面没有印字，这是和他的制作工艺有关（贴片电容是经过高温烧结面成，所以没办法在它的表面印字），而贴片电阻是丝印而成（可以印刷标记）。 
+      贴片电容有中高压贴片电容得普通贴片电容，系列电压有6.3V、10V、16V、25V、50V、100V、200V、500V、1000V、2000V、3000V、4000V 
+      贴片电容的尺寸表示法有两种，一种是英寸为单位来表示，一种是以毫米为单位来表示，贴片电容系列的型号有0201、0402、0603、0805、1206、1210、1812、2010、2225等。　　型号 
+      尺寸（mm） 英制尺寸 公制尺寸 长度及公差 宽度及公差 厚度及公差 0402 1005 1.00±0.05 0.50±0.05 0.50±0.05 
+      0603 1608 1.60±0.10 0.80±0.10 0.80±0.10 0805 2012 2.00±0.20 1.25±0.20 
+      0.70±0.20 　　　　　　　　　　　　　　　　　　1.00±0.20 　　　　　　　　　　　　　　　　　　1.25±0.20 1206 
+      3216 3.20±0.30 1.60±0.20 0.70±0.20 1.00±0.20 1.25±0.20 1210 3225 3.20±0.30 
+      2.50±0.30 1.25±0.30 1.50±0.30 1808 4520 4.50±0.40 2.00±0.20 ≤2.00 1812 
+      4532 4.50±0.40 3.20±0.30 ≤2.50 2225 5763 5.70±0.50 6.30±0.50 ≤2.50 3035 
+      7690 7.60±0.50 9.00±0.05 ≤3.00 贴片电容的材料常规分为三种，NPO,X7R,Y5V 
+      NPO此种材质电性能最稳定，几乎不随温度，电压和时间的变化而变化，适用于低损耗，稳定性要求要的高频电路。容量精度在5％左右，但选用这种材质只能做容量较小的，常规100PF以下，100PF-1000PF也能生产但价格较高 
+      X7R此种材质比NPO稳定性差，但容量做的比NPO的材料要高，容量精度在10％左右。　　Y5V此类介质的电容，其稳定性较差，容量偏差在20％左右，对温度电压较敏感，但这种材质能做到很高的容量，而且价格较低，适用于温度变化不大的电路中。 
+      </P></DIV></TD></TR>
+  <TR>
+    <TD 
+    style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px" 
+    vAlign=top width="18%" bgColor=#f0f8ff>
+      <TABLE cellSpacing=0 cellPadding=0 width="90%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD align=left><A 
+            href="http://bbs.ca800.com/userinfo.asp?username=tremis"><B>tremis</B></A><!--名称<span class="red">[楼主]</span>--></TD></TR>
+        <TR>
+          <TD align=left><BR></TD></TR>
+        <TR>
+          <TD class=wblue align=left>积分：1811</TD></TR>
+        <TR>
+          <TD class=wblue align=left>发表：155</TD></TR>
+        <TR>
+        <TR>
+          <TD class=wblue align=left>回复：465</TD></TR>
+        <TR>
+          <TD class=wblue align=left>等级: 助理工程师</TD></TR>
+        <TR>
+          <TD></TD></TR></TBODY></TABLE></TD>
+    <TD vAlign=top align=left bgColor=#ffffff>
+      <TABLE style="BORDER-BOTTOM: #ccc 1px dotted" cellSpacing=1 cellPadding=0 
+      width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD class="s14 lv" style="PADDING-LEFT: 5px" align=left 
+            height=24>发表时间：2005-12-15 17:58:44</TD>
+          <TD style="PADDING-LEFT: 5px" align=right><SPAN class="fb lan"><A 
+            href="http://bbs.ca800.com/reply.asp?boardid=67&amp;announceid=77256&amp;id=25234&amp;act=quot">引用</A></SPAN>&nbsp;|&nbsp;<SPAN 
+            class="fb lan"><A 
+            href="javascript:subwin('save.asp?userid=69623&amp;act=addfriend')">加为好友</A></SPAN>&nbsp;|&nbsp;<SPAN 
+            class="fb lan" style="PADDING-RIGHT: 5px"><A 
+            href="javascript:subwin('sendmsg.asp?userid=69623&amp;username=tremis')">发短消息</A><A 
+            id=77256 
+      name=77256></A>&nbsp;&nbsp;&nbsp;第1楼</SPAN></TD></TR></TBODY></TABLE>
+      <DIV class="s14 hui" 
+      style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; WORD-BREAK: break-all; LINE-HEIGHT: 180%; PADDING-TOP: 5px">[em06]这个和别的电容，比如电解电容有什么不同呢？我是说，应用方面？</DIV></TD></TR>
+  <TR>
+    <TD 
+    style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px" 
+    vAlign=top width="18%" bgColor=#f0f8ff>
+      <TABLE cellSpacing=0 cellPadding=0 width="90%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD align=left><A 
+            href="http://bbs.ca800.com/userinfo.asp?username=高义薄云"><B>高义薄云</B></A><!--名称<span class="red">[楼主]</span>--></TD></TR>
+        <TR>
+          <TD align=left><BR></TD></TR>
+        <TR>
+          <TD class=wblue align=left>积分：16291</TD></TR>
+        <TR>
+          <TD class=wblue align=left>发表：1775</TD></TR>
+        <TR>
+        <TR>
+          <TD class=wblue align=left>回复：4001</TD></TR>
+        <TR>
+          <TD class=wblue align=left>等级: 研究员级高工</TD></TR>
+        <TR>
+          <TD></TD></TR></TBODY></TABLE></TD>
+    <TD vAlign=top align=left bgColor=#ffffff>
+      <TABLE style="BORDER-BOTTOM: #ccc 1px dotted" cellSpacing=1 cellPadding=0 
+      width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD class="s14 lv" style="PADDING-LEFT: 5px" align=left 
+            height=24>发表时间：2005-12-15 21:53:03</TD>
+          <TD style="PADDING-LEFT: 5px" align=right><SPAN class="fb lan"><A 
+            href="http://bbs.ca800.com/reply.asp?boardid=67&amp;announceid=77336&amp;id=25234&amp;act=quot">引用</A></SPAN>&nbsp;|&nbsp;<SPAN 
+            class="fb lan"><A 
+            href="javascript:subwin('save.asp?userid=63267&amp;act=addfriend')">加为好友</A></SPAN>&nbsp;|&nbsp;<SPAN 
+            class="fb lan" style="PADDING-RIGHT: 5px"><A 
+            href="javascript:subwin('sendmsg.asp?userid=63267&amp;username=高义薄云')">发短消息</A><A 
+            id=77336 
+      name=77336></A>&nbsp;&nbsp;&nbsp;第2楼</SPAN></TD></TR></TBODY></TABLE>
+      <DIV class="s14 hui" 
+      style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; WORD-BREAK: break-all; LINE-HEIGHT: 180%; PADDING-TOP: 5px"><B>贴片电容也有贴片电解电容!</B>[em04]</DIV></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width=980 align=center border=0>
+  <TBODY>
+  <TR 
+  style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; LINE-HEIGHT: 180%; PADDING-TOP: 5px" 
+  align=right>
+    <TD>共有3条记录，1/1页<A 
+      href="http://bbs.ca800.com/detail.asp?page=1&amp;id=25234">&lt;&lt;</A>&nbsp;<A 
+      href="http://bbs.ca800.com/detail.asp?page=1&amp;id=25234">1</A>&nbsp;<A 
+      href="http://bbs.ca800.com/detail.asp?page=1&amp;id=25234">&gt;&gt;</A><SELECT 
+      onchange="window.location='?id=25234&amp;page='+this.options[this.selectedIndex].value;" 
+      name=select><OPTION value=1 selected>1</OPTION></SELECT></TD></TR>
+  <TR align=right>
+    <TD>&nbsp;</TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=1 cellPadding=0 width=980 align=center bgColor=#5a94ce 
+border=0>
+  <TBODY>
+  <TR>
+    <TD align=middle bgColor=#f0f8ff>
+      <TABLE class=px16i cellSpacing=1 cellPadding=5 width="100%" border=0>
+        <FORM name=form onsubmit="return checkcode();" action=save.asp 
+        method=post>
+        <TBODY>
+        <TR>
+          <TD style="BORDER-BOTTOM: #5a94ce 1px dotted" 
+            align=left><B>&nbsp;快速回复主题</B></TD>
+          <TD style="BORDER-BOTTOM: #5a94ce 1px dotted" align=right><A 
+            href="http://bbs.ca800.com/detail.asp?page=1&amp;id=25234#">TOP</A>↑&nbsp;</TD></TR>
+        <TR>
+          <TD align=right width="18%">用户名： </TD>
+          <TD align=left bgColor=#ffffff><INPUT class=in 
+            onmouseover="this.style.borderColor='#5A94CE'" 
+            onmouseout="this.style.borderColor='#020202'" size=14 
+            name=username>　 密　码： <INPUT class=in 
+            onmouseover="this.style.borderColor='#5A94CE'" 
+            onmouseout="this.style.borderColor='#020202'" type=password size=14 
+            name=userpassword> 　 <SPAN class=reg1><A 
+            href="http://www.ca800.com/reg/">&nbsp;注 
+            册&nbsp;</A></SPAN>&nbsp;&nbsp;<SPAN class=reg1><A 
+            href="http://www.ca800.com/login/">&nbsp;登 陆&nbsp;</A></SPAN></TD></TR><!--<tr>
+                    <td width="18%" height="24" align="right">标题：                      </td>
+                    <td height="30" align="left" bgcolor="#FFFFFF"><input name="title" type="text" size="24" class="in" /></td>
+                  </tr>-->
+        <TR>
+          <TD align=right width="18%">验证码： </TD>
+          <TD align=left bgColor=#ffffff><INPUT class=in onblur=checkcode() 
+            maxLength=5 size=8 name=vcode> <IMG 
+            style="BORDER-RIGHT: #000099 1px solid; BORDER-TOP: #000099 1px solid; BORDER-LEFT: #000099 1px solid; BORDER-BOTTOM: #000099 1px solid" 
+            onclick=this.src+=Math.random alt=看不清，换一张 
+            src="贴片电容入门知识 - 电源与电力电子论坛-中国自动化网论坛.files/cavcode.htm" 
+            align=absMiddle><SPAN>（点击图片，更换一张）</SPAN><SPAN 
+            class=red>*</SPAN><SPAN id=codeflag></SPAN></TD></TR>
+        <TR>
+          <TD vAlign=top align=right>请输入您要回复内容：</TD>
+          <TD vAlign=top align=left bgColor=#ffffff><INPUT type=hidden 
+            name=body> <IFRAME id=eWebEditor 
+            src="贴片电容入门知识 - 电源与电力电子论坛-中国自动化网论坛.files/ewebeditor.htm" 
+            frameBorder=0 width=550 scrolling=no height=150></IFRAME></TD></TR>
+        <TR>
+          <TD>&nbsp;</TD>
+          <TD align=left bgColor=#ffffff><INPUT type=hidden value=reply 
+            name=act> <INPUT type=hidden value=25234 name=id> <INPUT type=hidden 
+            value=67 name=boardid> <INPUT type=submit value=发表回复 name=Submit2> 
+            <SPAN 
+        style="COLOR: #ff3300">奥运期间，您发布的内容需经过版主审核方可显示。</SPAN></TD></TR></FORM></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE style="MARGIN-TOP: 5px" cellSpacing=1 cellPadding=0 width=980 
+align=center bgColor=#5a94ce border=0>
+  <TBODY>
+  <TR>
+    <TD align=left background="贴片电容入门知识 - 电源与电力电子论坛-中国自动化网论坛.files/right_ti.gif" 
+    bgColor=#ffffff height=24><B style="PADDING-LEFT: 5px">友情论坛</B></TD></TR>
+  <TR>
+    <TD 
+    style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px" 
+    align=left bgColor=#ffffff>
+      <TABLE cellSpacing=5 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=center align=left width=120 height=40><A 
+            href="http://bbs.dydq.com.cn/" target=_blank><IMG height=40 
+            src="贴片电容入门知识 - 电源与电力电子论坛-中国自动化网论坛.files/dianqi.gif" width=120 
+            border=0></A></TD>
+          <TD vAlign=center align=left width=120><A 
+            href="http://bbs.gotogk.com/" target=_blank><IMG height=40 
+            src="贴片电容入门知识 - 电源与电力电子论坛-中国自动化网论坛.files/gongkong.gif" width=120 
+            border=0></A></TD>
+          <TD vAlign=center align=left width=120><A 
+            href="http://www.plcjs.com/bbs/" target=_blank><IMG height=40 
+            src="贴片电容入门知识 - 电源与电力电子论坛-中国自动化网论坛.files/plc.gif" width=120 
+            border=0></A></TD>
+          <TD vAlign=center align=left width=120><A 
+            href="http://bbs.cipstc.com/" target=_blank></A></TD>
+          <TD vAlign=center align=left width=120>&nbsp;</TD>
+          <TD vAlign=center align=left width=120>&nbsp;</TD></TR></TBODY></TABLE>
+      <TABLE style="BORDER-TOP: #cccccc 1px dashed" cellSpacing=5 cellPadding=0 
+      width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD><A href="http://bbs.bjx.com.cn/" target=_blank>北极星电力论坛</A></TD>
+          <TD>&nbsp;</TD>
+          <TD>&nbsp;</TD>
+          <TD>&nbsp;</TD>
+          <TD>&nbsp;</TD>
+          <TD>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE style="FONT: 12px/16px Verdana; COLOR: #666666" cellSpacing=0 
+cellPadding=0 width=980 align=center border=0>
+  <TBODY>
+  <TR>
+    <TD align=middle colSpan=4>&nbsp;</TD></TR>
+  <TR>
+    <TD style="BORDER-TOP: #cccccc 1px solid" align=middle colSpan=4 
+      height=30><A href="http://www.chinaautomation.net/" 
+      target=_blank>English</A>　|　<A 
+      href="http://www.ca800.com/trade/server/about.asp" 
+      target=_blank>网站简介</A>　|　<A href="http://www.ca800.com/link" 
+      target=_blank>友情链接</A>　|　<A 
+      href="http://www.ca800.com/trade/server/help.asp" 
+      target=_blank>帮助中心</A>　|　<A 
+      href="http://www.ca800.com/trade/server/server04.asp" 
+      target=_blank>广告服务</A>　|　<A href="http://www.ca800.com/map/map.asp" 
+      target=_blank>网站地图</A>　|　<A href="http://www.ca800.com/mail/35mail/" 
+      target=_blank>邮箱申请</A>　|　<A 
+      href="http://www.ca800.com/trade/server/service.asp" 
+      target=_blank>客服中心</A>　|　<A href="http://www.ca800.com/gbook" 
+      target=_blank>本站留言</A>　|　<A 
+      href="http://www.ca800.com/trade/server/public.asp" 
+      target=_blank>在线投稿</A>　|　<A href="http://www.ca800.com/datalist/" 
+      target=_blank>内容列表</A></TD></TR>
+  <TR>
+    <TD align=middle colSpan=4 
+      height=24>网站服务：0755-82904375　广告洽谈：0755-82912180　传真：0755-82912186<STRONG>　</STRONG>展会联系：0755-82912183</TD></TR>
+  <TR>
+    <TD align=middle colSpan=4 height=24>Copyright&copy;2005 www.CA800.com All 
+      Rights Reserved　<IMG height=16 
+      src="贴片电容入门知识 - 电源与电力电子论坛-中国自动化网论坛.files/qq.gif" width=23><A 
+      href="http://wpa.qq.com/msgrd?V=1&amp;Uin=78280804&amp;Site=www.ca800.com&amp;Menu=yes" 
+      target=blank>QQ留言</A><STRONG>　Email: </STRONG><A 
+      href="mailto:service@ca800.com" target=_blank>service@ca800.com</A> <A 
+      href="mailto:sales@ca800.com">sales@ca800.com</A></TD></TR>
+  <TR>
+    <TD align=right width="40%" rowSpan=2><IMG height=25 
+      src="贴片电容入门知识 - 电源与电力电子论坛-中国自动化网论坛.files/slogo.gif" width=25></TD>
+    <TD align=middle width="22%" height=24>版权所有　中国自动化网</TD>
+    <TD rowSpan=2><A href="http://www.ca800.com/other/adv/icp.asp" 
+      target=_blank><IMG height=48 
+      src="贴片电容入门知识 - 电源与电力电子论坛-中国自动化网论坛.files/icplogo.gif" width=40 
+      border=0></A></TD>
+    <TD width="38%" rowSpan=2><A href="http://www.ca800.com/other/adv/ww.asp" 
+      target=_blank><IMG height=30 
+      src="贴片电容入门知识 - 电源与电力电子论坛-中国自动化网论坛.files/wwlogo.gif" width=23 
+      align=absMiddle border=0></A></TD></TR>
+  <TR>
+    <TD align=middle height=24>经营许可证编号: <A 
+      href="http://www.ca800.com/other/adv/icp.asp" 
+      target=_blank>粤B2-20030168</A></TD></TR>
+  <TR>
+    <TD align=right>&nbsp;</TD>
+    <TD align=middle height=24><!--<script  language=javascript  src='http://js.users.51.la/514893.js'></script>-->
+      <SCRIPT src="贴片电容入门知识 - 电源与电力电子论坛-中国自动化网论坛.files/urchin.js" 
+      type=text/javascript>
+</SCRIPT>
+
+      <SCRIPT type=text/javascript>
+  _uacct = "UA-154698-5"; 
+  _udn="ca800.com"; 
+  urchinTracker();
+</SCRIPT>
+
+      <CENTER></CENTER></TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR></TBODY></TABLE></BODY></HTML>

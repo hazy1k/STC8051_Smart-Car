@@ -1,0 +1,32 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0069)http://bbs.ca800.com/html/ewebeditor.htm?id=body&style=ca800_bbs_mini -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<SCRIPT language=Javascript>
+
+var URLParams = new Object() ;
+var aParams = document.location.search.substr(1).split('&') ;
+for (i=0 ; i < aParams.length ; i++) {
+	var aParam = aParams[i].split('=') ;
+	URLParams[aParam[0]] = aParam[1] ;
+}
+
+var sLinkFieldName = URLParams["id"] ;
+var sLinkOriginalFileName = URLParams["originalfilename"] ;
+var sLinkSaveFileName = URLParams["savefilename"] ;
+var sLinkSavePathFileName = URLParams["savepathfilename"] ;
+var sExtCSS = URLParams["extcss"] ;
+var sFullScreen = URLParams["fullscreen"];
+
+var config = new Object() ;
+config.StyleName = (URLParams["style"]) ? URLParams["style"].toLowerCase() : "coolblue";
+config.ServerExt = "asp";
+
+document.write ("<script type='text/javascript' src='style/"+config.StyleName+".js'><\/script>");
+document.write ("<script type='text/javascript' src='js/lang.js'><\/script>");
+document.write ("<script type='text/javascript' src='js/main.js'><\/script>");
+
+</SCRIPT>
+
+<META content="MSHTML 6.00.2800.1226" name=GENERATOR></HEAD>
+<BODY></BODY></HTML>

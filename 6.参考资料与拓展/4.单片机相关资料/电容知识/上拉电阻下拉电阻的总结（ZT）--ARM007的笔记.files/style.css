@@ -1,0 +1,249 @@
+A:link {
+	COLOR: #4371a6; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #4371a6; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #4371a6; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: black; TEXT-DECORATION: none
+}
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(bg.gif); PADDING-BOTTOM: 0px; MARGIN: 0px; LINE-HEIGHT: 160%; PADDING-TOP: 0px; FONT-FAMILY: georgia,verdana,Arial,helvetica,sans-seriff; TEXT-ALIGN: center; WORD-WRAP: break-word
+}
+TD {
+	FONT-SIZE: 12px; LINE-HEIGHT: 150%; FONT-FAMILY: georgia,Verdana,Helvetica,Arial; WORD-WRAP: break-word
+}
+.header {
+	PADDING-LEFT: 20px; BACKGROUND-POSITION-X: center; BACKGROUND-IMAGE: none; PADDING-TOP: 50px; BORDER-BOTTOM: #000000 0px solid; BACKGROUND-REPEAT: no-repeat; HEIGHT: 230px
+}
+A.headermaintitle:visited {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #4371a6; TEXT-DECORATION: none
+}
+A.headermaintitle:active {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #4371a6; TEXT-DECORATION: none
+}
+A.headermaintitle:link {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #4371a6; TEXT-DECORATION: none
+}
+A.headermaintitle:hover {
+	COLOR: gray
+}
+#leftcontent {
+	BORDER-RIGHT: #bdcdee 1px dotted; BORDER-TOP: #bdcdee 1px dotted; FONT-SIZE: 12px; LEFT: 10px; OVERFLOW: hidden; BORDER-LEFT: #bdcdee 1px dotted; WIDTH: 220px; BORDER-BOTTOM: #bdcdee 1px dotted; FONT-FAMILY: Arial; POSITION: absolute; TOP: 230px; BACKGROUND-COLOR: #ffffff
+}
+#leftcontentcontainer {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND-IMAGE: url(bg_leftcontent.jpg); PADDING-BOTTOM: 10px; PADDING-TOP: 10px; BACKGROUND-REPEAT: no-repeat
+}
+#centercontent {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 240px; OVERFLOW: hidden; PADDING-TOP: 20px
+}
+#mytopmenu {
+	BORDER-RIGHT: #5e5e5e 0px solid; PADDING-RIGHT: 40px; BORDER-TOP: #5e5e5e 0px solid; PADDING-LEFT: 10px; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(bg_menu.gif); PADDING-BOTTOM: 4px; MARGIN-LEFT: 241px; BORDER-LEFT: #5e5e5e 0px solid; PADDING-TOP: 4px; BORDER-BOTTOM: #5e5e5e 0px solid; BACKGROUND-REPEAT: no-repeat; HEIGHT: 49px; TEXT-ALIGN: right
+}
+#mystats {
+	MARGIN-TOP: 24px
+}
+A.menu:link {
+	COLOR: #4371a6
+}
+A.menu:visited {
+	COLOR: #4371a6
+}
+A.menu:active {
+	COLOR: #4371a6
+}
+A.menu:hover {
+	COLOR: #4371a6
+}
+#rightcontent {
+	RIGHT: 10px; BACKGROUND: #ffffff; WIDTH: 200px; POSITION: absolute; TOP: 70px
+}
+#mylinks {
+	PADDING-RIGHT: 12px; PADDING-LEFT: 12px; FONT-SIZE: 12px; LEFT: 260px; PADDING-BOTTOM: 8px; PADDING-TOP: 8px; POSITION: absolute
+}
+.footer {
+	MARGIN-TOP: 0px; PADDING-LEFT: 10px; BACKGROUND-IMAGE: url(bg_footer.jpg); MARGIN-LEFT: 240px; COLOR: black; LINE-HEIGHT: 20px; MARGIN-RIGHT: 19px; PADDING-TOP: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 70px; TEXT-ALIGN: center
+}
+.day {
+	BORDER-RIGHT: #bdcdee 1px dotted; PADDING-RIGHT: 20px; BORDER-TOP: #bdcdee 1px dotted; PADDING-LEFT: 20px; BACKGROUND-POSITION-X: left; BACKGROUND-IMAGE: url(bg_day.jpg); MARGIN-BOTTOM: 20px; PADDING-BOTTOM: 20px; MARGIN-LEFT: 2px; BORDER-LEFT: #bdcdee 1px dotted; COLOR: #4b4b4b; PADDING-TOP: 20px; BORDER-BOTTOM: #bdcdee 1px dotted; BACKGROUND-REPEAT: no-repeat; BACKGROUND-COLOR: white; TEXT-ALIGN: left
+}
+.dayTitle {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 145px; FONT-WEIGHT: bold; FONT-SIZE: 13px; MARGIN-BOTTOM: 40px; PADDING-BOTTOM: 0px; TEXT-TRANSFORM: uppercase; COLOR: white; PADDING-TOP: 14px; TEXT-ALIGN: left
+}
+A.dayTitle:link {
+	COLOR: white
+}
+A.dayTitle:visited {
+	COLOR: white
+}
+A.dayTitle:active {
+	COLOR: white
+}
+A.dayTitle:hover {
+	COLOR: black
+}
+.postSeparator {
+	BORDER-TOP: #000000 0px dotted; MARGIN-TOP: 20px; BACKGROUND-IMAGE: url(line.gif); MARGIN-BOTTOM: 20px; HEIGHT: 10px
+}
+.news {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; FONT-FAMILY: Verdana
+}
+.newsItem {
+	MARGIN-TOP: 2px; MARGIN-BOTTOM: 20px; TEXT-ALIGN: center
+}
+.blogstats {
+	FONT-SIZE: 11px
+}
+.entrylist {
+	BORDER-RIGHT: #bdcdee 1px dotted; PADDING-RIGHT: 20px; BORDER-TOP: #bdcdee 1px dotted; PADDING-LEFT: 20px; PADDING-BOTTOM: 8px; BORDER-LEFT: #bdcdee 1px dotted; COLOR: #7b7d62; PADDING-TOP: 20px; BORDER-BOTTOM: #bdcdee 1px dotted; BACKGROUND-COLOR: white
+}
+.listtitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; MARGIN-BOTTOM: 10px; COLOR: #666666; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: verdana; HEIGHT: 21px
+}
+.entrylistTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: black; FONT-FAMILY: verdana
+}
+.entrylistDescription {
+	MARGIN-BOTTOM: 20px
+}
+.entrylistItemTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 13px; TEXT-DECORATION: none
+}
+.entrylistItemPostDesc {
+	FONT-SIZE: 12px
+}
+.gallery {
+	BORDER-RIGHT: #bdcdee 1px dotted; PADDING-RIGHT: 20px; BORDER-TOP: #bdcdee 1px dotted; PADDING-LEFT: 20px; PADDING-BOTTOM: 20px; BORDER-LEFT: #bdcdee 1px dotted; COLOR: #7b7d62; PADDING-TOP: 20px; BORDER-BOTTOM: #bdcdee 1px dotted; BACKGROUND-COLOR: white
+}
+.galleryTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: black; FONT-FAMILY: verdana
+}
+.galleryDescription {
+	MARGIN-BOTTOM: 20px
+}
+.galleryThumbnail {
+	PADDING-RIGHT: 20px; PADDING-LEFT: 0px; PADDING-BOTTOM: 20px; PADDING-TOP: 20px
+}
+.post {
+	BORDER-RIGHT: #bdcdee 1px dotted; PADDING-RIGHT: 20px; BORDER-TOP: #bdcdee 1px dotted; PADDING-LEFT: 20px; PADDING-BOTTOM: 20px; BORDER-LEFT: #bdcdee 1px dotted; COLOR: #4b4b4b; PADDING-TOP: 20px; BORDER-BOTTOM: #bdcdee 1px dotted; BACKGROUND-COLOR: white
+}
+.postTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; MARGIN-BOTTOM: 10px
+}
+.postTitle2 {
+	TEXT-DECORATION: none
+}
+.postDesc {
+	MARGIN-TOP: 10px; COLOR: #303030; TEXT-ALIGN: right
+}
+.contact {
+	BORDER-RIGHT: #bdcdee 1px dotted; PADDING-RIGHT: 20px; BORDER-TOP: #bdcdee 1px dotted; PADDING-LEFT: 22px; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 20px; BORDER-LEFT: #bdcdee 1px dotted; PADDING-TOP: 20px; BORDER-BOTTOM: #bdcdee 1px dotted; FONT-FAMILY: Verdana; BACKGROUND-COLOR: white
+}
+.comments {
+	BORDER-RIGHT: #bdcdee 1px dotted; PADDING-RIGHT: 20px; BORDER-TOP: 0px; PADDING-LEFT: 22px; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 20px; BORDER-LEFT: #bdcdee 1px dotted; PADDING-TOP: 0px; BORDER-BOTTOM: #bdcdee 1px dotted; FONT-FAMILY: Verdana; BACKGROUND-COLOR: white
+}
+.commentsTable {
+	MARGIN-TOP: 15px; FONT-SIZE: 11px; FONT-FAMILY: Verdana
+}
+.feedback {
+	BORDER-RIGHT: #bdcdee 1px dotted; PADDING-RIGHT: 20px; BORDER-TOP: #bdcdee 1px dotted; MARGIN-TOP: 20px; PADDING-LEFT: 20px; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 30px; BORDER-LEFT: #bdcdee 1px dotted; PADDING-TOP: 20px; BORDER-BOTTOM: 0px; BACKGROUND-COLOR: white
+}
+.feedbackTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; FONT-FAMILY: Verdana
+}
+.feedbackItem {
+	MARGIN-TOP: 20px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 200%
+}
+.feedbackNoItems {
+	MARGIN-TOP: 20px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 200%
+}
+.feedbackList {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; MARGIN-LEFT: 0px; MARGIN-RIGHT: 0px; LIST-STYLE-TYPE: none
+}
+.feedbackListTitle {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 7px; FONT-SIZE: 9px; PADDING-BOTTOM: 5px; COLOR: #000000; PADDING-TOP: 5px; POSITION: absolute
+}
+.feedbackListSubtitle {
+	BORDER-RIGHT: #bdcdee 1px dotted; PADDING-RIGHT: 7px; BORDER-TOP: #bdcdee 1px dotted; PADDING-LEFT: 5px; FONT-SIZE: 9px; MARGIN-BOTTOM: 8px; PADDING-BOTTOM: 5px; BORDER-LEFT: #bdcdee 1px dotted; COLOR: #000000; PADDING-TOP: 5px; BORDER-BOTTOM: #bdcdee 1px dotted; BACKGROUND-COLOR: white; TEXT-ALIGN: right
+}
+.catListTitle {
+	FONT-SIZE: 14px; MARGIN-BOTTOM: 10px; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: Verdana; HEIGHT: 21px
+}
+.catList {
+	BORDER-TOP: 0px; PADDING-LEFT: 10px; MARGIN: 0px 0px 20px; LIST-STYLE-TYPE: none; TEXT-ALIGN: left
+}
+catListItem {
+	MARGIN-LEFT: 5px; TEXT-ALIGN: left
+}
+UL {
+	PADDING-LEFT: 5px; FONT-SIZE: 11px; MARGIN: 0px 0px 10px 5px; LIST-STYLE-TYPE: none
+}
+.Cal {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; MARGIN-TOP: 10px; FONT-SIZE: 12px; MARGIN-BOTTOM: 10px; BORDER-LEFT: 0px; WIDTH: 90%; BORDER-BOTTOM: 0px; FONT-FAMILY: Arial; HEIGHT: 180px
+}
+.CalTitle {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; MARGIN-LEFT: 0px; COLOR: #4371a6; PADDING-TOP: 0px; FONT-FAMILY: verdana; HEIGHT: 100%; BACKGROUND-COLOR: transparent
+}
+.CalOtherMonthDay {
+	FONT-WEIGHT: bold; COLOR: gray
+}
+.CalSelector {
+	BACKGROUND-COLOR: #ffffff
+}
+A.CalNextPrev {
+	COLOR: #fff
+}
+A.CalNextPrev:link {
+	COLOR: #fff
+}
+A.CalNextPrev:visited {
+	COLOR: #fff
+}
+A.CalNextPrev:active {
+	COLOR: #fff
+}
+.CalNextPrev {
+	COLOR: #fff
+}
+.CalDayHeader {
+	FONT-WEIGHT: bold; COLOR: #4371a6; BACKGROUND-COLOR: transparent
+}
+.CalSelectedDay {
+	BACKGROUND-COLOR: #cccccc
+}
+.CalWeekendDay {
+	BACKGROUND-COLOR: transparent
+}
+.CalTodayDay {
+	COLOR: white; BACKGROUND-COLOR: #697aae
+}
+H1 {
+	FONT-SIZE: 14px; MARGIN: 10px 0px 5px; COLOR: #666666; TEXT-ALIGN: left
+}
+.feedbackListTitle {
+	FONT-SIZE: 12px; COLOR: black
+}
+.feedbackListSubtitle {
+	FONT-SIZE: 12px; COLOR: black
+}
+.bottom {
+	BACKGROUND-POSITION-X: left; BACKGROUND-IMAGE: url(bottom.gif); BACKGROUND-REPEAT: no-repeat
+}
+#calendar {
+	WIDTH: 100%
+}
+#calendar CAPTION {
+	FONT: 11px 'Century Gothic', Arial, Helvetica, sans-serif
+}
+#calendar TABLE {
+	BORDER-COLLAPSE: collapse
+}
+#calendar TH {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; LINE-HEIGHT: normal; FONT-STYLE: normal; FONT-VARIANT: normal
+}
+#calendar TD {
+	FONT-SIZE: 12px; TEXT-ALIGN: center
+}
