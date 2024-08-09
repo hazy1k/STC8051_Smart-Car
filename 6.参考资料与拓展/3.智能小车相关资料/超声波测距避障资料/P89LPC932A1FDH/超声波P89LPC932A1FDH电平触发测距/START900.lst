@@ -1,0 +1,354 @@
+A51 MACRO ASSEMBLER  START900                                                             12/05/2010 17:11:36 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN .\START900.obj
+ASSEMBLER INVOKED BY: D:\Keil\C51\BIN\A51.EXE D:\US-100_Project\P89LPC932A-Pro\US-100LPC932\START900.A51 SET(SMALL) DEBU
+                      G PRINT(.\START900.lst) OBJECT(.\START900.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;------------------------------------------------------------------------------
+                       2     ;  This file is part of the C51 Compiler package
+                       3     ;  Startup Code for the Philips LPC9xx devices 
+                       4     ;  Copyright (c) 1988-2002 Keil Elektronik GmbH and Keil Software, Inc.
+                       5     ;------------------------------------------------------------------------------
+                       6     ;  START900.A51:  This code is executed after processor reset.
+                       7     ;  You may add this file to a uVision2 project.
+                       8     ;
+                       9     ;  To translate this file use Ax51 with the following invocation:
+                      10     ;
+                      11     ;     Ax51 START900.A51
+                      12     ;
+                      13     ;  To link the modified START900.OBJ file to your application use the following
+                      14     ;  Lx51 invocation:
+                      15     ;
+                      16     ;     Lx51 <your object file list>, START900.OBJ <controls>
+                      17     ;
+                      18     ;------------------------------------------------------------------------------
+                      19     ;
+                      20     ;  User-defined Power-On Initialization of Memory
+                      21     ;
+                      22     ;  With the following EQU statements the initialization of memory
+                      23     ;  at processor reset can be defined:
+                      24     ;
+                      25     ;               ; the absolute start-address of IDATA memory is always 0
+  0100                26     IDATALEN        EQU     100H    ; the length of IDATA memory in bytes.
+                      27     ;
+  0000                28     XDATASTART      EQU     0H      ; the absolute start-address of XDATA memory
+  0000                29     XDATALEN        EQU     0H      ; the length of XDATA memory in bytes.
+                      30     ;
+                      31     ;  Notes:  The IDATA space overlaps physically the DATA and BIT areas of the
+                      32     ;          LPC9xx device.
+                      33     ;
+                      34     ;------------------------------------------------------------------------------
+                      35     ;
+                      36     ;  Reentrant Stack Initilization
+                      37     ;
+                      38     ;  The following EQU statements define the stack pointer for reentrant
+                      39     ;  functions and initialized it:
+                      40     ;
+                      41     ;  Stack Space for reentrant functions in the SMALL model.
+  0000                42     IBPSTACK        EQU     0       ; set to 1 if small reentrant is used.
+  0100                43     IBPSTACKTOP     EQU     0FFH+1  ; set top of stack to highest location+1.
+                      44     ;
+                      45     ;  Stack Space for reentrant functions in the LARGE model.      
+  0000                46     XBPSTACK        EQU     0       ; set to 1 if large reentrant is used.
+  0200                47     XBPSTACKTOP     EQU     01FFH+1 ; set top of stack to highest location+1.
+                      48     ;
+                      49     ;  Stack Space for reentrant functions in the COMPACT model.    
+  0000                50     PBPSTACK        EQU     0       ; set to 1 if compact reentrant is used.
+  0100                51     PBPSTACKTOP     EQU     0FFH+1  ; set top of stack to highest location+1.
+                      52     ;
+                      53     ;------------------------------------------------------------------------------
+                      54     ;
+                      55     ;  Setup LPC9xx Configuration Register (UCFG1, BOOTVEC, BOOTSTAT, SEC0..SEC7)
+                      56     ;
+                      57     ; Oscillator Configuration (UCFG1.0 .. UCFG1.2)
+A51 MACRO ASSEMBLER  START900                                                             12/05/2010 17:11:36 PAGE     2
+
+                      58     ; FOSC       Val  Description
+                      59     ; ----       ---  -----------
+  0003                60     FOSC EQU 3  ; 0 = high frequency crystal or resonator (4MHz .. 20MHz)
+                      61     ;           ; 1 = medium frequency crystal or resonator (100kHz .. 4MHz)
+                      62     ;           ; 2 = low frequency crystal (20kHz .. 100kHz)
+                      63     ;           ; 3 = internal RC oscillator (7.373MHz +/- 2.5%) (default on unprogrammed part)
+                      64     ;           ; 4 = internal Watchdog oscillator (400kHz +20/-30%)
+                      65     ;           ; 7 = external clock input on X1
+                      66     ;
+                      67     ; Watchdog Saftey Enable (UCFG1.4)
+                      68     ; WDSE       Val  Description
+                      69     ; ----       ---  -----------
+  0000                70     WDSE EQU 0  ; 0 = user can set WDCLK to select clock source(default on unprogrammed part) 
+                      71     ;           ; 1 = Always use WDCLK, WDCON and WDL can be written once, WDT is always runnin
+                             g 
+                      72     ;
+                      73     ; Brownout Detect Enable (UCFG1.5)
+                      74     ; BOE       Val  Description
+                      75     ; ----       ---  -----------
+  0001                76     BOE EQU 1   ; 0 = 
+                      77     ;           ; 1 = (default on unprogrammed part) 
+                      78     ;
+                      79     ; Reset PIN disable (UCFG1.6)
+                      80     ; RPD        Val  Description
+                      81     ; ---        ---  -----------
+  0001                82     RPD  EQU 1  ; 0 = P1.5 will act as reset pin (low active)
+                      83     ;           ; 1 = P1.5 can be used as input PIN (default on unprogrammed part)
+                      84     ;           
+                      85     ; Watchdog timer enable (UCFG1.7)
+                      86     ; WDTE       Val  Description
+                      87     ; ----       ---  -----------
+  0000                88     WDTE EQU 0  ; 0 = watchdog disabled WDSE has no effect (default on unprogrammed part)
+                      89     ;           ; 1 = watchdog enabled
+                      90     ;
+                      91     ; BOOTVECTOR (BOOTVEC)
+                      92     ; BOOTVEC    Val  Description
+                      93     ; ----       ---  -----------
+  001E                94     BOOTVEC EQU 0x1E  ; points to ISP entry point (default on unprogrammed part)
+                      95     ;
+                      96     ; BOOTSTATUS (BOOTSTAT)
+                      97     ; BOOTSTAT   Val  Description
+                      98     ; ----       ---  -----------
+  0001                99     BOOTSTAT EQU 0x01 ; enables ISP entry on power-up (default on unprogrammed part)
+                     100     ;
+                     101     ; Flash Security Configuration (SEC0.0 .. SEC0.2)
+                     102     ; SEC0       Val  Description
+                     103     ; ----       ---  -----------
+  0000               104     SEC0 EQU 0  ; 0 = no security on sector 0 (default on unprogrammed part)
+                     105     ;           ; 1 = MOVC disabled on sector 0
+                     106     ;           ; 2 = program/erase disabled on sector 0
+                     107     ;           ; 3 = MOVC disabled, program/erase disabled on sector 0 
+                     108     ;           ; 4 = IAP/ISP global erase disabled on sector 0
+                     109     ;           ; 5 = MOVC disabled, IAP/ISP global erase disabled on sector 0
+                     110     ;           ; 6 = program/erase disabled, IAP/ISP global erase disabled on sector 0
+                     111     ;           ; 7 = MOVC disabled, program/erase disabled, IAP/ISP global erase disabled on s
+                             ector 0
+                     112     ;
+                     113     ; Flash Security Configuration (SEC1.0 .. SEC1.2)
+                     114     ; SEC1       Val  Description
+                     115     ; ----       ---  -----------
+  0000               116     SEC1 EQU 0  ; 0 = no security on sector 1 (default on unprogrammed part)
+                     117     ;           ; 1 = MOVC disabled on sector 1
+                     118     ;           ; 2 = program/erase disabled on sector 1
+                     119     ;           ; 3 = MOVC disabled, program/erase disabled on sector 1 
+                     120     ;           ; 4 = IAP/ISP global erase disabled on sector 1
+                     121     ;           ; 5 = MOVC disabled, IAP/ISP global erase disabled on sector 1
+A51 MACRO ASSEMBLER  START900                                                             12/05/2010 17:11:36 PAGE     3
+
+                     122     ;           ; 6 = program/erase disabled, IAP/ISP global erase disabled on sector 1
+                     123     ;           ; 7 = MOVC disabled, program/erase disabled, IAP/ISP global erase disabled on s
+                             ector 1
+                     124     ;
+                     125     ; Flash Security Configuration (SEC2.0 .. SEC2.2)
+                     126     ; SEC2       Val  Description
+                     127     ; ----       ---  -----------
+  0000               128     SEC2 EQU 0  ; 0 = no security on sector 2 (default on unprogrammed part)
+                     129     ;           ; 1 = MOVC disabled on sector 2
+                     130     ;           ; 2 = program/erase disabled on sector 2
+                     131     ;           ; 3 = MOVC disabled, program/erase disabled on sector 2 
+                     132     ;           ; 4 = IAP/ISP global erase disabled on sector 2
+                     133     ;           ; 5 = MOVC disabled, IAP/ISP global erase disabled on sector 2
+                     134     ;           ; 6 = program/erase disabled, IAP/ISP global erase disabled on sector 2
+                     135     ;           ; 7 = MOVC disabled, program/erase disabled, IAP/ISP global erase disabled on s
+                             ector 2
+                     136     ;
+                     137     ; Flash Security Configuration (SEC3.0 .. SEC3.2)
+                     138     ; SEC3       Val  Description
+                     139     ; ----       ---  -----------
+  0000               140     SEC3 EQU 0  ; 0 = no security on sector 3 (default on unprogrammed part)
+                     141     ;           ; 1 = MOVC disabled on sector 3
+                     142     ;           ; 2 = program/erase disabled on sector 3
+                     143     ;           ; 3 = MOVC disabled, program/erase disabled on sector 3 
+                     144     ;           ; 4 = IAP/ISP global erase disabled on sector 3
+                     145     ;           ; 5 = MOVC disabled, IAP/ISP global erase disabled on sector 3
+                     146     ;           ; 6 = program/erase disabled, IAP/ISP global erase disabled on sector 3
+                     147     ;           ; 7 = MOVC disabled, program/erase disabled, IAP/ISP global erase disabled on s
+                             ector 3
+                     148     ;
+                     149     ; Flash Security Configuration (SEC4.0 .. SEC4.2)
+                     150     ; SEC4       Val  Description
+                     151     ; ----       ---  -----------
+  0000               152     SEC4 EQU 0  ; 0 = no security on sector 4 (default on unprogrammed part)
+                     153     ;           ; 1 = MOVC disabled on sector 4
+                     154     ;           ; 2 = program/erase disabled on sector 4
+                     155     ;           ; 3 = MOVC disabled, program/erase disabled on sector 4 
+                     156     ;           ; 4 = IAP/ISP global erase disabled on sector 4
+                     157     ;           ; 5 = MOVC disabled, IAP/ISP global erase disabled on sector 4
+                     158     ;           ; 6 = program/erase disabled, IAP/ISP global erase disabled on sector 4
+                     159     ;           ; 7 = MOVC disabled, program/erase disabled, IAP/ISP global erase disabled on s
+                             ector 4
+                     160     ;
+                     161     ; Flash Security Configuration (SEC5.0 .. SEC5.2)
+                     162     ; SEC5       Val  Description
+                     163     ; ----       ---  -----------
+  0000               164     SEC5 EQU 0  ; 0 = no security on sector 5 (default on unprogrammed part)
+                     165     ;           ; 1 = MOVC disabled on sector 5
+                     166     ;           ; 2 = program/erase disabled on sector 5
+                     167     ;           ; 3 = MOVC disabled, program/erase disabled on sector 5 
+                     168     ;           ; 4 = IAP/ISP global erase disabled on sector 5
+                     169     ;           ; 5 = MOVC disabled, IAP/ISP global erase disabled on sector 5
+                     170     ;           ; 6 = program/erase disabled, IAP/ISP global erase disabled on sector 5
+                     171     ;           ; 7 = MOVC disabled, program/erase disabled, IAP/ISP global erase disabled on s
+                             ector 5
+                     172     ;
+                     173     ; Flash Security Configuration (SEC6.0 .. SEC6.2)
+                     174     ; SEC6       Val  Description
+                     175     ; ----       ---  -----------
+  0000               176     SEC6 EQU 0  ; 0 = no security on sector 6 (default on unprogrammed part)
+                     177     ;           ; 1 = MOVC disabled on sector 6
+                     178     ;           ; 2 = program/erase disabled on sector 6
+                     179     ;           ; 3 = MOVC disabled, program/erase disabled on sector 6 
+                     180     ;           ; 4 = IAP/ISP global erase disabled on sector 6
+                     181     ;           ; 5 = MOVC disabled, IAP/ISP global erase disabled on sector 6
+                     182     ;           ; 6 = program/erase disabled, IAP/ISP global erase disabled on sector 6
+A51 MACRO ASSEMBLER  START900                                                             12/05/2010 17:11:36 PAGE     4
+
+                     183     ;           ; 7 = MOVC disabled, program/erase disabled, IAP/ISP global erase disabled on s
+                             ector 6
+                     184     ;
+                     185     ; Flash Security Configuration (SEC7.0 .. SEC7.2)
+                     186     ; SEC7       Val  Description
+                     187     ; ----       ---  -----------
+  0000               188     SEC7 EQU 0  ; 0 = no security on sector 7 (default on unprogrammed part)
+                     189     ;           ; 1 = MOVC disabled on sector 7
+                     190     ;           ; 2 = program/erase disabled on sector 7
+                     191     ;           ; 3 = MOVC disabled, program/erase disabled on sector 7 
+                     192     ;           ; 4 = IAP/ISP global erase disabled on sector 7
+                     193     ;           ; 5 = MOVC disabled, IAP/ISP global erase disabled on sector 7
+                     194     ;           ; 6 = program/erase disabled, IAP/ISP global erase disabled on sector 7
+                     195     ;           ; 7 = MOVC disabled, program/erase disabled, IAP/ISP global erase disabled on s
+                             ector 7
+                     196     ;
+                     197     ;------------------------------------------------------------------------------
+                     198     
+                     199     
+                     200                     NAME    ?C_STARTUP
+                     201     
+  0063               202     _UCFG1 EQU FOSC OR (WDSE SHL 4) OR (BOE SHL 5) OR (RPD SHL 6) OR (WDTE SHL 7)
+  0000               203     _UCFG2 EQU 0
+                     204     
+----                 205                     CSEG    AT      0FF00H
+FF00 63              206                     DB      _UCFG1          ; place UCFG Bytes in hex file
+FF01 00              207                     DB      _UCFG2
+FF02 1E              208                     DB      BOOTVEC
+FF03 01              209                     DB      BOOTSTAT
+FF04 00              210                     DB      SEC0
+FF05 00              211                     DB      SEC1
+FF06 00              212                     DB      SEC2
+FF07 00              213                     DB      SEC3
+FF08 00              214                     DB      SEC4
+FF09 00              215                     DB      SEC5
+FF0A 00              216                     DB      SEC6
+FF0B 00              217                     DB      SEC7
+                     218     
+                     219     ?C_C51STARTUP   SEGMENT   CODE
+                     220     ?STACK          SEGMENT   IDATA
+                     221     
+----                 222                     RSEG    ?STACK
+0000                 223                     DS      1
+                     224     
+                     225                     EXTRN CODE (?C_START)
+                     226                     PUBLIC  ?C_STARTUP
+                     227     
+----                 228                     CSEG    AT      0
+0000 020000   F      229     ?C_STARTUP:     JMP     STARTUP1
+                     230     
+----                 231                     RSEG    ?C_C51STARTUP
+                     232     
+0000                 233     STARTUP1:
+                     234     
+                     235     IF IDATALEN <> 0
+0000 78FF            236                     MOV     R0,#IDATALEN - 1
+0002 E4              237                     CLR     A
+0003 F6              238     IDATALOOP:      MOV     @R0,A
+0004 D8FD            239                     DJNZ    R0,IDATALOOP
+                     240     ENDIF
+                     241     
+                     242     
+                     243     IF XDATALEN <> 0
+                                             MOV     DPTR,#XDATASTART
+                                             MOV     R7,#LOW (XDATALEN)
+                               IF (LOW (XDATALEN)) <> 0
+A51 MACRO ASSEMBLER  START900                                                             12/05/2010 17:11:36 PAGE     5
+
+                                             MOV     R6,#(HIGH (XDATALEN)) +1
+                               ELSE
+                                             MOV     R6,#HIGH (XDATALEN)
+                               ENDIF
+                                             CLR     A
+                             XDATALOOP:      MOVX    @DPTR,A
+                                             INC     DPTR
+                                             DJNZ    R7,XDATALOOP
+                                             DJNZ    R6,XDATALOOP
+                             ENDIF
+                     257     
+                     258     
+                     259     IF IBPSTACK <> 0
+                             EXTRN DATA (?C_IBP)
+                             
+                                             MOV     ?C_IBP,#LOW IBPSTACKTOP
+                             ENDIF
+                     264     
+                     265     IF XBPSTACK <> 0
+                             EXTRN DATA (?C_XBP)
+                             
+                                             MOV     ?C_XBP,#HIGH XBPSTACKTOP
+                                             MOV     ?C_XBP+1,#LOW XBPSTACKTOP
+                             ENDIF
+                     271     
+                     272     IF PBPSTACK <> 0
+                             EXTRN DATA (?C_PBP)
+                                             MOV     ?C_PBP,#LOW PBPSTACKTOP
+                             ENDIF
+                     276     
+0006 758100   F      277                     MOV     SP,#?STACK-1
+0009 020000   F      278                     JMP     ?C_START
+                     279     
+                     280                     END
+A51 MACRO ASSEMBLER  START900                                                             12/05/2010 17:11:36 PAGE     6
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+?C_C51STARTUP. . .  C SEG    000CH       REL=UNIT
+?C_START . . . . .  C ADDR   -----       EXT
+?C_STARTUP . . . .  C ADDR   0000H   A   
+?STACK . . . . . .  I SEG    0001H       REL=UNIT
+BOE. . . . . . . .  N NUMB   0001H   A   
+BOOTSTAT . . . . .  N NUMB   0001H   A   
+BOOTVEC. . . . . .  N NUMB   001EH   A   
+FOSC . . . . . . .  N NUMB   0003H   A   
+IBPSTACK . . . . .  N NUMB   0000H   A   
+IBPSTACKTOP. . . .  N NUMB   0100H   A   
+IDATALEN . . . . .  N NUMB   0100H   A   
+IDATALOOP. . . . .  C ADDR   0003H   R   SEG=?C_C51STARTUP
+PBPSTACK . . . . .  N NUMB   0000H   A   
+PBPSTACKTOP. . . .  N NUMB   0100H   A   
+RPD. . . . . . . .  N NUMB   0001H   A   
+SEC0 . . . . . . .  N NUMB   0000H   A   
+SEC1 . . . . . . .  N NUMB   0000H   A   
+SEC2 . . . . . . .  N NUMB   0000H   A   
+SEC3 . . . . . . .  N NUMB   0000H   A   
+SEC4 . . . . . . .  N NUMB   0000H   A   
+SEC5 . . . . . . .  N NUMB   0000H   A   
+SEC6 . . . . . . .  N NUMB   0000H   A   
+SEC7 . . . . . . .  N NUMB   0000H   A   
+SP . . . . . . . .  D ADDR   0081H   A   
+STARTUP1 . . . . .  C ADDR   0000H   R   SEG=?C_C51STARTUP
+WDSE . . . . . . .  N NUMB   0000H   A   
+WDTE . . . . . . .  N NUMB   0000H   A   
+XBPSTACK . . . . .  N NUMB   0000H   A   
+XBPSTACKTOP. . . .  N NUMB   0200H   A   
+XDATALEN . . . . .  N NUMB   0000H   A   
+XDATASTART . . . .  N NUMB   0000H   A   
+_UCFG1 . . . . . .  N NUMB   0063H   A   
+_UCFG2 . . . . . .  N NUMB   0000H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

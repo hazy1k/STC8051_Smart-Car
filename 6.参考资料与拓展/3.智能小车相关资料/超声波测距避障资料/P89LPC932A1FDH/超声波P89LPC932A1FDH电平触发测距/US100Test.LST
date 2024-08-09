@@ -1,0 +1,254 @@
+C51 COMPILER V7.06   US100TEST                                                             12/27/2010 10:35:52 PAGE 1   
+
+
+C51 COMPILER V7.06, COMPILATION OF MODULE US100TEST
+OBJECT MODULE PLACED IN US100Test.OBJ
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE US100Test.c BROWSE DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          
+   2          #include "US100Test.h"
+   3          
+   4          void Delay1Ms(void);
+   5          void Delay5Ms(void);
+   6          void Delay400Ms(void);
+   7          
+   8          void UART_ISR(void);
+   9          void UARTSnd(unsigned char dat);
+  10          void UART_init();
+  11          void init(void);
+  12          
+  13          sbit RCK_STMM = P2^7;
+  14          sbit DIO_DS       = P2^6;
+  15          sbit SCK_SHBit = P2^5;
+  16          
+  17          sbit Trig_Mode = P2^0;
+  18          sbit UART_Mode = P2^1;
+  19          sbit UART_TEMP  = P2^2;
+  20          
+  21          sbit Trig_Pin = P1^7;
+  22          sbit Echo_Pin = P1^6;
+  23          
+  24          void InitIOPort()
+  25          {       
+  26   1      //      P0M1 = 0XFF //p0口设为输入。
+  27   1              P0M1 = 0;//P0口设为双向口，可输入输出
+  28   1              P0M2 = 0;//P0口设为双向口，可输入输出
+  29   1      
+  30   1              P2M1 &= 0X0F;//P2口的P2.5，P2.6，P2.7设为双向口，可输入输出
+  31   1              P2M2 &= 0X0F;//P2口的P2.5，P2.6，P2.7设为双向口，可输入输出
+  32   1      }
+  33          
+  34          
+  35          void DisplayLED(unsigned char LEDid, unsigned char Value, unsigned char Isdot)
+  36          {
+  37   1              unsigned char tempa, tempb;
+  38   1              unsigned char tempc, tempd;
+  39   1              const unsigned char NumValue[11] = {0X40, 0X79, 0X24, 0X30, 0X19, 0X12, 0X02, 0X78, 0X00, 0X10, 0X3F};//0
+             -, 1, 2, 3, 4, 5, 6, 7, 8, 9, -.
+  40   1              
+  41   1              tempa = 1;
+  42   1              tempa <<= (LEDid-1);
+  43   1              if(Value >= 11)//value should little than 10
+  44   1                      Value = 0;
+  45   1              tempb = NumValue[Value];
+  46   1              if(Isdot == 0)
+  47   1                      tempb += 0X80;
+  48   1      
+  49   1              //begin output
+  50   1              tempd = 0X80;
+  51   1              for(tempc = 0; tempc < 8; tempc++)
+  52   1              {
+  53   2                      SCK_SHBit = 0;
+  54   2                      SCK_SHBit = 0;
+C51 COMPILER V7.06   US100TEST                                                             12/27/2010 10:35:52 PAGE 2   
+
+  55   2                      DIO_DS  = (tempa&tempd);
+  56   2                      SCK_SHBit = 1;
+  57   2                      SCK_SHBit = 1;
+  58   2                      tempd >>= 1;
+  59   2              }
+  60   1      
+  61   1              tempd = 0X80;
+  62   1              for(tempc = 0; tempc < 8; tempc++)
+  63   1              {
+  64   2                      SCK_SHBit = 0;
+  65   2                      SCK_SHBit = 0;
+  66   2                      DIO_DS  = (tempb&tempd);
+  67   2                      SCK_SHBit = 1;
+  68   2                      SCK_SHBit = 1;
+  69   2                      tempd >>= 1;
+  70   2              }
+  71   1      
+  72   1              RCK_STMM = 0;
+  73   1              RCK_STMM = 0;
+  74   1              RCK_STMM = 0;
+  75   1              RCK_STMM = 0;
+  76   1              RCK_STMM = 1;
+  77   1              RCK_STMM = 1;
+  78   1              RCK_STMM = 1;
+  79   1              RCK_STMM = 1;
+  80   1              //Delay1Ms();
+  81   1      }
+  82          
+  83          void DisplayLength(unsigned long number)
+  84          {
+  85   1              unsigned char Thousand, Hundred, Decade, Unit;
+  86   1              if(number > 9999)
+  87   1                      number = 0;
+  88   1              Thousand = number/1000;
+  89   1      
+  90   1              number = number%1000;
+  91   1              Hundred = number/100;
+  92   1      
+  93   1              number = number%100;
+  94   1              Decade = number/10;
+  95   1      
+  96   1              Unit = number%10;
+  97   1      
+  98   1              DisplayLED(1, Thousand, 0);
+  99   1              DisplayLED(2, Hundred, 0);
+ 100   1              DisplayLED(3, Decade, 0);
+ 101   1              DisplayLED(4, Unit, 0);
+ 102   1      }
+ 103          
+ 104          
+ 105          unsigned long MeterByTrig()
+ 106          {
+ 107   1              unsigned char tempa;
+ 108   1              unsigned char IsOverFlow;
+ 109   1              unsigned long PresentTime, tempb;
+ 110   1              IsOverFlow = 0;
+ 111   1      
+ 112   1              //Delay1Ms();
+ 113   1      
+ 114   1              P1M1 &= 0X7F;
+ 115   1              P1M2 &= 0X7F;
+ 116   1      
+C51 COMPILER V7.06   US100TEST                                                             12/27/2010 10:35:52 PAGE 3   
+
+ 117   1              P1M1 |= 0X40;
+ 118   1              P1M2 &= 0XBF;
+ 119   1      
+ 120   1      
+ 121   1              //Timer Init
+ 122   1              TMOD = 0X11;
+ 123   1              TAMOD = 0X00;
+ 124   1              TCON = 0X00;
+ 125   1              TH1 = 0;
+ 126   1              TL1 = 0;
+ 127   1      
+ 128   1              Trig_Pin = 0;
+ 129   1              for(tempa = 0; tempa < 10; tempa++)
+ 130   1              {
+ 131   2                      Trig_Pin = 1;
+ 132   2              }
+ 133   1              Trig_Pin = 0;
+ 134   1      
+ 135   1              while(1)
+ 136   1              {
+ 137   2                      if(Echo_Pin == 1)
+ 138   2                      {//Start Timer;
+ 139   3                              TCON = 0X40;//start timer
+ 140   3                              break;
+ 141   3                      }
+ 142   2                      if(TCON&0X80)
+ 143   2                      {
+ 144   3                              IsOverFlow = 1;
+ 145   3                              break;//overflow;
+ 146   3                      }
+ 147   2              }
+ 148   1      
+ 149   1              while(1)
+ 150   1              {
+ 151   2                      if(Echo_Pin == 0)
+ 152   2                      {//Stop Timer;
+ 153   3                              TCON = 0X00;
+ 154   3                              break;
+ 155   3                      }
+ 156   2                      if(TCON&0X80)
+ 157   2                      {
+ 158   3                              IsOverFlow = 1;
+ 159   3                              break;//overflow;
+ 160   3                      }
+ 161   2              }
+ 162   1      
+ 163   1      //      unsigned long PresentTime, tempb;
+ 164   1              PresentTime = TH1;
+ 165   1              PresentTime <<= 0X08;
+ 166   1              PresentTime += TL1;
+ 167   1      
+ 168   1              tempb = PresentTime/137;
+ 169   1              PresentTime /= 7;//*3
+ 170   1      
+ 171   1              PresentTime -= tempb;//time, us
+ 172   1      
+ 173   1              tempb = PresentTime/150;
+ 174   1              PresentTime /= 3;
+ 175   1              PresentTime += tempb;
+ 176   1              //Delay1Ms();
+ 177   1              return PresentTime;
+ 178   1      }
+C51 COMPILER V7.06   US100TEST                                                             12/27/2010 10:35:52 PAGE 4   
+
+ 179          
+ 180          void main(void)
+ 181          {
+ 182   1              unsigned char tempa;
+ 183   1              unsigned long PreLength;
+ 184   1      
+ 185   1              InitIOPort();
+ 186   1      
+ 187   1              while(1)
+ 188   1              {
+ 189   2                      PreLength = MeterByTrig();
+ 190   2                      for(tempa = 0; tempa < 200; tempa++)
+ 191   2                      {
+ 192   3                              DisplayLength(PreLength);
+ 193   3                      }
+ 194   2              }
+ 195   1      }
+ 196          
+ 197          
+ 198          //1ms延时
+ 199          void Delay1Ms(void)
+ 200          {
+ 201   1       unsigned long TempCyc = 90;//36865;//5552;
+ 202   1       while(TempCyc--);
+ 203   1      }
+ 204          //5ms延时
+ 205          void Delay5Ms(void)
+ 206          {
+ 207   1       unsigned long TempCyc = 460;//36865;//5552;
+ 208   1       while(TempCyc--);
+ 209   1      }
+ 210          
+ 211          //400ms延时
+ 212          void Delay400Ms(void)
+ 213          {
+ 214   1       unsigned char TempCycA = 80;//5;
+ 215   1       unsigned long TempCycB;
+ 216   1       while(TempCycA--)
+ 217   1       {
+ 218   2        TempCycB=460;//50000; //7269;
+ 219   2        while(TempCycB--);
+ 220   2       };
+ 221   1      
+ 222   1      }
+ 223          
+ 224          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    752    ----
+   CONSTANT SIZE    =     11    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      47
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

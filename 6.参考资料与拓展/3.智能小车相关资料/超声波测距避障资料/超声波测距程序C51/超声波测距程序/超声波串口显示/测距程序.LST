@@ -1,0 +1,144 @@
+C51 COMPILER V8.02   测__程序                                                              10/23/2009 21:31:54 PAGE 1   
+
+
+C51 COMPILER V8.02, COMPILATION OF MODULE 测__程序
+OBJECT MODULE PLACED IN 测距程序.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE 测距程序.C BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*********************************************************************************************************
+             -**/
+   2          //DYP-ME007 超声波测距模块 DEMO 程序
+   3          //晶振：11。0592
+   4          //程序编写：廖文丹        QQ：  80184985
+   5          //网站：智能微控工作室 http://www.mcustudio.com.cn
+   6          //taobao店铺：http://shop37091187.taobao.com/
+   7          //接线：模块TRIG接 P1.2  ECH0 接P1.1
+   8          //串口波特率9600
+   9          /*********************************************************************************************************
+             -**/          
+  10                  #include   <AT89X51.H>
+  11                  #include   <intrins.h>
+  12              #include   <STDIO.H>
+  13          
+  14              #define uchar unsigned  char
+  15              #define uint  unsigned   int  
+  16                  #define  RX  P1_1
+  17              #define  TX  P1_2
+  18            
+  19          
+  20                  unsigned int  time=0;
+  21                  unsigned int  timer=0;
+  22                  float         S=0;
+  23              bit           flag =0;
+  24                  
+  25          
+  26          /********************************************************/
+  27              void Conut(void)
+  28                  {
+  29   1               time=TH0*256+TL0;
+  30   1               TH0=0;
+  31   1               TL0=0;
+  32   1               S=(time*1.87)/100;     //算出来是CM
+  33   1               if(flag==1)                //超出测量
+  34   1               {
+  35   2                flag=0;
+  36   2                printf("-----\n"); 
+  37   2               }
+  38   1      
+  39   1                printf("S=%f\n",S); 
+  40   1              }
+  41          /********************************************************/ 
+  42          void delayms(unsigned int ms)
+  43          {
+  44   1              unsigned char i=100,j;
+  45   1              for(;ms;ms--)
+  46   1              {
+  47   2                      while(--i)
+  48   2                      {
+  49   3                              j=10;
+  50   3                              while(--j);
+  51   3                      }
+  52   2              }
+  53   1      }
+C51 COMPILER V8.02   测__程序                                                              10/23/2009 21:31:54 PAGE 2   
+
+  54          /********************************************************/
+  55               void zd0() interrupt 1              //T0中断用来计数器溢出,超过测距范围
+  56            {
+  57   1          flag=1;                                                      //中断溢出标志
+  58   1        }
+  59          /********************************************************/
+  60             void  StartModule()                   //T1中断用来扫描数码管和计800MS启动模块
+  61            {
+  62   1                TX=1;                                  //800MS  启动一次模块
+  63   1                _nop_(); 
+  64   1                _nop_(); 
+  65   1                _nop_(); 
+  66   1                _nop_(); 
+  67   1                _nop_(); 
+  68   1                _nop_(); 
+  69   1                _nop_(); 
+  70   1                _nop_(); 
+  71   1                _nop_(); 
+  72   1                _nop_(); 
+  73   1                _nop_(); 
+  74   1                _nop_(); 
+  75   1                _nop_(); 
+  76   1                _nop_(); 
+  77   1                _nop_(); 
+  78   1                _nop_(); 
+  79   1                _nop_();
+  80   1                _nop_(); 
+  81   1                _nop_(); 
+  82   1                _nop_(); 
+  83   1                _nop_();
+  84   1                TX=0;
+  85   1        }
+  86          /********************************************************/
+  87          void main(void)
+  88          {  
+  89   1          TMOD=0x21;             //设T0为方式1，GATE=1；
+  90   1              SCON=0x50;
+  91   1              TH1=0xFD;
+  92   1              TL1=0xFD;
+  93   1              TH0=0;
+  94   1              TL0=0; 
+  95   1              TR0=1;  
+  96   1              ET0=1;             //允许T0中断
+  97   1              TR1=1;                     //开启定时器
+  98   1              TI=1;
+  99   1      
+ 100   1              EA=1;                      //开启总中断
+ 101   1      
+ 102   1      
+ 103   1              while(1)
+ 104   1              {
+ 105   2               StartModule();
+ 106   2               while(!RX);            //当RX为零时等待
+ 107   2               TR0=1;                     //开启计数
+ 108   2               while(RX);                     //当RX为1计数并等待
+ 109   2               TR0=0;                         //关闭计数
+ 110   2           Conut();                   //计算
+ 111   2               delayms(100);          //100MS
+ 112   2      
+ 113   2              }
+ 114   1      
+ 115   1      }              
+C51 COMPILER V8.02   测__程序                                                              10/23/2009 21:31:54 PAGE 3   
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    199    ----
+   CONSTANT SIZE    =     13    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      8    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
