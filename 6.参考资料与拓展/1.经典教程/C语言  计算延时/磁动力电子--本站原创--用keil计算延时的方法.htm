@@ -1,0 +1,353 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0051)http://www.cdle.net/web/alldata/CDLE/cdle050013.htm -->
+<HTML><HEAD><TITLE>磁动力电子--本站原创--用keil计算延时的方法</TITLE><!-- #BeginTemplate "/Templates/wz-cdle.dwt" --><!-- #BeginEditable "doctitle" -->
+<STYLE type=text/css>.style5 {
+	COLOR: #cc3300
+}
+</STYLE>
+<!-- #EndEditable -->
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<STYLE type=text/css>@import url( /web/Css/all.css );
+</STYLE>
+
+<META content="MSHTML 6.00.2900.2722" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff leftMargin=0 topMargin=0>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+  <TBODY>
+  <TR bgColor=#99cc00>
+    <TD></TD>
+    <TD width=760>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD width=15 rowSpan=3></TD>
+          <TD width=151 rowSpan=3><IMG height=65 
+            src="磁动力电子--本站原创--用keil计算延时的方法.files/logo.gif" width=151></TD>
+          <TD width=510 rowSpan=3>
+            <DIV align=center><!-- #BeginEditable "TOP%20AD" --><!-- #BeginLibraryItem "/Library/ad.lbi" --><A 
+            href="http://www.cdle.net/bbs" target=_blank><IMG 
+            src="磁动力电子--本站原创--用keil计算延时的方法.files/ad2.gif" border=0></A><!-- #EndLibraryItem --><!-- #EndEditable --></DIV></TD>
+          <TD height=22>
+            <DIV align=right><A name=TOP></A><IMG height=6 
+            src="磁动力电子--本站原创--用keil计算延时的方法.files/go5.gif" width=5> <A 
+            class=T12_W1 href="http://www.cdle.net/about.htm" 
+            target=_blank>关于站点</A>&nbsp;&nbsp;</DIV></TD></TR>
+        <TR>
+          <TD height=22>
+            <DIV align=center><IMG height=6 
+            src="磁动力电子--本站原创--用keil计算延时的方法.files/go5.gif" width=5 border=0> <A 
+            onclick="window.external.AddFavorite('http://www.cdle.net', '磁动力工作室')" 
+            href="http://www.cdle.net/web/alldata/CDLE/cdle050013.htm#"><SPAN 
+            class=T12_W1>收藏本站</SPAN></A></DIV></TD></TR>
+        <TR>
+          <TD height=22>
+            <DIV align=center><IMG height=6 
+            src="磁动力电子--本站原创--用keil计算延时的方法.files/go5.gif" width=5 border=0> <A 
+            href="mailto:pnzwzw@cdle.net"><SPAN 
+            class=T12_W1>联系站长</SPAN></A></DIV></TD></TR></TBODY></TABLE></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD bgColor=#99cc00 height=10><IMG height=1 
+      src="磁动力电子--本站原创--用keil计算延时的方法.files/zo.gif" width=1></TD>
+    <TD width=760 bgColor=#cccc99 height=20 rowSpan=2><!-- #BeginLibraryItem "/Library/dhl.lbi" -->
+      <TABLE cellSpacing=1 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD background=磁动力电子--本站原创--用keil计算延时的方法.files/bg1.gif height=20>　<A 
+            class=T12_R1 href="http://www.cdle.net/index.htm">首页</A>　|　<A 
+            class=T12_B2 
+            href="http://www.cdle.net/web/alldata/DZ/index.htm">电子制作</A>　|　<A 
+            class=T12_B2 
+            href="http://www.cdle.net/web/alldata/CNC/index.htm">雕刻机DIY</A>　|　<A 
+            class=T12_B2 
+            href="http://www.cdle.net/web/alldata/Robot/index.htm">机器人梦工场</A>　|　<A 
+            class=T12_B2 
+            href="http://www.cdle.net/web/alldata/MCU/index.htm">电子&amp;单片机</A>　|　<A 
+            class=T12_B2 
+            href="http://www.cdle.net/web/alldata/Data/index.htm">资料下载</A>　|　<A 
+            class=T12_B2 
+            href="http://www.cdle.net/web/alldata/Learn/index.htm">求知</A>　|　<A 
+            class=T12_R1 
+            href="http://www.cdle.net/web/alldata/CDLE/index.htm">本站原创</A>　|　<A 
+            class=T12_R1 
+            href="http://www.cdle.net/web/alldata/CDLE/index.htm">DIY套件</A>　|　<A 
+            class=T12_B2 href="http://www.cdle.net/bbs/index.asp" 
+            target=_blank>论坛</A></TD></TR></TBODY></TABLE><!-- #EndLibraryItem --></TD>
+    <TD bgColor=#99cc00 height=10><IMG height=1 
+      src="磁动力电子--本站原创--用keil计算延时的方法.files/zo.gif" width=1></TD></TR>
+  <TR>
+    <TD height=10><IMG height=1 src="磁动力电子--本站原创--用keil计算延时的方法.files/zo.gif" 
+      width=1></TD>
+    <TD height=10><IMG height=1 src="磁动力电子--本站原创--用keil计算延时的方法.files/zo.gif" 
+      width=1></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD width=760>
+      <TABLE height=20 cellSpacing=0 cellPadding=0 width="100%" align=center 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD width=560>　<A class=T12_G5 
+            href="http://www.cdle.net/index.htm">磁动力电子</A>--<A class=T12_G5 
+            href="http://www.cdle.net/web/alldata/CDLE/index.htm">本站原创</A>--<!-- #BeginEditable "t1" --><SPAN 
+            class=T12_R1>用keil计算延时的方法</SPAN><!-- #EndEditable --></TD>
+          <TD width=120>　<SPAN class=T12_P2><IMG height=16 alt=点击数量 
+            src="磁动力电子--本站原创--用keil计算延时的方法.files/click.gif" 
+            width=18></SPAN><SPAN class=T12_BL3>阅读数:</SPAN>　<!-- #BeginEditable "t2" -->
+            <SCRIPT language=JavaScript 
+            src="磁动力电子--本站原创--用keil计算延时的方法.files/wclick.htm"></SCRIPT>
+             <!-- #EndEditable --></TD>
+          <TD width=80>　<IMG height=6 
+            src="磁动力电子--本站原创--用keil计算延时的方法.files/go5.gif" width=5> <A 
+            class=T12_B1 href="javascript:window.close()">关　闭</A> <IMG height=6 
+            src="磁动力电子--本站原创--用keil计算延时的方法.files/go4.gif" 
+      width=5></TD></TR></TBODY></TABLE></TD>
+    <TD>&nbsp;</TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD class=TB1 vAlign=top width=760 bgColor=#cccc99>
+      <TABLE cellSpacing=1 cellPadding=1 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top bgColor=#ffffff>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD width=10>&nbsp;</TD>
+                <TD vAlign=top width=529><!-- #BeginEditable "main" -->
+                  <TABLE class=wz1 cellSpacing=0 cellPadding=0 width="100%" 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=wz1 vAlign=top>
+                        <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <P align=center><SPAN 
+                              class=wz1_t>用keil计算延时的方法</SPAN></P>
+                              <P class=wz1_t2 align=center><A 
+                              href="mailto:pnzwzw@cdle.net" target=_blank><IMG 
+                              height=21 
+                              src="磁动力电子--本站原创--用keil计算延时的方法.files/p2.gif" 
+                              width=23 border=0></A>作者：温正伟　原载:<A class=wz1_t2 
+                              href="http://www.cdle.net/" 
+                              target=_blank>http://www.cdle.net/</A></P></TD></TR></TBODY></TABLE>
+                        <P>　　有一些朋友在问C语言中的运算时间要如何计算，现在我举一个简单的例子说明一下。 <BR><BR></P>
+                        <TABLE cellSpacing=1 cellPadding=0 width=180 
+                        align=center bgColor=#663399 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=179 
+                              src="磁动力电子--本站原创--用keil计算延时的方法.files/cdle050013_01.gif" 
+                              width=301></TD></TR>
+                          <TR>
+                            <TD><FONT 
+                        color=#ffff00>图1</FONT></TD></TR></TBODY></TABLE><BR>　　如果我们要算for(b=0;b&lt;50000;b++);　晶振为12M,先要设置一下项目的所用的晶振频率。 
+
+                        <P></P>
+                        <TABLE cellSpacing=1 cellPadding=0 width=180 
+                        align=center bgColor=#663399 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=261 
+                              src="磁动力电子--本站原创--用keil计算延时的方法.files/cdle050013_02.gif" 
+                              width=323></TD></TR>
+                          <TR>
+                            <TD><FONT 
+                          color=#ffff00>图2:打开项目设置窗口</FONT></TD></TR></TBODY></TABLE><BR>
+                        <TABLE cellSpacing=1 cellPadding=0 width=180 
+                        align=center bgColor=#663399 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=230 
+                              src="磁动力电子--本站原创--用keil计算延时的方法.files/cdle050013_03.gif" 
+                              width=378></TD></TR>
+                          <TR>
+                            <TD><FONT 
+                        color=#ffff00>图3</FONT></TD></TR></TBODY></TABLE>
+                        <P>　　设置好后按图1在要算时间的程序段前后设两个断点，然后运行程序，开始仿真，按图4中1和2分别打开汇编代码和程序效率评估窗口。<BR></P>
+                        <TABLE cellSpacing=1 cellPadding=0 width=180 
+                        align=center bgColor=#663399 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=93 
+                              src="磁动力电子--本站原创--用keil计算延时的方法.files/cdle050013_04.gif" 
+                              width=259></TD></TR>
+                          <TR>
+                            <TD><FONT 
+                        color=#ffff00>图4</FONT></TD></TR></TBODY></TABLE>
+                        <P>　　图5中可以看到程序到了第一个断点也就是所要算的程序段的开始处，就用了389us。<BR></P>
+                        <TABLE cellSpacing=1 cellPadding=0 width=180 
+                        align=center bgColor=#663399 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=446 
+                              src="磁动力电子--本站原创--用keil计算延时的方法.files/cdle050013_05.gif" 
+                              width=387></TD></TR>
+                          <TR>
+                            <TD><FONT 
+                        color=#ffff00>图5</FONT></TD></TR></TBODY></TABLE>
+                        <P>　　到了第二个断点也就是所要算的程序段的结束处就用1.850425秒</P>
+                        <TABLE cellSpacing=1 cellPadding=0 width=180 
+                        align=center bgColor=#663399 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=446 
+                              src="磁动力电子--本站原创--用keil计算延时的方法.files/cdle050013_06.gif" 
+                              width=387></TD></TR>
+                          <TR>
+                            <TD><FONT 
+                        color=#ffff00>图6</FONT></TD></TR></TBODY></TABLE>
+                        <P>　　用结束处的时间减去开始时间就得到要算程序段所用的时间1.850036秒<BR>用这个方法也可以仿真出任何频率下的任何指令或程序所要用的时间</P>
+                        <P>补漏：也可以看左边工具栏SEC，只是全速运行是数字是不会动的。<BR></P>
+                        <TABLE cellSpacing=1 cellPadding=0 width=180 
+                        align=center bgColor=#663399 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=357 
+                              src="磁动力电子--本站原创--用keil计算延时的方法.files/cdle050013_07.gif" 
+                              width=206></TD></TR>
+                          <TR>
+                            <TD><FONT 
+                        color=#ffff00>图7</FONT></TD></TR></TBODY></TABLE><BR></TD></TR></TBODY></TABLE><!-- #EndEditable --></TD>
+                <TD width=11>&nbsp;</TD>
+                <TD width=1 bgColor=#cccc99><IMG height=1 
+                  src="磁动力电子--本站原创--用keil计算延时的方法.files/zo.gif" width=1></TD>
+                <TD vAlign=top align=middle width=200>
+                  <TABLE cellSpacing=2 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=T12_R2>本文相关信息：</TD></TR>
+                    <TR>
+                      <TD><!-- #BeginEditable "A1" -->
+                        <P>收录时间：2005年前<BR>整理时间：2006.7.7<BR>作者：温正伟<BR>原载：www.cdle.net<BR>
+                        <SCRIPT language=JavaScript src=""></SCRIPT>
+                        </P><!-- #EndEditable --></TD></TR>
+                    <TR>
+                      <TD bgColor=#cccc99 height=1><IMG height=1 
+                        src="磁动力电子--本站原创--用keil计算延时的方法.files/zo.gif" 
+                    width=1></TD></TR>
+                    <TR>
+                      <TD class=T12_R2>相关阅读：</TD></TR>
+                    <TR>
+                      <TD><!-- #BeginEditable "A2" --><!-- #BeginLibraryItem "/Library/Zlib_3.lbi" -->
+                        <P><A class=T12_G3 
+                        href="http://www.cdle.net/web/alldata/CDLE/cdle050013.htm" 
+                        target=_blank>用keil计算延时的方法</A><BR><A class=T12_G3 
+                        href="http://www.cdle.net/web/alldata/CDLE/cdle050015.htm" 
+                        target=_blank>用Keil在C中嵌入汇编</A> </P><!-- #EndLibraryItem --><!-- #EndEditable --></TD></TR>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="磁动力电子--本站原创--用keil计算延时的方法.files/zo.gif" 
+                    width=1></TD></TR>
+                    <TR>
+                      <TD bgColor=#cccc99 height=1><IMG height=1 
+                        src="磁动力电子--本站原创--用keil计算延时的方法.files/zo.gif" 
+                    width=1></TD></TR>
+                    <TR>
+                      <TD class=T12_R2>相关网站：</TD></TR>
+                    <TR>
+                      <TD><!-- #BeginEditable "A3" --><!-- #EndEditable --></TD></TR>
+                    <TR>
+                      <TD bgColor=#cccc99 height=1><IMG height=1 
+                        src="磁动力电子--本站原创--用keil计算延时的方法.files/zo.gif" 
+                    width=1></TD></TR>
+                    <TR>
+                      <TD class=T12_P2>Google广告：</TD></TR>
+                    <TR>
+                      <TD>
+                        <DIV align=center>
+                        <SCRIPT type=text/javascript><!--
+google_ad_client = "pub-5106597447254633";
+google_ad_width = 120;
+google_ad_height = 60;
+google_ad_format = "120x60_as_rimg";
+google_cpa_choice = "CAAQyKmU_AEaCEgmBX1Smfx8KODy9IMB";
+//--></SCRIPT>
+
+                        <SCRIPT 
+                        src="磁动力电子--本站原创--用keil计算延时的方法.files/show_ads.js" 
+                        type=text/javascript>
+</SCRIPT>
+                        </DIV></TD></TR>
+                    <TR>
+                      <TD>
+                        <DIV align=center>
+                        <SCRIPT type=text/javascript><!--
+google_ad_client = "pub-5106597447254633";
+google_ad_width = 120;
+google_ad_height = 60;
+google_ad_format = "120x60_as_rimg";
+google_cpa_choice = "CAAQy8L8zwEaCDUSP1b6Y2DoKL-_93M";
+//-->
+</SCRIPT>
+
+                        <SCRIPT 
+                        src="磁动力电子--本站原创--用keil计算延时的方法.files/show_ads.js" 
+                        type=text/javascript>
+</SCRIPT>
+                        </DIV></TD></TR>
+                    <TR>
+                      <TD>
+                        <DIV align=center><!-- #BeginLibraryItem "/Library/ad-google1.lbi" -->
+                        <SCRIPT type=text/javascript><!--
+google_ad_client = "pub-5106597447254633";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "78B749";
+google_color_bg = "FFFFFF";
+google_color_link = "0066CC";
+google_color_text = "000000";
+google_color_url = "008000";
+//--></SCRIPT>
+
+                        <SCRIPT 
+                        src="磁动力电子--本站原创--用keil计算延时的方法.files/show_ads.js" 
+                        type=text/javascript>
+</SCRIPT>
+<!-- #EndLibraryItem --></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+    <TD>&nbsp;</TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD height=5><IMG height=1 src="磁动力电子--本站原创--用keil计算延时的方法.files/zo.gif" 
+      width=1></TD></TR></TBODY></TABLE><!-- #BeginLibraryItem "/Library/yw.lbi" -->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD width=760>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=#cccc99 colSpan=4 height=1><IMG height=1 
+            src="磁动力电子--本站原创--用keil计算延时的方法.files/zo.gif" width=1></TD></TR>
+        <TR>
+          <TD height=18>&nbsp;&nbsp; <SPAN class=T12_B1>最佳浏览 800*600　<A 
+            class=T12_B2 
+            href="http://www.cdle.net/Library/Library/www.miibeian.gov.cn" 
+            target=_blank><STRONG>粤ICP备06079880号</STRONG></A></SPAN></TD>
+          <TD>
+            <DIV align=right>Copyright(C) 2001-2006 <FONT 
+            color=#333399>www.<FONT color=#cc0033>cdle</FONT>.net</FONT> All 
+            rights reserved.</DIV></TD>
+          <TD width=1 bgColor=#cccc99><IMG 
+            src="磁动力电子--本站原创--用keil计算延时的方法.files/zo.gif"></TD>
+          <TD width=18>
+            <DIV align=center><A 
+            href="http://www.cdle.net/web/alldata/CDLE/cdle050013.htm#TOP"><IMG 
+            height=9 alt="GOTO TOP" 
+            src="磁动力电子--本站原创--用keil计算延时的方法.files/go1.gif" width=6 align=middle 
+            border=0></A></DIV></TD></TR></TBODY></TABLE></TD>
+    <TD>&nbsp;</TD></TR></TBODY></TABLE><!-- #EndLibraryItem --><!-- #EndTemplate --></BODY></HTML>
+
+

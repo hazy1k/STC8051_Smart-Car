@@ -1,0 +1,3 @@
+Emu51Form是一个软仿真计时器，copy到keil\c51\bin下，
+project->option for target "target 1"->debug->dialog.dll->parameter改为-p51R -dEmu51Form即可
+在keil 7.0运行成功，因为使用的一些函数是在最新的AGSI文档中获得，所以大家试试在6.23下能不能用。

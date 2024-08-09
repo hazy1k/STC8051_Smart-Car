@@ -1,0 +1,314 @@
+A51 MACRO ASSEMBLER  CANDASM                                                              07/26/2007 12:57:50 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.00
+OBJECT MODULE PLACED IN candasm.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE candasm.src PR(.\candasm.ls1) EP DEBUG
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; .\candasm.SRC generated from: candasm.c
+                       2     ; COMPILER INVOKED BY:
+                       3     ;        C:\Keil\C51\BIN\C51.EXE candasm.c BROWSE DEBUG OBJECTEXTEND SRC(.\candasm.SRC)
+                       4     
+                       5     $nomod51 
+                       6     
+                       7     NAME    CANDASM
+                       8     
+  0080                 9     P0      DATA    080H
+  0090                10     P1      DATA    090H
+  00A0                11     P2      DATA    0A0H
+  00B0                12     P3      DATA    0B0H
+  00D6                13     AC      BIT     0D0H.6
+  00B4                14     T0      BIT     0B0H.4
+  00B5                15     T1      BIT     0B0H.5
+  00AF                16     EA      BIT     0A8H.7
+  00A8                17     IE      DATA    0A8H
+  0080                18     P0_0    BIT     080H.0
+  0090                19     P1_0    BIT     090H.0
+  0081                20     P0_1    BIT     080H.1
+  00D1                21     FL      BIT     0D0H.1
+  00A0                22     P2_0    BIT     0A0H.0
+  0091                23     P1_1    BIT     090H.1
+  0082                24     P0_2    BIT     080H.2
+  00B0                25     P3_0    BIT     0B0H.0
+  00A1                26     P2_1    BIT     0A0H.1
+  0092                27     P1_2    BIT     090H.2
+  0083                28     P0_3    BIT     080H.3
+  00B1                29     P3_1    BIT     0B0H.1
+  00A2                30     P2_2    BIT     0A0H.2
+  0093                31     P1_3    BIT     090H.3
+  0084                32     P0_4    BIT     080H.4
+  00B2                33     P3_2    BIT     0B0H.2
+  00A3                34     P2_3    BIT     0A0H.3
+  0094                35     P1_4    BIT     090H.4
+  0085                36     P0_5    BIT     080H.5
+  00B7                37     RD      BIT     0B0H.7
+  00B3                38     P3_3    BIT     0B0H.3
+  00A4                39     P2_4    BIT     0A0H.4
+  0095                40     P1_5    BIT     090H.5
+  0086                41     P0_6    BIT     080H.6
+  00B4                42     P3_4    BIT     0B0H.4
+  00A5                43     P2_5    BIT     0A0H.5
+  0096                44     P1_6    BIT     090H.6
+  0087                45     P0_7    BIT     080H.7
+  00B5                46     P3_5    BIT     0B0H.5
+  00AC                47     ES      BIT     0A8H.4
+  00A6                48     P2_6    BIT     0A0H.6
+  0097                49     P1_7    BIT     090H.7
+  00B6                50     P3_6    BIT     0B0H.6
+  00A7                51     P2_7    BIT     0A0H.7
+  00B8                52     IP      DATA    0B8H
+  00B7                53     P3_7    BIT     0B0H.7
+  0098                54     RI      BIT     098H.0
+  00D7                55     CY      BIT     0D0H.7
+  00B2                56     INT0    BIT     0B0H.2
+  00B3                57     INT1    BIT     0B0H.3
+  0099                58     TI      BIT     098H.1
+A51 MACRO ASSEMBLER  CANDASM                                                              07/26/2007 12:57:50 PAGE     2
+
+  00BC                59     PS      BIT     0B8H.4
+  0081                60     SP      DATA    081H
+  00D2                61     OV      BIT     0D0H.2
+  00B6                62     WR      BIT     0B0H.6
+  0099                63     SBUF    DATA    099H
+  0087                64     PCON    DATA    087H
+  0098                65     SCON    DATA    098H
+  0089                66     TMOD    DATA    089H
+  0088                67     TCON    DATA    088H
+  0089                68     IE0     BIT     088H.1
+  008B                69     IE1     BIT     088H.3
+  00F0                70     B       DATA    0F0H
+  00E0                71     ACC     DATA    0E0H
+  00A9                72     ET0     BIT     0A8H.1
+  00AB                73     ET1     BIT     0A8H.3
+  008D                74     TF0     BIT     088H.5
+  00AD                75     ET2     BIT     0A8H.5
+  008F                76     TF1     BIT     088H.7
+  009A                77     RB8     BIT     098H.2
+  008C                78     TH0     DATA    08CH
+  00A8                79     EX0     BIT     0A8H.0
+  0088                80     IT0     BIT     088H.0
+  008D                81     TH1     DATA    08DH
+  00AA                82     EX1     BIT     0A8H.2
+  009B                83     TB8     BIT     098H.3
+  008A                84     IT1     BIT     088H.2
+  00D0                85     P       BIT     0D0H.0
+  009F                86     SM0     BIT     098H.7
+  008A                87     TL0     DATA    08AH
+  009E                88     SM1     BIT     098H.6
+  008B                89     TL1     DATA    08BH
+  009D                90     SM2     BIT     098H.5
+  00B9                91     PT0     BIT     0B8H.1
+  00D3                92     RS0     BIT     0D0H.3
+  00BB                93     PT1     BIT     0B8H.3
+  00D4                94     RS1     BIT     0D0H.4
+  00BD                95     PT2     BIT     0B8H.5
+  008C                96     TR0     BIT     088H.4
+  008E                97     TR1     BIT     088H.6
+  00B8                98     PX0     BIT     0B8H.0
+  00BA                99     PX1     BIT     0B8H.2
+  0083               100     DPH     DATA    083H
+  0082               101     DPL     DATA    082H
+  009C               102     REN     BIT     098H.4
+  00B0               103     RXD     BIT     0B0H.0
+  00B1               104     TXD     BIT     0B0H.1
+  00D5               105     F0      BIT     0D0H.5
+  00D0               106     PSW     DATA    0D0H
+                     107     ?PR?delay?CANDASM    SEGMENT CODE 
+                     108     ?PR?main?CANDASM     SEGMENT CODE 
+                     109             EXTRN   CODE (?C_STARTUP)
+                     110             PUBLIC  main
+                     111             PUBLIC  delay
+                     112     ;                  #include <AT89X51.H>
+                     113     ;    void delay (void)
+                     114     
+----                 115             RSEG  ?PR?delay?CANDASM
+0000                 116     delay:
+                     117                             ; SOURCE LINE # 2
+                     118     ;       {  
+                     119                             ; SOURCE LINE # 3
+                     120     ;         #pragma asm
+                     121     ;          mov r3,#5
+0000 7B05            122               mov r3,#5
+                     123     ; dl2:   mov r4,#255
+0002 7CFF            124               dl2:   mov r4,#255
+A51 MACRO ASSEMBLER  CANDASM                                                              07/26/2007 12:57:50 PAGE     3
+
+                     125     ; dl1:   mov r5,#255
+0004 7DFF            126               dl1:   mov r5,#255
+                     127     ;          djnz r5,$
+0006 DDFE            128               djnz r5,$
+                     129     ;          djnz r4,dl1
+0008 DCFA            130               djnz r4,dl1
+                     131     ;          djnz r3,dl2
+000A DBF6            132               djnz r3,dl2
+                     133     ;         #pragma endasm 
+                     134     ;          }
+                     135                             ; SOURCE LINE # 12
+000C 22              136             RET     
+                     137     ; END OF delay
+                     138     
+                     139     ;    void main (void)
+                     140     
+----                 141             RSEG  ?PR?main?CANDASM
+0000                 142     main:
+                     143             USING   0
+                     144                             ; SOURCE LINE # 13
+                     145     ;        {  unsigned char j=0x7f;
+                     146                             ; SOURCE LINE # 14
+                     147     ;---- Variable 'j?140' assigned to Register 'R7' ----
+0000 7F7F            148             MOV     R7,#07FH
+0002                 149     ?C0002:
+                     150     ;              while(1)
+                     151                             ; SOURCE LINE # 15
+                     152     ;                  {j=(j>>1)|0x80;
+                     153                             ; SOURCE LINE # 16
+0002 EF              154             MOV     A,R7
+0003 C3              155             CLR     C
+0004 13              156             RRC     A
+0005 4480            157             ORL     A,#080H
+0007 FF              158             MOV     R7,A
+                     159     ;                  if(j==0xff)
+                     160                             ; SOURCE LINE # 17
+0008 BFFF02          161             CJNE    R7,#0FFH,?C0004
+                     162     ;                  j=0x7f;
+                     163                             ; SOURCE LINE # 18
+000B 7F7F            164             MOV     R7,#07FH
+000D                 165     ?C0004:
+                     166     ;                  P1=j;
+                     167                             ; SOURCE LINE # 19
+000D 8F90            168             MOV     P1,R7
+                     169     ;                  delay();
+                     170                             ; SOURCE LINE # 20
+000F 120000   F      171             LCALL   delay
+                     172     ;                  }
+                     173                             ; SOURCE LINE # 21
+0012 80EE            174             SJMP    ?C0002
+                     175     ; END OF main
+                     176     
+                     177             END
+A51 MACRO ASSEMBLER  CANDASM                                                              07/26/2007 12:57:50 PAGE     4
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+?C0002 . . . . . .  C ADDR   0002H   R   SEG=?PR?MAIN?CANDASM
+?C0004 . . . . . .  C ADDR   000DH   R   SEG=?PR?MAIN?CANDASM
+?C_STARTUP . . . .  C ADDR   -----       EXT
+?PR?DELAY?CANDASM.  C SEG    000DH       REL=UNIT
+?PR?MAIN?CANDASM .  C SEG    0014H       REL=UNIT
+AC . . . . . . . .  B ADDR   00D0H.6 A   
+ACC. . . . . . . .  D ADDR   00E0H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+CANDASM. . . . . .  N NUMB   -----       
+CY . . . . . . . .  B ADDR   00D0H.7 A   
+DELAY. . . . . . .  C ADDR   0000H   R   SEG=?PR?DELAY?CANDASM
+DL1. . . . . . . .  C ADDR   0004H   R   SEG=?PR?DELAY?CANDASM
+DL2. . . . . . . .  C ADDR   0002H   R   SEG=?PR?DELAY?CANDASM
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ES . . . . . . . .  B ADDR   00A8H.4 A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+ET1. . . . . . . .  B ADDR   00A8H.3 A   
+ET2. . . . . . . .  B ADDR   00A8H.5 A   
+EX0. . . . . . . .  B ADDR   00A8H.0 A   
+EX1. . . . . . . .  B ADDR   00A8H.2 A   
+F0 . . . . . . . .  B ADDR   00D0H.5 A   
+FL . . . . . . . .  B ADDR   00D0H.1 A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+IE0. . . . . . . .  B ADDR   0088H.1 A   
+IE1. . . . . . . .  B ADDR   0088H.3 A   
+INT0 . . . . . . .  B ADDR   00B0H.2 A   
+INT1 . . . . . . .  B ADDR   00B0H.3 A   
+IP . . . . . . . .  D ADDR   00B8H   A   
+IT0. . . . . . . .  B ADDR   0088H.0 A   
+IT1. . . . . . . .  B ADDR   0088H.2 A   
+MAIN . . . . . . .  C ADDR   0000H   R   SEG=?PR?MAIN?CANDASM
+OV . . . . . . . .  B ADDR   00D0H.2 A   
+P. . . . . . . . .  B ADDR   00D0H.0 A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P0_0 . . . . . . .  B ADDR   0080H.0 A   
+P0_1 . . . . . . .  B ADDR   0080H.1 A   
+P0_2 . . . . . . .  B ADDR   0080H.2 A   
+P0_3 . . . . . . .  B ADDR   0080H.3 A   
+P0_4 . . . . . . .  B ADDR   0080H.4 A   
+P0_5 . . . . . . .  B ADDR   0080H.5 A   
+P0_6 . . . . . . .  B ADDR   0080H.6 A   
+P0_7 . . . . . . .  B ADDR   0080H.7 A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P1_0 . . . . . . .  B ADDR   0090H.0 A   
+P1_1 . . . . . . .  B ADDR   0090H.1 A   
+P1_2 . . . . . . .  B ADDR   0090H.2 A   
+P1_3 . . . . . . .  B ADDR   0090H.3 A   
+P1_4 . . . . . . .  B ADDR   0090H.4 A   
+P1_5 . . . . . . .  B ADDR   0090H.5 A   
+P1_6 . . . . . . .  B ADDR   0090H.6 A   
+P1_7 . . . . . . .  B ADDR   0090H.7 A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P2_0 . . . . . . .  B ADDR   00A0H.0 A   
+P2_1 . . . . . . .  B ADDR   00A0H.1 A   
+P2_2 . . . . . . .  B ADDR   00A0H.2 A   
+P2_3 . . . . . . .  B ADDR   00A0H.3 A   
+P2_4 . . . . . . .  B ADDR   00A0H.4 A   
+P2_5 . . . . . . .  B ADDR   00A0H.5 A   
+A51 MACRO ASSEMBLER  CANDASM                                                              07/26/2007 12:57:50 PAGE     5
+
+P2_6 . . . . . . .  B ADDR   00A0H.6 A   
+P2_7 . . . . . . .  B ADDR   00A0H.7 A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+P3_0 . . . . . . .  B ADDR   00B0H.0 A   
+P3_1 . . . . . . .  B ADDR   00B0H.1 A   
+P3_2 . . . . . . .  B ADDR   00B0H.2 A   
+P3_3 . . . . . . .  B ADDR   00B0H.3 A   
+P3_4 . . . . . . .  B ADDR   00B0H.4 A   
+P3_5 . . . . . . .  B ADDR   00B0H.5 A   
+P3_6 . . . . . . .  B ADDR   00B0H.6 A   
+P3_7 . . . . . . .  B ADDR   00B0H.7 A   
+PCON . . . . . . .  D ADDR   0087H   A   
+PS . . . . . . . .  B ADDR   00B8H.4 A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+PT0. . . . . . . .  B ADDR   00B8H.1 A   
+PT1. . . . . . . .  B ADDR   00B8H.3 A   
+PT2. . . . . . . .  B ADDR   00B8H.5 A   
+PX0. . . . . . . .  B ADDR   00B8H.0 A   
+PX1. . . . . . . .  B ADDR   00B8H.2 A   
+RB8. . . . . . . .  B ADDR   0098H.2 A   
+RD . . . . . . . .  B ADDR   00B0H.7 A   
+REN. . . . . . . .  B ADDR   0098H.4 A   
+RI . . . . . . . .  B ADDR   0098H.0 A   
+RS0. . . . . . . .  B ADDR   00D0H.3 A   
+RS1. . . . . . . .  B ADDR   00D0H.4 A   
+RXD. . . . . . . .  B ADDR   00B0H.0 A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+SM0. . . . . . . .  B ADDR   0098H.7 A   
+SM1. . . . . . . .  B ADDR   0098H.6 A   
+SM2. . . . . . . .  B ADDR   0098H.5 A   
+SP . . . . . . . .  D ADDR   0081H   A   
+T0 . . . . . . . .  B ADDR   00B0H.4 A   
+T1 . . . . . . . .  B ADDR   00B0H.5 A   
+TB8. . . . . . . .  B ADDR   0098H.3 A   
+TCON . . . . . . .  D ADDR   0088H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TF1. . . . . . . .  B ADDR   0088H.7 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+TXD. . . . . . . .  B ADDR   00B0H.1 A   
+WR . . . . . . . .  B ADDR   00B0H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,288 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0044)http://www.ourmcu.net/article/show.asp?id=98 -->
+<HTML><HEAD><TITLE>与初学者谈低功耗设计之沈洁版 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51/AVR/PIC系列免费资料、单片机编程器、仿真器、开发试验板-http://www.ourmcu.net 、地址：山东省济南市</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META 
+content="杰科电子 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51/AVR/PIC系列免费资料、单片机编程器、仿真器、开发试验板-http://www.ourmcu.net 、地址：山东省济南市" 
+name=keywords>
+<META content="与初学者谈低功耗设计之沈洁版 ,杰科电子" name=description><LINK 
+href="与初学者谈低功耗设计之沈洁版 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/style.css" 
+type=text/css rel=stylesheet>
+<META content=TRUE name=MSSmartTagsPreventParsing>
+<META http-equiv=MSThemeCompatible content=Yes>
+<META http-equiv=html content=no-cache>
+<SCRIPT 
+src="与初学者谈低功耗设计之沈洁版 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/menu.js" 
+type=text/javascript></SCRIPT>
+
+<META content="MSHTML 6.00.2900.2722" name=GENERATOR></HEAD>
+<BODY>
+<TABLE class=tableborder cellSpacing=0 cellPadding=0 width=778 align=center 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=5></TD></TR>
+  <TR>
+    <TD class=tablebody align=right height=25><A class=navmenu 
+      href="http://www.ourmcu.net/">首 页</A> ┆ <A class=navmenu title=文章中心 
+      href="http://www.ourmcu.net/article/">文章中心</A> ┆ <A class=navmenu 
+      title=下载中心 href="http://www.ourmcu.net/soft/">下载中心</A> ┆ <A class=navmenu 
+      title=客户留言 href="http://www.ourmcu.net/GuestBook/">客户留言</A> ┆ <A 
+      style="COLOR: red" name=StranLink>繁體中文</A></TD></TR>
+  <TR>
+    <TD height=1></TD></TR>
+  <TR>
+    <TD background="" height=74>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD align=middle width=180><IMG height=60 
+            src="与初学者谈低功耗设计之沈洁版 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/logo.gif" 
+            width=180></TD>
+          <TD align=middle width=500>
+            <SCRIPT language=javascript 
+            src="与初学者谈低功耗设计之沈洁版 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/banner.js"></SCRIPT>
+          </TD>
+          <TD noWrap align=middle width=90 height=70><IMG height=12 
+            src="与初学者谈低功耗设计之沈洁版 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/top_home.gif" 
+            width=13 border=0> <A title=将本站设为你的首页 
+            onclick="this.style.behavior='url(#default#homepage)';this.sethomepage('http://www.ourmcu.net');return false;" 
+            href="http://www.ourmcu.net/">设为首页</A><BR><IMG height=12 
+            src="与初学者谈低功耗设计之沈洁版 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/top_gift.gif" 
+            width=13 border=0> <A title=将本站加入到你的收藏夹 
+            href="javascript:window.external.AddFavorite(location.href,document.title)">加入收藏</A><BR><IMG 
+            height=12 
+            src="与初学者谈低功耗设计之沈洁版 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/top_mail.gif" 
+            width=13 border=0> <A 
+        href="mailto:zdhrlj@sohu.com">联系我们</A></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD height=1></TD></TR></TBODY></TABLE>
+<TABLE class=tableborder cellSpacing=0 cellPadding=0 width=778 align=center 
+border=0>
+  <TBODY>
+  <TR height=22>
+    <TD class=navbarbg noWrap align=middle>&nbsp;下载：</TD>
+    <TD class=navbarbg width="96%"><A class=navbar title=常用工具：小工具 
+      href="http://www.ourmcu.net/soft/list.asp?classid=11">常用工具</A> | <A 
+      class=navbar title=LED/LCD、USB、总线等论文集 
+      href="http://www.ourmcu.net/soft/list.asp?classid=13">论文资料</A> | <A 
+      class=navbar title=Proteus软件 
+      href="http://www.ourmcu.net/soft/list.asp?classid=16">Proteus下载</A> | <A 
+      class=navbar title=IC资料 
+      href="http://www.ourmcu.net/soft/list.asp?classid=17" 
+      target=_blank>IC资料下载</A> | <A class=navbar title=电子书籍：数电模电单片机等电子书籍 
+      href="http://www.ourmcu.net/soft/list.asp?classid=18">电子书籍</A> | <A 
+      class=navbar title=程序源代码 
+      href="http://www.ourmcu.net/soft/list.asp?classid=19">源代码类</A> | <A 
+      class=navbar title=编程软件：keil、万利、伟福、ARM等 
+      href="http://www.ourmcu.net/soft/list.asp?classid=25">编程软件与资料</A> | <A 
+      class=navbar title=DIY资料 
+      href="http://www.ourmcu.net/soft/list.asp?classid=26">DIY资料</A> | <A 
+      class=navbar title=本站资料 
+      href="http://www.ourmcu.net/soft/list.asp?classid=31">VIP资料</A> | <A 
+      class=navbar title=总线论文 
+      href="http://www.ourmcu.net/soft/list.asp?classid=64">总线论文</A></TD></TR>
+  <TR height=22>
+    <TD class=navbarbg noWrap align=middle>&nbsp;文章：</TD>
+    <TD class=navbarbg><A class=navbar title=单片机技术文章 
+      href="http://www.ourmcu.net/article/list.asp?classid=2">单片机技术</A> | <A 
+      class=navbar title=AVR单片机相关 
+      href="http://www.ourmcu.net/article/list.asp?classid=4">AVR单片机</A> | <A 
+      class=navbar title=PIC单片机相关 
+      href="http://www.ourmcu.net/article/list.asp?classid=5">PIC单片机</A> | <A 
+      class=navbar title=ARM嵌入式 
+      href="http://www.ourmcu.net/article/list.asp?classid=6">ARM嵌入式</A> | <A 
+      class=navbar title=电子电路：模拟与数字电路 
+      href="http://www.ourmcu.net/article/list.asp?classid=7">电子与电路</A> | <A 
+      class=navbar title="高级编程：VC++ VB、PB..." 
+      href="http://www.ourmcu.net/article/list.asp?classid=8">高级编程</A> | <A 
+      class=navbar title=单片机制作与应用 
+      href="http://www.ourmcu.net/article/list.asp?classid=9">制作与应用</A> | <A 
+      class=navbar title=PLC相关 
+      href="http://www.ourmcu.net/article/list.asp?classid=40">PLC栏目</A> | <A 
+      class=navbar title=接口与通讯 
+      href="http://www.ourmcu.net/article/list.asp?classid=48">接口与通讯</A> | <A 
+      class=navbar title=Proteus相关 
+      href="http://www.ourmcu.net/article/list.asp?classid=63">Proteus资料</A></TD></TR>
+  <TR>
+    <TD bgColor=#dfdfdf colSpan=3 height=1></TD></TR></TBODY></TABLE>
+<TABLE class=tableborder cellSpacing=0 cellPadding=0 width=778 align=center 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=2></TD></TR>
+  <TR>
+    <TD bgColor=#efefef><IFRAME border=0 
+      src="与初学者谈低功耗设计之沈洁版 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/login.htm" 
+      frameBorder=0 width="100%" scrolling=no height=26></IFRAME></TD></TR>
+  <TR>
+    <TD height=2></TD></TR></TBODY></TABLE>
+<TABLE class=tableborder cellSpacing=0 cellPadding=0 width=778 align=center 
+border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <SCRIPT language=javascript 
+      src="与初学者谈低功耗设计之沈洁版 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/top.js"></SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD height=5></TD></TR>
+  <TR>
+    <TD class=linebar height=8></TD></TR>
+  <TR>
+    <TD height=5></TD></TR></TBODY></TABLE>
+<TABLE class=tableborder cellSpacing=0 cellPadding=0 width=778 align=center 
+border=0>
+  <TBODY>
+  <TR>
+    <TD bgColor=#efefef height=22>
+      <TABLE cellSpacing=2 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD align=middle width="4%"><IMG height=13 
+            src="与初学者谈低功耗设计之沈洁版 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/class_ar.gif" 
+            width=13></TD>
+          <TD width="74%">您当前的位置：<A href="http://www.ourmcu.net/">杰科电子</A> 
+            -&gt; <A href="http://www.ourmcu.net/article/">文章中心</A> -&gt; <A 
+            href="http://www.ourmcu.net/article/list.asp?classid=2">单片机技术</A> 
+            -&gt; <A 
+            href="http://www.ourmcu.net/article/list.asp?classid=1">单片机入门</A> 
+            -&gt; 文章内容</TD>
+          <TD align=middle width="22%"><IMG height=11 
+            src="与初学者谈低功耗设计之沈洁版 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/h_arrow.gif" 
+            width=11 align=absMiddle> <A 
+            href="http://www.ourmcu.net/user/logout.asp">退出登录</A> <IMG height=11 
+            src="与初学者谈低功耗设计之沈洁版 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/h_arrow.gif" 
+            width=11 align=absMiddle> <A 
+            href="http://www.ourmcu.net/user/">用户管理</A></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD bgColor=#d9d9d9 height=1></TD></TR>
+  <TR>
+    <TD height=5></TD></TR></TBODY></TABLE>
+<TABLE class=tableborder cellSpacing=0 cellPadding=0 width=778 align=center 
+border=0><!--DWLayoutTable-->
+  <TBODY>
+  <TR vAlign=top>
+    <TD class=tableright vAlign=top align=right width=776 height=219>
+      <TABLE style="TABLE-LAYOUT: fixed; WORD-BREAK: break-all" cellSpacing=0 
+      cellPadding=0 width=760 border=0>
+        <TBODY>
+        <TR>
+          <TD style="FONT-SIZE: 12pt; COLOR: #ff6600" align=middle 
+            height=32>与初学者谈低功耗设计之沈洁版</TD></TR>
+        <TR>
+          <TD align=middle bgColor=#f7f7f7 
+            height=25>作者：本站&nbsp;&nbsp;来源：不详&nbsp;&nbsp;发布时间：2006-2-4 
+            9:41:06&nbsp;&nbsp;发布人：51c51</TD></TR>
+        <SCRIPT language=javascript>
+var newasp_fontsize=9;
+var newasp_lineheight=12;
+</SCRIPT>
+
+        <TR>
+          <TD>
+            <P align=right><A title=减小字体 
+            style="CURSOR: hand; POSITION: relative" 
+            onclick='if(newasp_fontsize>8){NewaspContentLabel.style.fontSize=(--newasp_fontsize)+"pt";NewaspContentLabel.style.lineHeight=(--newasp_lineheight)+"pt";}'><IMG 
+            height=15 
+            src="与初学者谈低功耗设计之沈洁版 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/1.gif" 
+            width=15 border=0><FONT color=#ff6600>减小字体</FONT></A> <A title=增大字体 
+            style="CURSOR: hand; POSITION: relative" 
+            onclick='if(newasp_fontsize<64){NewaspContentLabel.style.fontSize=(++newasp_fontsize)+"pt";NewaspContentLabel.style.lineHeight=(++newasp_lineheight)+"pt";}'><IMG 
+            height=15 
+            src="与初学者谈低功耗设计之沈洁版 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/2.gif" 
+            width=15 border=0><FONT color=#ff6600>增大字体</FONT></A> </P>
+            <DIV class=ContentFont id=NewaspContentLabel 
+            style="PADDING-RIGHT: 10px; DISPLAY: block; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px"><FONT 
+            id=font_word 
+            style="FONT-SIZE: 14px; FONT-FAMILY: 宋体, Verdana, Arial, Helvetica, sans-serif">
+            <P>与初学者谈低功耗设计之沈洁版～～～^_^(沈洁)<BR>&nbsp;</P>
+            <P>降低功耗不光能够大大的节约电能还能简化电源部分的设计，甚至可以用于手持设备上面使用，这些都已经越来越成为未来产</P>
+            <P>品的设计方向了^_^</P>
+            <P>1降低功耗从MCU选型开始，一开始选型的时候就应该考虑选择低功耗的MCU比如MSP430一类的为低功耗设计的CPU^_^</P>
+            <P>强烈不建议使用51一方面是因为51速度慢，另外一方面是因为51的IO是有上拉电阻的，虽然当IO为高电平是上拉电阻不费电，</P>
+            <P>但是下拉电流的时候却也有不小的功耗产生。还有一点就是51的运算速度实在是太慢了～～～～～很多运算用51都需要很高的</P>
+            <P>主频而主频高了就意味着高的功耗^_^</P>
+            <P>2选择器件用电电压，很明显降低器件的用电电压能够明显的降低器件的耗电比如说ATmega8和ATmega88虽然芯片大致内部结构</P>
+            <P>一致但是后者可以工作在1.8V的超低电压下而前者就不行^_^综合考虑下当然还是选择后者^_^</P>
+            <P>3尽量降低器件的工作频率，大家都知道CMOS电路的工作电流主要来此于开关转换时对后一级输入端的电容充放电，如果能够</P>
+            <P>降低MCU的工作频率自然耗电也就下来了^_^要知道当AVR工作在32.768Hz时和工作在20Mhz时的工作电流差异可不是一般的小啊</P>
+            <P>～～～^_^</P>
+            <P>4尽量使用中断让处理器进入更深的睡眠，众所周知睡眠模式和掉电模式能够大大的降低MCU的工作电流，聪明的单片机设计师</P>
+            <P>能够充分的利用MCU的中断功能让MCU周期性的工作和睡眠从而大大的降低MCU的工作电流^_^</P>
+            <P>5尽量关闭MCU内部不用的资源～～～～这个吗地球人都知道的好处，我说这个有点像废话一样，^_^不用的东西你干吗开着呢</P>
+            <P>^_^比如ATmega8内部的模拟比较器，默认是开着的还有ATmega88内部的大多数资源都可以在不用的时候用软件关闭^_^</P>
+            <P>6尽量使用VMOS做为外部功率扩展器件，道理很简单VMOS驱动的时候是电压行器件驱动是几乎不产生功耗，要比普通的晶体管</P>
+            <P>省电多了^_^而且由于VMOS的导通内阻低通常只有几十个毫欧，在小电流的时候器件自身发热也小，尤其是小电流是效率远比</P>
+            <P>传统晶体管要高的多的多^_^这里还是建议使用高速VMOS，因为高速VMOS在开关速度相当高的PWM时效率会更高^_^</P>
+            <P>7片外IC的电源最好都能由MCU的IO控制比如说我们常用的24C02，由于它是掉电记忆的，所以我们完全可以在它不工作的时候</P>
+            <P>对它关电源^_^以节约电流还有比如说我们常用的6116的SRAM我们完全可以用单片机来控制它的片选端口来控制它的工作与休</P>
+            <P>眠从而节约电流^_^</P>
+            <P>8这招也是最毒辣的一招通常我们驱动一些LED器件，完全可以通过PWM来控制从而省略限流电阻，要知道当器件选定后它的内</P>
+            <P>阻也就已经确定，而当电源电压也确定的时候，就可以通过占空比来确定器件上的电压从而节约了限流电阻同时也就节约了限</P>
+            <P>流电阻上面的功耗，如果用户使用的是电池，我们完全还可以不定期的对电池电压进行检测然后改变占空比，从而恒定负载上</P>
+            <P>面的电压，达到电源的最大利用率^_^</P>
+            <P>最后申明此帖乃实属本人原创，如有雷同纯属抄袭，打击盗版支持正版，维护大虾论坛的知识产权乃每个大虾的职责^_^</P>
+            <P>搞笑了开开玩笑啦～～～～～～大家如果看的高兴请随意拷贝吧^_^</P>
+            <P><BR></P></FONT></DIV>
+            <DIV></DIV></TD></TR>
+        <TR>
+          <TD 
+          style="PADDING-RIGHT: 10px; DISPLAY: block; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px" 
+          align=right bgColor=#f7f7f7 height=25>[
+            <SCRIPT language=JavaScript 
+            src="与初学者谈低功耗设计之沈洁版 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/Hits.htm"></SCRIPT>
+             ] [<A href="javascript:history.go(-1)">返回上一页</A>] [<A 
+            href="javascript:window.print()">打 印</A>] [<A 
+            href="http://www.ourmcu.net/user/favorite.asp?action=add&amp;topic=与初学者谈低功耗设计之沈洁版">收 
+            藏</A>]</TD></TR>
+        <TR>
+          <TD 
+          style="PADDING-RIGHT: 10px; DISPLAY: block; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px">
+            <DIV>上一篇文章：<A 
+            href="http://www.ourmcu.net/article/show.asp?id=97">关于红外遥控的若干问答</A></DIV>
+            <DIV>下一篇文章：<A 
+            href="http://www.ourmcu.net/article/show.asp?id=99">单片机C语言延时程序研究</A></DIV></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 width=760 border=0>
+        <TBODY>
+        <TR>
+          <TD class=titlebg1>∷相关文章评论∷　　 　（评论内容只代表网友观点，与本站立场无关！） [<A 
+            href="http://www.ourmcu.net/article/comment.asp?ArticleID=98" 
+            target=_blank>更多评论</A>...]</TD></TR>
+        <TR vAlign=top>
+          <TD></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- 页面底部开始 -->
+<TABLE class=tableborder cellSpacing=0 cellPadding=0 width=778 align=center 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=5></TD></TR>
+  <TR>
+    <TD class=linebar height=8></TD></TR>
+  <TR>
+    <TD height=5></TD></TR>
+  <TR>
+    <TD class=tablebody align=middle height=66><A class=navmenu 
+      href="http://www.ourmcu.net/support/about.asp">关于本站</A> - <A class=navmenu 
+      href="http://www.ourmcu.net/support/help.asp">网站帮助</A> - <A class=navmenu 
+      href="http://www.ourmcu.net/support/advertise.asp">广告合作</A> - <A 
+      class=navmenu href="http://www.ourmcu.net/support/declare.asp">下载声明</A> - 
+      <A class=navmenu href="http://www.ourmcu.net/link/" target=_blank>友情连接</A> 
+      - <A class=navmenu 
+      href="http://www.ourmcu.net/support/sitemap.asp">网站地图</A> - <A 
+      class=navmenu href="http://www.ourmcu.net/admin/admin_login.asp" 
+      target=_blank>管理登录</A> <BR>Copyright &copy; 2006-2007 <A 
+      href="http://www.ourmcu.net/" target=_blank><FONT face=Verdana, sans-serif 
+      Helvetica, Arial,><B>ourmcu<FONT color=#cc0000>.Net</FONT></B></FONT></A>. 
+      All Rights Reserved . <BR>鲁ICP备 <A 
+      href="http://www.miibeian.gov.cn/">05007129号</A></TD></TR>
+  <TR>
+    <TD height=5></TD></TR></TBODY></TABLE>
+<SCRIPT language=javascript 
+src="与初学者谈低功耗设计之沈洁版 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/Std_StranJF.Js"></SCRIPT>
+<!-- 页面底部结束 -->
+<SCRIPT 
+src="与初学者谈低功耗设计之沈洁版 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/count.htm" 
+type=text/javascript></SCRIPT>
+</BODY></HTML>
+
+

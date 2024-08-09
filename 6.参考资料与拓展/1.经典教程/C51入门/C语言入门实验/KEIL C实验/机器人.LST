@@ -1,0 +1,57 @@
+C51 COMPILER V8.02   籣芲人                                                                06/17/2009 23:28:39 PAGE 1   
+
+
+C51 COMPILER V8.02, COMPILATION OF MODULE 籣芲人
+OBJECT MODULE PLACED IN 机器人.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE 机器人.c DEBUG OBJECTEXTEND
+
+line level    source
+
+   1             #include <AT89X51.H>
+   2             #include <STDIO.H>
+   3             #include <math.h>
+   4          void  main(void)
+   5            {
+   6   1              unsigned char i;
+   7   1          float x,y, z;
+   8   1          SCON=0x50;
+   9   1          TMOD=0x20;
+  10   1          TH1=0xFD;
+  11   1          TL1=0xFD;
+  12   1          TI=1;
+  13   1          TR1=1;
+  14   1      
+  15   1       
+  16   1                                 
+  17   1       while(1)
+  18   1          {  
+  19   2              //printf("你好！我是单片机STC89C516RC+！我会作计算题！\n");
+  20   2                 printf("请你输入两个X和Y\n");
+  21   2                 scanf("%f,%f",&x,&y);
+  22   2      
+  23   2                 for(i=0;i<255;i++)
+  24   2                 {
+  25   3                 z=512*sin(i*3.1415926/128)+512;       
+  26   3                 printf("z=%f\n",z);  
+  27   3                 }
+  28   2                 
+  29   2      
+  30   2          }
+  31   1      }
+  32          
+  33          
+  34          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    138    ----
+   CONSTANT SIZE    =     30    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      13
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

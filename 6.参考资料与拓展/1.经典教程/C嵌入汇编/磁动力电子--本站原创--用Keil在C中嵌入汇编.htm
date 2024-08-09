@@ -1,0 +1,336 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0051)http://www.cdle.net/web/alldata/CDLE/cdle050015.htm -->
+<HTML><HEAD><TITLE>磁动力电子--本站原创--用Keil在C中嵌入汇编</TITLE><!-- #BeginTemplate "/Templates/wz-cdle.dwt" --><!-- #BeginEditable "doctitle" -->
+<STYLE type=text/css>.style5 {
+	COLOR: #cc3300
+}
+</STYLE>
+<!-- #EndEditable -->
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<STYLE type=text/css>@import url( /web/Css/all.css );
+</STYLE>
+
+<META content="MSHTML 6.00.2900.2722" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff leftMargin=0 topMargin=0>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+  <TBODY>
+  <TR bgColor=#99cc00>
+    <TD></TD>
+    <TD width=760>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD width=15 rowSpan=3></TD>
+          <TD width=151 rowSpan=3><IMG height=65 
+            src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/logo.gif" width=151></TD>
+          <TD width=510 rowSpan=3>
+            <DIV align=center><!-- #BeginEditable "TOP%20AD" --><!-- #BeginLibraryItem "/Library/ad.lbi" --><A 
+            href="http://www.cdle.net/bbs" target=_blank><IMG 
+            src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/ad2.gif" border=0></A><!-- #EndLibraryItem --><!-- #EndEditable --></DIV></TD>
+          <TD height=22>
+            <DIV align=right><A name=TOP></A><IMG height=6 
+            src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/go5.gif" width=5> <A 
+            class=T12_W1 href="http://www.cdle.net/about.htm" 
+            target=_blank>关于站点</A>&nbsp;&nbsp;</DIV></TD></TR>
+        <TR>
+          <TD height=22>
+            <DIV align=center><IMG height=6 
+            src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/go5.gif" width=5 border=0> <A 
+            onclick="window.external.AddFavorite('http://www.cdle.net', '磁动力工作室')" 
+            href="http://www.cdle.net/web/alldata/CDLE/cdle050015.htm#"><SPAN 
+            class=T12_W1>收藏本站</SPAN></A></DIV></TD></TR>
+        <TR>
+          <TD height=22>
+            <DIV align=center><IMG height=6 
+            src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/go5.gif" width=5 border=0> <A 
+            href="mailto:pnzwzw@cdle.net"><SPAN 
+            class=T12_W1>联系站长</SPAN></A></DIV></TD></TR></TBODY></TABLE></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD bgColor=#99cc00 height=10><IMG height=1 
+      src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/zo.gif" width=1></TD>
+    <TD width=760 bgColor=#cccc99 height=20 rowSpan=2><!-- #BeginLibraryItem "/Library/dhl.lbi" -->
+      <TABLE cellSpacing=1 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD background=磁动力电子--本站原创--用Keil在C中嵌入汇编.files/bg1.gif height=20>　<A 
+            class=T12_R1 href="http://www.cdle.net/index.htm">首页</A>　|　<A 
+            class=T12_B2 
+            href="http://www.cdle.net/web/alldata/DZ/index.htm">电子制作</A>　|　<A 
+            class=T12_B2 
+            href="http://www.cdle.net/web/alldata/CNC/index.htm">雕刻机DIY</A>　|　<A 
+            class=T12_B2 
+            href="http://www.cdle.net/web/alldata/Robot/index.htm">机器人梦工场</A>　|　<A 
+            class=T12_B2 
+            href="http://www.cdle.net/web/alldata/MCU/index.htm">电子&amp;单片机</A>　|　<A 
+            class=T12_B2 
+            href="http://www.cdle.net/web/alldata/Data/index.htm">资料下载</A>　|　<A 
+            class=T12_R1 
+            href="http://www.cdle.net/web/alldata/CDLE/index.htm">本站原创</A>　|　<A 
+            class=T12_R1 
+            href="http://www.cdle.net/web/alldata/CDLE/index.htm">DIY套件</A>　|　<A 
+            class=T12_B2 href="http://www.cdle.net/bbs/index.asp" 
+            target=_blank>论坛</A></TD></TR></TBODY></TABLE><!-- #EndLibraryItem --></TD>
+    <TD bgColor=#99cc00 height=10><IMG height=1 
+      src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/zo.gif" width=1></TD></TR>
+  <TR>
+    <TD height=10><IMG height=1 src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/zo.gif" 
+      width=1></TD>
+    <TD height=10><IMG height=1 src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/zo.gif" 
+      width=1></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD width=760>
+      <TABLE height=20 cellSpacing=0 cellPadding=0 width="100%" align=center 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD width=560>　<A class=T12_G5 
+            href="http://www.cdle.net/index.htm">磁动力电子</A>--<A class=T12_G5 
+            href="http://www.cdle.net/web/alldata/CDLE/index.htm">本站原创</A>--<!-- #BeginEditable "t1" --><SPAN 
+            class=T12_R1>用Keil在C中嵌入汇编</SPAN><!-- #EndEditable --></TD>
+          <TD width=120>　<SPAN class=T12_P2><IMG height=16 alt=点击数量 
+            src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/click.gif" 
+            width=18></SPAN><SPAN class=T12_BL3>阅读数:</SPAN>　<!-- #BeginEditable "t2" -->
+            <SCRIPT language=JavaScript 
+            src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/wclick.htm"></SCRIPT>
+             <!-- #EndEditable --></TD>
+          <TD width=80>　<IMG height=6 
+            src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/go5.gif" width=5> <A 
+            class=T12_B1 href="javascript:window.close()">关　闭</A> <IMG height=6 
+            src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/go4.gif" 
+      width=5></TD></TR></TBODY></TABLE></TD>
+    <TD>&nbsp;</TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD class=TB1 vAlign=top width=760 bgColor=#cccc99>
+      <TABLE cellSpacing=1 cellPadding=1 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top bgColor=#ffffff>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD width=10>&nbsp;</TD>
+                <TD vAlign=top width=529><!-- #BeginEditable "main" -->
+                  <TABLE class=wz1 cellSpacing=0 cellPadding=0 width="100%" 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=wz1 vAlign=top>
+                        <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <P align=center><SPAN 
+                              class=wz1_t>用Keil在C中嵌入汇编</SPAN></P>
+                              <P class=wz1_t2 align=center><A 
+                              href="mailto:pnzwzw@cdle.net" target=_blank><IMG 
+                              height=21 
+                              src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/p2.gif" 
+                              width=23 border=0></A>作者：温正伟　原载:<A class=wz1_t2 
+                              href="http://www.cdle.net/" 
+                              target=_blank>http://www.cdle.net/</A></P></TD></TR></TBODY></TABLE><BR>　　早前公布了C和汇编混编的温度控制器程序,收到一些朋友的询问,他们无法在自己程序中使用我的18B20的汇编子程序或无法正常通过混编后的程序编译。<BR>　　其实在KEIL中嵌入汇编的方法很简单。如图一，在C文件中要嵌入汇编的地方用#pragma 
+                        asm和#pragma endasm分隔开来，这样编译时KEIL就知道这中间的一段是汇编了。 <BR><BR>
+                        <TABLE cellSpacing=1 cellPadding=0 width=100 
+                        align=center bgColor=#ff9933 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=176 
+                              src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/cdle050015_01.gif" 
+                              width=358></TD></TR>
+                          <TR>
+                            <TD>图1</TD></TR></TBODY></TABLE>
+                        <P>　　在有加入汇编的文件中，还要设置编译该文件时的选项</P>
+                        <TABLE cellSpacing=1 cellPadding=0 width=100 
+                        align=center bgColor=#ff9933 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=151 
+                              src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/cdle050015_02.gif" 
+                              width=293></TD></TR>
+                          <TR>
+                            <TD>图2</TD></TR></TBODY></TABLE>
+                        <P>　Generate Assembler SRC File 生成汇编SRC文件<BR>　Assemble 
+                        SRC 
+                        File　封装汇编文件<BR>　（如图三的状态为选中）<BR>　　选上这两项就可以在C中嵌人汇编了，设置后在文件图示中多了三个红色的小方块。<BR></P>
+                        <TABLE cellSpacing=1 cellPadding=0 width=100 
+                        align=center bgColor=#ff9933 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=280 
+                              src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/cdle050015_03.gif" 
+                              width=280></TD></TR>
+                          <TR>
+                            <TD>图3</TD></TR></TBODY></TABLE>
+                        <P>　　为了能对汇编进行封装还要在项目中加入相应的封装库文件， 
+                        在笔者的项目中编译模式是小模式所以选用C51S.LIB。这也是最常用的。这些库文件是中KEIL安装目录下的LIB目录中。 
+                        加好后就可以顺利编译了。（注：我只在7.0以上版本使用过）<BR><BR></P>
+                        <TABLE cellSpacing=1 cellPadding=0 width=100 
+                        align=center bgColor=#ff9933 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=292 
+                              src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/cdle050015_04.gif" 
+                              width=272></TD></TR>
+                          <TR>
+                            <TD>图4</TD></TR></TBODY></TABLE><BR>
+                        <TABLE cellSpacing=1 cellPadding=0 width=100 
+                        align=center bgColor=#ff9933 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=176 
+                              src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/cdle050015_01.gif" 
+                              width=358></TD></TR>
+                          <TR>
+                            <TD>图5</TD></TR></TBODY></TABLE><BR>
+                        <TABLE cellSpacing=1 cellPadding=0 width=100 
+                        align=center bgColor=#ff9933 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=176 
+                              src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/cdle050015_01.gif" 
+                              width=358></TD></TR>
+                          <TR>
+                            <TD>图6</TD></TR></TBODY></TABLE>
+                        <P>　2004/1/13 午<BR></P></TD></TR></TBODY></TABLE><!-- #EndEditable --></TD>
+                <TD width=11>&nbsp;</TD>
+                <TD width=1 bgColor=#cccc99><IMG height=1 
+                  src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/zo.gif" width=1></TD>
+                <TD vAlign=top align=middle width=200>
+                  <TABLE cellSpacing=2 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=T12_R2>本文相关信息：</TD></TR>
+                    <TR>
+                      <TD><!-- #BeginEditable "A1" -->
+                        <P>收录时间：2005年前<BR>整理时间：2006.7.7<BR>作者：温正伟<BR>原载：www.cdle.net<BR>
+                        <SCRIPT language=JavaScript src=""></SCRIPT>
+                        </P><!-- #EndEditable --></TD></TR>
+                    <TR>
+                      <TD bgColor=#cccc99 height=1><IMG height=1 
+                        src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/zo.gif" 
+                    width=1></TD></TR>
+                    <TR>
+                      <TD class=T12_R2>相关阅读：</TD></TR>
+                    <TR>
+                      <TD><!-- #BeginEditable "A2" --><!-- #BeginLibraryItem "/Library/Zlib_3.lbi" -->
+                        <P><A class=T12_G3 
+                        href="http://www.cdle.net/web/alldata/CDLE/cdle050013.htm" 
+                        target=_blank>用keil计算延时的方法</A><BR><A class=T12_G3 
+                        href="http://www.cdle.net/web/alldata/CDLE/cdle050015.htm" 
+                        target=_blank>用Keil在C中嵌入汇编</A> </P><!-- #EndLibraryItem --><!-- #EndEditable --></TD></TR>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/zo.gif" 
+                    width=1></TD></TR>
+                    <TR>
+                      <TD bgColor=#cccc99 height=1><IMG height=1 
+                        src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/zo.gif" 
+                    width=1></TD></TR>
+                    <TR>
+                      <TD class=T12_R2>相关网站：</TD></TR>
+                    <TR>
+                      <TD><!-- #BeginEditable "A3" --><!-- #EndEditable --></TD></TR>
+                    <TR>
+                      <TD bgColor=#cccc99 height=1><IMG height=1 
+                        src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/zo.gif" 
+                    width=1></TD></TR>
+                    <TR>
+                      <TD class=T12_P2>Google广告：</TD></TR>
+                    <TR>
+                      <TD>
+                        <DIV align=center>
+                        <SCRIPT type=text/javascript><!--
+google_ad_client = "pub-5106597447254633";
+google_ad_width = 120;
+google_ad_height = 60;
+google_ad_format = "120x60_as_rimg";
+google_cpa_choice = "CAAQyKmU_AEaCEgmBX1Smfx8KODy9IMB";
+//--></SCRIPT>
+
+                        <SCRIPT 
+                        src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/show_ads.js" 
+                        type=text/javascript>
+</SCRIPT>
+                        </DIV></TD></TR>
+                    <TR>
+                      <TD>
+                        <DIV align=center>
+                        <SCRIPT type=text/javascript><!--
+google_ad_client = "pub-5106597447254633";
+google_ad_width = 120;
+google_ad_height = 60;
+google_ad_format = "120x60_as_rimg";
+google_cpa_choice = "CAAQy8L8zwEaCDUSP1b6Y2DoKL-_93M";
+//-->
+</SCRIPT>
+
+                        <SCRIPT 
+                        src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/show_ads.js" 
+                        type=text/javascript>
+</SCRIPT>
+                        </DIV></TD></TR>
+                    <TR>
+                      <TD>
+                        <DIV align=center><!-- #BeginLibraryItem "/Library/ad-google1.lbi" -->
+                        <SCRIPT type=text/javascript><!--
+google_ad_client = "pub-5106597447254633";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "78B749";
+google_color_bg = "FFFFFF";
+google_color_link = "0066CC";
+google_color_text = "000000";
+google_color_url = "008000";
+//--></SCRIPT>
+
+                        <SCRIPT 
+                        src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/show_ads.js" 
+                        type=text/javascript>
+</SCRIPT>
+<!-- #EndLibraryItem --></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+    <TD>&nbsp;</TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD height=5><IMG height=1 src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/zo.gif" 
+      width=1></TD></TR></TBODY></TABLE><!-- #BeginLibraryItem "/Library/yw.lbi" -->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD width=760>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=#cccc99 colSpan=4 height=1><IMG height=1 
+            src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/zo.gif" width=1></TD></TR>
+        <TR>
+          <TD height=18>&nbsp;&nbsp; <SPAN class=T12_B1>最佳浏览 800*600　<A 
+            class=T12_B2 
+            href="http://www.cdle.net/Library/Library/www.miibeian.gov.cn" 
+            target=_blank><STRONG>粤ICP备06079880号</STRONG></A></SPAN></TD>
+          <TD>
+            <DIV align=right>Copyright(C) 2001-2006 <FONT 
+            color=#333399>www.<FONT color=#cc0033>cdle</FONT>.net</FONT> All 
+            rights reserved.</DIV></TD>
+          <TD width=1 bgColor=#cccc99><IMG 
+            src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/zo.gif"></TD>
+          <TD width=18>
+            <DIV align=center><A 
+            href="http://www.cdle.net/web/alldata/CDLE/cdle050015.htm#TOP"><IMG 
+            height=9 alt="GOTO TOP" 
+            src="磁动力电子--本站原创--用Keil在C中嵌入汇编.files/go1.gif" width=6 align=middle 
+            border=0></A></DIV></TD></TR></TBODY></TABLE></TD>
+    <TD>&nbsp;</TD></TR></TBODY></TABLE><!-- #EndLibraryItem --><!-- #EndTemplate --></BODY></HTML>
+
+

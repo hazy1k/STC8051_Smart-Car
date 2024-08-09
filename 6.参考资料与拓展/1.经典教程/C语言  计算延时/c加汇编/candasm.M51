@@ -1,0 +1,171 @@
+BL51 BANKED LINKER/LOCATER V6.00                                                        07/26/2007  12:57:50  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.00, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE candasm.obj, C:\Keil\C51\LIB\C51S.LIB TO candasm
+
+
+INPUT MODULES INCLUDED:
+  candasm.obj (CANDASM)
+  C:\Keil\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  candasm (CANDASM)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0014H     UNIT         ?PR?MAIN?CANDASM
+            CODE    0017H     000DH     UNIT         ?PR?DELAY?CANDASM
+            CODE    0024H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+SYMBOL TABLE OF MODULE:  candasm (CANDASM)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        CANDASM
+  C:0017H         SEGMENT       ?PR?DELAY?CANDASM
+  C:0003H         SEGMENT       ?PR?MAIN?CANDASM
+  C:0017H         PUBLIC        DELAY
+  C:0003H         PUBLIC        MAIN
+  C:0005H         SYMBOL        ?C0002
+  C:0010H         SYMBOL        ?C0004
+  B:00D0H.6       SYMBOL        AC
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  N:0000H         SYMBOL        CANDASM
+  B:00D0H.7       SYMBOL        CY
+  C:001BH         SYMBOL        DL1
+  C:0019H         SYMBOL        DL2
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  B:00A8H.7       SYMBOL        EA
+  B:00A8H.4       SYMBOL        ES
+  B:00A8H.1       SYMBOL        ET0
+  B:00A8H.3       SYMBOL        ET1
+  B:00A8H.5       SYMBOL        ET2
+  B:00A8H.0       SYMBOL        EX0
+  B:00A8H.2       SYMBOL        EX1
+  B:00D0H.5       SYMBOL        F0
+  B:00D0H.1       SYMBOL        FL
+  D:00A8H         SYMBOL        IE
+BL51 BANKED LINKER/LOCATER V6.00                                                      07/26/2007  12:57:50  PAGE 2
+
+
+  B:0088H.1       SYMBOL        IE0
+  B:0088H.3       SYMBOL        IE1
+  B:00B0H.2       SYMBOL        INT0
+  B:00B0H.3       SYMBOL        INT1
+  D:00B8H         SYMBOL        IP
+  B:0088H.0       SYMBOL        IT0
+  B:0088H.2       SYMBOL        IT1
+  B:00D0H.2       SYMBOL        OV
+  B:00D0H.0       SYMBOL        P
+  D:0080H         SYMBOL        P0
+  B:0080H.0       SYMBOL        P0_0
+  B:0080H.1       SYMBOL        P0_1
+  B:0080H.2       SYMBOL        P0_2
+  B:0080H.3       SYMBOL        P0_3
+  B:0080H.4       SYMBOL        P0_4
+  B:0080H.5       SYMBOL        P0_5
+  B:0080H.6       SYMBOL        P0_6
+  B:0080H.7       SYMBOL        P0_7
+  D:0090H         SYMBOL        P1
+  B:0090H.0       SYMBOL        P1_0
+  B:0090H.1       SYMBOL        P1_1
+  B:0090H.2       SYMBOL        P1_2
+  B:0090H.3       SYMBOL        P1_3
+  B:0090H.4       SYMBOL        P1_4
+  B:0090H.5       SYMBOL        P1_5
+  B:0090H.6       SYMBOL        P1_6
+  B:0090H.7       SYMBOL        P1_7
+  D:00A0H         SYMBOL        P2
+  B:00A0H.0       SYMBOL        P2_0
+  B:00A0H.1       SYMBOL        P2_1
+  B:00A0H.2       SYMBOL        P2_2
+  B:00A0H.3       SYMBOL        P2_3
+  B:00A0H.4       SYMBOL        P2_4
+  B:00A0H.5       SYMBOL        P2_5
+  B:00A0H.6       SYMBOL        P2_6
+  B:00A0H.7       SYMBOL        P2_7
+  D:00B0H         SYMBOL        P3
+  B:00B0H.0       SYMBOL        P3_0
+  B:00B0H.1       SYMBOL        P3_1
+  B:00B0H.2       SYMBOL        P3_2
+  B:00B0H.3       SYMBOL        P3_3
+  B:00B0H.4       SYMBOL        P3_4
+  B:00B0H.5       SYMBOL        P3_5
+  B:00B0H.6       SYMBOL        P3_6
+  B:00B0H.7       SYMBOL        P3_7
+  D:0087H         SYMBOL        PCON
+  B:00B8H.4       SYMBOL        PS
+  D:00D0H         SYMBOL        PSW
+  B:00B8H.1       SYMBOL        PT0
+  B:00B8H.3       SYMBOL        PT1
+  B:00B8H.5       SYMBOL        PT2
+  B:00B8H.0       SYMBOL        PX0
+  B:00B8H.2       SYMBOL        PX1
+  B:0098H.2       SYMBOL        RB8
+  B:00B0H.7       SYMBOL        RD
+  B:0098H.4       SYMBOL        REN
+  B:0098H.0       SYMBOL        RI
+BL51 BANKED LINKER/LOCATER V6.00                                                      07/26/2007  12:57:50  PAGE 3
+
+
+  B:00D0H.3       SYMBOL        RS0
+  B:00D0H.4       SYMBOL        RS1
+  B:00B0H.0       SYMBOL        RXD
+  D:0099H         SYMBOL        SBUF
+  D:0098H         SYMBOL        SCON
+  B:0098H.7       SYMBOL        SM0
+  B:0098H.6       SYMBOL        SM1
+  B:0098H.5       SYMBOL        SM2
+  D:0081H         SYMBOL        SP
+  B:00B0H.4       SYMBOL        T0
+  B:00B0H.5       SYMBOL        T1
+  B:0098H.3       SYMBOL        TB8
+  D:0088H         SYMBOL        TCON
+  B:0088H.5       SYMBOL        TF0
+  B:0088H.7       SYMBOL        TF1
+  D:008CH         SYMBOL        TH0
+  D:008DH         SYMBOL        TH1
+  B:0098H.1       SYMBOL        TI
+  D:008AH         SYMBOL        TL0
+  D:008BH         SYMBOL        TL1
+  D:0089H         SYMBOL        TMOD
+  B:0088H.4       SYMBOL        TR0
+  B:0088H.6       SYMBOL        TR1
+  B:00B0H.1       SYMBOL        TXD
+  B:00B0H.6       SYMBOL        WR
+  C:0017H         LINE#         122
+  C:0019H         LINE#         124
+  C:001BH         LINE#         126
+  C:001DH         LINE#         128
+  C:001FH         LINE#         130
+  C:0021H         LINE#         132
+  C:0023H         LINE#         136
+  C:0003H         LINE#         148
+  C:0005H         LINE#         154
+  C:0006H         LINE#         155
+  C:0007H         LINE#         156
+  C:0008H         LINE#         157
+  C:000AH         LINE#         158
+  C:000BH         LINE#         161
+  C:000EH         LINE#         164
+  C:0010H         LINE#         168
+  C:0012H         LINE#         171
+  C:0015H         LINE#         174
+  -------         ENDMOD        CANDASM
+
+Program Size: data=9.0 xdata=0 code=48
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,45 @@
+C51 COMPILER V8.02   CANDASM                                                               07/26/2007 12:57:50 PAGE 1   
+
+
+C51 COMPILER V8.02, COMPILATION OF MODULE CANDASM
+OBJECT MODULE PLACED IN candasm.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE candasm.c BROWSE DEBUG OBJECTEXTEND SRC(.\candasm.SRC)
+
+line level    source
+
+   1                             #include <AT89X51.H>
+   2             void delay (void)
+   3                {  
+   4   1                #pragma asm
+   5   1                 mov r3,#5
+   6   1      dl2:   mov r4,#255
+   7   1      dl1:   mov r5,#255
+   8   1                 djnz r5,$
+   9   1                 djnz r4,dl1
+  10   1                 djnz r3,dl2
+  11   1                #pragma endasm 
+  12   1                 }
+  13             void main (void)
+  14                 {  unsigned char j=0x7f;
+  15   1                     while(1)
+  16   1                         {j=(j>>1)|0x80;
+  17   2                         if(j==0xff)
+  18   2                         j=0x7f;
+  19   2                         P1=j;
+  20   2                         delay();
+  21   2                         }
+  22   1              }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     39    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,477 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0044)http://www.ourmcu.net/article/show.asp?id=99 -->
+<HTML><HEAD><TITLE>单片机C语言延时程序研究 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51/AVR/PIC系列免费资料、单片机编程器、仿真器、开发试验板-http://www.ourmcu.net 、地址：山东省济南市</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META 
+content="杰科电子 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51/AVR/PIC系列免费资料、单片机编程器、仿真器、开发试验板-http://www.ourmcu.net 、地址：山东省济南市" 
+name=keywords>
+<META content="单片机C语言延时程序研究 ,杰科电子" name=description><LINK 
+href="单片机C语言延时程序研究 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/style.css" 
+type=text/css rel=stylesheet>
+<META content=TRUE name=MSSmartTagsPreventParsing>
+<META http-equiv=MSThemeCompatible content=Yes>
+<META http-equiv=html content=no-cache>
+<SCRIPT 
+src="单片机C语言延时程序研究 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/menu.js" 
+type=text/javascript></SCRIPT>
+
+<META content="MSHTML 6.00.2900.2722" name=GENERATOR></HEAD>
+<BODY>
+<TABLE class=tableborder cellSpacing=0 cellPadding=0 width=778 align=center 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=5></TD></TR>
+  <TR>
+    <TD class=tablebody align=right height=25><A class=navmenu 
+      href="http://www.ourmcu.net/">首 页</A> ┆ <A class=navmenu title=文章中心 
+      href="http://www.ourmcu.net/article/">文章中心</A> ┆ <A class=navmenu 
+      title=下载中心 href="http://www.ourmcu.net/soft/">下载中心</A> ┆ <A class=navmenu 
+      title=客户留言 href="http://www.ourmcu.net/GuestBook/">客户留言</A> ┆ <A 
+      style="COLOR: red" name=StranLink>繁體中文</A></TD></TR>
+  <TR>
+    <TD height=1></TD></TR>
+  <TR>
+    <TD background="" height=74>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD align=middle width=180><IMG height=60 
+            src="单片机C语言延时程序研究 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/logo.gif" 
+            width=180></TD>
+          <TD align=middle width=500>
+            <SCRIPT language=javascript 
+            src="单片机C语言延时程序研究 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/banner.js"></SCRIPT>
+          </TD>
+          <TD noWrap align=middle width=90 height=70><IMG height=12 
+            src="单片机C语言延时程序研究 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/top_home.gif" 
+            width=13 border=0> <A title=将本站设为你的首页 
+            onclick="this.style.behavior='url(#default#homepage)';this.sethomepage('http://www.ourmcu.net');return false;" 
+            href="http://www.ourmcu.net/">设为首页</A><BR><IMG height=12 
+            src="单片机C语言延时程序研究 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/top_gift.gif" 
+            width=13 border=0> <A title=将本站加入到你的收藏夹 
+            href="javascript:window.external.AddFavorite(location.href,document.title)">加入收藏</A><BR><IMG 
+            height=12 
+            src="单片机C语言延时程序研究 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/top_mail.gif" 
+            width=13 border=0> <A 
+        href="mailto:zdhrlj@sohu.com">联系我们</A></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD height=1></TD></TR></TBODY></TABLE>
+<TABLE class=tableborder cellSpacing=0 cellPadding=0 width=778 align=center 
+border=0>
+  <TBODY>
+  <TR height=22>
+    <TD class=navbarbg noWrap align=middle>&nbsp;下载：</TD>
+    <TD class=navbarbg width="96%"><A class=navbar title=常用工具：小工具 
+      href="http://www.ourmcu.net/soft/list.asp?classid=11">常用工具</A> | <A 
+      class=navbar title=LED/LCD、USB、总线等论文集 
+      href="http://www.ourmcu.net/soft/list.asp?classid=13">论文资料</A> | <A 
+      class=navbar title=Proteus软件 
+      href="http://www.ourmcu.net/soft/list.asp?classid=16">Proteus下载</A> | <A 
+      class=navbar title=IC资料 
+      href="http://www.ourmcu.net/soft/list.asp?classid=17" 
+      target=_blank>IC资料下载</A> | <A class=navbar title=电子书籍：数电模电单片机等电子书籍 
+      href="http://www.ourmcu.net/soft/list.asp?classid=18">电子书籍</A> | <A 
+      class=navbar title=程序源代码 
+      href="http://www.ourmcu.net/soft/list.asp?classid=19">源代码类</A> | <A 
+      class=navbar title=编程软件：keil、万利、伟福、ARM等 
+      href="http://www.ourmcu.net/soft/list.asp?classid=25">编程软件与资料</A> | <A 
+      class=navbar title=DIY资料 
+      href="http://www.ourmcu.net/soft/list.asp?classid=26">DIY资料</A> | <A 
+      class=navbar title=本站资料 
+      href="http://www.ourmcu.net/soft/list.asp?classid=31">VIP资料</A> | <A 
+      class=navbar title=总线论文 
+      href="http://www.ourmcu.net/soft/list.asp?classid=64">总线论文</A></TD></TR>
+  <TR height=22>
+    <TD class=navbarbg noWrap align=middle>&nbsp;文章：</TD>
+    <TD class=navbarbg><A class=navbar title=单片机技术文章 
+      href="http://www.ourmcu.net/article/list.asp?classid=2">单片机技术</A> | <A 
+      class=navbar title=AVR单片机相关 
+      href="http://www.ourmcu.net/article/list.asp?classid=4">AVR单片机</A> | <A 
+      class=navbar title=PIC单片机相关 
+      href="http://www.ourmcu.net/article/list.asp?classid=5">PIC单片机</A> | <A 
+      class=navbar title=ARM嵌入式 
+      href="http://www.ourmcu.net/article/list.asp?classid=6">ARM嵌入式</A> | <A 
+      class=navbar title=电子电路：模拟与数字电路 
+      href="http://www.ourmcu.net/article/list.asp?classid=7">电子与电路</A> | <A 
+      class=navbar title="高级编程：VC++ VB、PB..." 
+      href="http://www.ourmcu.net/article/list.asp?classid=8">高级编程</A> | <A 
+      class=navbar title=单片机制作与应用 
+      href="http://www.ourmcu.net/article/list.asp?classid=9">制作与应用</A> | <A 
+      class=navbar title=PLC相关 
+      href="http://www.ourmcu.net/article/list.asp?classid=40">PLC栏目</A> | <A 
+      class=navbar title=接口与通讯 
+      href="http://www.ourmcu.net/article/list.asp?classid=48">接口与通讯</A> | <A 
+      class=navbar title=Proteus相关 
+      href="http://www.ourmcu.net/article/list.asp?classid=63">Proteus资料</A></TD></TR>
+  <TR>
+    <TD bgColor=#dfdfdf colSpan=3 height=1></TD></TR></TBODY></TABLE>
+<TABLE class=tableborder cellSpacing=0 cellPadding=0 width=778 align=center 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=2></TD></TR>
+  <TR>
+    <TD bgColor=#efefef><IFRAME border=0 
+      src="单片机C语言延时程序研究 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/login.htm" 
+      frameBorder=0 width="100%" scrolling=no height=26></IFRAME></TD></TR>
+  <TR>
+    <TD height=2></TD></TR></TBODY></TABLE>
+<TABLE class=tableborder cellSpacing=0 cellPadding=0 width=778 align=center 
+border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <SCRIPT language=javascript 
+      src="单片机C语言延时程序研究 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/top.js"></SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD height=5></TD></TR>
+  <TR>
+    <TD class=linebar height=8></TD></TR>
+  <TR>
+    <TD height=5></TD></TR></TBODY></TABLE>
+<TABLE class=tableborder cellSpacing=0 cellPadding=0 width=778 align=center 
+border=0>
+  <TBODY>
+  <TR>
+    <TD bgColor=#efefef height=22>
+      <TABLE cellSpacing=2 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD align=middle width="4%"><IMG height=13 
+            src="单片机C语言延时程序研究 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/class_ar.gif" 
+            width=13></TD>
+          <TD width="74%">您当前的位置：<A href="http://www.ourmcu.net/">杰科电子</A> 
+            -&gt; <A href="http://www.ourmcu.net/article/">文章中心</A> -&gt; <A 
+            href="http://www.ourmcu.net/article/list.asp?classid=2">单片机技术</A> 
+            -&gt; <A 
+            href="http://www.ourmcu.net/article/list.asp?classid=44">源程序栏目</A> 
+            -&gt; 文章内容</TD>
+          <TD align=middle width="22%"><IMG height=11 
+            src="单片机C语言延时程序研究 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/h_arrow.gif" 
+            width=11 align=absMiddle> <A 
+            href="http://www.ourmcu.net/user/logout.asp">退出登录</A> <IMG height=11 
+            src="单片机C语言延时程序研究 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/h_arrow.gif" 
+            width=11 align=absMiddle> <A 
+            href="http://www.ourmcu.net/user/">用户管理</A></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD bgColor=#d9d9d9 height=1></TD></TR>
+  <TR>
+    <TD height=5></TD></TR></TBODY></TABLE>
+<TABLE class=tableborder cellSpacing=0 cellPadding=0 width=778 align=center 
+border=0><!--DWLayoutTable-->
+  <TBODY>
+  <TR vAlign=top>
+    <TD class=tableright vAlign=top align=right width=776 height=219>
+      <TABLE style="TABLE-LAYOUT: fixed; WORD-BREAK: break-all" cellSpacing=0 
+      cellPadding=0 width=760 border=0>
+        <TBODY>
+        <TR>
+          <TD style="FONT-SIZE: 12pt; COLOR: #ff6600" align=middle 
+            height=32>单片机C语言延时程序研究</TD></TR>
+        <TR>
+          <TD align=middle bgColor=#f7f7f7 
+            height=25>作者：本站&nbsp;&nbsp;来源：本站原创&nbsp;&nbsp;发布时间：2006-2-4 
+            21:47:02&nbsp;&nbsp;发布人：51c51</TD></TR>
+        <SCRIPT language=javascript>
+var newasp_fontsize=9;
+var newasp_lineheight=12;
+</SCRIPT>
+
+        <TR>
+          <TD>
+            <P align=right><A title=减小字体 
+            style="CURSOR: hand; POSITION: relative" 
+            onclick='if(newasp_fontsize>8){NewaspContentLabel.style.fontSize=(--newasp_fontsize)+"pt";NewaspContentLabel.style.lineHeight=(--newasp_lineheight)+"pt";}'><IMG 
+            height=15 
+            src="单片机C语言延时程序研究 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/1.gif" 
+            width=15 border=0><FONT color=#ff6600>减小字体</FONT></A> <A title=增大字体 
+            style="CURSOR: hand; POSITION: relative" 
+            onclick='if(newasp_fontsize<64){NewaspContentLabel.style.fontSize=(++newasp_fontsize)+"pt";NewaspContentLabel.style.lineHeight=(++newasp_lineheight)+"pt";}'><IMG 
+            height=15 
+            src="单片机C语言延时程序研究 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/2.gif" 
+            width=15 border=0><FONT color=#ff6600>增大字体</FONT></A> </P>
+            <DIV class=ContentFont id=NewaspContentLabel 
+            style="PADDING-RIGHT: 10px; DISPLAY: block; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px"><FONT 
+            id=font_word 
+            style="FONT-SIZE: 14px; FONT-FAMILY: 宋体, Verdana, Arial, Helvetica, sans-serif">
+            <CENTER class=aTitle>51单片机 Keil C 延时程序的简单研究</CENTER>
+            <TABLE width="97%">
+              <TBODY>
+              <TR>
+                <TD align=right>作者：InfiniteSpace 
+            Studio/isjfk<BR></TD></TR></TBODY></TABLE>
+            <P>51单片机 Keil C 延时程序的简单研究</P>
+            <P>by: InfiniteSpace Studio/isjfk, 1.21.2004</P>
+            <P>任何人都可以在注明原作者和出处的前提下随意转载这篇文章，但不得用于商业目的。</P>
+            <P><BR>&nbsp;&nbsp;&nbsp; 
+            应用单片机的时候，经常会遇到需要短时间延时的情况。需要的延时时间很短，一般都是几十到几百微妙(us)。有时候还需要很高的精度，比如用单片机驱动DS18B20的时候，误差容许的范围在十几us以内，不然很容易出错。这种情况下，用计时器往往有点小题大做。而在极端的情况下，计时器甚至已经全部派上了别的用途。这时就需要我们另想别的办法了。<BR>&nbsp;&nbsp;&nbsp; 
+            以前用汇编语言写单片机程序的时候，这个问题还是相对容易解决的。比如用的是12MHz晶振的51，打算延时20us，只要用下面的代码，就可以满足一般的需要：<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            mov&nbsp;&nbsp;&nbsp;&nbsp; r0, #09h<BR>loop:&nbsp;&nbsp; 
+            djnz&nbsp;&nbsp;&nbsp; r0, 
+            loop<BR>51单片机的指令周期是晶振频率的1/12，也就是1us一个周期。mov r0, 
+            #09h需要2个极其周期，djnz也需要2个极其周期。那么存在r0里的数就是(20-2)/2。用这种方法，可以非常方便的实现256us以下时间的延时。如果需要更长时间，可以使用两层嵌套。而且精度可以达到2us，一般来说，这已经足够了。<BR>&nbsp;&nbsp;&nbsp; 
+            现在，应用更广泛的毫无疑问是Keil的C编译器。相对汇编来说，C固然有很多优点，比如程序易维护，便于理解，适合大的项目。但缺点（我觉得这是C的唯一一个缺点了）就是实时性没有保证，无法预测代码执行的指令周期。因而在实时性要求高的场合，还需要汇编和C的联合应用。但是是不是这样一个延时程序，也需要用汇编来实现呢？为了找到这个答案，我做了一个实验。<BR>&nbsp;&nbsp;&nbsp; 
+            用C语言实现延时程序，首先想到的就是C常用的循环语句。下面这段代码是我经常在网上看到的：<BR>void delay2(unsigned 
+            char i)<BR>{<BR>&nbsp;&nbsp;&nbsp; for(; i != 0; 
+            i--);<BR>}<BR>到底这段代码能达到多高的精度呢？为了直接衡量这段代码的效果，我把 Keil C 
+            根据这段代码产生的汇编代码找了出来：<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; FUNCTION _delay2 
+            (BEGIN)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 18<BR>;---- Variable 'i' assigned to Register 'R7' 
+            ----<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 
+            19<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 
+            20<BR>0000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ?C0007:<BR>0000 
+            EF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            MOV&nbsp;&nbsp;&nbsp;&nbsp; A,R7<BR>0001 
+            6003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            JZ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ?C0010<BR>0003 
+            1F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            DEC&nbsp;&nbsp;&nbsp;&nbsp; R7<BR>0004 
+            80FA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            SJMP&nbsp;&nbsp;&nbsp; 
+            ?C0007<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 
+            21<BR>0006&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ?C0010:<BR>0006 
+            22&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            RET&nbsp;&nbsp;&nbsp;&nbsp; 
+            <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; FUNCTION _delay2 
+            (END)<BR>真是不看不知道~~~一看才知道这个延时程序是多么的不准点~~~光看主要的那四条语句，就需要6个机器周期。也就是说，它的精度顶多也就是6us而已，这还没算上一条 
+            lcall 和一条 ret。如果我们把调用函数时赋的i值根延时长度列一个表的话，就是：<BR>i&nbsp;&nbsp;&nbsp; 
+            delay time/us<BR>0&nbsp;&nbsp;&nbsp; 6<BR>1&nbsp;&nbsp;&nbsp; 
+            12<BR>2&nbsp;&nbsp;&nbsp; 18<BR>...<BR>因为函数的调用需要2个时钟周期的lcall，所以delay 
+            time比从函数代码的执行时间多2。顺便提一下，有的朋友写的是这样的代码：<BR>void delay2(unsigned char 
+            i)<BR>{<BR>&nbsp;&nbsp;&nbsp; unsigned char a;<BR>&nbsp;&nbsp;&nbsp; 
+            for(a = i; a != 0; 
+            a--);<BR>}<BR>可能有人认为这会生成更长的汇编代码来，但是事实证明：<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; FUNCTION _delay2 
+            (BEGIN)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 18<BR>;---- Variable 'i' assigned to Register 'R7' 
+            ----<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 
+            19<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 21<BR>;---- Variable 'a' assigned to Register 'R7' 
+            ----<BR>0000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ?C0007:<BR>0000 
+            EF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            MOV&nbsp;&nbsp;&nbsp;&nbsp; A,R7<BR>0001 
+            6003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            JZ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ?C0010<BR>0003 
+            1F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            DEC&nbsp;&nbsp;&nbsp;&nbsp; R7<BR>0004 
+            80FA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            SJMP&nbsp;&nbsp;&nbsp; 
+            ?C0007<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 
+            22<BR>0006&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ?C0010:<BR>0006 
+            22&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            RET&nbsp;&nbsp;&nbsp;&nbsp; 
+            <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; FUNCTION _delay2 
+            (END)<BR>其生成的代码是一样的。不过这的确不是什么好的习惯。因为这里实在没有必要再引入多余的变量。我们继续讨论正题。有的朋友为了得当更长的延时，甚至用了这样的代码：<BR>void 
+            delay2(unsigned long i)<BR>{<BR>&nbsp;&nbsp;&nbsp; for(; i != 0; 
+            i--);<BR>}<BR>这段代码产生的汇编代码是什么样子的？其实不用想也知道它是如何恐怖的$#^%&amp;%$......让我们看一看：<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; FUNCTION _delay2 
+            (BEGIN)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 18<BR>0000 
+            8F00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            R&nbsp;&nbsp;&nbsp;&nbsp; MOV&nbsp;&nbsp;&nbsp;&nbsp; 
+            i+03H,R7<BR>0002 8E00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            R&nbsp;&nbsp;&nbsp;&nbsp; MOV&nbsp;&nbsp;&nbsp;&nbsp; 
+            i+02H,R6<BR>0004 8D00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            R&nbsp;&nbsp;&nbsp;&nbsp; MOV&nbsp;&nbsp;&nbsp;&nbsp; 
+            i+01H,R5<BR>0006 8C00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            R&nbsp;&nbsp;&nbsp;&nbsp; MOV&nbsp;&nbsp;&nbsp;&nbsp; 
+            i,R4<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 
+            19<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 
+            20<BR>0008&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ?C0007:<BR>0008 
+            E4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            CLR&nbsp;&nbsp;&nbsp;&nbsp; A<BR>0009 
+            FF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            MOV&nbsp;&nbsp;&nbsp;&nbsp; R7,A<BR>000A 
+            FE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            MOV&nbsp;&nbsp;&nbsp;&nbsp; R6,A<BR>000B 
+            FD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            MOV&nbsp;&nbsp;&nbsp;&nbsp; R5,A<BR>000C 
+            FC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            MOV&nbsp;&nbsp;&nbsp;&nbsp; R4,A<BR>000D 
+            AB00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            R&nbsp;&nbsp;&nbsp;&nbsp; MOV&nbsp;&nbsp;&nbsp;&nbsp; 
+            R3,i+03H<BR>000F AA00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            R&nbsp;&nbsp;&nbsp;&nbsp; MOV&nbsp;&nbsp;&nbsp;&nbsp; 
+            R2,i+02H<BR>0011 A900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            R&nbsp;&nbsp;&nbsp;&nbsp; MOV&nbsp;&nbsp;&nbsp;&nbsp; 
+            R1,i+01H<BR>0013 A800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            R&nbsp;&nbsp;&nbsp;&nbsp; MOV&nbsp;&nbsp;&nbsp;&nbsp; R0,i<BR>0015 
+            C3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            CLR&nbsp;&nbsp;&nbsp;&nbsp; C<BR>0016 
+            120000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; E&nbsp;&nbsp;&nbsp;&nbsp; 
+            LCALL&nbsp;&nbsp; ?C?ULCMP<BR>0019 
+            601A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            JZ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ?C0010<BR>001B 
+            E500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            R&nbsp;&nbsp;&nbsp;&nbsp; MOV&nbsp;&nbsp;&nbsp;&nbsp; 
+            A,i+03H<BR>001D 
+            24FF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ADD&nbsp;&nbsp;&nbsp;&nbsp; A,#0FFH<BR>001F 
+            F500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            R&nbsp;&nbsp;&nbsp;&nbsp; MOV&nbsp;&nbsp;&nbsp;&nbsp; 
+            i+03H,A<BR>0021 E500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            R&nbsp;&nbsp;&nbsp;&nbsp; MOV&nbsp;&nbsp;&nbsp;&nbsp; 
+            A,i+02H<BR>0023 
+            34FF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ADDC&nbsp;&nbsp;&nbsp; A,#0FFH<BR>0025 
+            F500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            R&nbsp;&nbsp;&nbsp;&nbsp; MOV&nbsp;&nbsp;&nbsp;&nbsp; 
+            i+02H,A<BR>0027 E500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            R&nbsp;&nbsp;&nbsp;&nbsp; MOV&nbsp;&nbsp;&nbsp;&nbsp; 
+            A,i+01H<BR>0029 
+            34FF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ADDC&nbsp;&nbsp;&nbsp; A,#0FFH<BR>002B 
+            F500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            R&nbsp;&nbsp;&nbsp;&nbsp; MOV&nbsp;&nbsp;&nbsp;&nbsp; 
+            i+01H,A<BR>002D E500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            R&nbsp;&nbsp;&nbsp;&nbsp; MOV&nbsp;&nbsp;&nbsp;&nbsp; A,i<BR>002F 
+            34FF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ADDC&nbsp;&nbsp;&nbsp; A,#0FFH<BR>0031 
+            F500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            R&nbsp;&nbsp;&nbsp;&nbsp; MOV&nbsp;&nbsp;&nbsp;&nbsp; i,A<BR>0033 
+            80D3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            SJMP&nbsp;&nbsp;&nbsp; 
+            ?C0007<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 
+            21<BR>0035&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ?C0010:<BR>0035 
+            22&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            RET&nbsp;&nbsp;&nbsp;&nbsp; 
+            <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; FUNCTION _delay2 
+            (END)<BR>呵呵，这倒是的确可以延迟很长时间~~~但是毫无精度可言了。<BR>&nbsp;&nbsp;&nbsp; 
+            那么，用C到底能不能实现精确的延时呢？我把代码稍微改了一下：<BR>void delay1(unsigned char 
+            i)<BR>{<BR>&nbsp;&nbsp;&nbsp; 
+            while(i--);<BR>}<BR>因为根据经验，越简洁的C代码往往也能得出越简洁的机器代码。那这样结果如何呢？把它生成的汇编代码拿出来看一看就知道了。满怀希望的我按下了“Build 
+            target”键，结果打击是巨大的：<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; FUNCTION _delay1 
+            (BEGIN)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 13<BR>;---- Variable 'i' assigned to Register 'R7' 
+            ----<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 
+            14<BR>0000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ?C0004:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 15<BR>0000 
+            AE07&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            MOV&nbsp;&nbsp;&nbsp;&nbsp; R6,AR7<BR>0002 
+            1F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            DEC&nbsp;&nbsp;&nbsp;&nbsp; R7<BR>0003 
+            EE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            MOV&nbsp;&nbsp;&nbsp;&nbsp; A,R6<BR>0004 
+            70FA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            JNZ&nbsp;&nbsp;&nbsp;&nbsp; 
+            ?C0004<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 
+            16<BR>0006&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ?C0006:<BR>0006 
+            22&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            RET&nbsp;&nbsp;&nbsp;&nbsp; 
+            <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; FUNCTION _delay1 
+            (END)<BR>虽说生成的代码跟用for语句是不大一样，不过我可以毫无疑问的说，这两种方法的效率是一样的。似乎到此为止了，因为我实在想不出来源程序还有什么简化的余地。看来我就要得出来这个结论了：“如果需要us级的延时精度，需要时用汇编语言。”但是真的是这样吗？我还是不甘心。因为我不相信大名鼎鼎的 
+            Keil C 编译器居然连 djnz 都不会用？？？因为实际上程序体里只需要一句 loop: djnz r7, 
+            loop。近乎绝望之际（往往人在这种情况下确可以爆发出来，哦呵呵呵~~~），我随手改了一下：<BR>void 
+            delay1(unsigned char i)<BR>{<BR>&nbsp;&nbsp;&nbsp; 
+            while(--i);<BR>}<BR>心不在焉的编译，看源码：<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; FUNCTION _delay1 
+            (BEGIN)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 13<BR>;---- Variable 'i' assigned to Register 'R7' 
+            ----<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 
+            14<BR>0000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ?C0004:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 15<BR>0000 
+            DFFE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            DJNZ&nbsp;&nbsp;&nbsp; 
+            R7,?C0004<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; SOURCE LINE # 
+            16<BR>0002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ?C0006:<BR>0002 
+            22&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            RET&nbsp;&nbsp;&nbsp;&nbsp; 
+            <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ; FUNCTION _delay1 
+            (END)<BR>天~~~奇迹出现了......我想这个程序应该已经可以满足一般情况下的需要了。如果列个表格的话：<BR>i&nbsp;&nbsp;&nbsp; 
+            delay time/us<BR>1&nbsp;&nbsp;&nbsp; 5<BR>2&nbsp;&nbsp;&nbsp; 
+            7<BR>3&nbsp;&nbsp;&nbsp; 
+            9<BR>...<BR>计算延时时间时，已经算上了调用函数的lcall语句所花的2个时钟周期的时间。<BR>&nbsp;&nbsp;&nbsp; 
+            终于，结果已经明了了。只要合理的运用，C还是可以达到意想不到的效果。很多朋友抱怨C效率比汇编差了很多，其实如果对Keil 
+            C的编译原理有一个较深入的理解，是可以通过恰当的语法运用，让生成的C代码达到最优化。即使这看起来不大可能，但还是有一些简单的原则可循的：1.尽量使用unsigned型的数据结构。2.尽量使用char型，实在不够用再用int，然后才是long。3.如果有可能，不要用浮点型。4.使用简洁的代码，因为按照经验，简洁的C代码往往可以生成简洁的目标代码（虽说不是在所有的情况下都成立）。5...想不起来了，哦呵呵呵~~~</P></FONT></DIV>
+            <DIV></DIV></TD></TR>
+        <TR>
+          <TD 
+          style="PADDING-RIGHT: 10px; DISPLAY: block; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px" 
+          align=right bgColor=#f7f7f7 height=25>[
+            <SCRIPT language=JavaScript 
+            src="单片机C语言延时程序研究 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/Hits.htm"></SCRIPT>
+             ] [<A href="javascript:history.go(-1)">返回上一页</A>] [<A 
+            href="javascript:window.print()">打 印</A>] [<A 
+            href="http://www.ourmcu.net/user/favorite.asp?action=add&amp;topic=单片机C语言延时程序研究">收 
+            藏</A>]</TD></TR>
+        <TR>
+          <TD 
+          style="PADDING-RIGHT: 10px; DISPLAY: block; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px">
+            <DIV>上一篇文章：<A 
+            href="http://www.ourmcu.net/article/show.asp?id=98">与初学者谈低功耗设计之沈洁版</A></DIV>
+            <DIV>下一篇文章：<A 
+            href="http://www.ourmcu.net/article/show.asp?id=100">初学C编程应注意的问题</A></DIV></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 width=760 border=0>
+        <TBODY>
+        <TR>
+          <TD class=titlebg1>∷相关文章评论∷　　 　（评论内容只代表网友观点，与本站立场无关！） [<A 
+            href="http://www.ourmcu.net/article/comment.asp?ArticleID=99" 
+            target=_blank>更多评论</A>...]</TD></TR>
+        <TR vAlign=top>
+          <TD></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- 页面底部开始 -->
+<TABLE class=tableborder cellSpacing=0 cellPadding=0 width=778 align=center 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=5></TD></TR>
+  <TR>
+    <TD class=linebar height=8></TD></TR>
+  <TR>
+    <TD height=5></TD></TR>
+  <TR>
+    <TD class=tablebody align=middle height=66><A class=navmenu 
+      href="http://www.ourmcu.net/support/about.asp">关于本站</A> - <A class=navmenu 
+      href="http://www.ourmcu.net/support/help.asp">网站帮助</A> - <A class=navmenu 
+      href="http://www.ourmcu.net/support/advertise.asp">广告合作</A> - <A 
+      class=navmenu href="http://www.ourmcu.net/support/declare.asp">下载声明</A> - 
+      <A class=navmenu href="http://www.ourmcu.net/link/" target=_blank>友情连接</A> 
+      - <A class=navmenu 
+      href="http://www.ourmcu.net/support/sitemap.asp">网站地图</A> - <A 
+      class=navmenu href="http://www.ourmcu.net/admin/admin_login.asp" 
+      target=_blank>管理登录</A> <BR>Copyright &copy; 2006-2007 <A 
+      href="http://www.ourmcu.net/" target=_blank><FONT face=Verdana, sans-serif 
+      Helvetica, Arial,><B>ourmcu<FONT color=#cc0000>.Net</FONT></B></FONT></A>. 
+      All Rights Reserved . <BR>鲁ICP备 <A 
+      href="http://www.miibeian.gov.cn/">05007129号</A></TD></TR>
+  <TR>
+    <TD height=5></TD></TR></TBODY></TABLE>
+<SCRIPT language=javascript 
+src="单片机C语言延时程序研究 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/Std_StranJF.Js"></SCRIPT>
+<!-- 页面底部结束 -->
+<SCRIPT 
+src="单片机C语言延时程序研究 - 杰科电子-单片机产品开发与设计、诚信合作、双盈目的、单片机技术与嵌入式系统、51-AVR-PIC系列免费资料、单片机编程器、仿真器、开发试验板-http--www_ourmcu_net 、地址：山东省济南市.files/count.htm" 
+type=text/javascript></SCRIPT>
+</BODY></HTML>
+
+
