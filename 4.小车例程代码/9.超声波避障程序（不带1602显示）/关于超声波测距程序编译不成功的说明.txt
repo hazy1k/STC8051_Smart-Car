@@ -1,0 +1,2 @@
+解压C51FPS.rar
+把C51FPS.LIB这个文件放到\Keil\C51\LIB下面，这个文件有浮点运算

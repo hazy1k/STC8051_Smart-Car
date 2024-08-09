@@ -1,0 +1,27 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Administrator\Desktop\9¡¢ZYWIFI0939C-WIFI¿ØÖÆÖÇÄÜ»úÆ÷ÈËÅäÌ×°¸ÁĞ³ÌĞòÔ´Âë(20160119\¸Ä\ZYWIFI0939C WIFIÖÇÄÜĞ¡³µËÄÇı³ÌĞò\6¡¢ZYWIFI0939CºìÍâÒ£¿Ø¿ØÖÆĞ¡³µ³ÌĞò--PWMµ÷ËÙ\ZYWIFI0939CºìÍâÒ£¿Ø¿ØÖÆĞ¡³µ³ÌĞò.uvproj
+Project File Date:  01/07/2016
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling ZYWIFI0939CºìÍâÒ£¿Ø¿ØÖÆĞ¡³µ³ÌĞò.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?ZYWIFI0939CºìÍ_Ò£¿Ø¿Ø_ÆĞ¡³µ³ÌĞò
+Program Size: data=25.4 xdata=0 code=735
+creating hex file from "ZYWIFI0939CºìÍâÒ£¿Ø¿ØÖÆĞ¡³µ³ÌĞò"...
+"ZYWIFI0939CºìÍâÒ£¿Ø¿ØÖÆĞ¡³µ³ÌĞò" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling ZYWIFI0939CºìÍâÒ£¿Ø¿ØÖÆĞ¡³µ³ÌĞò.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?ZYWIFI0939CºìÍ_Ò£¿Ø¿Ø_ÆĞ¡³µ³ÌĞò
+Program Size: data=25.4 xdata=0 code=741
+creating hex file from "ZYWIFI0939CºìÍâÒ£¿Ø¿ØÖÆĞ¡³µ³ÌĞò"...
+"ZYWIFI0939CºìÍâÒ£¿Ø¿ØÖÆĞ¡³µ³ÌĞò" - 0 Error(s), 1 Warning(s).

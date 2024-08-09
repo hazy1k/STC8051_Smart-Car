@@ -1,0 +1,17 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Administrator\Desktop\ZYWIFI0939-3智能小车最终光盘资料20160405\9.ZYWIFI0939-3智能小车例程代码\小车套餐一程序\1、ZYWIFI0939C 跟随单独程序-PWM调速\ZYWIFI0939C红外避障单独程序.uvproj
+Project File Date:  01/03/2016
+
+<h2>Output:</h2>
+Build target '目标 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?BACKRUN?MAIN
+Program Size: data=15.2 xdata=0 code=465
+creating hex file from "1、ZYWIFI0939C 跟随单独程序-PWM调速"...
+"1、ZYWIFI0939C 跟随单独程序-PWM调速" - 0 Error(s), 1 Warning(s).

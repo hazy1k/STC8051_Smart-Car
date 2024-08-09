@@ -1,0 +1,113 @@
+C51 COMPILER V9.01   MAIN                                                                  07/31/2016 18:22:33 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /**********************ZYWIFI0939C-WIFI机器人实验板例程************************
+   2          *  平台：ZYWIFI0939C-WIFI机器人 + Keil U4 + STC89C52
+   3          *  名称：ZY-1智能小车参考程序
+   4          *  公司：湖南智宇科教设备有限公司
+   5          *  淘宝：https://hnzyrobot1688.taobao.com/     
+   6          *  网站：www.hnzhiyu.cn 
+   7          *  编写：智宇公司研发一部
+   8          *  日期：2015-1-15
+   9          *  交流:智能车QQ:261339276
+  10          *  晶振:11.0592MHZ
+  11          *  说明：免费开源，不提供源代码分析
+  12          *  硬件设置：要有自己动手能力，才能完成实验
+  13          *  使用说明：根据下面IO口自己用杜邦线连接各种模块，可以自己修改各种模块IO口
+  14          *  视频教程：本小车配套学习C语言详细视频教程，资料统一网盘下载
+  15             重点提示：本程序只做参考，不提供技术支持，请自己研究吸收。
+  16          ******************************************************************/
+  17          
+  18          // 程序运行效果：当有声音的时候，小车就前进，前进过程如果前面有障碍物，就避开障碍物，如果没有声音就停止//
+  19          
+  20                  //注意程序只做参考之用，要达到最理想的效果，还需要同学们细心调试。      
+  21                  #include<AT89X52.H>                   //包含51单片机头文件，内部有各种寄存器定义
+  22                  #include<ZY-4WD_PWM.H>            //包含HL-1蓝牙智能小车驱动IO口定义等函数
+  23              unsigned char temp = 1;
+  24          //主函数
+  25          void delay_nus(unsigned int i)  //延时:i>=12 ,i的最小延时单12 us
+  26          { 
+  27   1        i=i/10;
+  28   1        while(--i);
+  29   1      } 
+  30                  void main(void)
+  31          {       
+  32   1      //      unsigned char i;
+  33   1          P1=0X00; //关电车电机       
+  34   1                  
+  35   1                              TMOD=0X01;
+  36   1                      TH0= 0XFc;                //1ms定时
+  37   1                      TL0= 0X18;
+  38   1                      TR0= 1;
+  39   1                      ET0= 1;
+  40   1                      EA = 1;              //开总中断
+  41   1              while(1)        //无限循环
+  42   1              { 
+  43   2                                      
+  44   2               if(P2_7 == 0)
+  45   2                {
+  46   3                 delay_nus(10);
+  47   3                 if(P2_7 == 0)
+  48   3                 {
+  49   4                       
+  50   4                                            if(Left_1_led==1&&Right_1_led==1)     //右边检测到红外信号
+  51   4                                       {
+  52   5                                                 run();         //调用小车前进函数
+  53   5                                                 delay(40);
+  54   5      
+  55   5                                   }
+C51 COMPILER V9.01   MAIN                                                                  07/31/2016 18:22:33 PAGE 2   
+
+  56   4                                            if(Left_1_led==1&&Right_1_led==0)     //右边检测到红外信号
+  57   4                                       {
+  58   5                                                 leftrun();     //调用小车左转函数
+  59   5                                                 delay(40);
+  60   5      
+  61   5                                   }
+  62   4                                 
+  63   4                                                if(Right_1_led==1&&Left_1_led==0)             //左边检测到红外信号
+  64   4                                        {       
+  65   5                                            
+  66   5                                               
+  67   5                                                 rightrun();   //调用小车右转函数
+  68   5                                                delay(40);
+  69   5      
+  70   5                                        }
+  71   4                                                if(Right_1_led==0&&Left_1_led==0)             //两边传感器同时检测到红外
+  72   4                                        {       
+  73   5                                          backrun();          //调用电机后退函数
+  74   5                                              delay(40);              //后退050毫秒
+  75   5                                              rightrun();             //调用电机右转函数
+  76   5                                              delay(90);
+  77   5                                        }
+  78   4              // delay(70);
+  79   4      
+  80   4                 }
+  81   3                }
+  82   2      
+  83   2                else
+  84   2            stop();
+  85   2      
+  86   2       
+  87   2               }
+  88   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    309    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      7    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      2    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

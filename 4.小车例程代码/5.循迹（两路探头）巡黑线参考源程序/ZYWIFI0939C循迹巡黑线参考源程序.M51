@@ -1,0 +1,275 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        07/12/2016  11:55:00  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE main.obj TO ZYWIFI0939C循迹巡黑线参考源程序 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  ZYWIFI0939C循迹巡黑线参考源程序 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0006H     UNIT         ?DT?MAIN
+            DATA    000EH     0001H     UNIT         _DATA_GROUP_
+                    000FH     0011H                  *** GAP ***
+            BIT     0020H.0   0000H.2   UNIT         ?BI?MAIN
+                    0020H.2   0000H.6                *** GAP ***
+            IDATA   0021H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     008CH     UNIT         ?C_C51STARTUP
+            CODE    009AH     003AH     UNIT         ?PR?MAIN?MAIN
+            CODE    00D4H     0021H     UNIT         ?PR?TIMER0?MAIN
+            CODE    00F5H     0020H     UNIT         ?PR?_DELAY?MAIN
+            CODE    0115H     001EH     UNIT         ?PR?PWM_OUT_LEFT_MOTO?MAIN
+            CODE    0133H     001EH     UNIT         ?PR?PWM_OUT_RIGHT_MOTO?MAIN
+            CODE    0151H     0015H     UNIT         ?C_INITSEG
+            CODE    0166H     000FH     UNIT         ?PR?RUN?MAIN
+            CODE    0175H     000FH     UNIT         ?PR?BACKRUN?MAIN
+            CODE    0184H     000FH     UNIT         ?PR?LEFTRUN?MAIN
+            CODE    0193H     000FH     UNIT         ?PR?RIGHTRUN?MAIN
+            CODE    01A2H     0009H     UNIT         ?PR?STOP?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   ZYWIFI0939C循迹巡黑线参考源程序 (MAIN)
+
+
+SEGMENT                               DATA_GROUP 
+  +--> CALLED SEGMENT               START    LENGTH
+---------------------------------------------------
+?PR?TIMER0?MAIN                     -----    -----
+  +--> ?PR?PWM_OUT_LEFT_MOTO?MAIN
+  +--> ?PR?PWM_OUT_RIGHT_MOTO?MAIN
+
+*** NEW ROOT ***************************************************
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/12/2016  11:55:00  PAGE 2
+
+
+
+?C_C51STARTUP                       -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN                       000EH    0001H
+  +--> ?PR?RUN?MAIN
+  +--> ?PR?LEFTRUN?MAIN
+  +--> ?PR?RIGHTRUN?MAIN
+  +--> ?PR?STOP?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  ZYWIFI0939C循迹巡黑线参考源程序 (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  C:0184H         PUBLIC        leftrun
+  B:00A8H.7       PUBLIC        EA
+  D:0008H         PUBLIC        pwm_val_left
+  C:00F5H         PUBLIC        _delay
+  B:0090H.2       PUBLIC        P1_2
+  B:0090H.3       PUBLIC        P1_3
+  B:0090H.4       PUBLIC        P1_4
+  B:0090H.5       PUBLIC        P1_5
+  B:0090H.6       PUBLIC        P1_6
+  B:0090H.7       PUBLIC        P1_7
+  B:00B0H.6       PUBLIC        P3_6
+  B:00B0H.7       PUBLIC        P3_7
+  C:009AH         PUBLIC        main
+  D:0009H         PUBLIC        time
+  C:0133H         PUBLIC        pwm_out_right_moto
+  D:0089H         PUBLIC        TMOD
+  C:0115H         PUBLIC        pwm_out_left_moto
+  C:01A2H         PUBLIC        stop
+  B:00A8H.1       PUBLIC        ET0
+  B:0020H.0       PUBLIC        Right_moto_stop
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  C:00D4H         PUBLIC        timer0
+  C:0166H         PUBLIC        run
+  B:0088H.4       PUBLIC        TR0
+  B:0020H.1       PUBLIC        Left_moto_stop
+  D:000BH         PUBLIC        push_val_right
+  C:0175H         PUBLIC        backrun
+  D:000CH         PUBLIC        push_val_left
+  C:0193H         PUBLIC        rightrun
+  D:000DH         PUBLIC        pwm_val_right
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        k
+  -------         DO            
+  D:0004H         SYMBOL        x
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/12/2016  11:55:00  PAGE 3
+
+
+  D:0002H         SYMBOL        y
+  -------         ENDDO         
+  C:00F5H         LINE#         72
+  C:00F5H         LINE#         73
+  C:00F5H         LINE#         75
+  C:00FFH         LINE#         76
+  C:0114H         LINE#         77
+  -------         ENDPROC       _DELAY
+  -------         PROC          RUN
+  C:0166H         LINE#         80
+  C:0166H         LINE#         81
+  C:0166H         LINE#         82
+  C:0169H         LINE#         83
+  C:016CH         LINE#         84
+  C:0170H         LINE#         85
+  C:0174H         LINE#         86
+  -------         ENDPROC       RUN
+  -------         PROC          BACKRUN
+  C:0175H         LINE#         89
+  C:0175H         LINE#         90
+  C:0175H         LINE#         91
+  C:0178H         LINE#         92
+  C:017BH         LINE#         93
+  C:017FH         LINE#         94
+  C:0183H         LINE#         95
+  -------         ENDPROC       BACKRUN
+  -------         PROC          LEFTRUN
+  C:0184H         LINE#         98
+  C:0184H         LINE#         99
+  C:0184H         LINE#         100
+  C:0187H         LINE#         101
+  C:018AH         LINE#         102
+  C:018EH         LINE#         103
+  C:0192H         LINE#         104
+  -------         ENDPROC       LEFTRUN
+  -------         PROC          RIGHTRUN
+  C:0193H         LINE#         107
+  C:0193H         LINE#         108
+  C:0193H         LINE#         109
+  C:0196H         LINE#         110
+  C:0199H         LINE#         111
+  C:019DH         LINE#         112
+  C:01A1H         LINE#         113
+  -------         ENDPROC       RIGHTRUN
+  -------         PROC          STOP
+  C:01A2H         LINE#         116
+  C:01A2H         LINE#         117
+  C:01A2H         LINE#         119
+  C:01A6H         LINE#         120
+  C:01AAH         LINE#         121
+  -------         ENDPROC       STOP
+  -------         PROC          PWM_OUT_LEFT_MOTO
+  C:0115H         LINE#         128
+  C:0115H         LINE#         129
+  C:0115H         LINE#         130
+  C:0118H         LINE#         131
+  C:0118H         LINE#         132
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/12/2016  11:55:00  PAGE 4
+
+
+  C:011FH         LINE#         133
+  C:011FH         LINE#         134
+  C:0121H         LINE#         136
+  C:0123H         LINE#         138
+  C:0123H         LINE#         139
+  C:0125H         LINE#         141
+  C:0125H         LINE#         142
+  C:012CH         LINE#         143
+  C:012FH         LINE#         144
+  C:0130H         LINE#         146
+  C:0130H         LINE#         147
+  C:0132H         LINE#         149
+  C:0132H         LINE#         150
+  -------         ENDPROC       PWM_OUT_LEFT_MOTO
+  -------         PROC          PWM_OUT_RIGHT_MOTO
+  C:0133H         LINE#         153
+  C:0133H         LINE#         154
+  C:0133H         LINE#         155
+  C:0136H         LINE#         156
+  C:0136H         LINE#         157
+  C:013DH         LINE#         158
+  C:013DH         LINE#         159
+  C:013FH         LINE#         161
+  C:0141H         LINE#         163
+  C:0141H         LINE#         164
+  C:0143H         LINE#         166
+  C:0143H         LINE#         167
+  C:014AH         LINE#         168
+  C:014DH         LINE#         169
+  C:014EH         LINE#         171
+  C:014EH         LINE#         172
+  C:0150H         LINE#         174
+  C:0150H         LINE#         175
+  -------         ENDPROC       PWM_OUT_RIGHT_MOTO
+  -------         PROC          TIMER0
+  C:00D4H         LINE#         179
+  C:00D8H         LINE#         181
+  C:00DBH         LINE#         182
+  C:00DEH         LINE#         183
+  C:00E6H         LINE#         184
+  C:00E8H         LINE#         185
+  C:00EAH         LINE#         186
+  C:00EDH         LINE#         187
+  C:00F0H         LINE#         188
+  -------         ENDPROC       TIMER0
+  -------         PROC          MAIN
+  -------         DO            
+  D:000EH         SYMBOL        i
+  -------         ENDDO         
+  C:009AH         LINE#         24
+  C:009AH         LINE#         25
+  C:009AH         LINE#         28
+  C:009DH         LINE#         30
+  C:00A0H         LINE#         31
+  C:00A3H         LINE#         32
+  C:00A6H         LINE#         33
+  C:00A8H         LINE#         34
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/12/2016  11:55:00  PAGE 5
+
+
+  C:00AAH         LINE#         35
+  C:00ACH         LINE#         38
+  C:00ACH         LINE#         39
+  C:00ACH         LINE#         43
+  C:00B2H         LINE#         45
+  C:00B7H         LINE#         48
+  C:00B7H         LINE#         49
+  C:00BDH         LINE#         50
+  C:00BDH         LINE#         51
+  C:00C0H         LINE#         53
+  C:00C0H         LINE#         55
+  C:00C6H         LINE#         56
+  C:00C6H         LINE#         57
+  C:00C9H         LINE#         59
+  C:00C9H         LINE#         60
+  C:00CFH         LINE#         61
+  C:00CFH         LINE#         62
+  C:00D2H         LINE#         64
+  C:00D2H         LINE#         66
+  C:00D2H         LINE#         67
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?BACKRUN?MAIN
+
+Program Size: data=16.2 xdata=0 code=419
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)

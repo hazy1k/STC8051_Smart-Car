@@ -1,0 +1,27 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Administrator\Desktop\9、ZYWIFI0939C-WIFI控制智能机器人配套案列程序源码(20150802)\改\再改\8、ZYWIFI0939C循迹巡黑线+避障综合参考源程序\ZYWIFI0939C循迹巡黑线+避障综合参考源程序.uvproj
+Project File Date:  01/03/2016
+
+<h2>Output:</h2>
+Build target '目标 1'
+compiling main.c...
+MAIN.C(43): warning C280: 'i': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?BACKRUN?MAIN
+Program Size: data=16.2 xdata=0 code=460
+creating hex file from "ZYWIFI0939C循迹巡黑线+避障综合参考源程序"...
+"ZYWIFI0939C循迹巡黑线+避障综合参考源程序" - 0 Error(s), 2 Warning(s).
+Build target '目标 1'
+compiling main.c...
+MAIN.C(43): warning C280: 'i': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?BACKRUN?MAIN
+Program Size: data=16.2 xdata=0 code=450
+creating hex file from "ZYWIFI0939C循迹巡黑线+避障综合参考源程序"...
+"ZYWIFI0939C循迹巡黑线+避障综合参考源程序" - 0 Error(s), 2 Warning(s).

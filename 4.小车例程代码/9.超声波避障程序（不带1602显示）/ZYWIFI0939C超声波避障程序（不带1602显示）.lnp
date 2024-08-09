@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"ZYWIFI0939C超声波避障程序（不带1602显示）.obj" 
+TO "ZYWIFI0939C超声波避障程序（不带1602显示）" 
+RAMSIZE(256) 

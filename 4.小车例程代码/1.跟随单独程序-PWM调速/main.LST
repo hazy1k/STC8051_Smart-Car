@@ -1,0 +1,104 @@
+C51 COMPILER V9.01   MAIN                                                                  07/08/2016 10:38:49 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /**********************ZYWIFI0939C-WIFI机器人实验板例程************************
+   2          *  平台：ZYWIFI0939C-WIFI机器人 + Keil U4 + STC89C52
+   3          *  名称：ZY-1智能小车参考程序
+   4          *  公司：湖南智宇科教设备有限公司
+   5          *  淘宝：https://hnzyrobot1688.taobao.com/     
+   6          *  网站：www.hnzhiyu.cn 
+   7          *  编写：智宇公司研发一部
+   8          *  日期：2015-1-15
+   9          *  交流:智能车QQ:261339276
+  10          *  晶振:11.0592MHZ
+  11          *  说明：免费开源，不提供源代码分析
+  12          *  硬件设置：要有自己动手能力，才能完成实验
+  13          *  使用说明：根据下面IO口自己用杜邦线连接各种模块，可以自己修改各种模块IO口
+  14          *  视频教程：本小车配套学习C语言详细视频教程，资料统一网盘下载
+  15             重点提示：本程序只做参考，不提供技术支持，请自己研究吸收。
+  16          ******************************************************************/
+  17                  //关闭电源可以停止小车  
+  18                  //注意程序只做参考之用，要达到最理想的效果，还需要同学们细心调试。      
+  19                  #include<AT89X52.H>                   //包含51单片机头文件，内部有各种寄存器定义
+  20                  #include<ZY-4WD_PWM.H>            //包含HL-1蓝牙智能小车驱动IO口定义等函数
+  21              
+  22          //主函数
+  23                  void main(void)
+  24          {       
+  25   1      
+  26   1              unsigned char i;
+  27   1          P1=0X00; //关电车电机       
+  28   1      //本实验学习的按键启动知识          
+  29   1      B:              for(i=0;i<50;i++) //判断K4是否按下
+  30   1                      {
+  31   2                         delay(1);    //1ms内判断50次，如果其中有一次被判断到K0没按下，便重新检测
+  32   2                         if(P3_2!=0)//当S1按下时，启动小车前进
+  33   2                         goto B; //跳转到标号B，重新检测  
+  34   2                      } 
+  35   1              //本实验学习的知识蜂鸣器，注意要在ZY-4WD头文件里定义IO口
+  36   1                   BUZZ=0;    //50次检测K0确认是按下之后，蜂鸣器发出“滴”声响，然后启动小车。
+  37   1                   delay(50);
+  38   1                   BUZZ=1;//响50ms后关闭蜂鸣器
+  39   1      
+  40   1                              TMOD=0X01;
+  41   1                      TH0= 0XFc;                //1ms定时
+  42   1                      TL0= 0X18;
+  43   1                      TR0= 1;
+  44   1                      ET0= 1;
+  45   1                      EA = 1;              //开总中断
+  46   1              while(1)        //无限循环
+  47   1              { 
+  48   2               
+  49   2                               //有信号为0  没有信号为1
+  50   2      
+  51   2                    if(Left_1_led==1&&Right_1_led==1)
+  52   2      
+  53   2                                stop();        //调用停止函数   前面没有光线
+  54   2      
+  55   2                                else
+C51 COMPILER V9.01   MAIN                                                                  07/08/2016 10:38:49 PAGE 2   
+
+  56   2                               {                        
+  57   3                                            if(Left_1_led==1&&Right_1_led==0)     //右边检测到红外信号
+  58   3                                       {
+  59   4                                                rightrun();    //调用小车右转函数
+  60   4                                                delay(20);
+  61   4      
+  62   4                                   }
+  63   3                                 
+  64   3                                                if(Right_1_led==1&&Left_1_led==0)             //左边检测到红外信号
+  65   3                                        {       
+  66   4                                            
+  67   4                                                leftrun();      //调用小车左转函数
+  68   4                                                delay(20);
+  69   4      
+  70   4                                        }
+  71   3                                               if(Right_1_led==0&&Left_1_led==0)              //两边传感器同时检测到红外
+  72   3                                        {       
+  73   4                                          run();                  //调用前进函数
+  74   4                                              delay(20);              //前进40毫秒
+  75   4                                      
+  76   4                                        }
+  77   3                              }        
+  78   2               }
+  79   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    298    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      6    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      2    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
