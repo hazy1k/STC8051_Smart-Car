@@ -1,0 +1,282 @@
+DIV {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+OL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+H1 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+H2 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+H3 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+H4 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+P {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+IMG {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+LI {
+	LIST-STYLE-TYPE: none
+}
+P {
+	FONT-WEIGHT: normal
+}
+H1 {
+	FONT-SIZE: 120%; LINE-HEIGHT: 160%
+}
+H2 {
+	DISPLAY: inline; FONT-SIZE: 100%; COLOR: #000; LETTER-SPACING: 2px
+}
+A:link {
+	COLOR: #810081; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #810081; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #000; TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: #000; TEXT-DECORATION: underline
+}
+.MarginBottom {
+	MARGIN-BOTTOM: 0px
+}
+.clear {
+	CLEAR: both
+}
+.Square {
+	BACKGROUND: #fff; MARGIN-BOTTOM: 10px
+}
+.Square .Title {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; BACKGROUND: url(title.gif) no-repeat; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: #f0f0f0 1px solid; TEXT-ALIGN: left
+}
+.Square .Content {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; WORD-BREAK: break-all; PADDING-TOP: 10px; TEXT-ALIGN: left
+}
+.Square .Edit {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; TEXT-ALIGN: right
+}
+.Main {
+	BACKGROUND: #fff
+}
+.Title {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; BACKGROUND: url(title2.gif) no-repeat; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: #fff 1px solid; TEXT-ALIGN: left
+}
+.DiaryMain {
+	CLEAR: both; MARGIN-BOTTOM: 10px; BORDER-BOTTOM: #7994cb 1px dashed
+}
+.DiaryMain IMG {
+	max-width: 560px
+}
+.PublishTime {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; COLOR: #999; PADDING-TOP: 0px
+}
+.Content {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; WORD-BREAK: break-all; PADDING-TOP: 10px; TEXT-ALIGN: left; WORD-WRAP: break-word
+}
+.Ballot {
+	FLOAT: left; WIDTH: 86px; MARGIN-RIGHT: 10px
+}
+.Text {
+	FLOAT: right; WIDTH: 610px
+}
+.Label {
+	
+}
+FullText {
+	
+}
+TextInfo {
+	
+}
+.DiaryInfo {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; TEXT-ALIGN: right
+}
+.NextPage {
+	CLEAR: both; PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; TEXT-ALIGN: center
+}
+#ArchivesList .Ballot {
+	DISPLAY: none
+}
+#ArchivesList .Text {
+	WIDTH: 100%
+}
+#MyAlbum .Album {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px
+}
+#Album LI {
+	FLOAT: left; MARGIN: 10px 30px
+}
+#Album .Img {
+	PADDING-RIGHT: 17px; PADDING-LEFT: 20px; BACKGROUND: url(xc.gif) no-repeat; PADDING-BOTTOM: 15px; WIDTH: 128px; PADDING-TOP: 15px; HEIGHT: 98px
+}
+#Album .Name {
+	TEXT-ALIGN: center
+}
+#Photo LI {
+	FLOAT: left; MARGIN: 10px 20px
+}
+#Photo .Img {
+	BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; WIDTH: 128px; BORDER-BOTTOM: #cccccc 1px solid; HEIGHT: 98px
+}
+#Photo .Name {
+	TEXT-ALIGN: center
+}
+#Photo {
+	TEXT-ALIGN: center
+}
+#Comment {
+	
+}
+#Comment .CommentTitle {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; BACKGROUND: url(square.gif); PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #f0f0f0 1px solid
+}
+#Comment .Content {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px
+}
+#Comment LI {
+	CLEAR: both; PADDING-BOTTOM: 20px
+}
+#Comment .Name {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FLOAT: left; PADDING-BOTTOM: 5px; PADDING-TOP: 0px; TEXT-ALIGN: left
+}
+#Comment .Time {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FLOAT: right; PADDING-BOTTOM: 5px; PADDING-TOP: 0px; TEXT-ALIGN: right
+}
+#Comment .Txt {
+	CLEAR: both; PADDING-RIGHT: 0px; BORDER-TOP: #ccc 1px dashed; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 5px
+}
+#Comment .Title {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px
+}
+#Comment .FillIn {
+	PADDING-RIGHT: 10px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px
+}
+#Comment .FillIn LI {
+	CLEAR: both; PADDING-BOTTOM: 10px
+}
+#BlogName H2 {
+	FONT-WEIGHT: 600; FONT-SIZE: 180%; COLOR: #fff; LINE-HEIGHT: 150%; LETTER-SPACING: 2px
+}
+#BlogName H3 {
+	FONT-WEIGHT: 600; FONT-SIZE: 120%; COLOR: #fff; LETTER-SPACING: 2px
+}
+#BlogMenu A:link {
+	FONT-WEIGHT: 600; COLOR: #fff; LINE-HEIGHT: 200%; TEXT-DECORATION: none
+}
+#Menu A:visited {
+	COLOR: #fff; LINE-HEIGHT: 200%; TEXT-DECORATION: none
+}
+#Menu A:hover {
+	COLOR: #ff0; LINE-HEIGHT: 200%; TEXT-DECORATION: underline
+}
+#Menu A:active {
+	COLOR: #ff0; LINE-HEIGHT: 200%; TEXT-DECORATION: underline
+}
+.Text A:link {
+	TEXT-DECORATION: underline
+}
+.Text A:visited {
+	TEXT-DECORATION: underline
+}
+.Text A:hover {
+	TEXT-DECORATION: underline
+}
+.Text A:active {
+	TEXT-DECORATION: underline
+}
+#UserInfo IMG {
+	BORDER-RIGHT: #ebeef3 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #ebeef3 1px solid; PADDING-LEFT: 5px; BACKGROUND: #eef3fb; FILTER: alpha(opacity=75); PADDING-BOTTOM: 5px; BORDER-LEFT: #ebeef3 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #ebeef3 1px solid
+}
+#BlogRecent IMG {
+	BORDER-RIGHT: #ebeef3 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #ebeef3 1px solid; PADDING-LEFT: 5px; BACKGROUND: #eef3fb; FILTER: alpha(opacity=75); MARGIN-BOTTOM: 5px; PADDING-BOTTOM: 5px; BORDER-LEFT: #ebeef3 1px solid; MARGIN-RIGHT: 10px; PADDING-TOP: 5px; BORDER-BOTTOM: #ebeef3 1px solid
+}
+#FootLinks A:link {
+	COLOR: #fff; LINE-HEIGHT: 200%; TEXT-DECORATION: none
+}
+#FootLinks A:visited {
+	COLOR: #fff; LINE-HEIGHT: 200%; TEXT-DECORATION: none
+}
+#FootLinks A:hover {
+	COLOR: #ff0; LINE-HEIGHT: 200%; TEXT-DECORATION: underline
+}
+#FootLinks A:active {
+	COLOR: #ff0; LINE-HEIGHT: 200%; TEXT-DECORATION: underline
+}
+#Newgroup LI {
+	MARGIN-TOP: 10px; FLOAT: left; WIDTH: 100px; MARGIN-RIGHT: 5px
+}
+#Visitor LI {
+	MARGIN-TOP: 10px; FLOAT: left; WIDTH: 100px; MARGIN-RIGHT: 5px
+}
+#Newgroup SPAN.pic {
+	DISPLAY: block; OVERFLOW: hidden; WIDTH: 100px; WHITE-SPACE: nowrap; TEXT-OVERFLOW: ellipsis
+}
+#Visitor SPAN.pic {
+	DISPLAY: block; OVERFLOW: hidden; WIDTH: 100px; WHITE-SPACE: nowrap; TEXT-OVERFLOW: ellipsis
+}
+.center {
+	TEXT-ALIGN: center
+}
+.h90px {
+	HEIGHT: 90px
+}
+.lh20 {
+	LINE-HEIGHT: 20px
+}
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: small; BACKGROUND: #530c0e; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #333; LINE-HEIGHT: 24px; PADDING-TOP: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-ALIGN: center
+}
+#Blog {
+	MARGIN: 10px auto 0px; WIDTH: 1000px
+}
+#Header {
+	BACKGROUND: #c80d14
+}
+#Menu {
+	PADDING-RIGHT: 20px; PADDING-LEFT: 20px; BACKGROUND: #8a130f; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: #7c1913 1px solid; TEXT-ALIGN: right
+}
+#Banner {
+	BACKGROUND: url(bj_top.gif) repeat-x; HEIGHT: 100px
+}
+#BlogName {
+	FLOAT: left; MARGIN: 20px 0px 0px 40px
+}
+#BlogMenu {
+	BORDER-TOP: #7c1913 1px solid; PADDING-LEFT: 100px; FONT-SIZE: 120%; BACKGROUND: url(blogmenu.gif); BORDER-BOTTOM: #7c1913 1px solid; TEXT-ALIGN: left
+}
+#Container {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; TEXT-ALIGN: left
+}
+#Sidebar {
+	DISPLAY: block; FLOAT: right; WIDTH: 250px
+}
+#DefaulDiary {
+	FLOAT: left; WIDTH: 740px
+}
+#ArchivesList {
+	FLOAT: left; WIDTH: 740px
+}
+#Article {
+	FLOAT: left; WIDTH: 740px
+}
+#MyAlbum {
+	FLOAT: left; WIDTH: 740px
+}
+#FootLinks {
+	CLEAR: both; PADDING-RIGHT: 0px; BORDER-TOP: #9e0004 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; TEXT-ALIGN: center
+}
+#CopyRight {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; COLOR: #ffffff; PADDING-TOP: 0px; TEXT-ALIGN: center
+}

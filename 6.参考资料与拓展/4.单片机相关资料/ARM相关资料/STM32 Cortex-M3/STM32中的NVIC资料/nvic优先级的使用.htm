@@ -1,0 +1,1029 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0047)http://www.stmcu.org/bbs/article_244_44939.html -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>nvic优先级的使用-STM32-STMCU社区,32位MCU--论坛--STMCU社区 stmcu.org</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META content=stm32,技术文档,例程,系统,开发工具,nvic优先级的使用,STM32 name=keywords>
+<META 
+content="stm32技术文档 功能例程 文件系统移植 问题讨论 开发工具&#13;&#10;&#13;&#10;,nvic优先级的使用,STM32" 
+name=description><LINK href="nvic优先级的使用.files/ST.css" type=text/css 
+rel=stylesheet><LINK 
+href="C:\Documents and Settings\gy\桌面\nvic优先级的使用.files\ST(1).css" type=text/css 
+rel=stylesheet>
+<SCRIPT>
+
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.5512" name=GENERATOR></HEAD>
+<BODY id=main_body>
+<DIV class=header><IMG class=logo height=60 src="nvic优先级的使用.files/logo.gif" 
+width=265> 
+<DIV class=so>
+<FORM id=searchform 
+style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px" 
+name=searchform onsubmit="return checksearch();" 
+action=http://www.eefocus.com/search/ method=get target=_self><IMG height=30 
+src="nvic优先级的使用.files/so.jpg" width=16 align=absMiddle> 网站搜索: <INPUT id=keyword 
+onblur="if(this.value=='')startsearch();" 
+style="PADDING-RIGHT: 4px; PADDING-LEFT: 4px; FONT-SIZE: 9pt; PADDING-BOTTOM: 0px; MARGIN: 1px 0px 0px; WIDTH: 200px; PADDING-TOP: 0px; FONT-FAMILY: tahoma,Verdana,Arial,'宋体'; HEIGHT: 18px" 
+onfocus="this.value='';" size=50 value=权威、完整的电子百科词典，阅读专业文章必查 name=keyword> 
+<SELECT id=searchselect 
+onchange=changform(this.options[this.selectedIndex].value); name=searchselect> 
+  <OPTION value=dictionary selected>术语辞典</OPTION> <OPTION 
+  value=site>主题文章</OPTION> <OPTION value=Datasheet>数据手册</OPTION> <OPTION 
+  value=BuyParts>器件零购</OPTION></SELECT> <INPUT type=submit value=" 搜 索 " name=Submit> </FORM>
+<SCRIPT language=javascript src="nvic优先级的使用.files/search.js"></SCRIPT>
+</DIV>
+<DIV class=menubar>
+<DIV class=menubar_l></DIV>
+<DIV class=menubar_m>
+<DIV class=nav>
+<DL class=nav_dl>
+  <DD><A href="http://www.stmcu.org/">首&nbsp;&nbsp;页</A> </DD>
+  <DD><A href="http://www.stmcu.org/article/">文&nbsp;&nbsp;章</A> </DD>
+  <DD><A href="http://www.stmcu.org/blog/">博&nbsp;&nbsp;客</A> </DD>
+  <DD><A href="http://www.stmcu.org/down/ziliao.php">资&nbsp;&nbsp;料</A> </DD>
+  <DD><A href="http://www.stmcu.org/down/">下&nbsp;&nbsp;载</A> </DD>
+  <DD><A href="http://www.stmcu.org/shop/">商&nbsp;&nbsp;城</A> </DD>
+  <DD class=n_on><A href="http://www.stmcu.org/bbs/">论&nbsp;&nbsp;坛</A> <!--<dd style="width:91px;"><a href="#">热点活动</a></dd>--></DD></DL></DIV></DIV>
+<DIV class=menubar_r><SPAN class=menu_icon><A 
+style="BACKGROUND: url(/images/ST/rrs.gif) no-repeat 0px 1px; TEXT-INDENT: 21px" 
+href="http://www.stmcu.org/content/rss.php">RSS订阅</A> <A 
+style="BACKGROUND: url(/images/ST/eefocus.gif) no-repeat 0px 1px; TEXT-INDENT: 21px" 
+href="http://www.eefocus.com/" target=_blank>eefocus首页</A> 
+</SPAN></DIV></DIV></DIV>
+<DIV style="FLOAT: left; MARGIN: 0px">
+<SCRIPT language=JavaScript1.1 src="nvic优先级的使用.files/37.js"></SCRIPT>
+</DIV>
+<DIV style="CLEAR: both; MARGIN: 0px auto; WIDTH: 946px">
+<DIV id=left>
+<SCRIPT language=javascript src=""></SCRIPT>
+
+<SCRIPT language=javascript>
+var timelimits = 600000; // 10分钟
+//var timelimits = 1; // 10分钟
+
+function check_session(){
+	var x = new Ajax( 'statusid', "HTML" );
+	x.get( "index.php?act=setonline",function(s){
+	//	alert(s);
+		return true;
+	});
+	window.setTimeout( "check_session()", timelimits );
+}//end
+</SCRIPT>
+
+<SCRIPT>
+function menuFix() { 
+    var sfEls = document.getElementById("menu").getElementsByTagName("li"); 
+	for (var i=0; i<sfEls.length; i++) { 
+		    sfEls[i].onclick=function() { 
+			if(this.getElementsByTagName('ul')[0]){
+			if(this.getElementsByTagName('ul')[0].style.display==''){
+				  this.getElementsByTagName('ul')[0].style.display ='none';
+				 this.style.background ='url(/images/bbs/common/dot_add.gif)';
+			 }
+			 else {
+			 	this.getElementsByTagName('ul')[0].style.display='';
+			  	this.style.background ='url(/images/bbs/common/dot_minus.gif)';
+			 };
+			}}
+	}
+	check_session()
+} 
+window.onload=menuFix; 
+</SCRIPT>
+
+<DIV id=sidebar>
+<DIV id=sidebar_in>
+<DIV class=sidebar_tit>个人中心</DIV>
+<UL>
+  <LI>
+  <UL class=expand>
+    <SCRIPT language=JavaScript1.1 src="nvic优先级的使用.files/index.htm"></SCRIPT>
+  </UL></LI></UL>
+<DIV class=sidebar_tit>ST MCU</DIV>
+<DIV>
+<UL id=menu>
+  <LI class=minus><A title=STM32 
+  href="http://www.stmcu.org/bbs/forum_244.html">STM32</A> 
+  <LI class=minus><A title="ST MCU" 
+  href="http://www.stmcu.org/bbs/forum_245.html">ST MCU</A> 
+  <LI class=minus><A title=STM8 
+  href="http://www.stmcu.org/bbs/forum_394.html">STM8</A> 
+  <LI class=minus><A title=ST其他产品 
+  href="http://www.stmcu.org/bbs/forum_246.html">ST其他产品</A> </LI></UL></DIV>
+<DIV class=sidebar_tit>站务管理</DIV>
+<UL>
+  <LI>
+  <UL class=expand>
+    <LI style="MARGIN-LEFT: 5px"><A class=menulink title=站内公告 
+    href="http://www.stmcu.org/bbs/forum_40.html" target=mainFrame>站内公告</A> 
+    <LI style="MARGIN-LEFT: 5px"><A class=menulink title=新手报道 
+    href="http://www.stmcu.org/bbs/forum_38.html" target=mainFrame>新手报道</A> 
+    <LI style="MARGIN-LEFT: 5px"><A title=常见问题 
+    href="http://www.stmcu.org/bbs/forum_39.html" target=mainFrame>常见问题</A> 
+    <LI style="MARGIN-LEFT: 5px"><A title=申请版主 
+    href="http://www.stmcu.org/bbs/forum_164.html" target=mainFrame>申请版主</A> 
+    <LI style="MARGIN-LEFT: 5px"><A title=版主交流区 
+    href="http://www.stmcu.org/bbs/forum_163.html" target=mainFrame>版主交流区</A> 
+    </LI></UL></LI></UL></DIV></DIV>﻿
+<DIV id=qtz>
+<SCRIPT language=JavaScript1.1 src="nvic优先级的使用.files/38.js"></SCRIPT>
+</DIV></DIV>
+<DIV id=right>
+<DIV id=location><B><A href="http://www.stmcu.org/" target=_blank>首页</A>»<A 
+href="http://www.stmcu.org/bbs/forum_243.html">ST MCU</A> &gt;&gt; <A 
+href="http://www.stmcu.org/bbs/forum_244.html">STM32</A> &gt;&gt; </B><SPAN 
+class=text_blue><A href="http://bbs.eefocus.com/article_39_52037.html" 
+target=_blank>论坛规则</A> | <A href="javascript:addFavorite();">收藏本版</A> 
+</SPAN></DIV>
+<DIV class=PagerBar>
+<DIV class=PagerBar_con><B class=number>6</B> <B class=number>1/1</B> <B>共1页</B> 
+<!-- --><SPAN class=numonpage><STRONG>1</STRONG></SPAN> <!----></DIV></DIV>
+<DIV style="FLOAT: right; PADDING-TOP: 5px"><A 
+href="http://www.stmcu.org/bbs/post.php?act=replypost&amp;fid=244&amp;tid=44939"><IMG 
+height=29 src="nvic优先级的使用.files/reply.gif" width=75 border=0></A> </DIV>
+<DIV onmouseover="divdisplay('navtib',1)" 
+style="FLOAT: right; PADDING-TOP: 5px; HEIGHT: 35px" 
+onmouseout="divdisplay('navtib',2)">
+<DIV style="WIDTH: 100px"><A title=发布新帖 
+href="http://www.stmcu.org/bbs/post.php?act=addpost&amp;fid=244"><IMG height=29 
+src="nvic优先级的使用.files/newtopic.gif" width=84 border=0></A></DIV>
+<UL class="popupmenu_popup newspecialmenu" id=navtib 
+style="DISPLAY: none; LEFT: auto; POSITION: absolute; TOP: auto">
+  <LI><A 
+  href="http://www.stmcu.org/bbs/post.php?act=addpost&amp;fid=244">发布新帖</A> 
+</LI>
+  <LI class=poll><A 
+  href="http://www.stmcu.org/bbs/post.php?act=addpost&amp;fid=244&amp;task=poll" 
+  ?>发布投票</A> 　　　　 　　 </LI></UL></DIV>
+<DIV style="CLEAR: both"></DIV>
+<SCRIPT language=javascript src="nvic优先级的使用.files/global.js"></SCRIPT>
+
+<SCRIPT language=javascript src="nvic优先级的使用.files/newAjax.js"></SCRIPT>
+
+<STYLE>.attdis {
+	DISPLAY: none
+}
+</STYLE>
+
+<SCRIPT language=javascript>
+var tid = 44939;
+window.onload=function(){
+	var maxWidth = 500;
+	var imgs = document.getElementById("rightbbs").getElementsByTagName("img");
+	for(var i=0; i<imgs.length; i++){
+		if(imgs[i].clientWidth > maxWidth){
+		imgs[i].style.width = maxWidth+"px";
+		}
+	}	
+}
+</SCRIPT>
+
+<SCRIPT src="nvic优先级的使用.files/newtopic.js"></SCRIPT>
+<!--楼主-->
+<DIV id=gradeDiv style="DISPLAY: none">
+<FORM id=gradeForm name=gradeForm onsubmit="doGrade(this);return false;"><INPUT 
+type=hidden name=pid> <INPUT type=hidden name=uid> 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD><SELECT id=gradePoint onchange=" addoptionPoint( this )" 
+      name=gradePoint> <OPTION value=addoption>自定义</OPTION> <OPTION 
+        value=-30>-30</OPTION> <OPTION value=-25>-25</OPTION> <OPTION 
+        value=-20>-20</OPTION> <OPTION value=-15>-15</OPTION> <OPTION 
+        value=-14>-14</OPTION> <OPTION value=-12>-12</OPTION> <OPTION 
+        value=-10>-10</OPTION> <OPTION value=-8>-8</OPTION> <OPTION 
+        value=-6>-6</OPTION> <OPTION value=-4>-4</OPTION> <OPTION 
+        value=-2>-2</OPTION> <OPTION value=0 selected>0</OPTION> <OPTION 
+        value=2>2</OPTION> <OPTION value=4>4</OPTION> <OPTION value=6>6</OPTION> 
+        <OPTION value=8>8</OPTION> <OPTION value=10>10</OPTION> <OPTION 
+        value=12>12</OPTION> <OPTION value=14>14</OPTION> <OPTION 
+        value=15>15</OPTION> <OPTION value=20>20</OPTION> <OPTION 
+        value=25>25</OPTION> <OPTION value=30>30</OPTION></SELECT> <SELECT 
+      onchange=" addoption( this )" name=reason> <OPTION value="" 
+        selected>评分理由</OPTION> <OPTION value=addoption>自定义</OPTION> <OPTION 
+        value="">--------</OPTION> <OPTION value=广告/SPAM>广告/SPAM</OPTION> 
+        <OPTION value=恶意灌水>恶意灌水</OPTION> <OPTION value=违规内容>违规内容</OPTION> 
+        <OPTION value=文不对题>文不对题</OPTION> <OPTION value=重复发帖>重复发帖</OPTION> 
+        <OPTION value="">--------</OPTION> <OPTION value=我很赞同>我很赞同</OPTION> 
+        <OPTION value=精品文章>精品文章</OPTION> <OPTION value=原创内容>原创内容</OPTION></SELECT> 
+    </TD></TR>
+  <TR>
+    <TD><INPUT type=submit value=提交 name=sbt> &nbsp; <INPUT onclick="return DialogHide();" type=button value=取消 name=sbt> 
+  </TD></TR></TBODY></TABLE></FORM></DIV>
+<TABLE class=right_con cellSpacing=0 cellPadding=0 border=0>
+  <TBODY>
+  <TR>
+    <TH colSpan=2>
+      <DIV style="FLOAT: left"><!--STM32--><SPAN class=article_type>[原创]</SPAN> 
+      nvic优先级的使用</DIV>
+      <DIV class=banzhu style="FLOAT: right">版主： <A 
+      href="http://www.stmcu.org/bbs/aboutme.php?uid=9853" 
+      target=_blank>得蜜</A>&nbsp; <A 
+      href="http://www.stmcu.org/bbs/aboutme.php?uid=37802" 
+      target=_blank>zerone</A>&nbsp; <A 
+      href="http://www.stmcu.org/bbs/aboutme.php?uid=90025" 
+      target=_blank>fandipeng412</A>&nbsp; <A 
+      href="http://www.stmcu.org/bbs/aboutme.php?uid=96138" 
+      target=_blank>萧星</A>&nbsp; <A 
+      href="http://www.stmcu.org/bbs/aboutme.php?uid=109685" 
+      target=_blank>小强</A>&nbsp; <A 
+      href="http://www.stmcu.org/bbs/aboutme.php?uid=115167" 
+      target=_blank>qm999cn</A>&nbsp; </DIV></TH></TR></TBODY></TABLE>
+<DIV id=rightbbs>
+<TABLE class=right_con cellSpacing=0 cellPadding=0 border=0>
+  <TBODY>
+  <TR>
+    <TD class=altbg2 style="BORDER-BOTTOM-STYLE: none" vAlign=top width="23%">
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD class=postauthor colSpan=2>
+            <DIV onmouseover="divdisplay('userinfo451053_menu',1)" 
+            onmouseout="divdisplay('userinfo451053_menu',2)"><CITE><A 
+            id=userinfo451053 
+            href="http://www.stmcu.org/bbs/aboutme.php?uid=96138">萧星<IMG 
+            height=4 src="nvic优先级的使用.files/arrow.gif" width=7 align=absMiddle 
+            border=0></A></CITE> 
+            <DIV class="popupmenu_popup userinfopanel" id=userinfo451053_menu 
+            style="MARGIN-TOP: -10px; DISPLAY: none; LEFT: auto; POSITION: absolute; TOP: auto">
+            <DL>
+              <DT>精华： </DT>
+              <DD>0 </DD>
+              <DT>积分： </DT>
+              <DD>468 </DD>
+              <DT>登陆次数： </DT>
+              <DD>2147483647&nbsp; </DD>
+              <DT>发表主题： </DT>
+              <DD>65 &nbsp; </DD>
+              <DT>注册时间： </DT>
+              <DD>2008-12-03&nbsp; </DD>
+              <DT>最后登陆： </DT>
+              <DD>2009-08-10&nbsp; </DD>
+              <DT>状态： </DT>
+              <DD class=red>离线 </DD></DL>
+            <P><A href="http://www.stmcu.org/bbs/aboutme.php?uid=96138" 
+            target=_blank>查看详细资料</A></P></DIV></DIV></TD></TR>
+        <TR>
+          <TD colSpan=2><IMG src="nvic优先级的使用.files/128_128-8296.bmp"></TD></TR>
+        <TR>
+          <TD 
+            colSpan=2>积分：468<BR>帖子：65<BR>精华：0<BR>注册时间：2008-12-03<BR>最后登录：2009-08-10 
+          </TD></TR>
+        <TR>
+          <TD width="50%"><IMG height=14 src="nvic优先级的使用.files/blog.gif" 
+            width=14 align=absMiddle> <A 
+            href="http://www.stmcu.org/myspace/blog/?bid=96138" 
+            target=_blank>我的博客</A></TD>
+          <TD><IMG height=14 src="nvic优先级的使用.files/mess.gif" width=16 
+            align=absMiddle> <A 
+            href="http://www.stmcu.org/message/index.php?act=,Write" 
+            target=_blank>发短消息</A> <!--<a href="/myspace/member/user_message_write.php?toid=96138&amp;toname=%E8%90%A7%E6%98%9F" target="_blank">发短消息</a></td>--></TD>
+        <TR>
+          <TD><IMG height=16 src="nvic优先级的使用.files/alu.gif" width=16 
+            align=absMiddle><A 
+            href="http://www.stmcu.org/myspace/album/?uid=96138" target=_blank> 
+            我的相册</A></TD>
+          <TD><IMG height=14 src="nvic优先级的使用.files/no_online.gif" width=14 
+            align=absMiddle> <A 
+            href="http://www.stmcu.org/bbs/article_244_44939.html#">当前离线</A> 
+        </TD></TR></TBODY></TABLE></TD>
+    <TD style="BORDER-BOTTOM-STYLE: none" vAlign=top>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD width=586>发表于2009-01-09 11:05</TD>
+          <TD align=right width=204>1#</TD></TR>
+        <TR>
+          <TD colSpan=2><STRONG>nvic优先级的使用</STRONG></TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <DIV id=bbs_main_body>
+            <DIV 
+            id=article_body_451053>STM32(Cortex-M3)中的优先级概念<BR>STM32(Cortex-M3)中有两个优先级的概念——抢占式优先级和响应优先级，有人把响应优先级称作'亚优先级'或'副优先级'，每个中断源都需要被指定这两种优先级。<BR><BR>具有高抢占式优先级的中断可以在具有低抢占式优先级的中断处理过程中被响应，即中断嵌套，或者说高抢占式优先级的中断可以嵌套低抢占式优先级的中断。<BR><BR>当两个中断源的抢占式优先级相同时，这两个中断将没有嵌套关系，当一个中断到来后，如果正在处理另一个中断，这个后到来的中断就要等到前一个中断处理完之后才能被处理。如果这两个中断同时到达，则中断控制器根据他们的响应优先级高低来决定先处理哪一个；如果他们的抢占式优先级和响应优先级都相等，则根据他们在中断表中的排位顺序决定先处理哪一个。<BR><BR>既然每个中断源都需要被指定这两种优先级，就需要有相应的寄存器位记录每个中断的优先级；在Cortex-M3中定义了8个比特位用于设置中断源的优先级，这8个比特位可以有8种分配方式，如下：<BR><BR>所有8位用于指定响应优先级<BR>最高1位用于指定抢占式优先级，最低7位用于指定响应优先级<BR>最高2位用于指定抢占式优先级，最低6位用于指定响应优先级<BR>最高3位用于指定抢占式优先级，最低5位用于指定响应优先级<BR>最高4位用于指定抢占式优先级，最低4位用于指定响应优先级<BR>最高5位用于指定抢占式优先级，最低3位用于指定响应优先级<BR>最高6位用于指定抢占式优先级，最低2位用于指定响应优先级<BR>最高7位用于指定抢占式优先级，最低1位用于指定响应优先级<BR><BR>这就是优先级分组的概念。<BR><BR><BR><BR><BR>--------------------------------------------------------------------------------<BR>Cortex-M3允许具有较少中断源时使用较少的寄存器位指定中断源的优先级，因此STM32把指定中断优先级的寄存器位减少到4位，这4个寄存器位的分组方式如下：<BR><BR>第0组：所有4位用于指定响应优先级<BR>第1组：最高1位用于指定抢占式优先级，最低3位用于指定响应优先级<BR>第2组：最高2位用于指定抢占式优先级，最低2位用于指定响应优先级<BR>第3组：最高3位用于指定抢占式优先级，最低1位用于指定响应优先级<BR>第4组：所有4位用于指定抢占式优先级<BR><BR>可以通过调用STM32的固件库中的函数NVIC_PriorityGroupConfig()选择使用哪种优先级分组方式，这个函数的参数有下列5种：<BR><BR>NVIC_PriorityGroup_0 
+            =&gt; 选择第0组<BR>NVIC_PriorityGroup_1 =&gt; 
+            选择第1组<BR>NVIC_PriorityGroup_2 =&gt; 选择第2组<BR>NVIC_PriorityGroup_3 
+            =&gt; 选择第3组<BR>NVIC_PriorityGroup_4 =&gt; 
+            选择第4组<BR><BR>接下来就是指定中断源的优先级，下面以一个简单的例子说明如何指定中断源的抢占式优先级和响应优先级：<BR><BR>// 
+            选择使用优先级分组第1组<BR>NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);<BR>&nbsp;&nbsp;<BR>// 
+            使能EXTI0中断<BR>NVIC_InitStructure.NVIC_IRQChannel = 
+            EXTI0_IRQChannel;<BR>NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority 
+            = 1; // 
+            指定抢占式优先级别1<BR><BR>NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0; 
+            // 指定响应优先级别0<BR>NVIC_InitStructure.NVIC_IRQChannelCmd = 
+            ENABLE;<BR>NVIC_Init(&amp;NVIC_InitStructure);<BR>&nbsp;&nbsp;<BR>// 
+            使能EXTI9_5中断<BR>NVIC_InitStructure.NVIC_IRQChannel = 
+            EXTI9_5_IRQChannel;<BR>NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority 
+            = 0; // 指定抢占式优先级别0<BR>NVIC_InitStructure.NVIC_IRQChannelSubPriority 
+            = 1; // 指定响应优先级别1<BR>NVIC_InitStructure.NVIC_IRQChannelCmd = 
+            ENABLE;<BR>NVIC_Init(&amp;NVIC_InitStructure);<BR><BR><BR><BR><BR>--------------------------------------------------------------------------------<BR><BR><BR>要注意的几点是：<BR><BR>1）如果指定的抢占式优先级别或响应优先级别超出了选定的优先级分组所限定的范围，将可能得到意想不到的结果；<BR><BR>2）抢占式优先级别相同的中断源之间没有嵌套关系；<BR><BR>3）如果某个中断源被指定为某个抢占式优先级别，又没有其它中断源处于同一个抢占式优先级别，则可以为这个中断源指定任意有效的响应优先级别。 
+            </DIV><!--modify time--><!--end modify time--><!--if is reply--><!--if hava present--><!--end hava present--><!--if hava reward--><!--end hava reward--><!--BEGIN ATTACHMENT--><!--END ATTACHMENT--></DIV><!--END ATTACHMENT--></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD class=altbg2>&nbsp;</TD>
+    <TD style="BORDER-TOP-STYLE: none">
+      <TABLE style="MARGIN-TOP: 18px; LINE-HEIGHT: 18px" cellSpacing=0 
+      cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; HEIGHT: 16px" 
+          colSpan=2><IMG height=16 src="nvic优先级的使用.files/icon_name.gif" 
+            width=363></TD></TR>
+        <TR>
+          <TD class=text_gray 
+          style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; LINE-HEIGHT: 18px; PADDING-TOP: 0px" 
+          colSpan=2>...</TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <TABLE style="LINE-HEIGHT: 21px" cellSpacing=0 cellPadding=0 
+            width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD 
+                style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px" 
+                width=750><IMG height=9 src="nvic优先级的使用.files/ico_reply.gif" 
+                  width=10 align=absMiddle> <A 
+                  href="http://www.stmcu.org/bbs/post.php?act=replypost&amp;pid=451053&amp;fid=244&amp;tid=44939&amp;yid=1">引用</A> 
+                  <IMG height=9 src="nvic优先级的使用.files/ico_link.gif" width=9 
+                  align=absMiddle> <A href="javascript:fCopyToClicp()">链接</A> 
+                  <IMG height=9 src="nvic优先级的使用.files/ico_fav.gif" width=9 
+                  align=absMiddle> <A href="javascript:shouchang()">收藏</A> </TD>
+                <TD 
+                style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px">
+                  <DIV align=right><A 
+                  href="http://www.stmcu.org/bbs/article_244_44939.html#top"><IMG 
+                  height=13 src="nvic优先级的使用.files/ico_top.gif" width=36 
+                  align=absMiddle border=0></A>&nbsp; 
+          </DIV></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <DIV class=postactions>
+            <DIV 
+class=ad_textlink></DIV></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE class=right_con cellSpacing=0 cellPadding=0 border=0>
+  <TBODY>
+  <TR>
+    <TD class=altbg2 style="BORDER-BOTTOM-STYLE: none" vAlign=top width="23%">
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD class=postauthor colSpan=2>
+            <DIV onmouseover="divdisplay('userinfo515809_menu',1)" 
+            onmouseout="divdisplay('userinfo515809_menu',2)"><CITE><A 
+            id=userinfo515809 
+            href="http://www.stmcu.org/bbs/aboutme.php?uid=120855">alick777<IMG 
+            height=4 src="nvic优先级的使用.files/arrow.gif" width=7 align=absMiddle 
+            border=0></A></CITE> 
+            <DIV class="popupmenu_popup userinfopanel" id=userinfo515809_menu 
+            style="MARGIN-TOP: -10px; DISPLAY: none; LEFT: auto; POSITION: absolute; TOP: auto">
+            <DL>
+              <DT>精华： </DT>
+              <DD>0 </DD>
+              <DT>积分： </DT>
+              <DD>11 </DD>
+              <DT>登陆次数： </DT>
+              <DD>8&nbsp; </DD>
+              <DT>发表主题： </DT>
+              <DD>6 &nbsp; </DD>
+              <DT>注册时间： </DT>
+              <DD>2009-04-08&nbsp; </DD>
+              <DT>最后登陆： </DT>
+              <DD>2009-05-03&nbsp; </DD>
+              <DT>状态： </DT>
+              <DD class=red>离线 </DD></DL>
+            <P><A href="http://www.stmcu.org/bbs/aboutme.php?uid=120855" 
+            target=_blank>查看详细资料</A></P></DIV></DIV></TD></TR>
+        <TR>
+          <TD colSpan=2><IMG src="nvic优先级的使用.files/128_128-06.gif"></TD></TR>
+        <TR>
+          <TD 
+            colSpan=2>积分：11<BR>帖子：6<BR>精华：0<BR>注册时间：2009-04-08<BR>最后登录：2009-05-03 
+          </TD></TR>
+        <TR>
+          <TD width="50%"><IMG height=14 src="nvic优先级的使用.files/blog.gif" 
+            width=14 align=absMiddle> <A 
+            href="http://www.stmcu.org/myspace/blog/?bid=120855" 
+            target=_blank>我的博客</A></TD>
+          <TD><IMG height=14 src="nvic优先级的使用.files/mess.gif" width=16 
+            align=absMiddle> <A 
+            href="http://www.stmcu.org/message/index.php?act=,Write" 
+            target=_blank>发短消息</A> <!--<a href="/myspace/member/user_message_write.php?toid=120855&amp;toname=alick777" target="_blank">发短消息</a></td>--></TD>
+        <TR>
+          <TD><IMG height=16 src="nvic优先级的使用.files/alu.gif" width=16 
+            align=absMiddle><A 
+            href="http://www.stmcu.org/myspace/album/?uid=120855" target=_blank> 
+            我的相册</A></TD>
+          <TD><IMG height=14 src="nvic优先级的使用.files/no_online.gif" width=14 
+            align=absMiddle> <A 
+            href="http://www.stmcu.org/bbs/article_244_44939.html#">当前离线</A> 
+        </TD></TR></TBODY></TABLE></TD>
+    <TD style="BORDER-BOTTOM-STYLE: none" vAlign=top>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD width=586>发表于2009-04-08 22:04</TD>
+          <TD align=right width=204>2#</TD></TR>
+        <TR>
+          <TD colSpan=2><STRONG>RE:nvic优先级的使用</STRONG></TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <DIV id=bbs_main_body>
+            <DIV id=article_body_515809>学习学习，谢谢分享! </DIV><!--modify time--><!--end modify time--><!--if is reply--><!--BEGIN ATTACHMENT--><!--END ATTACHMENT--></DIV><!--END ATTACHMENT--></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD class=altbg2>&nbsp;</TD>
+    <TD style="BORDER-TOP-STYLE: none">
+      <TABLE style="MARGIN-TOP: 18px; LINE-HEIGHT: 18px" cellSpacing=0 
+      cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; HEIGHT: 16px" 
+          colSpan=2><IMG height=16 src="nvic优先级的使用.files/icon_name.gif" 
+            width=363></TD></TR>
+        <TR>
+          <TD class=text_gray 
+          style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; LINE-HEIGHT: 18px; PADDING-TOP: 0px" 
+          colSpan=2>...</TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <TABLE style="LINE-HEIGHT: 21px" cellSpacing=0 cellPadding=0 
+            width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD 
+                style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px" 
+                width=750><IMG height=9 src="nvic优先级的使用.files/ico_reply.gif" 
+                  width=10 align=absMiddle> <A 
+                  href="http://www.stmcu.org/bbs/post.php?act=replypost&amp;pid=515809&amp;fid=244&amp;tid=44939&amp;yid=2">引用</A> 
+                  <IMG height=9 src="nvic优先级的使用.files/ico_link.gif" width=9 
+                  align=absMiddle> <A href="javascript:fCopyToClicp()">链接</A> 
+                  <IMG height=9 src="nvic优先级的使用.files/ico_fav.gif" width=9 
+                  align=absMiddle> <A href="javascript:shouchang()">收藏</A> </TD>
+                <TD 
+                style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px">
+                  <DIV align=right><A 
+                  href="http://www.stmcu.org/bbs/article_244_44939.html#top"><IMG 
+                  height=13 src="nvic优先级的使用.files/ico_top.gif" width=36 
+                  align=absMiddle border=0></A>&nbsp; 
+          </DIV></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <DIV class=postactions>
+            <DIV 
+class=ad_textlink></DIV></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE class=right_con cellSpacing=0 cellPadding=0 border=0>
+  <TBODY>
+  <TR>
+    <TD class=altbg2 style="BORDER-BOTTOM-STYLE: none" vAlign=top width="23%">
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD class=postauthor colSpan=2>
+            <DIV onmouseover="divdisplay('userinfo517636_menu',1)" 
+            onmouseout="divdisplay('userinfo517636_menu',2)"><CITE><A 
+            id=userinfo517636 
+            href="http://www.stmcu.org/bbs/aboutme.php?uid=54999">wang1216<IMG 
+            height=4 src="nvic优先级的使用.files/arrow.gif" width=7 align=absMiddle 
+            border=0></A></CITE> 
+            <DIV class="popupmenu_popup userinfopanel" id=userinfo517636_menu 
+            style="MARGIN-TOP: -10px; DISPLAY: none; LEFT: auto; POSITION: absolute; TOP: auto">
+            <DL>
+              <DT>精华： </DT>
+              <DD>0 </DD>
+              <DT>积分： </DT>
+              <DD>5 </DD>
+              <DT>登陆次数： </DT>
+              <DD>6&nbsp; </DD>
+              <DT>发表主题： </DT>
+              <DD>3 &nbsp; </DD>
+              <DT>注册时间： </DT>
+              <DD>2008-06-20&nbsp; </DD>
+              <DT>最后登陆： </DT>
+              <DD>2009-05-21&nbsp; </DD>
+              <DT>状态： </DT>
+              <DD class=red>离线 </DD></DL>
+            <P><A href="http://www.stmcu.org/bbs/aboutme.php?uid=54999" 
+            target=_blank>查看详细资料</A></P></DIV></DIV></TD></TR>
+        <TR>
+          <TD colSpan=2><IMG src="nvic优先级的使用.files/128_128-10.gif"></TD></TR>
+        <TR>
+          <TD 
+            colSpan=2>积分：5<BR>帖子：3<BR>精华：0<BR>注册时间：2008-06-20<BR>最后登录：2009-05-21 
+          </TD></TR>
+        <TR>
+          <TD width="50%"><IMG height=14 src="nvic优先级的使用.files/blog.gif" 
+            width=14 align=absMiddle> <A 
+            href="http://www.stmcu.org/myspace/blog/?bid=54999" 
+            target=_blank>我的博客</A></TD>
+          <TD><IMG height=14 src="nvic优先级的使用.files/mess.gif" width=16 
+            align=absMiddle> <A 
+            href="http://www.stmcu.org/message/index.php?act=,Write" 
+            target=_blank>发短消息</A> <!--<a href="/myspace/member/user_message_write.php?toid=54999&amp;toname=wang1216" target="_blank">发短消息</a></td>--></TD>
+        <TR>
+          <TD><IMG height=16 src="nvic优先级的使用.files/alu.gif" width=16 
+            align=absMiddle><A 
+            href="http://www.stmcu.org/myspace/album/?uid=54999" target=_blank> 
+            我的相册</A></TD>
+          <TD><IMG height=14 src="nvic优先级的使用.files/no_online.gif" width=14 
+            align=absMiddle> <A 
+            href="http://www.stmcu.org/bbs/article_244_44939.html#">当前离线</A> 
+        </TD></TR></TBODY></TABLE></TD>
+    <TD style="BORDER-BOTTOM-STYLE: none" vAlign=top>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD width=586>发表于2009-04-10 14:42</TD>
+          <TD align=right width=204>3#</TD></TR>
+        <TR>
+          <TD colSpan=2><STRONG>RE:nvic优先级的使用</STRONG></TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <DIV id=bbs_main_body>
+            <DIV id=article_body_517636><IMG src="nvic优先级的使用.files/001.gif">谢谢 
+            </DIV><!--modify time--><!--end modify time--><!--if is reply--><!--BEGIN ATTACHMENT--><!--END ATTACHMENT--></DIV><!--END ATTACHMENT--></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD class=altbg2>&nbsp;</TD>
+    <TD style="BORDER-TOP-STYLE: none">
+      <TABLE style="MARGIN-TOP: 18px; LINE-HEIGHT: 18px" cellSpacing=0 
+      cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; HEIGHT: 16px" 
+          colSpan=2><IMG height=16 src="nvic优先级的使用.files/icon_name.gif" 
+            width=363></TD></TR>
+        <TR>
+          <TD class=text_gray 
+          style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; LINE-HEIGHT: 18px; PADDING-TOP: 0px" 
+          colSpan=2>...</TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <TABLE style="LINE-HEIGHT: 21px" cellSpacing=0 cellPadding=0 
+            width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD 
+                style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px" 
+                width=750><IMG height=9 src="nvic优先级的使用.files/ico_reply.gif" 
+                  width=10 align=absMiddle> <A 
+                  href="http://www.stmcu.org/bbs/post.php?act=replypost&amp;pid=517636&amp;fid=244&amp;tid=44939&amp;yid=3">引用</A> 
+                  <IMG height=9 src="nvic优先级的使用.files/ico_link.gif" width=9 
+                  align=absMiddle> <A href="javascript:fCopyToClicp()">链接</A> 
+                  <IMG height=9 src="nvic优先级的使用.files/ico_fav.gif" width=9 
+                  align=absMiddle> <A href="javascript:shouchang()">收藏</A> </TD>
+                <TD 
+                style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px">
+                  <DIV align=right><A 
+                  href="http://www.stmcu.org/bbs/article_244_44939.html#top"><IMG 
+                  height=13 src="nvic优先级的使用.files/ico_top.gif" width=36 
+                  align=absMiddle border=0></A>&nbsp; 
+          </DIV></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <DIV class=postactions>
+            <DIV 
+class=ad_textlink></DIV></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE class=right_con cellSpacing=0 cellPadding=0 border=0>
+  <TBODY>
+  <TR>
+    <TD class=altbg2 style="BORDER-BOTTOM-STYLE: none" vAlign=top width="23%">
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD class=postauthor colSpan=2>
+            <DIV onmouseover="divdisplay('userinfo519758_menu',1)" 
+            onmouseout="divdisplay('userinfo519758_menu',2)"><CITE><A 
+            id=userinfo519758 
+            href="http://www.stmcu.org/bbs/aboutme.php?uid=92214">luckzhao<IMG 
+            height=4 src="nvic优先级的使用.files/arrow.gif" width=7 align=absMiddle 
+            border=0></A></CITE> 
+            <DIV class="popupmenu_popup userinfopanel" id=userinfo519758_menu 
+            style="MARGIN-TOP: -10px; DISPLAY: none; LEFT: auto; POSITION: absolute; TOP: auto">
+            <DL>
+              <DT>精华： </DT>
+              <DD>0 </DD>
+              <DT>积分： </DT>
+              <DD>1215 </DD>
+              <DT>登陆次数： </DT>
+              <DD>54&nbsp; </DD>
+              <DT>发表主题： </DT>
+              <DD>81 &nbsp; </DD>
+              <DT>注册时间： </DT>
+              <DD>2008-11-17&nbsp; </DD>
+              <DT>最后登陆： </DT>
+              <DD>2009-06-23&nbsp; </DD>
+              <DT>状态： </DT>
+              <DD class=red>离线 </DD></DL>
+            <P><A href="http://www.stmcu.org/bbs/aboutme.php?uid=92214" 
+            target=_blank>查看详细资料</A></P></DIV></DIV></TD></TR>
+        <TR>
+          <TD colSpan=2><IMG src="nvic优先级的使用.files/128_128-18.gif"></TD></TR>
+        <TR>
+          <TD 
+            colSpan=2>积分：1215<BR>帖子：81<BR>精华：0<BR>注册时间：2008-11-17<BR>最后登录：2009-06-23 
+          </TD></TR>
+        <TR>
+          <TD width="50%"><IMG height=14 src="nvic优先级的使用.files/blog.gif" 
+            width=14 align=absMiddle> <A 
+            href="http://www.stmcu.org/myspace/blog/?bid=92214" 
+            target=_blank>我的博客</A></TD>
+          <TD><IMG height=14 src="nvic优先级的使用.files/mess.gif" width=16 
+            align=absMiddle> <A 
+            href="http://www.stmcu.org/message/index.php?act=,Write" 
+            target=_blank>发短消息</A> <!--<a href="/myspace/member/user_message_write.php?toid=92214&amp;toname=luckzhao" target="_blank">发短消息</a></td>--></TD>
+        <TR>
+          <TD><IMG height=16 src="nvic优先级的使用.files/alu.gif" width=16 
+            align=absMiddle><A 
+            href="http://www.stmcu.org/myspace/album/?uid=92214" target=_blank> 
+            我的相册</A></TD>
+          <TD><IMG height=14 src="nvic优先级的使用.files/no_online.gif" width=14 
+            align=absMiddle> <A 
+            href="http://www.stmcu.org/bbs/article_244_44939.html#">当前离线</A> 
+        </TD></TR></TBODY></TABLE></TD>
+    <TD style="BORDER-BOTTOM-STYLE: none" vAlign=top>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD width=586>发表于2009-04-13 22:30</TD>
+          <TD align=right width=204>4#</TD></TR>
+        <TR>
+          <TD colSpan=2><STRONG>RE:nvic优先级的使用</STRONG></TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <DIV id=bbs_main_body>
+            <DIV id=article_body_519758>学习学习，谢谢分享! </DIV><!--modify time--><!--end modify time--><!--if is reply--><!--BEGIN ATTACHMENT--><!--END ATTACHMENT--></DIV><!--END ATTACHMENT--></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD class=altbg2>&nbsp;</TD>
+    <TD style="BORDER-TOP-STYLE: none">
+      <TABLE style="MARGIN-TOP: 18px; LINE-HEIGHT: 18px" cellSpacing=0 
+      cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; HEIGHT: 16px" 
+          colSpan=2><IMG height=16 src="nvic优先级的使用.files/icon_name.gif" 
+            width=363></TD></TR>
+        <TR>
+          <TD class=text_gray 
+          style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; LINE-HEIGHT: 18px; PADDING-TOP: 0px" 
+          colSpan=2>...</TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <TABLE style="LINE-HEIGHT: 21px" cellSpacing=0 cellPadding=0 
+            width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD 
+                style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px" 
+                width=750><IMG height=9 src="nvic优先级的使用.files/ico_reply.gif" 
+                  width=10 align=absMiddle> <A 
+                  href="http://www.stmcu.org/bbs/post.php?act=replypost&amp;pid=519758&amp;fid=244&amp;tid=44939&amp;yid=4">引用</A> 
+                  <IMG height=9 src="nvic优先级的使用.files/ico_link.gif" width=9 
+                  align=absMiddle> <A href="javascript:fCopyToClicp()">链接</A> 
+                  <IMG height=9 src="nvic优先级的使用.files/ico_fav.gif" width=9 
+                  align=absMiddle> <A href="javascript:shouchang()">收藏</A> </TD>
+                <TD 
+                style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px">
+                  <DIV align=right><A 
+                  href="http://www.stmcu.org/bbs/article_244_44939.html#top"><IMG 
+                  height=13 src="nvic优先级的使用.files/ico_top.gif" width=36 
+                  align=absMiddle border=0></A>&nbsp; 
+          </DIV></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <DIV class=postactions>
+            <DIV 
+class=ad_textlink></DIV></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE class=right_con cellSpacing=0 cellPadding=0 border=0>
+  <TBODY>
+  <TR>
+    <TD class=altbg2 style="BORDER-BOTTOM-STYLE: none" vAlign=top width="23%">
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD class=postauthor colSpan=2>
+            <DIV onmouseover="divdisplay('userinfo519763_menu',1)" 
+            onmouseout="divdisplay('userinfo519763_menu',2)"><CITE><A 
+            id=userinfo519763 
+            href="http://www.stmcu.org/bbs/aboutme.php?uid=92214">luckzhao<IMG 
+            height=4 src="nvic优先级的使用.files/arrow.gif" width=7 align=absMiddle 
+            border=0></A></CITE> 
+            <DIV class="popupmenu_popup userinfopanel" id=userinfo519763_menu 
+            style="MARGIN-TOP: -10px; DISPLAY: none; LEFT: auto; POSITION: absolute; TOP: auto">
+            <DL>
+              <DT>精华： </DT>
+              <DD>0 </DD>
+              <DT>积分： </DT>
+              <DD>1215 </DD>
+              <DT>登陆次数： </DT>
+              <DD>54&nbsp; </DD>
+              <DT>发表主题： </DT>
+              <DD>81 &nbsp; </DD>
+              <DT>注册时间： </DT>
+              <DD>2008-11-17&nbsp; </DD>
+              <DT>最后登陆： </DT>
+              <DD>2009-06-23&nbsp; </DD>
+              <DT>状态： </DT>
+              <DD class=red>离线 </DD></DL>
+            <P><A href="http://www.stmcu.org/bbs/aboutme.php?uid=92214" 
+            target=_blank>查看详细资料</A></P></DIV></DIV></TD></TR>
+        <TR>
+          <TD colSpan=2><IMG src="nvic优先级的使用.files/128_128-18.gif"></TD></TR>
+        <TR>
+          <TD 
+            colSpan=2>积分：1215<BR>帖子：81<BR>精华：0<BR>注册时间：2008-11-17<BR>最后登录：2009-06-23 
+          </TD></TR>
+        <TR>
+          <TD width="50%"><IMG height=14 src="nvic优先级的使用.files/blog.gif" 
+            width=14 align=absMiddle> <A 
+            href="http://www.stmcu.org/myspace/blog/?bid=92214" 
+            target=_blank>我的博客</A></TD>
+          <TD><IMG height=14 src="nvic优先级的使用.files/mess.gif" width=16 
+            align=absMiddle> <A 
+            href="http://www.stmcu.org/message/index.php?act=,Write" 
+            target=_blank>发短消息</A> <!--<a href="/myspace/member/user_message_write.php?toid=92214&amp;toname=luckzhao" target="_blank">发短消息</a></td>--></TD>
+        <TR>
+          <TD><IMG height=16 src="nvic优先级的使用.files/alu.gif" width=16 
+            align=absMiddle><A 
+            href="http://www.stmcu.org/myspace/album/?uid=92214" target=_blank> 
+            我的相册</A></TD>
+          <TD><IMG height=14 src="nvic优先级的使用.files/no_online.gif" width=14 
+            align=absMiddle> <A 
+            href="http://www.stmcu.org/bbs/article_244_44939.html#">当前离线</A> 
+        </TD></TR></TBODY></TABLE></TD>
+    <TD style="BORDER-BOTTOM-STYLE: none" vAlign=top>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD width=586>发表于2009-04-13 22:36</TD>
+          <TD align=right width=204>5#</TD></TR>
+        <TR>
+          <TD colSpan=2><STRONG>RE:nvic优先级的使用</STRONG></TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <DIV id=bbs_main_body>
+            <DIV 
+            id=article_body_519763>另外,请问楼主:<BR>1.优先级是如何划分的?<BR>2.优先级的高低有多少种? 
+            </DIV><!--modify time--><!--end modify time--><!--if is reply--><!--BEGIN ATTACHMENT--><!--END ATTACHMENT--></DIV><!--END ATTACHMENT--></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD class=altbg2>&nbsp;</TD>
+    <TD style="BORDER-TOP-STYLE: none">
+      <TABLE style="MARGIN-TOP: 18px; LINE-HEIGHT: 18px" cellSpacing=0 
+      cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; HEIGHT: 16px" 
+          colSpan=2><IMG height=16 src="nvic优先级的使用.files/icon_name.gif" 
+            width=363></TD></TR>
+        <TR>
+          <TD class=text_gray 
+          style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; LINE-HEIGHT: 18px; PADDING-TOP: 0px" 
+          colSpan=2>...</TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <TABLE style="LINE-HEIGHT: 21px" cellSpacing=0 cellPadding=0 
+            width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD 
+                style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px" 
+                width=750><IMG height=9 src="nvic优先级的使用.files/ico_reply.gif" 
+                  width=10 align=absMiddle> <A 
+                  href="http://www.stmcu.org/bbs/post.php?act=replypost&amp;pid=519763&amp;fid=244&amp;tid=44939&amp;yid=5">引用</A> 
+                  <IMG height=9 src="nvic优先级的使用.files/ico_link.gif" width=9 
+                  align=absMiddle> <A href="javascript:fCopyToClicp()">链接</A> 
+                  <IMG height=9 src="nvic优先级的使用.files/ico_fav.gif" width=9 
+                  align=absMiddle> <A href="javascript:shouchang()">收藏</A> </TD>
+                <TD 
+                style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px">
+                  <DIV align=right><A 
+                  href="http://www.stmcu.org/bbs/article_244_44939.html#top"><IMG 
+                  height=13 src="nvic优先级的使用.files/ico_top.gif" width=36 
+                  align=absMiddle border=0></A>&nbsp; 
+          </DIV></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <DIV class=postactions>
+            <DIV 
+class=ad_textlink></DIV></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE class=right_con cellSpacing=0 cellPadding=0 border=0>
+  <TBODY>
+  <TR>
+    <TD class=altbg2 style="BORDER-BOTTOM-STYLE: none" vAlign=top width="23%">
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD class=postauthor colSpan=2>
+            <DIV onmouseover="divdisplay('userinfo523344_menu',1)" 
+            onmouseout="divdisplay('userinfo523344_menu',2)"><CITE><A 
+            id=userinfo523344 
+            href="http://www.stmcu.org/bbs/aboutme.php?uid=104694">wintip<IMG 
+            height=4 src="nvic优先级的使用.files/arrow.gif" width=7 align=absMiddle 
+            border=0></A></CITE> 
+            <DIV class="popupmenu_popup userinfopanel" id=userinfo523344_menu 
+            style="MARGIN-TOP: -10px; DISPLAY: none; LEFT: auto; POSITION: absolute; TOP: auto">
+            <DL>
+              <DT>精华： </DT>
+              <DD>0 </DD>
+              <DT>积分： </DT>
+              <DD>72 </DD>
+              <DT>登陆次数： </DT>
+              <DD>21&nbsp; </DD>
+              <DT>发表主题： </DT>
+              <DD>19 &nbsp; </DD>
+              <DT>注册时间： </DT>
+              <DD>2009-01-13&nbsp; </DD>
+              <DT>最后登陆： </DT>
+              <DD>2009-07-26&nbsp; </DD>
+              <DT>状态： </DT>
+              <DD class=red>离线 </DD></DL>
+            <P><A href="http://www.stmcu.org/bbs/aboutme.php?uid=104694" 
+            target=_blank>查看详细资料</A></P></DIV></DIV></TD></TR>
+        <TR>
+          <TD colSpan=2><IMG src="nvic优先级的使用.files/128_128-19.gif"></TD></TR>
+        <TR>
+          <TD 
+            colSpan=2>积分：72<BR>帖子：19<BR>精华：0<BR>注册时间：2009-01-13<BR>最后登录：2009-07-26 
+          </TD></TR>
+        <TR>
+          <TD width="50%"><IMG height=14 src="nvic优先级的使用.files/blog.gif" 
+            width=14 align=absMiddle> <A 
+            href="http://www.stmcu.org/myspace/blog/?bid=104694" 
+            target=_blank>我的博客</A></TD>
+          <TD><IMG height=14 src="nvic优先级的使用.files/mess.gif" width=16 
+            align=absMiddle> <A 
+            href="http://www.stmcu.org/message/index.php?act=,Write" 
+            target=_blank>发短消息</A> <!--<a href="/myspace/member/user_message_write.php?toid=104694&amp;toname=wintip" target="_blank">发短消息</a></td>--></TD>
+        <TR>
+          <TD><IMG height=16 src="nvic优先级的使用.files/alu.gif" width=16 
+            align=absMiddle><A 
+            href="http://www.stmcu.org/myspace/album/?uid=104694" target=_blank> 
+            我的相册</A></TD>
+          <TD><IMG height=14 src="nvic优先级的使用.files/no_online.gif" width=14 
+            align=absMiddle> <A 
+            href="http://www.stmcu.org/bbs/article_244_44939.html#">当前离线</A> 
+        </TD></TR></TBODY></TABLE></TD>
+    <TD style="BORDER-BOTTOM-STYLE: none" vAlign=top>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD width=586>发表于2009-04-18 09:48</TD>
+          <TD align=right width=204>6#</TD></TR>
+        <TR>
+          <TD colSpan=2><STRONG>RE:nvic优先级的使用</STRONG></TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <DIV id=bbs_main_body>
+            <DIV id=article_body_523344>好◎<IMG src="nvic优先级的使用.files/006.gif"> 
+            </DIV><!--modify time--><!--end modify time--><!--if is reply--><!--BEGIN ATTACHMENT--><!--END ATTACHMENT--></DIV><!--END ATTACHMENT--></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD class=altbg2>&nbsp;</TD>
+    <TD style="BORDER-TOP-STYLE: none">
+      <TABLE style="MARGIN-TOP: 18px; LINE-HEIGHT: 18px" cellSpacing=0 
+      cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; HEIGHT: 16px" 
+          colSpan=2><IMG height=16 src="nvic优先级的使用.files/icon_name.gif" 
+            width=363></TD></TR>
+        <TR>
+          <TD class=text_gray 
+          style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; LINE-HEIGHT: 18px; PADDING-TOP: 0px" 
+          colSpan=2>...</TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <TABLE style="LINE-HEIGHT: 21px" cellSpacing=0 cellPadding=0 
+            width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD 
+                style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px" 
+                width=750><IMG height=9 src="nvic优先级的使用.files/ico_reply.gif" 
+                  width=10 align=absMiddle> <A 
+                  href="http://www.stmcu.org/bbs/post.php?act=replypost&amp;pid=523344&amp;fid=244&amp;tid=44939&amp;yid=6">引用</A> 
+                  <IMG height=9 src="nvic优先级的使用.files/ico_link.gif" width=9 
+                  align=absMiddle> <A href="javascript:fCopyToClicp()">链接</A> 
+                  <IMG height=9 src="nvic优先级的使用.files/ico_fav.gif" width=9 
+                  align=absMiddle> <A href="javascript:shouchang()">收藏</A> </TD>
+                <TD 
+                style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px">
+                  <DIV align=right><A 
+                  href="http://www.stmcu.org/bbs/article_244_44939.html#top"><IMG 
+                  height=13 src="nvic优先级的使用.files/ico_top.gif" width=36 
+                  align=absMiddle border=0></A>&nbsp; 
+          </DIV></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <DIV class=postactions>
+            <DIV 
+class=ad_textlink></DIV></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV>
+<DIV class=PagerBar>
+<DIV class=PagerBar_con><B class=number>6</B> <B class=number>1/1</B> <B>共1页</B> 
+<!-- --><SPAN class=numonpage><STRONG>1</STRONG></SPAN> <!----></DIV></DIV>
+<DIV style="FLOAT: right; PADDING-TOP: 5px"><A 
+href="http://www.stmcu.org/bbs/post.php?act=replypost&amp;fid=244&amp;tid=44939"><IMG 
+height=29 src="nvic优先级的使用.files/reply.gif" width=75 border=0></A> </DIV>
+<DIV onmouseover="divdisplay('navtib3',1)" 
+style="FLOAT: right; PADDING-TOP: 5px; HEIGHT: 35px" 
+onmouseout="divdisplay('navtib3',2)">
+<DIV style="WIDTH: 100px"><A title=发布新帖 
+href="http://www.stmcu.org/bbs/post.php?act=addpost&amp;fid=244"><IMG height=29 
+src="nvic优先级的使用.files/newtopic.gif" width=84 border=0></A></DIV>
+<UL class="popupmenu_popup newspecialmenu" id=navtib3 
+style="DISPLAY: none; LEFT: auto; POSITION: absolute; TOP: auto">
+  <LI><A 
+  href="http://www.stmcu.org/bbs/post.php?act=addpost&amp;fid=244">发布新帖</A> 
+</LI>
+  <LI class=poll><A 
+  href="http://www.stmcu.org/bbs/post.php?act=addpost&amp;fid=244&amp;task=poll" 
+  ?>发布投票</A> 　　　　 　　 </LI></UL></DIV>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top>
+      <TABLE class=login_box cellSpacing=0 cellPadding=0 width="97%" 
+      align=center border=0>
+        <TBODY>
+        <TR>
+          <TD style="PADDING-LEFT: 8px; FONT-SIZE: 14px" background="" 
+            height=24>您尚未 <A 
+            href="http://www.stmcu.org/passport/index.php?redirect=http%3A%2F%2Fwww.stmcu.org%2Fbbs%2Farticle_244_44939.html" 
+            target=_parent>登录</A> | <STRONG><A 
+            href="http://www.stmcu.org/passport/index.php?act=register&amp;redirect=http%3A%2F%2Fwww.stmcu.org%2Fbbs%2Farticle_244_44939.html" 
+            target=_parent>注册</A></STRONG> 
+</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<SCRIPT language=javascript src="nvic优先级的使用.files/jquery.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+
+//检查是否选中
+var n=0
+
+function checked(){
+	var t=false;
+ 	var form =$(":checkbox");
+ 	n=0
+ 	for(var i=0;i<form.length;i++){
+ 		if(form[i].checked){
+ 			t= true;
+ 			n++;
+ 		}
+ 	}
+ 	return t;
+ }
+function addpollnum(){
+	if(checked()){
+		if(n>0){
+			alert("最大投票为项");
+		}else{
+			var tids='';
+			$.each($(":checked"),function(i,n){
+				if(i==$(":checked").length-1)
+				tids+=n.value;
+				else tids+=n.value+",";
+			}); 
+			$.get( 'post.php',{act:"addpoll",ids:tids,tid:44939},function(data){
+					if(data==1){
+						alert("投票成功");
+						window.location.reload();
+					}else if(data==0){
+						alert("您已投票,不要重复投票");
+					}else
+					alert("投票失败");
+			});
+		}
+	}else{
+		alert("请选择投票选项");
+	}
+}
+function ctlent( event ) {
+	if( event.ctrlKey && event.keyCode == 13 ){
+		quickreply();
+	}
+}
+</SCRIPT>
+</DIV></DIV>
+<DIV class=banquan><SPAN class=blue12_line><A 
+href="http://www.stmcu.org/corp/about">关于ST</A></SPAN>　|　<SPAN 
+class=blue12_line><A 
+href="http://www.stmcu.org/corp/work">ST使用说明</A></SPAN>　|　<SPAN 
+class=blue12_line><A href="http://www.stmcu.org/corp/faq">FAQ</A></SPAN>　|　<SPAN 
+class=blue12_line><A 
+href="http://www.stmcu.org/corp/law">法律及版权声明</A></SPAN>　|　<SPAN 
+class=blue12_line><A href="http://www.stmcu.org/corp/map">网站地图</A></SPAN></DIV>
+<DIV class=banquan01>联系邮件：<SPAN class=blue12_line><A 
+href="mailto:tingting@eefocus.com">tingting@eefocus.com</A></SPAN> 　联系电话： 
+010-58859035-8012<BR>Powered by eefocus.com</DIV>
+<SCRIPT type=text/javascript>
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+var pageTracker = _gat._getTracker("UA-1502657-12");
+pageTracker._trackPageview();
+</SCRIPT>
+</BODY></HTML>

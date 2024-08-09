@@ -1,0 +1,527 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0045)http://bbs.eefocus.com/article_244_30197.html -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>我的学习心得--关于STM3的NVIC-STM32-与非网-电子社区论坛</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META content=stm32,技术文档,例程,系统,开发工具,我的学习心得--关于STM3的NVIC,STM32 name=keywords>
+<META 
+content="stm32技术文档 功能例程 文件系统移植 问题讨论 开发工具&#13;&#10;&#13;&#10;,我的学习心得--关于STM3的NVIC,STM32" 
+name=description><LINK href="我的学习心得--关于STM3的NVIC-STM32.files/eefocus.css" 
+type=text/css rel=stylesheet>
+<SCRIPT language=javascript src="我的学习心得--关于STM3的NVIC-STM32.files/global.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT language=javascript 
+src="我的学习心得--关于STM3的NVIC-STM32.files/newAjax.js"></SCRIPT>
+
+<STYLE>.attdis {
+	DISPLAY: none
+}
+</STYLE>
+
+<SCRIPT language=javascript>
+
+</SCRIPT>
+
+<SCRIPT language=javascript>
+var tid = 30197;
+</SCRIPT>
+
+<SCRIPT src="我的学习心得--关于STM3的NVIC-STM32.files/newtopic.js"></SCRIPT>
+
+<META content="MSHTML 6.00.2900.5512" name=GENERATOR></HEAD>
+<BODY>
+<SCRIPT language=javascript 
+src="我的学习心得--关于STM3的NVIC-STM32.files/newAjax.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+var timelimits = 600000; // 10分钟
+//var timelimits = 1; // 10分钟
+
+function check_session(){
+	var x = new Ajax( 'statusid', "HTML" );
+	x.get( "index.php?act=setonline",function(s){
+		//	alert(s);
+		return true;
+	});
+	window.setTimeout( "check_session()", timelimits );
+}//end
+
+window.onload=check_session;
+</SCRIPT>
+
+<TABLE class=login_box cellSpacing=0 cellPadding=0 width="97%" align=center 
+border=0>
+  <TBODY>
+  <TR>
+    <TD style="PADDING-LEFT: 8px" 
+    background=我的学习心得--关于STM3的NVIC-STM32.files/login_bg.htm height=24><SPAN 
+      class=red12_900>» 您尚未 <A 
+      href="http://www2.eefocus.com/passport/index.php?redirect=http%3A%2F%2Fbbs.eefocus.com%2Farticle_244_30197.html" 
+      target=_self>登录</A> | <STRONG><A 
+      href="http://www2.eefocus.com/passport/index.php?act=register&amp;redirect=http%3A%2F%2Fbbs.eefocus.com%2Farticle_244_30197.html" 
+      target=_self>注册</A></STRONG> | <A href="http://bbs.eefocus.com/search.php" 
+      target=_blank>全站搜索</A> | <A href="http://bbs.eefocus.com/Tpl/help.html" 
+      target=_blank>论坛帮助</A></SPAN></TD></TR></TBODY></TABLE>
+<TABLE class=margin_top cellSpacing=0 cellPadding=0 width="97%" align=center 
+border=0>
+  <TBODY>
+  <TR>
+    <TD width="50%" height=30><SPAN class=gray12cu><A 
+      href="http://www.eefocus.com/" target=_blank>首页</A> »<A 
+      href="http://bbs.eefocus.com/index.php" target=_top>论坛首页</A> »社区论坛 
+      &gt;&gt; <A href="http://bbs.eefocus.com/forum_243.html">ST MCU</A> 
+      &gt;&gt; <A href="http://bbs.eefocus.com/forum_244.html">STM32</A> 
+      &gt;&gt; </SPAN></TD>
+    <TD>
+      <DIV align=right><SPAN class=red12_900><A 
+      href="http://bbs.eefocus.com/article_39_52037.html" target=_blank>论坛规则</A> 
+      | <A 
+href="javascript:addFavorite();">收藏本版</A></DIV></SPAN></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=1 cellPadding=0 width="97%" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD width="60%" height=50>
+      <TABLE 
+      style="BORDER-RIGHT: rgb(151,199,244) 1px solid; BORDER-TOP: rgb(151,199,244) 1px solid; BORDER-LEFT: rgb(151,199,244) 1px solid; BORDER-BOTTOM: rgb(151,199,244) 1px solid" 
+      cellSpacing=0 cellPadding=1 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD>
+            <TABLE class=gray12cu borderColor=#ffffff cellSpacing=0 
+            cellPadding=0 width="100%" bgColor=#f4f4f4 border=1>
+              <TBODY>
+              <TR>
+                <TD class=red_top width="7%">&nbsp;1&nbsp;</TD>
+                <TD class=red_top width="7%">&nbsp;1/1&nbsp;</TD>
+                <TD>
+                  <DIV id=div>
+                  <DIV id=pagerbar><SPAN class=pageshow>共1页</SPAN> <!-- --><SPAN 
+                  class=numonpage><STRONG>1</STRONG></SPAN> 
+                <!----></DIV></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+    <TD>
+      <TABLE cellSpacing=0 cellPadding=0 width="70%" align=right border=0>
+        <TBODY>
+        <TR>
+          <TD>
+            <DIV onmouseover="divdisplay('navtib',1)" 
+            style="FLOAT: right; HEIGHT: 35px" 
+            onmouseout="divdisplay('navtib',2)">
+            <DIV class=postbtn id=newspecial><A title=发布新帖 
+            href="http://bbs.eefocus.com/post.php?act=addpost&amp;fid=244"><IMG 
+            height=29 src="我的学习心得--关于STM3的NVIC-STM32.files/newtopic.gif" 
+            width=84 border=0></A></DIV>
+            <UL class="popupmenu_popup newspecialmenu" id=navtib 
+            style="DISPLAY: none; RIGHT: auto; POSITION: absolute; TOP: auto">
+              <LI><A 
+              href="http://bbs.eefocus.com/post.php?act=addpost&amp;fid=244">发布新帖</A> 
+              </LI>
+              <LI class=poll><A 
+              href="http://bbs.eefocus.com/post.php?act=addpost&amp;fid=244&amp;task=poll" 
+              ?>发布投票</A> </LI></UL></DIV></TD>
+          <TD style="PADDING-BOTTOM: 7px" width=80>
+            <DIV align=right><A 
+            href="http://bbs.eefocus.com/post.php?act=replypost&amp;fid=244&amp;tid=30197"><IMG 
+            height=29 src="我的学习心得--关于STM3的NVIC-STM32.files/reply.gif" width=75 
+            border=0></A></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<DIV id=gradeDiv style="DISPLAY: none">
+<FORM id=gradeForm name=gradeForm onsubmit="doGrade(this);return false;"><INPUT 
+type=hidden name=pid> <INPUT type=hidden name=uid> 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD><SELECT id=gradePoint onchange=" addoptionPoint( this )" 
+      name=gradePoint> <OPTION value=addoption>自定义</OPTION> <OPTION 
+        value=-30>-30</OPTION> <OPTION value=-25>-25</OPTION> <OPTION 
+        value=-20>-20</OPTION> <OPTION value=-15>-15</OPTION> <OPTION 
+        value=-14>-14</OPTION> <OPTION value=-12>-12</OPTION> <OPTION 
+        value=-10>-10</OPTION> <OPTION value=-8>-8</OPTION> <OPTION 
+        value=-6>-6</OPTION> <OPTION value=-4>-4</OPTION> <OPTION 
+        value=-2>-2</OPTION> <OPTION value=0 selected>0</OPTION> <OPTION 
+        value=2>2</OPTION> <OPTION value=4>4</OPTION> <OPTION value=6>6</OPTION> 
+        <OPTION value=8>8</OPTION> <OPTION value=10>10</OPTION> <OPTION 
+        value=12>12</OPTION> <OPTION value=14>14</OPTION> <OPTION 
+        value=15>15</OPTION> <OPTION value=20>20</OPTION> <OPTION 
+        value=25>25</OPTION> <OPTION value=30>30</OPTION></SELECT> <SELECT 
+      onchange=" addoption( this )" name=reason> <OPTION value="" 
+        selected>评分理由</OPTION> <OPTION value=addoption>自定义</OPTION> <OPTION 
+        value="">--------</OPTION> <OPTION value=广告/SPAM>广告/SPAM</OPTION> 
+        <OPTION value=恶意灌水>恶意灌水</OPTION> <OPTION value=违规内容>违规内容</OPTION> 
+        <OPTION value=文不对题>文不对题</OPTION> <OPTION value=重复发帖>重复发帖</OPTION> 
+        <OPTION value="">--------</OPTION> <OPTION value=我很赞同>我很赞同</OPTION> 
+        <OPTION value=精品文章>精品文章</OPTION> <OPTION value=原创内容>原创内容</OPTION></SELECT> 
+    </TD></TR>
+  <TR>
+    <TD><INPUT type=submit value=提交 name=sbt> &nbsp; <INPUT onclick="return DialogHide();" type=button value=取消 name=sbt> 
+  </TD></TR></TBODY></TABLE></FORM></DIV>
+<TABLE class=margin_top cellSpacing=0 cellPadding=0 width="97%" align=center 
+border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ffffff 
+        border=0><TBODY>
+        <TR>
+          <TD class=td_title height=22>
+            <TABLE cellSpacing=0 cellPadding=0 width="99%" border=0>
+              <TBODY>
+              <TR>
+                <TD><A id=top name=top></A><SPAN 
+                  class=white_margin>我的学习心得--关于STM3的NVIC </SPAN></TD>
+                <TD class=white>
+                  <DIV align=right>版主： <A 
+                  href="http://bbs.eefocus.com/aboutme.php?uid=9853" 
+                  target=_blank>得蜜</A>&nbsp; <A 
+                  href="http://bbs.eefocus.com/aboutme.php?uid=37802" 
+                  target=_blank>zerone</A>&nbsp; <A 
+                  href="http://bbs.eefocus.com/aboutme.php?uid=90025" 
+                  target=_blank>fandipeng412</A>&nbsp; <A 
+                  href="http://bbs.eefocus.com/aboutme.php?uid=96138" 
+                  target=_blank>萧星</A>&nbsp; <A 
+                  href="http://bbs.eefocus.com/aboutme.php?uid=109685" 
+                  target=_blank>小强</A>&nbsp; <A 
+                  href="http://bbs.eefocus.com/aboutme.php?uid=115167" 
+                  target=_blank>qm999cn</A>&nbsp; </DIV>
+                  <DIV></DIV></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD>
+            <DIV id=rightbbs>
+            <TABLE cellSpacing=1 cellPadding=2 width="100%" bgColor=#a2b4ce 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD bgColor=#ffffff height=21>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD class=postauthor vAlign=top width=184 
+                        bgColor=#f0f5f9><TABLE cellSpacing=0 cellPadding=0 
+                        width=170 align=center border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE id=pid160110 cellSpacing=0 cellPadding=0 
+                              width="100%" summary=pid160110 border=0>
+                                <TBODY>
+                                <TR>
+                                <TD class=postauthor>
+                                <DIV 
+                                onmouseover="divdisplay('userinfo329902_menu',1)" 
+                                onmouseout="divdisplay('userinfo329902_menu',2)"><CITE><A 
+                                id=userinfo329902 
+                                href="http://bbs.eefocus.com/aboutme.php?uid=72447">k4gjwl<IMG 
+                                height=4 
+                                src="我的学习心得--关于STM3的NVIC-STM32.files/arrow.gif" 
+                                width=7 align=absMiddle border=0></A></CITE> 
+                                <DIV class="popupmenu_popup userinfopanel" 
+                                id=userinfo329902_menu 
+                                style="MARGIN-TOP: -10px; DISPLAY: none; LEFT: auto; POSITION: absolute; TOP: auto">
+                                <DL>
+                                <DT>精华： </DT>
+                                <DD>0 </DD>
+                                <DT>积分： </DT>
+                                <DD>20 </DD>
+                                <DT>登陆次数： </DT>
+                                <DD>6&nbsp; </DD>
+                                <DT>发表主题： </DT>
+                                <DD>0 &nbsp; </DD>
+                                <DT>注册时间： </DT>
+                                <DD>2008-09-01&nbsp; </DD>
+                                <DT>最后登陆： </DT>
+                                <DD>2008-09-03&nbsp; </DD>
+                                <DT>状态： </DT>
+                                <DD class=red>离线 </DD></DL>
+                                <P><A 
+                                href="http://bbs.eefocus.com/aboutme.php?uid=72447" 
+                                target=_blank>查看详细资料</A></P></DIV></DIV></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD class=postauthor>
+                              <DIV class="popupmenu_popup userinfopanel" id=div2 
+                              style="DISPLAY: none">aaaaaaaaaaaaa</DIV></TD></TR>
+                          <TR>
+                            <TD><IMG class=mem_pic 
+                              src="我的学习心得--关于STM3的NVIC-STM32.files/128_128-14.gif"> 
+                            </TD></TR>
+                          <TR>
+                            <TD class=green></TD></TR>
+                          <TR>
+                            <TD></TD></TR>
+                          <TR>
+                            <TD>积分：20<BR>帖子：0<BR>精华：0<BR>注册时间：2008-09-01<BR>最后登录：2008-09-03</TD></TR>
+                          <TR>
+                            <TD>
+                              <TABLE class=margin_top cellSpacing=0 
+                              cellPadding=0 width="100%" border=0>
+                                <TBODY>
+                                <TR>
+                                <TD width="50%" height=24><IMG height=14 
+                                src="我的学习心得--关于STM3的NVIC-STM32.files/blog.gif" 
+                                width=14 align=absMiddle> <A 
+                                href="http://www.eefocus.com/myspace/blog/?bid=72447" 
+                                target=_blank>我的博客</A></TD>
+                                <TD height=24><IMG height=14 
+                                src="我的学习心得--关于STM3的NVIC-STM32.files/mess.gif" 
+                                width=16 align=absMiddle> <A 
+                                href="http://www.eefocus.com/myspace/member/user_message_write.php?toid=72447&amp;toname=k4gjwl" 
+                                target=_blank>发短消息</A></TD></TR>
+                                <TR>
+                                <TD height=24><IMG height=16 
+                                src="我的学习心得--关于STM3的NVIC-STM32.files/alu.gif" 
+                                width=16 align=absMiddle><A 
+                                href="http://www.eefocus.com/myspace/album/?uid=72447" 
+                                target=_blank> 我的相册</A></TD>
+                                <TD height=24><IMG height=14 
+                                src="我的学习心得--关于STM3的NVIC-STM32.files/no_online.gif" 
+                                width=14 align=absMiddle> <A 
+                                href="http://bbs.eefocus.com/article_244_30197.html#">当前离线</A> 
+                                </TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD></TD></TR></TBODY></TABLE></TD>
+                      <TD class=postcontent>
+                        <DIV class=postinfo>
+                        <TABLE cellSpacing=0 cellPadding=0 width="98%" 
+                        align=center border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=td_line02>发表于2008-09-03 19:35 </TD>
+                            <TD class=td_line02>
+                              <DIV align=right>1# 
+                        </DIV></TD></TR></TBODY></TABLE></DIV>
+                        <TABLE cellSpacing=0 cellPadding=0 width="98%" 
+                        align=center border=0>
+                          <TBODY>
+                          <TR>
+                            <TD height=12></TD></TR>
+                          <TR>
+                            <TD vAlign=top>
+                              <TABLE cellSpacing=0 cellPadding=0 width="98%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD 
+                                class=gray14cu><STRONG>我的学习心得--关于STM3的NVIC</STRONG></TD></TR>
+                                <TR>
+                                <TD>&nbsp;</TD></TR>
+                                <TR>
+                                <TD>
+                                <DIV id=bbs_main_body>
+                                <DIV 
+                                id=article_body_329902>我的学习心得--关于STM3的NVIC<BR><BR>1.异常可分为系统异常和外部中断，异常优先级也即分为系统异常优先级和外部中断优先级。<BR><BR>2.中断矢量的顺序决定了异常的硬件优先级。若不进行软件设置异常的优先级（软件优先级），<BR>异常优先级就决定于硬件优先级。<BR><BR>3.异常一旦指定软件优先级后，硬件优先级则无效。（按：错，1.应是软优于硬，2.局部还是全体？）<BR><BR>4.不管硬软，复位，NMI，和硬故障这3个异常的优先级始终依次最高。<BR><BR>5.用户可设置的最高优先级为0 
+                                号优先级，其仅次于复位，NMI 以及硬件故障的第4 
+                                优先级。<BR>&nbsp;&nbsp;0号优先级也是所有可调整优先级的默认优先级。（按：是否意味都要设置？）<BR><BR>6.系统异常的优先级可通过系统处理器优先级寄存器组进行控制(写入)。<BR>该寄存器组是：NVIC_SYS_PRI1-3 
+                                0xE000ED18-23 
+                                共12个字节。<BR>顺序地对应从4开始的12个系统异常中断号NVIC_SYS_PRI4-12:<BR>存储器管理,总线故障,使用故障,保留, 
+                                保留,保留,保留,SVCall, 
+                                调试监控,保留,PendSV,SysTick。<BR>&nbsp;&nbsp;&nbsp;其中，只有PendSV,SysTick可以通过软件来触发(设置挂起pendSV位),方法是：将中断控制状态寄存器0xE000ED04的[28]PENDSVSET，[26] 
+                                PENDSTSET置1。<BR><BR>7. 
+                                外部中断指的是除系统异常之外的异常，也即中断号等于和大于16 的异常。外部中断的0 
+                                号中断对应于NVIC 的16 
+                                号中断，依次类推.<BR>&nbsp;&nbsp;&nbsp;外部中断的优先级可通过外部中断优先级寄存器组(又称"中断优先级寄存器")进行控制(写入)。<BR>该寄存器组是：0xE000E400-41F 
+                                共32个字节。顺序地对应32个中断号：<BR>中断0的优先级(PRI_0),就放在0xE000E400；中断31的优先级(PRI_31),就放在 
+                                0xE000E41F。<BR><BR>8. 
+                                CortexM3规定的优先级是256级，但具体的采用CortexM3内核的IC可以是8级<BR>（例Stellaris的LM3S系列）或16级（例ST的STM32系列），也可以更大。<BR>所以,对于这2个IC,写入系统处理器优先级寄存器和中断优先级寄存器组的值(PRI_N,8Bit)分别只有高3Bit和高4Bit才是有效的,其余5Bit和4Bit没有意义。<BR><BR>9. 
+                                优先级分组 (姜按:“CortexM3 
+                                参考手册中的这段话,还是摘录在下面，尽管我认为这个机制对于STM32这个IC，几乎没有意义。)<BR>为了对具有大量中断的系统加强优先级控制，NVIC 
+                                支持优先级分组机制。应用中断和复位控制寄存器中的PRIGROUP 
+                                区(3Bit)来将每个PRI_N 
+                                中的值分为占先优先级区和次优先级区。我们将占先优先级称为组优先级。如果有多个挂起异常共用相同的组优先级，则需使用次优先级区来决定同组中的异常的优先级，这就是同组内的次优先级。组优先级和次优先级的结合就是通常所说的优先级。如果两个挂起异常具有相同的优先级，则挂起异常的编号越低优先级越高。这与优先级机制是一致的。<BR><BR>10. 
+                                应用：在程序中改变优先级的最快办法是“字节写”。<BR><BR>出处：60岁老头 </DIV><!--modify time--><!--end modify time--><!--if is reply--><!--if hava present--><!--end hava present--><!--if hava reward--><!--end hava reward--><!--BEGIN ATTACHMENT--><!--END ATTACHMENT--></DIV></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD>&nbsp;</TD></TR>
+                          <TR>
+                            <TD class=td_line></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR>
+                      <TD class=postauthor bgColor=#f0f5f9></TD>
+                      <TD class=postcontent>
+                        <DIV class=signatures 
+                        style="maxHeightIE: 100px">...</DIV>
+                        <TABLE width="98%" align=center>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=9 
+                              src="我的学习心得--关于STM3的NVIC-STM32.files/ico_reply.gif" 
+                              width=10 align=absMiddle> <A 
+                              href="http://bbs.eefocus.com/post.php?act=replypost&amp;pid=329902&amp;fid=244&amp;tid=30197&amp;yid=1">引用</A> 
+                              <IMG height=9 
+                              src="我的学习心得--关于STM3的NVIC-STM32.files/ico_link.gif" 
+                              width=9 align=absMiddle> <A 
+                              href="javascript:fCopyToClicp()">链接</A> <IMG 
+                              height=9 
+                              src="我的学习心得--关于STM3的NVIC-STM32.files/ico_fav.gif" 
+                              width=9 align=absMiddle> <A 
+                              href="javascript:shouchang()">收藏</A> </TD>
+                            <TD>
+                              <DIV align=right><A 
+                              href="http://bbs.eefocus.com/article_244_30197.html#top"><IMG 
+                              height=13 
+                              src="我的学习心得--关于STM3的NVIC-STM32.files/ico_top.gif" 
+                              width=36 align=absMiddle border=0></A>&nbsp; 
+                            </DIV></TD></TR></TBODY></TABLE>
+                        <DIV class=postactions>
+                        <DIV 
+                class=ad_textlink></DIV></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+      <DIV></DIV>
+      <TABLE cellSpacing=1 cellPadding=0 width="97%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD width="60%" height=50>
+            <TABLE 
+            style="BORDER-RIGHT: rgb(151,199,244) 1px solid; BORDER-TOP: rgb(151,199,244) 1px solid; BORDER-LEFT: rgb(151,199,244) 1px solid; BORDER-BOTTOM: rgb(151,199,244) 1px solid" 
+            cellSpacing=0 cellPadding=1 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD>
+                  <TABLE class=gray12cu borderColor=#ffffff cellSpacing=0 
+                  cellPadding=0 width="100%" bgColor=#f4f4f4 border=1>
+                    <TBODY>
+                    <TR>
+                      <TD class=red_top width="7%">&nbsp;1&nbsp;</TD>
+                      <TD class=red_top width="7%">&nbsp;1/1&nbsp;</TD>
+                      <TD>
+                        <DIV id=div>
+                        <DIV id=pagerbar><SPAN class=pageshow>共1页</SPAN> <!-- --><SPAN class=numonpage><STRONG>1</STRONG></SPAN> <!----></DIV></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=0 width="70%" align=right 
+              border=0><TBODY>
+              <TR>
+                <TD>
+                  <DIV onmouseover="divdisplay('navtib2',1)" 
+                  style="FLOAT: right; HEIGHT: 35px" 
+                  onmouseout="divdisplay('navtib2',2)">
+                  <DIV class=postbtn id=newspecial><A title=发布新帖 
+                  href="http://bbs.eefocus.com/post.php?act=addpost&amp;fid=244"><IMG 
+                  height=29 src="我的学习心得--关于STM3的NVIC-STM32.files/newtopic.gif" 
+                  width=84 border=0></A></DIV>
+                  <UL class="popupmenu_popup newspecialmenu" id=navtib2 
+                  style="DISPLAY: none; LEFT: auto; POSITION: absolute; TOP: auto">
+                    <LI><A 
+                    href="http://bbs.eefocus.com/post.php?act=addpost&amp;fid=244">发布新帖</A> 
+                    </LI>
+                    <LI class=poll><A 
+                    href="http://bbs.eefocus.com/post.php?act=addpost&amp;fid=244&amp;task=poll" 
+                    ?>发布投票</A> </LI></UL></DIV></TD>
+                <TD style="PADDING-BOTTOM: 7px" width=80>
+                  <DIV align=right><A 
+                  href="http://bbs.eefocus.com/post.php?act=replypost&amp;fid=244&amp;tid=30197"><IMG 
+                  height=29 src="我的学习心得--关于STM3的NVIC-STM32.files/reply.gif" 
+                  width=75 
+      border=0></A></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <TABLE class=login_box cellSpacing=0 cellPadding=0 width="97%" 
+            align=center border=0>
+              <TBODY>
+              <TR>
+                <TD style="PADDING-LEFT: 8px; FONT-SIZE: 14px" 
+                background=我的学习心得--关于STM3的NVIC-STM32.files/login_bg.htm 
+                height=24>您尚未 <A 
+                  href="http://www2.eefocus.com/passport/index.php?redirect=http%3A%2F%2Fbbs.eefocus.com%2Farticle_244_30197.html" 
+                  target=_parent>登录</A> | <STRONG><A 
+                  href="http://www2.eefocus.com/passport/index.php?act=register&amp;redirect=http%3A%2F%2Fbbs.eefocus.com%2Farticle_244_30197.html" 
+                  target=_parent>注册</A></STRONG> 
+        </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD height=10></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD height=10></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD>
+            <DIV align=center>﻿
+            <DIV id=footer>
+            <DIV id=f-2><A class=mlink 
+            href="http://www.eefocus.com/content/service/introduce.php">关于我们</A> 
+            | <A class=mlink 
+            href="http://www.eefocus.com/content/service/hr.php">诚邀加盟</A> | <A 
+            class=mlink href="http://www.eefocus.com/content/service/">客户服务</A> 
+            | <A class=mlink 
+            href="http://www.eefocus.com/content/service/law.php">相关法律</A> | <A 
+            class=mlink href="http://www.eefocus.com/ssi/map.shtml">网站地图</A> | 
+            <A class=mlink href="http://www.eefocus.com/ssi/link.shtml">友情链接</A> 
+            | <A class=eiki_blue 
+            href="http://www.eefocus.com/help/feedback.php">建议指正</A> | 服务信箱：<A 
+            href="mailto:service@eefocus.com"><IMG height=18 
+            src="我的学习心得--关于STM3的NVIC-STM32.files/mail.gif" width=173 
+            align=absMiddle border=0></A></DIV>
+            <DIV id=f-3>© 2006 与非门科技(北京)有限公司 All Rights Reserved. 
+            京ICP证:070212号<A 
+            href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202007052800008" 
+            target=_blank><IMG height=28 
+            src="我的学习心得--关于STM3的NVIC-STM32.files/biaoshi.gif" width=25 
+            align=absMiddle border=0></A></DIV></DIV>
+            <SCRIPT language=JavaScript 
+            src="我的学习心得--关于STM3的NVIC-STM32.files/makejs.htm" 
+            type=text/javascript></SCRIPT>
+
+            <SCRIPT src="我的学习心得--关于STM3的NVIC-STM32.files/urchin.js" 
+            type=text/javascript>
+</SCRIPT>
+
+            <SCRIPT type=text/javascript>
+_uacct = "UA-1502657-1";
+urchinTracker();
+</SCRIPT>
+            </DIV></TD></TR></TBODY></TABLE>
+      <SCRIPT language=javascript 
+      src="我的学习心得--关于STM3的NVIC-STM32.files/jquery.js"></SCRIPT>
+
+      <SCRIPT language=javascript>
+
+//检查是否选中
+var n=0
+
+function checked(){
+	var t=false;
+ 	var form =$(":checkbox");
+ 	n=0
+ 	for(var i=0;i<form.length;i++){
+ 		if(form[i].checked){
+ 			t= true;
+ 			n++;
+ 		}
+ 	}
+ 	return t;
+ }
+function addpollnum(){
+	if(checked()){
+		if(n>){
+			alert("最大投票为项");
+		}else{
+			var tids='';
+			$.each($(":checked"),function(i,n){
+				if(i==$(":checked").length-1)
+				tids+=n.value;
+				else tids+=n.value+",";
+			}); 
+			$.get( 'post.php',{act:"addpoll",ids:tids,tid:30197},function(data){
+					if(data==1){
+						alert("投票成功");
+						window.location.reload();
+					}else if(data==0){
+						alert("您已投票,不要重复投票");
+					}else
+					alert("投票失败");
+			});
+		}
+	}else{
+		alert("请选择投票选项");
+	}
+}
+
+window.onload=function(){
+	var maxWidth = 500;
+	var imgs = document.getElementById("rightbbs").getElementsByTagName("img");
+	for(var i=0; i<imgs.length; i++){
+		if(imgs[i].clientWidth > maxWidth){
+		imgs[i].style.width = maxWidth+"px";
+		}
+	}	
+}
+</SCRIPT>
+  </TR></TBODY></TABLE></BODY></HTML>

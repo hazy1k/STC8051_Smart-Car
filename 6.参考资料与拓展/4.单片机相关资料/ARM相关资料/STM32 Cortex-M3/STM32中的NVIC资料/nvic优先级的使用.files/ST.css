@@ -1,0 +1,384 @@
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 12px; BACKGROUND: #fff; PADDING-BOTTOM: 0px; MARGIN: 0px auto; WIDTH: 946px; COLOR: #333; PADDING-TOP: 0px; FONT-FAMILY: normal tahoma,Verdana,Arial,''; TEXT-ALIGN: left
+}
+HTML {
+	HEIGHT: 100%
+}
+BODY {
+	HEIGHT: 100%
+}
+DIV {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; OVERFLOW: hidden; PADDING-TOP: 0px
+}
+TABLE {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; OVERFLOW: hidden; PADDING-TOP: 0px
+}
+UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; OVERFLOW: hidden; PADDING-TOP: 0px
+}
+LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; OVERFLOW: hidden; PADDING-TOP: 0px
+}
+DL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; OVERFLOW: hidden; PADDING-TOP: 0px
+}
+DD {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; OVERFLOW: hidden; PADDING-TOP: 0px
+}
+P {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; OVERFLOW: hidden; PADDING-TOP: 0px
+}
+A:link {
+	COLOR: #333; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #333; TEXT-DECORATION: none
+}
+A:hover {
+	CURSOR: pointer; COLOR: #000; TEXT-DECORATION: underline
+}
+A:active {
+	CURSOR: pointer; COLOR: #000; TEXT-DECORATION: underline
+}
+.text_blue {
+	COLOR: #069
+}
+.text_blue A:link {
+	COLOR: #069
+}
+.text_blue A:visited {
+	COLOR: #069
+}
+.text_blue A:hover {
+	COLOR: #f60; TEXT-DECORATION: none
+}
+.text_blue A:active {
+	COLOR: #f60; TEXT-DECORATION: none
+}
+.text_red {
+	COLOR: #f00
+}
+.text_red A:link {
+	COLOR: #f00
+}
+.text_red A:visited {
+	COLOR: #f00
+}
+.text_red A:hover {
+	COLOR: #f00
+}
+.text_red A:active {
+	COLOR: #f00
+}
+.text_gray {
+	COLOR: #777
+}
+.text_gray A:hover {
+	COLOR: #333
+}
+.text_gray A:active {
+	COLOR: #333
+}
+.text11 {
+	FONT-SIZE: 11px
+}
+.text12 {
+	FONT-SIZE: 12px
+}
+.text14 {
+	FONT-SIZE: 14px
+}
+.text16 {
+	FONT-SIZE: 16px
+}
+.line A:link {
+	TEXT-DECORATION: underline
+}
+.line A:visited {
+	TEXT-DECORATION: underline
+}
+.green {
+	COLOR: #456600
+}
+.green A {
+	COLOR: #456600
+}
+.green A:hover {
+	COLOR: #456600; TEXT-DECORATION: underline
+}
+.orange {
+	FONT-WEIGHT: bold; COLOR: #ff8c00
+}
+.orange A {
+	COLOR: #ff8c00
+}
+.orange A:hover {
+	COLOR: #ff8c00; TEXT-DECORATION: underline
+}
+.red12_900 {
+	COLOR: #069
+}
+.red12_900 A {
+	COLOR: #069; TEXT-DECORATION: none
+}
+.red12_900 A:hover {
+	COLOR: #f60; TEXT-DECORATION: none
+}
+.red {
+	COLOR: #f00; TEXT-DECORATION: none
+}
+.red A {
+	COLOR: #f00; TEXT-DECORATION: none
+}
+.red A:hover {
+	COLOR: #f00; TEXT-DECORATION: underline
+}
+.blue_line {
+	COLOR: #069; TEXT-DECORATION: underline
+}
+.blue_line A {
+	COLOR: #069; TEXT-DECORATION: underline
+}
+.blue_line A:hover {
+	COLOR: #f60; TEXT-DECORATION: none
+}
+#left {
+	FLOAT: left; WIDTH: 150px
+}
+#right {
+	FLOAT: left; MARGIN: 0px 0px 0px 6px; WIDTH: 790px
+}
+#sidebar {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 1px; BACKGROUND: #fff; PADDING-BOTTOM: 1px; MARGIN: 6px 0px 0px; BORDER-LEFT: #ccc 1px solid; WIDTH: 146px; LINE-HEIGHT: 21px; PADDING-TOP: 1px; BORDER-BOTTOM: #ccc 1px solid
+}
+#sidebar_in {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; BACKGROUND: #efefef; PADDING-BOTTOM: 4px; WIDTH: 138px; PADDING-TOP: 4px
+}
+.sidebar_tit {
+	FONT-WEIGHT: bold; WIDTH: 100%; TEXT-INDENT: 5px; BORDER-BOTTOM: #999 1px solid
+}
+#sidebar UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 5px; WIDTH: 100%; PADDING-TOP: 5px; BORDER-BOTTOM: #fff 1px solid; LIST-STYLE-TYPE: none
+}
+#sidebar UL LI {
+	MARGIN: 2px 0px 0px
+}
+#sidebar UL LI A {
+	PADDING-RIGHT: 0px; DISPLAY: block; PADDING-LEFT: 20px; BACKGROUND: url(/images/bbs/common/dot_add.gif) #fff no-repeat 5px 6px; PADDING-BOTTOM: 0px; WIDTH: 100%; PADDING-TOP: 0px
+}
+#sidebar UL LI A.minus {
+	PADDING-RIGHT: 0px; DISPLAY: block; PADDING-LEFT: 20px; BACKGROUND: url(/images/bbs/common/dot_minus.gif) #fff no-repeat 5px 6px; PADDING-BOTTOM: 0px; WIDTH: 100%; PADDING-TOP: 0px
+}
+#sidebar UL LI UL.expand {
+	BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; LIST-STYLE-TYPE: none; BORDER-BOTTOM-STYLE: none
+}
+#sidebar UL LI UL.expand LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 10px; BACKGROUND: url(/images/bbs/common/dot_small.gif) no-repeat 0px 8px; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 0px 20px; PADDING-TOP: 0px
+}
+#sidebar UL LI UL.expand LI A {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: none transparent scroll repeat 0% 0%; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+#qtz {
+	MARGIN: 6px 0px 0px; WIDTH: 150px
+}
+#qtz IMG {
+	WIDTH: 150px; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+TABLE.right_con {
+	CLEAR: both; BORDER-RIGHT: #ccc 1px solid; BORDER-TOP: #ccc 1px solid; MARGIN: 6px 0px 0px; BORDER-LEFT: #ccc 1px solid; WIDTH: 100%; BORDER-BOTTOM: #ccc 1px
+}
+TABLE.right_con TH {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; BACKGROUND: url(/images/bbs/st/nav_bg.gif) repeat-x; PADDING-BOTTOM: 0px; COLOR: #fff; LINE-HEIGHT: 26px; PADDING-TOP: 0px
+}
+TABLE.right_con TR.theme {
+	BACKGROUND: #f3e4e9; HEIGHT: 25px
+}
+TABLE.right_con TH.banzhu {
+	FONT-WEIGHT: normal; COLOR: #fff
+}
+.banzhu A:link {
+	FONT-WEIGHT: normal; COLOR: #fff
+}
+.banzhu A:visited {
+	FONT-WEIGHT: normal; COLOR: #fff
+}
+.banzhu A:hover {
+	FONT-WEIGHT: normal; COLOR: #fff
+}
+.banzhu A:active {
+	FONT-WEIGHT: normal; COLOR: #fff
+}
+TABLE.right_con TD {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: #ccc 1px solid
+}
+.altbg1 {
+	BACKGROUND: #fff
+}
+.altbg2 {
+	BACKGROUND: #efefef
+}
+#location {
+	CLEAR: both; MARGIN: 6px 0px 0px; WIDTH: 100%
+}
+#location B {
+	FLOAT: left
+}
+#location SPAN {
+	FLOAT: right
+}
+.PagerBar {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 3px; BACKGROUND: #fff; FLOAT: left; PADDING-BOTTOM: 3px; MARGIN: 6px 0px 0px; BORDER-LEFT: #ccc 1px solid; WIDTH: 476px; PADDING-TOP: 3px; BORDER-BOTTOM: #ccc 1px solid
+}
+.PagerBar_con {
+	BACKGROUND: #efefef; WIDTH: 100%
+}
+.PagerBar_con B {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 0px 5px 0px 0px; PADDING-TOP: 0px
+}
+.PagerBar_con B.number {
+	BACKGROUND: #0093dd; COLOR: #fff
+}
+.PagerBar_con SPAN {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 0px 5px 0px 0px; PADDING-TOP: 0px; BACKGROUND-COLOR: #ccc
+}
+.PagerBar_con A {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 3px; FONT-WEIGHT: bold; BACKGROUND: #fff; FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 0px 5px 0px 0px; BORDER-LEFT: #ccc 1px solid; PADDING-TOP: 0px; BORDER-BOTTOM: #ccc 1px solid
+}
+.PagerBar_right {
+	FLOAT: right; MARGIN: 6px 0px 0px; WIDTH: 280px; TEXT-ALIGN: right
+}
+TABLE#kind {
+	CLEAR: both; BORDER-RIGHT: #ccc 1px; BORDER-TOP: #ccc 1px solid; MARGIN: 6px 0px 0px; BORDER-LEFT: #ccc 1px solid; WIDTH: 100%; BORDER-BOTTOM: #ccc 1px solid
+}
+TABLE#kind TD {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 5px; PADDING-LEFT: 5px; BACKGROUND: #efefef; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; TEXT-ALIGN: center
+}
+TABLE#kind02 {
+	CLEAR: both; BORDER-RIGHT: #ccc 1px solid; BORDER-TOP: #ccc 1px solid; MARGIN: 6px 0px 0px; BORDER-LEFT: #ccc 1px solid; WIDTH: 100%; BORDER-BOTTOM: #ccc 1px solid
+}
+TABLE#kind02 TD {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; BACKGROUND: #efefef; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; TEXT-ALIGN: center
+}
+#face {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 5px; WIDTH: 100%; PADDING-TOP: 0px
+}
+.face_pic {
+	FLOAT: left; MARGIN: 5px 0px 0px; WIDTH: 33%; TEXT-ALIGN: center
+}
+TABLE.right_con TABLE {
+	MARGIN: 6px 0px 0px; WIDTH: 100%; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+TABLE.right_con TABLE TD {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; BORDER-TOP-STYLE: none; PADDING-TOP: 5px; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+.postauthor CITE {
+	DISPLAY: block; FONT-WEIGHT: bold; MARGIN: 0px 0px 3px; OVERFLOW: hidden; LINE-HEIGHT: 18px; BORDER-BOTTOM: #ccc 1px solid; FONT-STYLE: normal
+}
+.postauthor CITE LABEL A {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; FLOAT: left; PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+.postauthor CITE A {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FLOAT: left; PADDING-BOTTOM: 0px; OVERFLOW: hidden; WIDTH: 100px; PADDING-TOP: 0px
+}
+.postauthor CITE A.hover {
+	BORDER-LEFT-COLOR: #ccc; BACKGROUND: #fff; BORDER-BOTTOM-COLOR: #ccc; BORDER-TOP-COLOR: #ccc; BORDER-RIGHT-COLOR: #ccc
+}
+CITE {
+	FONT-WEIGHT: normal
+}
+.postauthor DT {
+	FLOAT: left; MARGIN: 0px 0.5em 0px 0px; COLOR: #666; LINE-HEIGHT: 1.6em; HEIGHT: 1.6em
+}
+.postauthor DD {
+	OVERFLOW: hidden; LINE-HEIGHT: 1.6em; HEIGHT: 1.6em
+}
+.postauthor P {
+	MARGIN: 0px 10px
+}
+.postauthor P.customstatus {
+	COLOR: #666
+}
+.postauthor P EM {
+	COLOR: #090
+}
+.postauthor DT EM {
+	COLOR: #090
+}
+.postauthor UL {
+	MARGIN: 5px 10px; LINE-HEIGHT: 1.6em
+}
+.postauthor LI {
+	FLOAT: left; WIDTH: 49.5%; TEXT-INDENT: 22px; HEIGHT: 1.6em
+}
+.postauthor DL.profile {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 5px 10px; PADDING-TOP: 5px
+}
+.postauthor DIV.bio {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 5px 10px; PADDING-TOP: 5px
+}
+.userinfopanel {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 10px; BACKGROUND: #fff; PADDING-BOTTOM: 10px; BORDER-LEFT: #ccc 1px solid; WIDTH: 140px; PADDING-TOP: 10px; BORDER-BOTTOM: #ccc 1px solid
+}
+.anno_list {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 14px; PADDING-BOTTOM: 10px; MARGIN: 10px auto; WIDTH: 98%; COLOR: #444; LINE-HEIGHT: 24px; PADDING-TOP: 0px; BORDER-BOTTOM: #e6e7e1 1px solid; TEXT-ALIGN: left
+}
+.anno_list H3 {
+	FONT-SIZE: 14px; COLOR: #069; LINE-HEIGHT: 30px
+}
+.anno_list EM {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #999; FONT-STYLE: normal
+}
+.anno_list SPAN {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #069
+}
+.anno_list SPAN A {
+	COLOR: #069
+}
+.anno_list SPAN A:hover {
+	COLOR: #069; TEXT-DECORATION: underline
+}
+.author {
+	COLOR: #999; LINE-HEIGHT: 30px
+}
+.author A {
+	COLOR: #000
+}
+.ad_textlink {
+	PADDING-LEFT: 25px; BACKGROUND: url(/images/bbs/default/ad_icon.gif) no-repeat 0px 50%; FLOAT: left; WHITE-SPACE: nowrap
+}
+.postactions {
+	PADDING-RIGHT: 10px; BORDER-TOP: #e8e8e8 1px solid; PADDING-LEFT: 10px; BACKGROUND: #f7f7f7; PADDING-BOTTOM: 0px; MARGIN: 0px; LINE-HEIGHT: 30px; PADDING-TOP: 0px; HEIGHT: 30px
+}
+.popupmenu_popup {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 10px; BACKGROUND: url(/images/bbs/default/portalbox_bg.gif) #fff repeat-x 0px 1px; PADDING-BOTTOM: 0px; OVERFLOW: hidden; BORDER-LEFT: #ccc 1px solid; LINE-HEIGHT: 1.4em; PADDING-TOP: 10px; BORDER-BOTTOM: #ccc 1px solid; TEXT-ALIGN: left
+}
+.newspecialmenu {
+	WIDTH: 100px
+}
+.newspecialmenu LI {
+	DISPLAY: block; BACKGROUND: url(/images/bbs/default/folder_s.gif) no-repeat 3px 50%; FLOAT: left
+}
+.newspecialmenu LI.poll {
+	BACKGROUND: url(/images/bbs/default/pollsmall.gif) no-repeat 3px 30%
+}
+.newspecialmenu LI.reward {
+	BACKGROUND: url(/images/bbs/default/rewardsmall.gif) no-repeat 3px 0px
+}
+.newspecialmenu A {
+	PADDING-RIGHT: 0px; DISPLAY: block; PADDING-LEFT: 25px; PADDING-BOTTOM: 5px; WIDTH: 75px; PADDING-TOP: 5px; BORDER-BOTTOM: #e8e8e8 1px solid
+}
+.newspecialmenu A:hover {
+	BORDER-BOTTOM-COLOR: #ccc; COLOR: #069; TEXT-DECORATION: none
+}
+.real {
+	BORDER-RIGHT: #d7d7d7 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #d7d7d7 1px solid; PADDING-LEFT: 0px; FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 8px 0px 0px; BORDER-LEFT: #d7d7d7 1px solid; WIDTH: 788px; PADDING-TOP: 0px; BORDER-BOTTOM: #d7d7d7 1px solid
+}
+.real_menu {
+	PADDING-LEFT: 10px; FONT-WEIGHT: bold; BACKGROUND: url(/images/bbs/openhw/l_menu.gif) repeat-x; FLOAT: left; WIDTH: 778px; COLOR: #013499; LINE-HEIGHT: 25px
+}
+.real_people {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 8px; FLOAT: left; PADDING-BOTTOM: 8px; WIDTH: 774px; COLOR: #013499; PADDING-TOP: 8px; BORDER-BOTTOM: #d7d7d7 1px dashed
+}
+.real_icon {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 8px; FLOAT: left; PADDING-BOTTOM: 8px; WIDTH: 774px; PADDING-TOP: 8px
+}

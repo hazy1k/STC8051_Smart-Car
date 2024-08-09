@@ -1,0 +1,613 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0051)http://blog.ednchina.com/netjob/151559/message.aspx -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>STM32中断与嵌套快速入门(NVIC) -- netjob's Blog</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<SCRIPT src="STM32中断与嵌套快速入门(NVIC).files/edn.js" type=text/javascript></SCRIPT>
+
+<SCRIPT src="STM32中断与嵌套快速入门(NVIC).files/blog.js" type=text/javascript></SCRIPT>
+<LINK title="" href="STM32中断与嵌套快速入门(NVIC).files/style.css" type=text/css 
+rel=stylesheet><LINK id=ctl00_ctl00_DiggCss 
+href="STM32中断与嵌套快速入门(NVIC).files/WebResource.css" type=text/css rel=stylesheet>
+<META content="MSHTML 6.00.2900.5512" name=GENERATOR></HEAD>
+<BODY 
+style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+onload=resizeImages();>
+<FORM id=aspnetForm name=aspnetForm 
+onsubmit="javascript:return WebForm_OnSubmit();" action=message.aspx 
+method=post>
+<DIV><INPUT id=__EVENTTARGET type=hidden name=__EVENTTARGET> <INPUT 
+id=__EVENTARGUMENT type=hidden name=__EVENTARGUMENT> <INPUT id=__VIEWSTATE 
+type=hidden 
+value=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 
+name=__VIEWSTATE> </DIV>
+<SCRIPT type=text/javascript>
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</SCRIPT>
+
+<SCRIPT src="STM32中断与嵌套快速入门(NVIC).files/WebResource.axd" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT type=text/javascript>
+//<![CDATA[
+ad_list +=':1077:';//]]>
+</SCRIPT>
+
+<SCRIPT 
+src="C:\Documents and Settings\gy\桌面\STM32中断与嵌套快速入门(NVIC).files\WebResource(1).axd" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT type=text/javascript>
+//<![CDATA[
+ var digg_gray="/WebResource.axd?d=zPbGsC2GahdFXzTKhcEAmL7kxNkaM5WPbLpHnwh2cS6Mgfgkr5HvHprWTVfYmxGiOvlNgTObHMoEocoS4T8PQqC_rssA6eBH_fqVL_16AuFhYbt6s5XRubMI6d2-aw8O0&t=633849737969354180";
+ var digg_red="/WebResource.axd?d=zPbGsC2GahdFXzTKhcEAmL7kxNkaM5WPbLpHnwh2cS6Mgfgkr5HvHprWTVfYmxGiOvlNgTObHMoEocoS4T8PQqC_rssA6eBH_fqVL_16AuF5J0xOcp9HJR-vt7rFBhbe0&t=633849737969354180";
+ var digg_blue="/WebResource.axd?d=zPbGsC2GahdFXzTKhcEAmL7kxNkaM5WPbLpHnwh2cS6Mgfgkr5HvHprWTVfYmxGiOvlNgTObHMoEocoS4T8PQqC_rssA6eBH_fqVL_16AuFRAtlXZmdoZX-MOFxygmcP0&t=633849737969354180";
+//]]>
+</SCRIPT>
+
+<SCRIPT 
+src="C:\Documents and Settings\gy\桌面\STM32中断与嵌套快速入门(NVIC).files\WebResource(2).axd" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT type=text/javascript>
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</SCRIPT>
+
+<DIV><INPUT id=__SCROLLPOSITIONX type=hidden value=0 name=__SCROLLPOSITIONX> 
+<INPUT id=__SCROLLPOSITIONY type=hidden value=0 name=__SCROLLPOSITIONY> </DIV>
+<DIV id=ctl00_ctl00_TopAdvertisemantBar><SPAN><A 
+href="http://blog.ednchina.com/adlink.aspx?did=1077&amp;page=http%3a%2f%2fwww.ednchina.com%2fcustomize%2ftimicrosite%2fcollection.aspx" 
+target=_blank alt="EDN China"><IMG style="WIDTH: 1000px; HEIGHT: 60px" 
+src="STM32中断与嵌套快速入门(NVIC).files/commmon_1000x60_ad1.gif"></A></SPAN> </DIV>
+<DIV 
+style="MARGIN: 0px auto; WIDTH: 1000px; PADDING-TOP: 5px; HEIGHT: 30px; BACKGROUND-COLOR: white; TEXT-ALIGN: left"><IMG 
+src="STM32中断与嵌套快速入门(NVIC).files/ednblog-logo.gif">&nbsp;&nbsp; <A title=EDN首页 
+href="http://www.ednchina.com/">EDN首页</A>&nbsp;&nbsp; <A title=EDN首页 
+href="http://blog.ednchina.com/">博客首页</A> </DIV>
+<DIV id=Blog><!--顶部-->
+<DIV id=Header><!--网站导航  -->
+<DIV id=Menu 
+style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px"><A 
+href="http://space.ednchina.com/?returnurl=http%3a%2f%2fblog.ednchina.com%2fnetjob%2f151559%2fmessage.aspx">用户登陆</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A 
+href="http://space.ednchina.com/Member/Apply.aspx">注册</A> <!--顶部图片和标题-->
+<DIV id=Banner>
+<DIV id=BlogName><SPAN id=ctl00_ctl00_SkinBody_BlogTitle1><A 
+href="http://blog.ednchina.com/netjob/">
+<H2>netjob's Blog</H2></A>
+<H3></H3></SPAN></DIV></DIV><!--博客导航-->
+<DIV id=BlogMenu><A 
+href="http://www.ednchina.com/">网站首页</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A 
+href="http://blog.ednchina.com/">博客首页</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A 
+href="http://bbs.ednchina.com/">论坛</A>&nbsp;&nbsp;| &nbsp;&nbsp;<A 
+href="http://group.ednchina.com/">小组</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A 
+href="http://blog.ednchina.com/netjob">个人主页</A>&nbsp;&nbsp;|&nbsp;&nbsp; <A 
+href="http://blog.ednchina.com/netjob/0/gallery.aspx">相册</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+<A href="http://space.ednchina.com/Blog/manage.aspx">管理</A>&nbsp;&nbsp;<A 
+href="http://blog.ednchina.com/netjob/rss.aspx"><IMG 
+src="STM32中断与嵌套快速入门(NVIC).files/rssicon.gif"></A> </DIV></DIV></DIV><!--内容-->
+<DIV id=Container><!--模板工具条-->
+<DIV id=Sidebar><!--用户信息-->
+<DIV class="Square MarginBottom" id=UserInfo>
+<DIV class=Title>
+<H2>个人信息</H2></DIV>
+<DIV class=Content><SPAN id=ctl00_ctl00_SkinBody_PersonInfo1>
+<UL>
+  <LI style="FLOAT: left">
+  <P class=center><A 
+  href="http://space.ednchina.com/userinfo.aspx?ID=DDC40DB6A9C4B728" 
+  target=_blank><IMG height=50 alt=个人空间 
+  src="STM32中断与嵌套快速入门(NVIC).files/38569aea-f090-4810-b98d-fea7ed87177c.jpg" 
+  width=50> </A></P>
+  <P class=center>博主：<A 
+  href="http://space.ednchina.com/userinfo.aspx?ID=DDC40DB6A9C4B728" 
+  target=_blank>netjob</A></P>
+  <P></P></LI>
+  <LI style="FLOAT: right">
+  <P><A 
+  href="http://space.ednchina.com/AddFriend.aspx?ID=DDC40DB6A9C4B728">+加为好友</A></P>
+  <P><A 
+  href="http://space.ednchina.com/PersonInfo/MessageReply.aspx?ToUser=netjob">+发送站内短信</A></P>
+  <P><A title=我的博客精华 
+  href="http://blog.ednchina.com/netjob/mycool.aspx">+我的博客精华</A></P>
+  <P><A title=我的推荐文章 
+  href="http://blog.ednchina.com/netjob/mysuggest.aspx">+我的推荐文章</A></P></LI></UL>
+<DIV style="CLEAR: both"></DIV></SPAN></DIV>
+<P class=Edit><SPAN id=ctl00_ctl00_SkinBody_BlogLogin1></SPAN></P></DIV>
+<DIV class=clear></DIV>
+<DIV class="Square MarginBottom" id=Newgroup>
+<DIV class=Title>
+<H2>最近加入的小组</H2></DIV>
+<DIV class=Content><SPAN id=ctl00_ctl00_SkinBody_PersonInfo2></SPAN></DIV></DIV>
+<DIV class="Square MarginBottom" id=BlogBoard>
+<DIV class=Title>
+<H2>博客公告</H2></DIV>
+<DIV class=Content><SPAN></SPAN></DIV><SPAN></SPAN></DIV><!--用户分类-->
+<DIV class="Square MarginBottom" id=BlogUserCat>
+<DIV class=Title>
+<H2>我的分类</H2></DIV>
+<DIV class=Content><SPAN id=ctl00_ctl00_SkinBody_BlogUserCat1>
+<P><A 
+href="http://blog.ednchina.com/netjob/26511/category.aspx">DSP2812</A>&nbsp;&nbsp;（4） 
+</P>
+<P><A 
+href="http://blog.ednchina.com/netjob/29330/category.aspx">STM32</A>&nbsp;&nbsp;（4） 
+</P></SPAN></DIV>
+<P class=Edit><SPAN id=ctl00_ctl00_SkinBody_BlogLogin2></SPAN></P></DIV><!--博客日历-->
+<DIV class="Square MarginBottom" id=Kalendar>
+<DIV class=Title>
+<H2>博客日历</H2></DIV>
+<DIV class=Content>
+<TABLE id=ctl00_ctl00_SkinBody_CalendarControl title=Calendar 
+style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; FONT-SIZE: 12px; BORDER-BOTTOM-WIDTH: 0px; WIDTH: 100%; BORDER-COLLAPSE: collapse; BORDER-RIGHT-WIDTH: 0px" 
+cellSpacing=0 cellPadding=2 border=0 h="">
+  <TBODY>
+  <TR>
+    <TD style="HEIGHT: 20px; BACKGROUND-COLOR: white" colSpan=7>
+      <TABLE 
+      style="FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 100%; COLOR: black; BORDER-COLLAPSE: collapse" 
+      cellSpacing=0 border=0>
+        <TBODY>
+        <TR>
+          <TD style="WIDTH: 15%"><A title="Go to the previous month" 
+            style="COLOR: black" 
+            href="javascript:__doPostBack('ctl00$ctl00$SkinBody$CalendarControl','V3469')">&lt;</A></TD>
+          <TD style="WIDTH: 70%" align=middle>2009年8月</TD>
+          <TD style="WIDTH: 15%" align=right><A title="Go to the next month" 
+            style="COLOR: black" 
+            href="javascript:__doPostBack('ctl00$ctl00$SkinBody$CalendarControl','V3531')">&gt;</A></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TH scope=col align=middle abbr=星期日>日</TH>
+    <TH scope=col align=middle abbr=星期一>一</TH>
+    <TH scope=col align=middle abbr=星期二>二</TH>
+    <TH scope=col align=middle abbr=星期三>三</TH>
+    <TH scope=col align=middle abbr=星期四>四</TH>
+    <TH scope=col align=middle abbr=星期五>五</TH>
+    <TH scope=col align=middle abbr=星期六>六</TH></TR>
+  <TR>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>26</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>27</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>28</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>29</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>30</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>31</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>1</TD></TR>
+  <TR>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>2</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>3</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>4</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>5</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>6</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>7</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>8</TD></TR>
+  <TR>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>9</TD>
+    <TD 
+    style="FONT-WEIGHT: bold; WIDTH: 14%; COLOR: red; HEIGHT: 20px; BACKGROUND-COLOR: white" 
+    align=middle>10</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>11</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>12</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>13</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>14</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>15</TD></TR>
+  <TR>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>16</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>17</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>18</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>19</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>20</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>21</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>22</TD></TR>
+  <TR>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>23</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>24</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>25</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>26</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>27</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>28</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>29</TD></TR>
+  <TR>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>30</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>31</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>1</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>2</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>3</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" align=middle>4</TD>
+    <TD style="WIDTH: 14%; HEIGHT: 20px" 
+align=middle>5</TD></TR></TBODY></TABLE></DIV>
+<P class=Edit></P></DIV><!--博客广告-->
+<DIV class="Square MarginBottom" id=Div1>
+<DIV class=Title>
+<H2>博客广告</H2></DIV>
+<DIV class=Content style="max-width: 247px"><SPAN>
+<P>http://bbs.21ic.com
+<P>
+<P>http://bbs.embcom.net
+<P>
+<P>各类单片机开发与CPLD/FPGA</P>
+<P>51,AVR,MSP430,NXP ARM7,ATMEL ARM9,STM32,TMS320F28XX</P>
+<P>电路板布板，单面－2－4－6层PCB</P>
+<P>电力仪表、继保、医学仪器、监控安防、消费类电子产品</P>
+<P>Visual Studio.NET(VC,VB,C#)</P>
+<P>C++ BUILER,DELPHI</P>
+<P>哈哈！吹牛皮一大堆，就差可以搞核蛋蛋了</P></SPAN>
+<P class=Edit></P></DIV></DIV><!--日志档案-->
+<DIV class="Square MarginBottom" id=BlogArchives>
+<DIV class=Title>
+<H2>日志档案</H2></DIV>
+<DIV class=Content><SPAN id=ctl00_ctl00_SkinBody_BlogComment1>
+<P><A 
+href="http://blog.ednchina.com/netjob/2009/year.aspx">2009年份</A>&nbsp;&nbsp;（4）</P>
+<P><A 
+href="http://blog.ednchina.com/netjob/2008/year.aspx">2008年份</A>&nbsp;&nbsp;（22）</P></SPAN></DIV>
+<P class=Edit></P></DIV><!--最新日志-->
+<DIV class="Square MarginBottom" id=BlogNew>
+<DIV class=Title>
+<H2>最新日志</H2></DIV>
+<DIV class=Content><SPAN id=ctl00_ctl00_SkinBody_BlogNew1>
+<P>·<A title="精解 SPI 的 CPHA 时钟相位 与CPLK 时钟极性" 
+href="http://blog.ednchina.com/netjob/249216/message.aspx"> 精解 SPI 的 CPHA 时钟相位 
+与CPLK 时钟极性 </A></P>
+<P>·<A title="精解 Solder Mask 和Paste Mask 区别" 
+href="http://blog.ednchina.com/netjob/228174/message.aspx"> 精解 Solder Mask 
+和Paste Mask 区别 </A></P>
+<P>·<A title="CRC-32 CALCULATE CRC32计算" 
+href="http://blog.ednchina.com/netjob/220135/message.aspx"> CRC-32 CALCULATE 
+CRC32计算 </A></P>
+<P>·<A title="ARM7/9下的 位反转函数的 C与汇编实现。" 
+href="http://blog.ednchina.com/netjob/218998/message.aspx"> ARM7/9下的 位反转函数的 
+C与汇编实现。 </A></P>
+<P>·<A title="全定点 快速 ATAN2 反正切函数" 
+href="http://blog.ednchina.com/netjob/191037/message.aspx"> 全定点 快速 ATAN2 反正切函数 
+</A></P></SPAN></DIV>
+<P class=BlogNewMore><A style="DISPLAY: none" 
+href="http://blog.ednchina.com/lastest.aspx?u=netjob">更多&gt;&gt;</A></P>
+<P class=Edit></P></DIV><!--最新评论-->
+<DIV class="Square MarginBottom" id=BlogComment>
+<DIV class=Title>
+<H2>最新评论</H2></DIV>
+<DIV class=Content><SPAN>
+<P>·<A 
+title="博主你好，在21IC版面上看到你的关于STM32的FFT&#13;&#10;讨论，STM32的FFT库只提供基4的FFT运算，现在我需要做128点FFT，能否将你的基2 FFT代码发一份给我，谢谢。&#13;&#10;&#13;&#10;我的邮箱：262492820@qq.com" 
+href="http://blog.ednchina.com/netjob/218998/message.aspx#73884"> 
+博主你好，在21IC版面上看到你的关于STM32的FFT…</A></P>
+<P>·<A title=~~~ 
+href="http://blog.ednchina.com/netjob/153177/message.aspx#69276"> ~~~</A></P>
+<P>·<A title=现在有没有修正好的头文件??? 
+href="http://blog.ednchina.com/netjob/187086/message.aspx#65538"> 
+现在有没有修正好的头文件???</A></P>
+<P>·<A title=我已经把他转换到MDK中了 
+href="http://blog.ednchina.com/netjob/187935/message.aspx#62037"> 
+我已经把他转换到MDK中了</A></P>
+<P>·<A title="STM32开发入门之一个纯软件仿真的例子（完全不用库）&#13;&#10;什么时间可以看到啊" 
+href="http://blog.ednchina.com/netjob/186737/message.aspx#61701"> 
+STM32开发入门之一个纯软件仿真的例子（完全不用…</A></P></SPAN></DIV><SPAN></SPAN></DIV><!--友情链接-->
+<DIV class="Square MarginBottom" id=FriendLink>
+<DIV class=Title>
+<H2>友情链接</H2></DIV>
+<DIV class=Content><SPAN id=ctl00_ctl00_SkinBody_BlogFriendLink1>
+<P>·<A href="http://www.youtube.com/watch?v=Yw22FOms58g&amp;feature=related" 
+target=_blank>我最喜欢的DISCO</A></P></SPAN></DIV>
+<P class=Edit><SPAN id=ctl00_ctl00_SkinBody_BlogLogin3></SPAN></P></DIV><!--博客信息-->
+<DIV class="Square MarginBottom" id=BlogInfo>
+<DIV class=Title>
+<H2>博客信息</H2></DIV>
+<DIV class=Content><SPAN id=ctl00_ctl00_SkinBody_BlogInfo1>
+<P>日志总数：26 篇</P>
+<P>评论数量：9</P>
+<P>访问次数：17436</P></SPAN></DIV>
+<P class=Edit></P></DIV><!--访客记录-->
+<DIV class="Square MarginBottom" id=Visitor>
+<DIV class=Title>
+<H2>访客记录</H2></DIV>
+<DIV class=Content><SPAN id=ctl00_ctl00_SkinBody_BlogMessageID1>
+<UL class=h90px>
+  <LI class=center><SPAN><A title=198879 
+  href="http://space.ednchina.com/UserInfo.aspx?id=53FCC92419EAD901"><IMG 
+  height=50 alt="" src="STM32中断与嵌套快速入门(NVIC).files/trs-001.gif" width=50> 
+  </A></SPAN><SPAN class="lh20 pic "><A title=198879 
+  href="http://space.ednchina.com/UserInfo.aspx?id=53FCC92419EAD901">198879</A></SPAN> 
+  </LI>
+  <LI class=center><SPAN><A title=600408 
+  href="http://space.ednchina.com/UserInfo.aspx?id=6C59CC5A8462D1DD"><IMG 
+  height=50 alt="" src="STM32中断与嵌套快速入门(NVIC).files/trs-001.gif" width=50> 
+  </A></SPAN><SPAN class="lh20 pic "><A title=600408 
+  href="http://space.ednchina.com/UserInfo.aspx?id=6C59CC5A8462D1DD">600408</A></SPAN> 
+  </LI></UL>
+<DIV class=clear></DIV>
+<UL class=h90px>
+  <LI class=center><SPAN><A title=fxfxz 
+  href="http://space.ednchina.com/UserInfo.aspx?id=5042CCCB83D929C6"><IMG 
+  height=50 alt="" 
+  src="C:\Documents and Settings\gy\桌面\STM32中断与嵌套快速入门(NVIC).files\trs-001(1).gif" 
+  width=50> </A></SPAN><SPAN class="lh20 pic "><A title=fxfxz 
+  href="http://space.ednchina.com/UserInfo.aspx?id=5042CCCB83D929C6">fxfxz</A></SPAN> 
+  </LI>
+  <LI class=center><SPAN><A title=bibbee 
+  href="http://space.ednchina.com/UserInfo.aspx?id=BF892A34EE306F96"><IMG 
+  height=50 alt="" 
+  src="C:\Documents and Settings\gy\桌面\STM32中断与嵌套快速入门(NVIC).files\trs-001(1).gif" 
+  width=50> </A></SPAN><SPAN class="lh20 pic "><A title=bibbee 
+  href="http://space.ednchina.com/UserInfo.aspx?id=BF892A34EE306F96">bibbee</A></SPAN> 
+  </LI></UL>
+<DIV class=clear></DIV>
+<UL class=h90px>
+  <LI class=center><SPAN><A title=www7574 
+  href="http://space.ednchina.com/UserInfo.aspx?id=C79C37154AFC424B"><IMG 
+  height=50 alt="" src="STM32中断与嵌套快速入门(NVIC).files/trs-001.gif" width=50> 
+  </A></SPAN><SPAN class="lh20 pic "><A title=www7574 
+  href="http://space.ednchina.com/UserInfo.aspx?id=C79C37154AFC424B">www7574</A></SPAN> 
+  </SPAN></LI></UL></DIV></DIV><!--博客相册-->
+<DIV class="Square MarginBottom" id=album>
+<DIV class=Title>
+<H2>博客相册</H2></DIV>
+<DIV class=Content><SPAN id=ctl00_ctl00_SkinBody_PersonInfo3>
+<P><A href="http://blog.ednchina.com/netjob/26495/gallery.aspx">军事</A> </P>
+<P><A href="http://blog.ednchina.com/netjob/26496/gallery.aspx">明星</A> </P>
+<P><A href="http://blog.ednchina.com/netjob/33936/gallery.aspx">海洋鱼类</A> 
+</P></SPAN></DIV></DIV></DIV>
+<STYLE type=text/css>A.red:link {
+	COLOR: red; TEXT-DECORATION: underline
+}
+A.red:visited {
+	COLOR: red; TEXT-DECORATION: underline
+}
+A.red:hover {
+	COLOR: #ee9700; TEXT-DECORATION: none
+}
+.simpleblank {
+	DISPLAY: none
+}
+.simpleimg {
+	DISPLAY: block
+}
+</STYLE>
+
+<SCRIPT type=text/javascript>
+    function notifyreply() {
+        alert("请先登录然后下载");
+    }
+</SCRIPT>
+
+<DIV class=DiaryArticle id=ListDiary>
+<DIV id=Article>
+<DIV class=Main>
+<DIV class=Title>
+<H2>日志档案</H2></DIV>
+<DIV class="DiaryMain MarginBottom10">
+<DIV class=PublishTime>发表于 2008/8/26 11:34:12</DIV>
+<DIV class=Content>
+<DIV class=Ballot>
+<DIV class=digg id=ctl00_ctl00_SkinBody_Content_ContentControl_ctl00_Digg2>
+<H4 id=ctl00_ctl00_SkinBody_Content_ContentControl_ctl00_Digg2_display 
+style="opacity: 1">2 </H4><SPAN class=unclicked onmouseover=Digg_Mouseover(this) 
+onclick="if(this.className != 'clicked'){WebForm_DoCallback('ctl00$ctl00$SkinBody$Content$ContentControl$ctl00$Digg2',null,DiggClientCallBack,null,null,true)}" 
+onmouseout=Digg_Mouseout(this)></SPAN></DIV>
+<DIV class=simpleblank><A title=察看所有博客精华文章 
+href="http://blog.ednchina.com/cool.aspx"><IMG 
+id=ctl00_ctl00_SkinBody_Content_ContentControl_ctl00_imgEssent 
+style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+src=""> </A></DIV></DIV>
+<DIV class=Text>
+<P class=Label>标签： <A title=STM32中断与嵌套NVIC快速入门 
+href="http://blog.ednchina.com/Label/STM32ä¸&shy;æ&shy;ä¸åµå¥NVICå¿«éå¥é¨.aspx">STM32中断与嵌套NVIC快速入门</A>&nbsp;&nbsp;</P>
+<H1><A 
+href="http://blog.ednchina.com/netjob/151559/message.aspx#">STM32中断与嵌套快速入门(NVIC)</A></H1>
+<P><A 
+href="http://space.ednchina.com/upload/2008/8/26/ee7329fe-82b1-4fde-8a9b-ba396b1272ad.pdf"></A>
+<P><A 
+href="http://space.ednchina.com/upload/2008/8/26/b9632f4b-731c-4cd7-94ab-e91aa81c14ff.pdf"><IMG 
+alt=点击下载 src="STM32中断与嵌套快速入门(NVIC).files/download.gif" border=0></A></P>
+<P>netjob @2008</P>
+<P><A 
+href="http://bbs.21ic.com/club/bbs/bbsView.asp">http://bbs.21ic.com/club/bbs/bbsView.asp</A>?</P>
+<P>//====================================================<BR>//&nbsp;STM32 
+中断与嵌套NVIC 快速入门。<BR>//&nbsp;&nbsp;&nbsp;&nbsp; netjob&nbsp; 
+2008-8-1<BR>//====================================================</P>
+<P>STM32中断与嵌套NVIC快速入门</P>
+<P>我也是靠看这本书才弄懂的：</P>
+<P>Cortex-M3 权威指南<BR>Joseph Yiu 著<BR>宋岩 译</P>
+<P>其实很简单。</P>
+<P>//CM3 有 最多240个中断（通常外部中断写作IRQs），就是 软件上说的 IRQ 
+CHANAELx(中断通道号x)<BR>每个中断有自己的可编程的中断优先级【 有唯一对应的 中断优先级寄存器 】.</P>
+<P>由于CM3支持 硬件中断嵌套，所以可以有 256 级的可编程优先级<BR>和 256级中断嵌套【 书上称：抢占（preempt） 
+优先级】<BR>所以大家可以设:<BR>IRQ CHANAEL 0 通道 = 2&nbsp;&nbsp;&nbsp; 中断优先级&nbsp;WWDG 
+窗口定时器中断<BR>IRQ CHANAEL 1 通道 = 0&nbsp;&nbsp;&nbsp; 中断优先级&nbsp;PVD 
+联到EXTI的电源电压检测(PVD)中断<BR>IRQ CHANAEL 3 通道 = 255&nbsp; 中断优先级&nbsp;RTC 
+实时时钟(RTC)全局中断<BR>IRQ CHANAEL 6 通道 = 10&nbsp;&nbsp; 中断优先级&nbsp;EXTI0 
+EXTI线0中断<BR>.....<BR>IRQ CHANAEL 239 通道 =&nbsp; (0&lt;x&lt;255)&nbsp;&nbsp; 
+中断优先级&nbsp;..</P>
+<P><BR>这个实在是太恐怖了！ 是的，其实CM3 
+并没有这样做。<BR>实在的芯片例如STM32等就只有设计来可用才64级可编程优先级和8级中断嵌套。</P>
+<P>对 64级中断就是说：（ INT0 到 INT63）这个大家比较好理解，其它的64···239就不用了。<BR>IRQ CHANAEL 0 
+<BR>。。。<BR>IRQ CHANAEL&nbsp; 63</P>
+<P>而8级中断嵌套这又是何解呢？<BR>是这样的，上面说 一个 【中断】对应 一个【中断优先级寄存器】，而这个寄存器是 8 位的。<BR>当然就是 
+256级了。而现在就用了 它其中的 BIT7,IT6,BIT5 三位来表示，而且是MSB对齐的。</P>
+<P>用了3 个位来表达优先级(MSB 对齐的我们能够使用的8 个优先级为：0x00（最高），0x20，0x40，0x60，0x80，0xA0，0xC0 
+以及0xE0。)<BR>这样我们在【中断优先级寄存器】就不能按理论的填 
+0到255之间的数了，<BR>而只能填0x00（最高），0x20，0x40，0x60，0x80，0xA0，0xC0 以及0xE0。)</P>
+<P>所以大家可以设:<BR>IRQ CHANAEL 0 通道 = 0x20&nbsp; 中断优先级&nbsp;WWDG 窗口定时器中断<BR>IRQ 
+CHANAEL 1 通道 = 0x40&nbsp; 中断优先级&nbsp;PVD 联到EXTI的电源电压检测(PVD)中断<BR>IRQ CHANAEL 3 
+通道 = 0x20&nbsp; 中断优先级&nbsp;RTC 实时时钟(RTC)全局中断<BR>IRQ CHANAEL 6 通道 = 0xA0&nbsp; 
+中断优先级&nbsp;EXTI0 EXTI线0中断<BR>.....<BR>IRQ CHANAEL 63 通道 =&nbsp; 
+【0x00（最高），0x20，0x40，0x60，0x80，0xA0，0xC0 以及0xE0。)】</P>
+<P>大家注意到了，上面通道0和通道3 的优先级都是0X20, 这怎么办？<BR>// 
+如果优先级完全相同的多个异常同时悬起，则先响应异常编号最小的那一个。如IRQ #0会比IRQ #3 先得到响应</P>
+<P>而且文中还讲了 【优先级分组】，这又是什么回事？</P>
+<P>其实我回头看来，这个【优先级分组】和【抢占优先级】【亚优先级】都毫无意义的。 <BR>如果当时用 256级即是 
+把【中断优先级寄存器】的8位都全用上，就没这个必要了。还什么优先级分组呢！<BR>就是因为厂家现在【偷工减料】，才搞出这个明堂来的。</P>
+<P>是这样的，在 应用程序中断及复位控制寄存器(AIRCR) 中的 10：8 位【3位】是表示【优先级分组】<BR>它作用主要是 
+用于对【中断优先级寄存器】『我们现在中用了BIT7,BIT6,BIT5三位』的功能的说明。<BR>有一个表，在《Cortex-M3 权威指南》的110页， 
+例如我们把AIRCR的10：8 位设为【5】 ，<BR>查表可得【抢占优先级】＝【7：6】，【亚优先级】＝【5：0】，</P>
+<P>对于【中断优先级寄存器】只用了BIT7,6,5, 因此我们可以看作是 【7：6】，【5】。那4－0 可以不管。</P>
+<P>现在我们的 IRQ0=0X20, IRQ3=0X20, 也就是&nbsp; 【0 0 1 0&nbsp; 】『 
+bit7=0,bit6=0,bit5=1,bit4=0』<BR>因为大家（IRQ0/IRQ3)的 【抢占优先级】＝【7：6】都是0， 
+说明它们的中断相应级别是一样的。<BR>再继续判断它们哪个更优先的责任就要看【5】，结果连【5】都是一样的！<BR>那就按默认：<BR>// 
+如果优先级完全相同的多个异常同时悬起，则先响应异常编号最小的那一个。如IRQ #0会比IRQ #3 先得到响应</P>
+<P>由于CM3没有 进中断【关全局中断相应】这事，只要是中断通道打开了，就会存在 通道间的 嵌套，即是会发生<BR>【抢占】的情况了。</P>
+<P><BR>上面就简短的说明，如果要详细理解，可以看《Cortex-M3 权威指南》。<BR>有任何理解不当，请各位多多指教！</P>
+<P>补充注意：</P>
+<P>“2）抢占式优先级别相同的中断源之间没有嵌套关系；” </P>
+<P>所以大家可以设:<BR>IRQ CHANAEL 0 通道 = 0x20&nbsp; 中断优先级&nbsp;&nbsp;&nbsp; WWDG 
+窗口定时器中断<BR>IRQ CHANAEL 1 通道 = 0x40&nbsp; 中断优先级&nbsp;&nbsp;&nbsp; PVD 
+联到EXTI的电源电压检测(PVD)中断<BR>IRQ CHANAEL 3 通道 = 0x20&nbsp; 中断优先级&nbsp;&nbsp;&nbsp; 
+RTC 实时时钟(RTC)全局中断<BR>IRQ CHANAEL 6 通道 = 0xA0&nbsp; 中断优先级&nbsp;&nbsp;&nbsp; EXTI0 
+EXTI线0中断</P>
+<P>这样 0 通道和3 通道就不会有嵌套情况，而是0 通道按默认比3 通道优先高些。</P>
+<P>而0 通道与1 通道就会有嵌套情况。 <BR>&nbsp;<BR>芯片复位后，默认的优先级分组 是 0， 就是 
+【7：1】表示抢占式优先级，【0】表示亚优先级，</P>
+<P>这样对于MSB对齐的 8 个优先级为：0x00（最高），0x20，0x40，0x60，0x80，0xA0，0xC0 
+以及0xE0。)<BR>使用就很方便了，建议大家就用默认的默认的优先级分组 是 0，也就是复位后的值，哈哈！</P>
+<P><BR>例如下面的两个按键，都使用外中断方式， 
+使用了PD.3,和PD.4两个引脚。这两个中断的优先级都是0X20，<BR>按默认的优先级分组，它们之间不会发生中断嵌套。</P>
+<P>&nbsp;&nbsp;&nbsp; &nbsp;/* Enable the EXTI3 Interrupt on PD.3 
+*/<BR>&nbsp;STM32_Nvic_Regs-&gt;Priority[9].all=0x20;&nbsp;&nbsp; // 中断的优先级是 
+0X20<BR>&nbsp;STM32_Nvic_Regs-&gt;Enable[0].bit.INT9=1;&nbsp; // 开INT9 
+中断&nbsp;&nbsp; IRQ9 </P>
+<P>&nbsp;&nbsp;&nbsp; &nbsp;/* Enable the EXTI4 Interrupt on PD.4 
+*/<BR>&nbsp;STM32_Nvic_Regs-&gt;Priority[10].all=0x20;&nbsp; // 中断的优先级是 0X20 
+<BR>&nbsp;STM32_Nvic_Regs-&gt;Enable[0].bit.INT10=1; // 开INT10 中断&nbsp; IRQ10 
+</P>
+<P>&nbsp;</P>
+<P><BR>&nbsp;</P><A 
+href="http://space.ednchina.com/upload/2008/8/26/2c27fa5f-2d72-4aea-8e75-36e951d3e1e2.pdf"></A>
+<P></P>
+<P class=TextInfo>系统分类: <A 
+href="http://blog.ednchina.com/10046/Category.aspx">嵌入式</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;用户分类: 
+无分类&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;来源: 
+原创&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<A id=aRecommend 
+href="http://article.ednchina.com/tools/mail.aspx?type=blog&amp;id=151559">【推荐给朋友】</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<A 
+id=ctl00_ctl00_SkinBody_Content_ContentControl_ctl00_lbAddFavourite 
+href="javascript:__doPostBack('ctl00$ctl00$SkinBody$Content$ContentControl$ctl00$lbAddFavourite','')">【添加到收藏夹】</A> 
+</P></DIV>
+<DIV class=clear></DIV></DIV>
+<DIV 
+class=DiaryInfo>&nbsp;&nbsp;&nbsp;&nbsp;阅读(585)&nbsp;&nbsp;&nbsp;&nbsp;回复(0)&nbsp;&nbsp; 
+</DIV></DIV><!--投票-->
+<DIV style="DISPLAY: none; PADDING-BOTTOM: 10px">
+<P><A href="http://blog.ednchina.com/netjob/151559/"><IMG 
+src="STM32中断与嵌套快速入门(NVIC).files/vote.gif" align=absMiddle></A><SPAN 
+style="PADDING-LEFT: 15px">投一票您将和博主都有获奖机会！</SPAN></P></DIV>
+<DIV id=Comment>
+<DIV id=CommentTitle>
+<H2 style="FLOAT: left">最新评论 </H2></DIV>
+<DIV class=Content>
+<UL></UL></DIV>
+<DIV class=FillIn><A name=feedback>
+<TABLE id=simplyreply style="MARGIN-LEFT: 30px">
+  <TBODY>
+  <TR>
+    <TD><SPAN style="MARGIN-RIGHT: 30px">标题</SPAN> <SPAN><INPUT 
+      id=ctl00_ctl00_SkinBody_Content_SimplyReplyControl_SubjectControl 
+      style="WIDTH: 350px" value=re:STM32中断与嵌套快速入门(NVIC) 
+      name=ctl00$ctl00$SkinBody$Content$SimplyReplyControl$SubjectControl></SPAN> 
+    </TD></TR>
+  <TR>
+    <TD><SPAN style="MARGIN-RIGHT: 30px">姓名</SPAN> <SPAN><INPUT 
+      id=ctl00_ctl00_SkinBody_Content_SimplyReplyControl_UserNameControl 
+      style="WIDTH: 350px" 
+      name=ctl00$ctl00$SkinBody$Content$SimplyReplyControl$UserNameControl></SPAN> 
+      <SPAN 
+      id=ctl00_ctl00_SkinBody_Content_SimplyReplyControl_RequiredFieldValidator2 
+      style="VISIBILITY: hidden; COLOR: red">必填</SPAN> </TD></TR>
+  <TR>
+    <TD><SPAN style="MARGIN-RIGHT: 30px">主页</SPAN> <SPAN><INPUT 
+      id=ctl00_ctl00_SkinBody_Content_SimplyReplyControl_HomePageControl 
+      style="WIDTH: 350px" 
+      name=ctl00$ctl00$SkinBody$Content$SimplyReplyControl$HomePageControl></SPAN> 
+    </TD></TR>
+  <TR>
+    <TD style="PADDING-LEFT: 64px"><TEXTAREA id=ctl00_ctl00_SkinBody_Content_SimplyReplyControl_ContentControl style="WIDTH: 350px; HEIGHT: 200px" name=ctl00$ctl00$SkinBody$Content$SimplyReplyControl$ContentControl></TEXTAREA> 
+    </TD></TR>
+  <TR>
+    <TD><SPAN style="MARGIN-LEFT: 11px">验证码：</SPAN><INPUT 
+      id=ctl00_ctl00_SkinBody_Content_SimplyReplyControl_EnterCodeControl 
+      style="WIDTH: 50px" maxLength=4 
+      name=ctl00$ctl00$SkinBody$Content$SimplyReplyControl$EnterCodeControl> 
+      <IMG id=ctl00_ctl00_SkinBody_Content_SimplyReplyControl_DisplayCodeControl 
+      style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+      src="STM32中断与嵌套快速入门(NVIC).files/ValidateCode.gif"> <SPAN 
+      id=ctl00_ctl00_SkinBody_Content_SimplyReplyControl_ValidateCodeControl 
+      style="VISIBILITY: hidden; COLOR: red">验证码不正确</SPAN> </TD></TR>
+  <TR>
+    <TD><INPUT id=ctl00_ctl00_SkinBody_Content_SimplyReplyControl_Button1 onclick='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$ctl00$SkinBody$Content$SimplyReplyControl$Button1", "", true, "Post", "", false, false))' type=submit value=" 提 交 " name=ctl00$ctl00$SkinBody$Content$SimplyReplyControl$Button1> 
+    </TD></TR></TBODY></TABLE></A></DIV></DIV></DIV></DIV></DIV>
+<SCRIPT src="STM32中断与嵌套快速入门(NVIC).files/Relation.aspx" 
+type=text/javascript></SCRIPT>
+
+<DIV style="CLEAR: both"></DIV></DIV><!--结束--></DIV>
+<SCRIPT type=text/javascript>
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("ctl00_ctl00_SkinBody_Content_SimplyReplyControl_RequiredFieldValidator2"), document.getElementById("ctl00_ctl00_SkinBody_Content_SimplyReplyControl_ValidateCodeControl"));
+//]]>
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+//<![CDATA[
+var ctl00_ctl00_SkinBody_Content_SimplyReplyControl_RequiredFieldValidator2 = document.all ? document.all["ctl00_ctl00_SkinBody_Content_SimplyReplyControl_RequiredFieldValidator2"] : document.getElementById("ctl00_ctl00_SkinBody_Content_SimplyReplyControl_RequiredFieldValidator2");
+ctl00_ctl00_SkinBody_Content_SimplyReplyControl_RequiredFieldValidator2.controltovalidate = "ctl00_ctl00_SkinBody_Content_SimplyReplyControl_UserNameControl";
+ctl00_ctl00_SkinBody_Content_SimplyReplyControl_RequiredFieldValidator2.errormessage = "必填";
+ctl00_ctl00_SkinBody_Content_SimplyReplyControl_RequiredFieldValidator2.validationGroup = "Post";
+ctl00_ctl00_SkinBody_Content_SimplyReplyControl_RequiredFieldValidator2.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ctl00_SkinBody_Content_SimplyReplyControl_RequiredFieldValidator2.initialvalue = "";
+var ctl00_ctl00_SkinBody_Content_SimplyReplyControl_ValidateCodeControl = document.all ? document.all["ctl00_ctl00_SkinBody_Content_SimplyReplyControl_ValidateCodeControl"] : document.getElementById("ctl00_ctl00_SkinBody_Content_SimplyReplyControl_ValidateCodeControl");
+ctl00_ctl00_SkinBody_Content_SimplyReplyControl_ValidateCodeControl.controltovalidate = "ctl00_ctl00_SkinBody_Content_SimplyReplyControl_EnterCodeControl";
+ctl00_ctl00_SkinBody_Content_SimplyReplyControl_ValidateCodeControl.validationGroup = "Post";
+//]]>
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+
+WebForm_InitCallback();//]]>
+</SCRIPT>
+</FORM><!-- 统计必备 -->
+<SCRIPT type=text/javascript>
+var referrer = document.referrer;  
+var url = "<scr"+"ipt type=\"text/javascript\" src=\"http://www.ednchina.com/Statistics.aspx?list="+escape(ad_list)+"&referer="+referrer+"\"></script\>";
+document.write(url);
+
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+try {
+    var pageTracker = _gat._getTracker("UA-115730-2");
+    pageTracker._trackPageview();
+} catch (err) { }
+
+</SCRIPT>
+<!-- 统计必备 --></BODY></HTML>

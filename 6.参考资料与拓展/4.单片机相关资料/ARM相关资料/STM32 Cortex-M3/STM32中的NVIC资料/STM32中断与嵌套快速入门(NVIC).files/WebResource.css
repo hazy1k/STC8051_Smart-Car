@@ -1,0 +1,15 @@
+.digg H4 {
+	BACKGROUND-POSITION: center center; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(http://blog.ednchina.com/images/vote_bg.gif); MARGIN-BOTTOM: 6px; WIDTH: 60px; COLOR: #cc6600; PADDING-TOP: 14px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 36px; TEXT-ALIGN: center
+}
+.digg SPAN {
+	BACKGROUND-POSITION: center center; DISPLAY: block; WIDTH: 58px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 19px; TEXT-ALIGN: center
+}
+.digg .unclicked {
+	BACKGROUND-IMAGE: url(http://blog.ednchina.com/images/vote_normal_button.gif); CURSOR: pointer
+}
+.digg .hover {
+	BACKGROUND-IMAGE: url(http://blog.ednchina.com/images/vote_hover_button.gif); CURSOR: pointer
+}
+.digg .clicked {
+	BACKGROUND-IMAGE: url(http://blog.ednchina.com/images/vote_gray_button.gif)
+}
