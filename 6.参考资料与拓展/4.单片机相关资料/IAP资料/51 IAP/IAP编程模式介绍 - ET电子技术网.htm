@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0080)http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20080321/6580.html -->
+<HTML xml:lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>IAP编程模式介绍 - ET电子技术网</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META content="IAP 编程模式" name=keywords>
+<META 
+content="SST89C54/58程序空间 在动态修改Block0程序的问题上，应当确保将要加载的程序正确无误，至少做到进入Block1块入口程序的正确性，否则就只有借助编程器来烧录自举程序了。但这样就失去IAP的意义，不可不察。 在本公司的LOG2001USBDEMOKIT开发系统上，需要完全更新Block0" 
+name=description><LINK href="IAP编程模式介绍 - ET电子技术网.files/dede.css" type=text/css 
+rel=stylesheet><LINK href="IAP编程模式介绍 - ET电子技术网.files/article.css" type=text/css 
+rel=stylesheet><!-- Digg 参数 -->
+<SCRIPT language=javascript 
+src="IAP编程模式介绍 - ET电子技术网.files/dedeajax2.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+function Digg(divId,aid){
+   var taget_obj = document.getElementById(divId+''+aid);
+   var myajax = new DedeAjax(taget_obj,false,false,"","","");
+   myajax.SendGet2("/digg.php?action=digg&aid="+aid);
+   DedeXHTTP = null;
+}
+</SCRIPT>
+
+<STYLE>.context {
+	CLEAR: both; WIDTH: 638px
+}
+.diggArea {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FLOAT: left; BACKGROUND-IMAGE: url(/plus/img/diggbg2.gif); PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 60px; LINE-HEIGHT: 23px; PADDING-TOP: 0px; HEIGHT: 58px
+}
+.diggNum {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; MARGIN: 8px 0px 0px; WIDTH: 58px; COLOR: #cc0000; PADDING-TOP: 0px; HEIGHT: 23px; TEXT-ALIGN: center
+}
+.diggLink {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 14px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 58px; PADDING-TOP: 0px; HEIGHT: 23px; TEXT-ALIGN: center
+}
+.diggLink A {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px
+}
+</STYLE>
+
+<META content="MSHTML 6.00.2900.3429" name=GENERATOR></HEAD>
+<BODY><!--头部开始-->
+<DIV class="top cbody">
+<DIV class=toplogo><A href="http://www.et-dz.com/"><IMG height=60 alt=ET电子技术网 
+src="IAP编程模式介绍 - ET电子技术网.files/toplogo.gif" width=200></A></DIV>
+<DIV class=topbanner>
+<SCRIPT language=javascript 
+src="IAP编程模式介绍 - ET电子技术网.files/xuanquan.js"></SCRIPT>
+</DIV>
+<DIV class=toplink>
+<UL>
+  <SCRIPT language=javascript src="IAP编程模式介绍 - ET电子技术网.files/ET2.js"></SCRIPT>
+</UL></DIV></DIV><!--导航栏-->
+<DIV class="topmenu cbody">
+<UL>
+  <LI><A href="http://www.et-dz.com/">首页</A> </LI>
+  <LI><A href="http://www.et-dz.com/html/xingyexinwen/">行业新闻</A> </LI>
+  <LI><A href="http://www.et-dz.com/html/dianzhijxwz/">电子技术</A> </LI>
+  <LI><A href="http://www.et-dz.com/html/dianlutudaquan/">电路图</A> </LI>
+  <LI><A href="http://www.et-dz.com/html/ziliaoxiazaizhongxin/">资料下载</A> </LI>
+  <LI><A href="http://www.et-dz.com/Default.htm">ET商城</A> </LI></UL>
+<DIV class=rssbut><A href="http://www.et-dz.com/plus/rssmap.html"><IMG alt=RSS 
+src="IAP编程模式介绍 - ET电子技术网.files/rss_button.gif"></A> </DIV></DIV><!--搜索条-->
+<DIV class="topsearch cbody"><!-- Search Google -->
+<CENTER>
+<FORM action=http://www.google.cn/search method=get target=google_window>
+<TABLE bgColor=#ffffff>
+  <TBODY>
+  <TR>
+    <TD vAlign=top noWrap align=left>
+      <TABLE bgColor=#ffffff>
+        <TBODY>
+        <TR>
+          <TD vAlign=top noWrap align=left height=32><LABEL 
+            style="DISPLAY: none" for=sbi>输入您的搜索字词</LABEL> <INPUT id=sbi 
+            maxLength=255 size=64 name=q></INPUT> <LABEL style="DISPLAY: none" 
+            for=sbb>提交搜索表单</LABEL> <INPUT id=sbb type=submit value="Google 搜索" name=sa></INPUT> <INPUT 
+            type=hidden value=pub-5080549551867151 name=client></INPUT> <INPUT 
+            type=hidden value=1 name=forid></INPUT> <INPUT type=hidden value=aff 
+            name=prog></INPUT> <INPUT type=hidden value=9481642723 
+            name=channel></INPUT> <INPUT type=hidden value=GB2312 
+            name=ie></INPUT> <INPUT type=hidden value=GB2312 name=oe></INPUT> 
+            <INPUT type=hidden value=zh-CN name=hl></INPUT> 
+    </TD></TR></TBODY></TABLE></TD>
+    <TD vAlign=top noWrap align=left>
+      <SCRIPT type=text/javascript><!--
+  google_ad_client = "pub-5080549551867151";
+  google_ad_format = "200x30_sdo";
+  google_link_target = 2;
+  google_color_bg = "ffffff";
+  google_color_link = "000000";
+  google_encoding = "GB2312";
+//-->
+</SCRIPT>
+
+      <SCRIPT src="IAP编程模式介绍 - ET电子技术网.files/show_ads.js" type=text/javascript>
+</SCRIPT>
+    </TD></TR></TBODY></TABLE></FORM></CENTER><!-- Search Google --></DIV>
+<DIV class=cbody>
+<SCRIPT language=javascript src="IAP编程模式介绍 - ET电子技术网.files/ET3.js"></SCRIPT>
+
+<SCRIPT language=javascript src="IAP编程模式介绍 - ET电子技术网.files/ET4.js"></SCRIPT>
+</DIV><!--内容-->
+<DIV class="main cbody margintop"><!--左侧-->
+<DIV class=pleft><!--位置导航-->
+<DIV class=thisplace>
+<DIV class=placenav><SPAN>当前位置 :</SPAN>| <A 
+href="http://www.et-dz.com/">ET电子</A>&gt;<A 
+href="http://www.et-dz.com/html/dianzhijxwz/">电子技术</A>&gt;<A 
+href="http://www.et-dz.com/html/dianzhijxwz/danpianji/">单片机</A>&gt;<A 
+href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/">综合内容</A>&gt; 
+</DIV></DIV><!--资讯内容-->
+<DIV class=newsview><!--资讯标题-->
+<DIV class=title>
+<H1>IAP编程模式介绍</H1></DIV><!--相关信息-->
+<DIV class=info><STRONG>来源：</STRONG>网络 <STRONG>作者：</STRONG>佚名 
+<STRONG>时间：</STRONG>2008-03-21 <STRONG>Tag：</STRONG> <STRONG>点击：</STRONG>
+<SCRIPT language=javascript src="IAP编程模式介绍 - ET电子技术网.files/count.htm"></SCRIPT>
+ </DIV><!--资讯正文-->
+<DIV class=content>
+<DIV style="FLOAT: left; wight: 336px; hight: 280px">
+<SCRIPT language=javascript src="IAP编程模式介绍 - ET电子技术网.files/ad_js.htm"></SCRIPT>
+</DIV>
+<P>SST89C54/58程序空间<BR>&nbsp;&nbsp;&nbsp;&nbsp;在动态修改Block0程序的问题上，应当确保将要加载的程序正确无误，至少做到进入Block1块入口程序的正确性，否则就只有借助编程器来烧录自举程序了。但这样就失去IAP的意义，不可不察。<BR>&nbsp;&nbsp;&nbsp;&nbsp;在本公司的LOG2001&nbsp;USB&nbsp;DEMO&nbsp;KIT开发系统上，需要完全更新Block0块的内容，让用户真实拥有P87C54/58的全部功能。这样，当用户在开发USB时，就不需要用定位器或者汇编语言来混合编程。只需象平时那样操作自己熟悉的C51开发环境。<BR>&nbsp;&nbsp;&nbsp;&nbsp;LOG2001&nbsp;USB&nbsp;DEMO&nbsp;KIT开发系统使用UART来传送Firmware，其默认Buadrate为9600bps。除了确保自举程序入口正常以外，串口的Buadrate在当次也要相符。改动Buadrate只有在装载成功以后才有效。<BR>一般来说，在完全掌握IAP及232口以前，而身边又缺乏编程器的情况下，应谨慎对待与之相关的程序语句。在本公司的LOG2001&nbsp;USB&nbsp;DEMO&nbsp;KIT开发系统上，还预备有最后一种自举能力：硬件自举！&nbsp;<BR><BR>四．&nbsp;IAP编程模式<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;SST89C54/58除了提供IAP编程模式以外，也可以借助外力（如编程器）强行将程序灌入，就象写Flash&nbsp;ROM一样。其实自举程序就唯有通过这种方式载入。称之为“外主编程模式”。<BR>&nbsp;&nbsp;&nbsp;&nbsp;外主编程模式对于大多数程序员而言意义不大，有兴趣的话参阅SST89C54/58的&nbsp;Datesheet，下面介绍IAP模式。<BR>&nbsp;&nbsp;&nbsp;&nbsp;IAP模式就是CPU一边在某个Block&nbsp;中运行，同时对另一个Block进行擦空，写入，校验等操作。注意，同一个Block内不允许Program。被Program的Block整个儿处于“忙”状态，其代码不可见。<BR><BR>IAP命令见下表：（略）<BR>与此相关的特殊功能寄存器定义如下：<BR>1．SFST<BR>其中，SECDx为加密表，不同的加密级别将决定被加密单位对外的透明度，具体见下表：<BR>2．SFCF<BR>3．SFCM<BR>4．SFDT<BR>5．SFAL<BR>6．SFAH<BR><BR>IAP程序设计：<BR>对照上述介绍，很容易编写出IAP烧录函数，下面给出几个事例：<BR>1．&nbsp;块擦除：<BR>void&nbsp;block_erase&nbsp;(unsigned&nbsp;char&nbsp;block)<BR>{<BR>unsigned&nbsp;int&nbsp;timeout&nbsp;=&nbsp;0xA555;<BR>SFCF&nbsp;=&nbsp;0xC0;&nbsp;<BR>SFAH&nbsp;=&nbsp;block;&nbsp;<BR>SFDT&nbsp;=&nbsp;0x55;<BR>SFCM&nbsp;=&nbsp;0x0D;<BR><BR>while&nbsp;(--timeout){<BR>if&nbsp;(Busy&nbsp;=&nbsp;=&nbsp;0)<BR>return;<BR>}<BR>}<BR>2．&nbsp;字节编程：<BR>void&nbsp;byte_program&nbsp;(unsigned&nbsp;char&nbsp;laddr,unsigned&nbsp;char&nbsp;haddr,unsigned&nbsp;char&nbsp;udata)<BR>{<BR>unsigned&nbsp;char&nbsp;timeout&nbsp;=&nbsp;0xFF;<BR>SFCF&nbsp;=&nbsp;0xC0;<BR>SFAH&nbsp;=&nbsp;haddr;&nbsp;<BR>SFAL&nbsp;=&nbsp;laddr;<BR>SFDT&nbsp;=&nbsp;udata;<BR>SFCM&nbsp;=&nbsp;0x0E;<BR><BR>while&nbsp;(--timeout){<BR>if&nbsp;(&nbsp;Busy&nbsp;=&nbsp;=&nbsp;0)<BR>return;<BR>}<BR>}<BR>&nbsp;&nbsp;&nbsp;&nbsp;对于只需要Download&nbsp;Firmware来说，上述两个函数已经够用。完整的IAP汇编子程序请参阅：<IMG 
+src="IAP编程模式介绍 - ET电子技术网.files/0856500.gif" align=absMiddle 
+border=0>http://www.ssti.com/<BR>&nbsp;&nbsp;&nbsp;&nbsp;采用C语言编写IAP函数需要一定的技巧，它关系到定位并访问绝对地址等问题，而且这些函数只是应用系统中的一小部分，虽然嵌汇编或者纯汇编更便于处理绝对地址，但却不利于整个大系统，有点丢西瓜的味道。<BR>&nbsp;&nbsp;&nbsp;&nbsp;LOG2001&nbsp;USB&nbsp;DEMO&nbsp;KIT开发系统的自举程序使用纯C语言编写，而且也适用于低价位的SST89F54/58（和Philips的价位比大概二比一吧）。<BR>如何拿IAP来当I2C使用，以便节省24LCxx或93Cxx呢。Sector的概念在这里尤为重要，因为改动数据不能影响程序，故而要求在小范围内操作。下面是关于Sector的函数：<BR>void&nbsp;sector_erase&nbsp;(unsigned&nbsp;int&nbsp;sector)<BR>{<BR>unsigned&nbsp;int&nbsp;timeout&nbsp;=&nbsp;0xA555;<BR>SFCF&nbsp;=&nbsp;0xC0;&nbsp;<BR>SFAH&nbsp;=&nbsp;sector&nbsp;/256;&nbsp;<BR>SFAL&nbsp;=&nbsp;sector;&nbsp;<BR>SFCM&nbsp;=&nbsp;0x0B;<BR><BR>while&nbsp;(--timeout){<BR>if&nbsp;(Busy&nbsp;==&nbsp;0)<BR>return;<BR>}<BR>}<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果仅仅要修改某一两个Byte，可将该Sector内的数据全部保存于RAM中，改好后再全部回送Sector。<BR>&nbsp;&nbsp;&nbsp;&nbsp;一般来说，数据Sector应设置在Block1的高端，这样才不会和CODE竞争。<BR><BR>五．&nbsp;SST89C54/58发展系统<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;前面说过，SST89C54/58兼容于INTEL的P87C54/58，故而其编译环境毋须作大的改动，如果不打算使用IAP功能，干脆一点也不改。<BR>扩展IAP功能，对于汇编语言来说，只是在源文件开头用EQU或DATA伪指令定义那六个新增加的SFR地址即可。而C语言也同样在头文件中增加定义的SFR地址。本公司网站(www.usb11.com)上有SST89C58.h供Download。可将其直接替代&lt;&lt;reg51.h&gt;&gt;。<BR>&nbsp;&nbsp;&nbsp;&nbsp;因为是IAP，仿真器不太重要，其实目前也没有专门针对SST89C54/58的仿真器。即便有也没市场，IAP应用最多的地方也就是当仿真器！<BR><BR>六．&nbsp;IAP应用场合<BR><BR>第一，IAP很方便，在网络高速发展的今天，具备远程升级软件的产品无疑将受到欢迎。<BR>第二，在编译代码的时候，对于稍稍多出来的一些程序代码，可将其定位到Block1，从而避免购买更高容量的IC。<BR>第三，在需要保存过程数据的系统，可将原先的外部存储器去掉，直接拿Block1当成外部E2PROM。此时，Block1等同于24LC32，而且操作速度要比24LC32快几十上百倍。<BR>第四，IAP在线软件更新，没有死角，包括自举程序本身也可以重来，且毋须借助任何外力。仿真器的一大特点不就是编译装载吗！没错，很多地方就拿它来当仿真器使用。<BR>&nbsp;&nbsp;&nbsp;&nbsp;若要观察程序变量，IAP的解决办法是通过UART输出调试信息。LOG2001&nbsp;USB&nbsp;DEMO&nbsp;KIT就是采用这一调试技术。一点也不逊色于仿真器，特别在USB枚举的过程中，仿真器特有的单步，中断功能不可用，此时唯有UART可以信赖。详情请见《USB枚举步骤》。<BR>&nbsp;&nbsp;&nbsp;&nbsp;IAP当仿真器的另一买点就是价廉物美，区区几十元RMB的材料钱就可搞定。特别适合于单片机初学者。<BR>&nbsp;&nbsp;&nbsp;&nbsp;传统的仿真器在电气性能方面，还无法做到和应用系统完全一致，这就是常见的“仿真通过，烧片不行”的毛病。IAP虽说是仿真，其实就是实际应用，不存在电气性能或者物理接口方面的问题。<BR>第五，产品小型化。一般地说，SMD只适合于大批量的生产厂家，因为SMD测试工具也是一笔不小的投资。如果商家在出售SST89C54/58以前，预先导入自举程序，则用户拿了SMD之后，可以先装配，再烧录，管它大封装，小封装还是微封装呢！<BR>关于LOG2001&nbsp;USB&nbsp;DEMO&nbsp;KIT自举程序的入口及入口参数设置，在本文附录中给出。<BR><BR>附录<BR>LOG2001&nbsp;USB&nbsp;DEMO&nbsp;KIT自举程序入口参数<BR><BR>下列参数要求通过UART输入：<BR>1.&nbsp;“h”：选择Download&nbsp;INTEL格式文件*。hex；<BR>2.&nbsp;“b”：选择Download&nbsp;诚通格式文件*。Rom，它和*。Hex区别是将ASIC码转换成bin数据，并去掉“0D，0A”等控制信息。数据量压缩一倍，节省时间；<BR>3.&nbsp;输入第一次“h”或者“b”之后，自举程序将返回一个确认符0x20（空格），如果再次肯定要改写Firmware，第二次输入“h”或者“b”才启动擦除和写入。否则不改变原来的Firmware；<BR>4.&nbsp;输入其它代码，则系统提示错误后复位系统；<BR>5.&nbsp;自举程序入口地址：0xF8DD，不带任何参数，只需置好Buadrate;<BR>下面给出入口事例函数，可将其嵌入任何用户系统,实际上,&nbsp;LOG2001&nbsp;USB&nbsp;DEMO&nbsp;KIT开发系统就是使用如下语句：<BR>if&nbsp;(RI)<BR>{<BR>switch&nbsp;(&nbsp;_getkey()&nbsp;)<BR>{<BR>case&nbsp;<I>'</I>p<I>'</I>:<BR>((&nbsp;void&nbsp;(code&nbsp;*)(void)&nbsp;)&nbsp;&amp;hard_reload[0]&nbsp;)();<BR>break;<BR>default:break;<BR>}<BR>}&nbsp;//&nbsp;if&nbsp;reload&nbsp;firmware<BR>当然，在进入自举程序以前，还要设置好Buadrate等等一系列参数。自举程序将采用这些设置而不作任何修改。<BR>下面是自举程序：<BR>switch&nbsp;(_getkey())<BR>{<BR>case&nbsp;<I>'</I>h<I>'</I>:<BR>sst_send232&nbsp;(<I>'</I>&nbsp;<I>'</I>);<BR><BR>if&nbsp;(&nbsp;_getkey()&nbsp;!=&nbsp;<I>'</I>h<I>'</I>)<BR>goto&nbsp;nError;<BR><BR>sst_block_erase&nbsp;(0x00);<BR>while&nbsp;(&nbsp;read_write_hex_line&nbsp;(0x00)&nbsp;);<BR>break;<BR><BR>case&nbsp;<I>'</I>b<I>'</I>:<BR>sst_send232&nbsp;(<I>'</I>&nbsp;<I>'</I>);<BR><BR>if&nbsp;(&nbsp;_getkey()&nbsp;!=&nbsp;<I>'</I>b<I>'</I>)<BR>goto&nbsp;nError;<BR><BR>sst_block_erase&nbsp;(0x00);<BR>while&nbsp;(&nbsp;read_write_bin_line&nbsp;(0x00)&nbsp;);<BR>break;<BR><BR>nError:&nbsp;default&nbsp;:<BR>printf&nbsp;(<I>"</I>\nError!\n<I>"</I>);<BR>printf&nbsp;(<I>"</I>\n<I>'</I>h<I>'</I>:for&nbsp;(*.hex);\n<I>"</I>);<BR>printf&nbsp;(<I>"</I>\n<I>'</I>b<I>'</I>:for&nbsp;(*.rom);\n<I>"</I>);<BR>((&nbsp;void&nbsp;(code&nbsp;*)&nbsp;(void)&nbsp;)&nbsp;&amp;reset_0x0000&nbsp;[0])&nbsp;();<BR>break;<BR>}<BR>&nbsp;&nbsp;&nbsp;&nbsp;Download文件最大可达32K，装载完成之后，采用20秒钟倒记时，自动复位运行刚刚Download的程序，毋须任何机械动作。<BR>由于某种原因而破坏入口函数，则只有通过编程器来恢复。在烧写入口函数的时候，请先限制DEVICER&nbsp;Buffer&nbsp;Size在0x8000之内，以免连锁破坏自举程序。<BR>&nbsp;&nbsp;&nbsp;&nbsp;为了便于调试USB及其装载IAP不会出错，本公司特推出“USB集成化开发环境”，它具有如下功能：<BR>1.&nbsp;USB功能调试，详情请参阅《USB集成化开发环境》；<BR>2.&nbsp;串口精灵，可任意设置串口参数，收发单个数据或者文件，接受单片机C语言的人机信息（printf，scanf,&nbsp;_getkey()等等）；<BR>3.&nbsp;IAP程序下载。IAP不须要任何机械动作，可以直接全面而彻底更新firmware，稍微操作不当就会影响到自举程序。《USB集成化开发环境》有多重查验措施，用户只需全神关心自己的源文件就是了；<BR>4.&nbsp;自动叠加硬件自举功能,不管用户如何修改Firmware，即便死机，或者是由于前次IAP时中途停电而造成程序飞跑,仍然可通过该功能下载程序。具体是：P2.0=P2.1à“h”à“&nbsp;h”à*.hex。<BR>5.&nbsp;C51编译（可选），建立好开发环境也是件十分重要工作，尤其是初学者<BR>1.部分资源来自网络,经ET电子归类整理,旨在服务电子爱好者并无商业目的,不保证正确性与完整性.<BR>2.如果您觉得本站资源对您有用,请告知您的好友,用搜索引擎搜"<A 
+href="http://www.et-dz.com/">ET电子</A>"即可. </P>
+<P><BR>
+<SCRIPT language=javascript 
+src="IAP编程模式介绍 - ET电子技术网.files/xuanquan1.js"></SCRIPT>
+</P></DIV>
+<DIV class=cupage></DIV>
+<DIV class=actbar>
+<DIV style="FLOAT: left">
+<SCRIPT language=javascript 
+src="E:\IAP编程模式介绍 - ET电子技术网.files\ad_js(1).htm"></SCRIPT>
+</DIV></DIV><!--操作-->
+<DIV class=actbar><SPAN>[<A 
+href="http://www.et-dz.com/plus/stow.php?arcID=6580">收藏</A>]</SPAN> <SPAN>[<A 
+href="http://www.et-dz.com/plus/recommend.php?arcID=6580">推荐</A>]</SPAN> 
+<SPAN>[<A 
+href="http://www.et-dz.com/plus/feedback.php?arcID=6580">评论</A>]</SPAN> 
+<SPAN>[<A onclick=window.print(); 
+href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20080321/6580.html#">打印</A>]</SPAN> 
+<SPAN>[<A onclick=window.close(); 
+href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20080321/6580.html#">关闭</A>]</SPAN> 
+</DIV><!--上下文-->
+<DIV class=context>
+<DIV class=diggArea id=digg6580>
+<DIV class=diggNum>0</DIV>
+<DIV class=diggLink><A href="javascript:Digg('digg',6580);">顶一下</A></DIV></DIV>
+<DIV style="FLOAT: left; MARGIN-LEFT: 20px">上一篇：<A 
+href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20080321/6579.html">USB接口与应用设计</A> 
+<BR>下一篇：<A 
+href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20080331/6715.html">单片机之Intel 
+hex文件格式介绍</A> </DIV></DIV>
+<DIV class=floatclear><!--清除浮动--></DIV></DIV><!--评论-->
+<DIV class=comment><!--评论:标题-->
+<DIV class=commenttitle>
+<DIV class=title><STRONG>最新评论</STRONG>共有 0 位网友发表了评论 </DIV>
+<DIV class=gotopost><A 
+href="http://www.et-dz.com/plus/feedback.php?arcID=6580">查看所有评论</A></DIV></DIV><!--评论内容-->
+<DIV class=commentbox>
+<SCRIPT src="IAP编程模式介绍 - ET电子技术网.files/feedback_js.htm"></SCRIPT>
+</DIV><!--发表评论:标题-->
+<DIV class=posttitle><STRONG>发表评论</STRONG></DIV><!--发表评论-->
+<FORM name=feedback action=/plus/feedback.php?action=send method=post><INPUT 
+type=hidden value=6580 name=arcID> 
+<DIV class=postbox>
+<DIV class=txtbox><STRONG>评论内容：</STRONG>不能超过250字，需审核，请自觉遵守互联网相关政策法规。 <TEXTAREA name=msg rows=6 cols=60></TEXTAREA> </DIV>
+<DIV class=userbox>
+<DL>
+  <DD><STRONG>用户名：</STRONG><INPUT class=username maxLength=20 name=username> 
+  <STRONG>密码：</STRONG><INPUT class=password type=password maxLength=20 name=pwd> 
+  </DD>
+  <DD></DD>
+  <DD class=mtop><INPUT type=checkbox value=1 name=notuser> <STRONG>匿名?</STRONG> 
+  </DD>
+  <DD><INPUT class=submit onclick='javascript:if(document.feedback.msg.value!="") document.feedback.submit(); else alert("评论内容不能为空！");' type=button value=发表评论 name=sb> 
+  </DD>
+  <DD class=mtop><A 
+  href="http://www.et-dz.com/member/index_do.php?fmdo=user&amp;dopost=regnew" 
+  target=_blank>注册</A> </DD></DL></DIV></DIV></FORM></DIV></DIV><!--右侧-->
+<DIV class=pright><!--侧边信息列表-->
+<DIV class=classbox>
+<DL>
+  <DT>栏目列表 </DT>
+  <DD>
+  <UL>
+    <LI><A 
+    href="http://www.et-dz.com/html/dianzhijxwz/danpianji/danpianjijiaocheng/">单片机教程</A> 
+    </LI>
+    <LI><A 
+    href="http://www.et-dz.com/html/dianzhijxwz/danpianji/51xilie/">51系列</A> 
+    </LI>
+    <LI><A 
+    href="http://www.et-dz.com/html/dianzhijxwz/danpianji/PICxilie/">PIC系列</A> 
+    </LI>
+    <LI><A 
+    href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/">综合内容</A> 
+    </LI></UL></DD></DL></DIV>
+<DIV class="rlist margintop">
+<DIV class=title>教程下载</DIV>
+<DIV class=rbox>
+<UL>
+  <SCRIPT src="IAP编程模式介绍 - ET电子技术网.files/javascript.htm" 
+  type=text/javascript></SCRIPT>
+</UL></DIV></DIV>
+<DIV class="rlist margintop">
+<DIV class=title>热点关注</DIV>
+<DIV class=rbox>
+<UL>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070108/421.html">软件解码程序(仿真PT2272)</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070302/2668.html">MSP430的软硬件C延时程序</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070126/1252.html">128/64液晶KS0108驱动程序</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070302/2693.html">S3C4510B型微处理器的最小</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070302/2694.html">GPS的高精度无误差倒计时</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070108/420.html">P87LPC764 
+  单片机对PT2262</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070108/422.html">时钟芯片DS1302 
+  的程序（</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070304/2999.html">液晶显示模块TC1602A与单</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070319/3925.html">单片机与ＰＣ机串行通信电</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070309/3438.html">AT89C2051内部比较器应用</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070108/423.html">倚天版AT89C51时钟程序</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070303/2892.html">MSP430单片机 
+  在3V与5V混</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070108/426.html">基于单片机的通用红外遥控</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070309/3429.html">C和汇编混合编程之经验谈</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070108/440.html">单片机选型 
+  PHILIPS 80C51</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070302/2674.html">ATMEGA16的电热锅炉温度控</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070302/2711.html">智能电梯语音系统的设计</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070302/2688.html">MSP430F449的数字频率计设</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070704/4759.html">汇编语言词汇解释</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20070302/2710.html">HT46X23设计微波炉控制器</A> 
+  </LI></UL></DIV></DIV><!--侧边信息列表-->
+<DIV class="rlist margintop">
+<DIV class=title>相关文章</DIV>
+<DIV class=rbox>
+<UL>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20081111/8603.html">多功能随身电源系统方案</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20081111/8602.html">彩屏手机背光驱动电路的选</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20081111/8601.html">开关电源设计</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20081111/8600.html">MOSFET开关速度将决定未来</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20081111/8599.html">开关电源无源共模干扰抑制</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20081111/8598.html">电源控制另辟蹊径</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20081111/8597.html">MAX264程控滤波器</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20081111/8596.html">P87LPC764型单片机延时型</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20080926/8149.html">Motorola的新型08系列单片</A></LI>
+  <LI><A 
+  href="http://www.et-dz.com/html/dianzhijxwz/danpianji/zongheleirong/20080926/8148.html">LPT-USB打印机驱动器设计</A> 
+  </LI></UL></DIV></DIV></DIV>
+<DIV class=floatclear><!--清除浮动--></DIV></DIV>
+<DIV class="footer cbody margintop">
+<DIV class=copyright>
+<DIV style="FONT-SIZE: 12px"><A href="http://www.et-dz.com/" 
+target=_blank>ET电子技术网</A>
+<SCRIPT language=javascript src="IAP编程模式介绍 - ET电子技术网.files/126133.js" 
+type=text/javascript></SCRIPT>
+ <A href="http://www.miibeian.gov.cn/">粤ICP备07017149号</A> </DIV>Powered by <A 
+href="http://www.et-dz.com/" target=_blank>et-dz.com</A> &copy;2004-2008 <A 
+href="http://www.et-dz.com/" target=_blank>ET-DZ</A><BR></DIV>
+<DIV class=floatclear></DIV></DIV>
+<SCRIPT src="IAP编程模式介绍 - ET电子技术网.files/5599ad.js" type=text/javascript></SCRIPT>
+</BODY></HTML>

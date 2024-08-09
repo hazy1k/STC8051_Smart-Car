@@ -1,0 +1,299 @@
+www.pudn.com > iap.rar > iap.c
+
+   
+/*SST单片机IAP编程示例（C语言） 
+
+程序说明： 
+
+本程序用的单片机是 
+SST89x564RD、SST89x554RC、SST89x58RD2、SST89x54RD2和 
+SST89x52RD2。示例程序代码中，执行 
+IAP指令的程序放在单片机低端程序空间，也就是 
+BLOCK0， 
+IAP的程序包括了扇区擦除（ 
+Sector-Erase）、字节编程（ 
+Byte-Program）和字节校验（ 
+Byte-Verify） 
+（注：字节校验相当于读数据指令）。 
+IAP程序做成子程序，主程序可以调用这些子程序执行 
+IAP操 
+作，把数据烧写到另外一块的 
+FLASH空间中（ 
+BLOCK1）。主程序中，目标扇区先被擦除，然后把 
+数据（ 
+0，1，2，…，n，n等于一个扇区的大小）写入到 
+BLOCK1目标地址 
+BLK1-DST-ADDR，IAP 
+成功完成后， 
+ErrorCode变为0，如果有错误出现时，程序保持错误功能，ErrorCode还是为1。 
+
+
+/*********************************************************************************************************** 
+
+* demoIAP.c -SST89x564RD IAP C51示范代码 
+* 
+* SST89x564RD、SST89x554RC、SST89x58RD2、SST89x54RD2和SST89x53RD2 
+* MCU有两个内部FLASH存储器块，本代码是从BLOCK0执行IAP指令改写。 
+* BLOCK1的1000H(SST89x564RD)或E000H (SST89x554RC、SST89x58RD2、SST89x54RD2 
+* 和SST89x53RD2)的数据。 
+* 本程序默认是SST89x564RD，如果使用SST89x554RC、SST89x58RD2、SST89x54RD2 
+* 和SST89x53RD2，只要修改变量BLK1_DST_ADDR就可以。 
+* 
+***********************************************************************************************************/ 
+
+#include "shuma.c" 
+
+/*********************************************************************************************************** 
+* MCU特殊功能寄存器地址 
+***********************************************************************************************************/ 
+sfr SFCF = 0xB1; /*FLASH配置位 
+*/ 
+sfr SFCM = 0xB2; /*FLASH命令位*/ 
+sfr SFAL = 0xB3; /*FLASH地址低位*/ 
+sfr SFAH = 0xB4; /*FLASH地址高位*/ 
+sfr SFDT = 0xB5; /*FLASH数据位*/ 
+sfr SFST = 0xB6; /*FLASH状态位 
+*/ 
+/*********************************************************************************************************** 
+* MCU IAP命令 
+***********************************************************************************************************/ 
+#define SFCM_SE 0x0B; /*扇区擦除IAP指令*/ 
+#define SFCM_VB 0x0C; /*字节校读IAP指令*/ 
+#define SFCM_PB 0x0E; /*字节编程IAP指令*/ 
+/*********************************************************************************************************** 
+* 全局变量定义 
+***********************************************************************************************************/ 
+//const unsigned short int BLK1_DST_ADDR = 0x1000; 
+/*SST89x564RD准备写入的目标地址 
+(在另外一块的片内FLASH) 
+如果是用SST89x554RC、SST89x58RD2、SST89x54RD2和SST89x53RD2，请删除这句， 
+改为用下面一句。*/ 
+//const unsigned short int BLK1_DST_ADDR = 0x0F000; 
+/*SST89x554RC、SST89x58RD2、SST89x54RD2和SST89x53RD2准备写入的目标地址。 
+*/ 
+const unsigned short int BLK1_DST_ADDR = 0x0Ff00; 
+
+const unsigned char SECT_SIZE = 0x80; /*一个扇区的字节数 
+*/ 
+
+
+unsigned char ErrorCode; /*标示操作的结果*/ 
+/*********************************************************************************************************** 
+
+
+* Function Prototype 
+***********************************************************************************************************/ 
+void sector_erase(unsigned short int dataAddr); 
+void byte_program(unsigned short int dataAddr, unsigned char dataByte); 
+unsigned char byte_verify(unsigned short int dataAddr); 
+int ready(); 
+void error(); 
+/*********************************************************************************************************** 
+
+*主程序 
+深圳科赛电子 
+0755-83014227 13316986132 e-mail: szks@szks.net http://www.szks.net 
+
+
+SST单片机 
+IAP编程示例（ 
+C语言） 
+
+* 改写块1一个扇区的数据 
+(从0开始，每次加1)，地址从BLK1_DST_ADDR开始。 
+* 当IAP执行成功， 
+ErrorCode=0，否则ErrorCode=1. 
+***********************************************************************************************************/ 
+void Ldelay() 
+{ 
+uint t=100; 
+while(t--) 
+{ 
+s_delay(); 
+} 
+} 
+
+unsigned char t=0; 
+unsigned char v=0; 
+
+void Init_timer0() 
+{ 
+TMOD=0x01; 
+TH0=0X4C; 
+TL0=0X00; 
+ET0=1; 
+EA=1; 
+TR0=1; 
+} 
+
+void main() 
+{ 
+unsigned short int destAddr = BLK1_DST_ADDR; 
+unsigned char byteCnt ; //字节数 
+
+unsigned char origData; //存储IAP操作的数据 
+
+unsigned char verifyData=0; //校对数据 
+
+Init_timer0(); 
+/* sector_erase(destAddr); //写数据前先擦除要写的扇区 
+
+origData = 0; 
+verifyData=byte_verify(destAddr+1); //校对编程的字节是否正确 
+for(byteCnt=0; byteCnt<SECT_SIZE; byteCnt++) 
+{ 
+byte_program(destAddr,origData); //编程一个字节 
+
+verifyData=byte_verify(destAddr); //校对编程的字节是否正确 
+
+if(verifyData!=origData) 
+error(); //如果编程不正确跳到error 
+destAddr++; 
+origData++; 
+} 
+
+
+ErrorCode=0; //IAP正确*/ 
+while(1) 
+{ 
+verifyData=byte_verify( BLK1_DST_ADDR+8); 
+smxs(verifyData); 
+} 
+} 
+
+void timer0()interrupt 1 
+{ 
+TR0=0; 
+TH0=0X4C; 
+TL0=0X00; 
+t++; 
+if(t==20) 
+{ 
+unsigned char verifyData; 
+v++; 
+sector_erase(BLK1_DST_ADDR+8); 
+byte_program( BLK1_DST_ADDR+8, 1); 
+verifyData=byte_verify( BLK1_DST_ADDR+8); //校对编程的字节是否正确 
+
+if(verifyData!=1) 
+error(); //如果编程不正确跳到error 
+
+} 
+TR0=1; 
+} 
+
+/*********************************************************************************************************** 
+
+* IAP子程序 
+* 1. Sector-Erase 扇区擦除 
+* 2. Byte-Program 字节编程 
+* 3. Byte-Verify 字节校读 
+***********************************************************************************************************/ 
+/*********************************************************************************************************** 
+
+*扇区擦除子程序 
+***********************************************************************************************************/ 
+void sector_erase(unsigned short int dataAddr) 
+{ 
+unsigned short int destAddr = dataAddr; 
+SFCF = SFCF | 0x40; /*IAP使能*/ 
+SFAH = destAddr>>8; /*存入地址的高位字节*/ 
+SFAL = destAddr; /*存入地址的低位字节*/ 
+SFCM = SFCM_SE; /*发出扇区擦除指令 
+*/ 
+
+
+if(!ready()) 
+error(); 
+
+
+return; 
+} 
+/*********************************************************************************************************** 
+
+*字节编程子程序 
+***********************************************************************************************************/ 
+void byte_program(unsigned short int dataAddr, unsigned char dataByte) 
+{ 
+unsigned short int destAddr = dataAddr; 
+SFCF = SFCF | 0x40; /* IAP使能*/ 
+SFAH = destAddr>>8; /*存入地址的高位字节*/ 
+SFAL = destAddr; /*存入地址的低位字节*/ 
+SFDT = dataByte; /*存入要编程的数据 
+*/ 
+SFCM = SFCM_PB; /*发出字节编程指令 
+*/ 
+
+
+if(!ready()) 
+error(); 
+
+
+return; 
+} 
+/*********************************************************************************************************** 
+
+*字节校读子程序 
+***********************************************************************************************************/ 
+
+
+unsigned char byte_verify(unsigned short int dataAddr) 
+
+{ 
+unsigned short int destAddr = dataAddr; 
+unsigned char readByte; 
+SFCF = SFCF | 0x40; /*IAP使能*/ 
+SFAH = destAddr>>8; /*存入地址的高位字节*/ 
+SFAL = destAddr; /*存入地址的低位字节*/ 
+SFCM = SFCM_VB; /*发出字节校读指令*/ 
+readByte = SFDT; 
+
+SFCF = SFCF &amt; 0xBF; /*关闭IAP*/ 
+SFDT = 0; 
+return readByte; 
+
+
+} 
+/*********************************************************************************************************** 
+
+*准备子程序 
+* 
+* 检查IAP操作是否完成。如果结束，关闭IAP。 
+***********************************************************************************************************/ 
+int ready() 
+{ 
+unsigned long int TimeOut = 0; 
+
+while (TimeOut < 100000) 
+{ 
+if ((SFST&amt;4) == 0) /*查IAP是否完成*/ 
+
+{ /*IAP完成*/ 
+SFCF = SFCF &amt; 0xBF; /*关闭IAP*/ 
+SFDT = 0; 
+
+return 1; /* IAP操作结束*/ 
+} 
+TimeOut++; 
+} 
+
+SFCF = SFCF &amt; 0xBF; /*关闭IAP*/ 
+SFDT = 0; 
+return 0; /*IAP操作没有完成*/ 
+} 
+/*********************************************************************************************************** 
+
+* Error Function 
+***********************************************************************************************************/ 
+void error() 
+{ 
+ErrorCode=1; /*IAP出错*/ 
+while(1) /*软件陷阱*/ 
+{smxs(0123);} 
+} 
+
+
+
+
+
+

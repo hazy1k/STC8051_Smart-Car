@@ -1,0 +1,511 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0059)http://www.mcublog.com/blog/user1/5/archives/2006/9884.html -->
+<HTML><HEAD><TITLE>SST　单片机IAP　编程示例（C　语言）--MCUBLOG的电子博客</TITLE>
+<META http-equiv=Content-Language content=zh-CN>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META content="MSHTML 6.00.2900.3429" name=GENERATOR>
+<META content=MCUBLOG,MCUBLOG name=author>
+<META content=SST&nbsp;单片机IAP&nbsp;编程示例（C&nbsp;语言） name=keyword>
+<META 
+content="&nbsp; 程序说明：本程序用的单片机是SST89x564RD、SST89x554RC、SST89x58RD2、SST89x54RD2和SST89x52RD2。示例程序" 
+name=description><LINK title=RSS href="/blog/user1/5/rss2.xml" 
+type=application/rss+xml rel=alternate><LINK 
+href="SST　单片机IAP　编程示例（C　语言）--MCUBLOG的电子博客.files/OblogUserDefault4.css" 
+type=text/css rel=stylesheet>
+<SCRIPT src="SST　单片机IAP　编程示例（C　语言）--MCUBLOG的电子博客.files/main.js" 
+type=text/javascript></SCRIPT>
+</HEAD>
+<BODY><SPAN id=gg_usertop></SPAN>
+<STYLE>BODY {
+	FONT-SIZE: 12px; COLOR: #827f7a; TEXT-DECORATION: none
+}
+TD {
+	FONT-SIZE: 12px; COLOR: #827f7a; TEXT-DECORATION: none
+}
+TH {
+	FONT-SIZE: 12px; COLOR: #827f7a; TEXT-DECORATION: none
+}
+#calendar {
+	WIDTH: 150px
+}
+#calendar CAPTION {
+	FONT: 11px 'Century Gothic', Arial, Helvetica, sans-serif
+}
+#calendar TABLE {
+	BORDER-COLLAPSE: collapse
+}
+#calendar TH {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; LINE-HEIGHT: normal; FONT-STYLE: normal; FONT-VARIANT: normal
+}
+#calendar TD {
+	FONT-SIZE: 10px; TEXT-ALIGN: center
+}
+#calendar TD A {
+	DISPLAY: block; WIDTH: 16px; COLOR: #000000; HEIGHT: 10px; BACKGROUND-COLOR: #e4e4e4
+}
+#calendar TD A:hover {
+	COLOR: #ffffff; BACKGROUND-COLOR: #666666
+}
+BODY {
+	BACKGROUND-IMAGE: url(/blog/skin/20060622/2/index_08.jpg); MARGIN: 0px
+}
+.calendar_main {
+	COLOR: #000
+}
+.calendar_title {
+	FONT-WEIGHT: bold; COLOR: #000
+}
+.calendar_nav {
+	CURSOR: pointer; FONT-FAMILY: "Georgia"
+}
+.calendar_grid {
+	FONT-FAMILY: "Georgia"
+}
+.calendar_dayname {
+	COLOR: #000
+}
+.calendar_today {
+	FONT-WEIGHT: bold; COLOR: #000
+}
+.calendar_posttext {
+	COLOR: #000
+}
+.calendar_daytext {
+	COLOR: #000
+}
+.calendar_daybg {
+	COLOR: #000
+}
+.b1 {
+	FONT-SIZE: 12px; COLOR: #000; LINE-HEIGHT: 1.6em; LIST-STYLE-TYPE: none; TEXT-DECORATION: none
+}
+.b2 {
+	BACKGROUND-POSITION: left center; FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(/blog/skin/20060622/2/index_08.gif); COLOR: #000000; LINE-HEIGHT: 1.6em; BACKGROUND-REPEAT: no-repeat; TEXT-DECORATION: none
+}
+#topMenu {
+	PADDING-RIGHT: 6px; BACKGROUND-POSITION: left top; PADDING-LEFT: 6px; BACKGROUND-IMAGE: url(/blog/skin/20060622/2/index2_03.gif); PADDING-BOTTOM: 6px; COLOR: #1e1e1e; PADDING-TOP: 6px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 39px
+}
+#topMenu A:visited {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #1e1e1e; LINE-HEIGHT: 1.6em; TEXT-DECORATION: none
+}
+#topMenu A:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ff0000; LINE-HEIGHT: 1.6em; TEXT-DECORATION: none
+}
+#topMenu A:link {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #1e1e1e; LINE-HEIGHT: 1.6em; TEXT-DECORATION: none
+}
+#content A:link {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: none; important: 
+}
+#content A:visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: none; important: 
+}
+#content A:hover {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #ff0000; TEXT-DECORATION: none
+}
+#content {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #5b6954; TEXT-DECORATION: none
+}
+#content TD {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #5b6954; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-SIZE: 12px; COLOR: #000; LINE-HEIGHT: 1.6em; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 12px; COLOR: #ff0000; LINE-HEIGHT: 1.6em; TEXT-DECORATION: none
+}
+A:link {
+	FONT-SIZE: 12px; COLOR: #000; LINE-HEIGHT: 1.6em; TEXT-DECORATION: none
+}
+.a1:visited {
+	FONT-SIZE: 12px; COLOR: #000; LINE-HEIGHT: 1.6em; TEXT-DECORATION: none
+}
+.a1:hover {
+	FONT-SIZE: 12px; COLOR: #ff0000; LINE-HEIGHT: 1.6em; TEXT-DECORATION: none
+}
+.a1:link {
+	FONT-SIZE: 12px; COLOR: #000; LINE-HEIGHT: 1.6em; TEXT-DECORATION: none
+}
+.blog_name {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #000; LINE-HEIGHT: 1.6em; TEXT-DECORATION: none
+}
+.search {
+	FONT-SIZE: 12px; COLOR: #000; LINE-HEIGHT: 1.6em; PADDING-TOP: 15px; TEXT-DECORATION: none
+}
+.table3 {
+	BACKGROUND-POSITION: left 4px; BACKGROUND-IMAGE: url(/blog/skin/20060622/2/index_07.jpg); BACKGROUND-REPEAT: no-repeat
+}
+.content2 {
+	BACKGROUND-POSITION: left top; BACKGROUND-IMAGE: url(/blog/skin/20060622/2/index_09.gif); BACKGROUND-REPEAT: repeat-y
+}
+.content4 {
+	MARGIN-LEFT: 6px; WIDTH: 90%; MARGIN-RIGHT: 6px; LIST-STYLE-TYPE: none
+}
+.b41 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #333; LINE-HEIGHT: 1.6em; FONT-FAMILY: "宋体"; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+.style3 {
+	COLOR: #333
+}
+.seyle4 {
+	COLOR: #6e695e
+}
+.seyle4 TD A:visited {
+	FONT-WEIGHT: bold! important; COLOR: #6e695e! important
+}
+.seyle4 TD A:link {
+	FONT-WEIGHT: bold! important; COLOR: #6e695e! important
+}
+.seyle4 TD A:hover {
+	FONT-WEIGHT: bold! important; COLOR: #ff0000! important
+}
+.content5 {
+	BACKGROUND-POSITION: center center; BACKGROUND-IMAGE: url(/blog/skin/20060622/2/index_10.jpg); BACKGROUND-REPEAT: no-repeat
+}
+TD.content9 STRONG A {
+	FONT-SIZE: 14px! important
+}
+.oblog_text {
+	FONT-SIZE: 13px; LINE-HEIGHT: 1.6
+}
+#links A {
+	TEXT-DECORATION: underline
+}
+</STYLE>
+
+<TABLE cellSpacing=0 cellPadding=0 width=1004 border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=44 alt="" 
+      src="SST　单片机IAP　编程示例（C　语言）--MCUBLOG的电子博客.files/index_01.jpg" 
+  width=1004></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width=1004 border=0>
+  <TBODY>
+  <TR>
+    <TD width=269><IMG height=39 alt="" 
+      src="SST　单片机IAP　编程示例（C　语言）--MCUBLOG的电子博客.files/index_02.jpg" width=269></TD><!-- BEGIN: folder -->
+    <TD bgColor=#ffffff>
+      <TABLE cellSpacing=0 cellPadding=0 width="90%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD class=blog_name><SPAN 
+      id=blogname>数据载入中...</SPAN></TD></TR></TBODY></TABLE></TD><!-- END: folder --></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width=1004 border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width=269><IMG height=756 alt="" 
+      src="SST　单片机IAP　编程示例（C　语言）--MCUBLOG的电子博客.files/index_05.jpg" width=269></TD>
+    <TD class=content2 vAlign=top>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD><IMG height=31 alt="" 
+            src="SST　单片机IAP　编程示例（C　语言）--MCUBLOG的电子博客.files/index_06.jpg" 
+            width=540></TD></TR></TBODY></TABLE><BR>
+      <DIV id=content>
+      <TABLE cellSpacing=0 cellPadding=0 width="95%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD>
+                  <TABLE class=seyle4 cellSpacing=0 cellPadding=0 width="100%" 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD>&nbsp;</TD></TR>
+                    <TR>
+                      <TD 
+                        class=content9><STRONG>SST&nbsp;单片机IAP&nbsp;编程示例（C&nbsp;语言）</STRONG></TD></TR>
+                    <TR>
+                      <TD>
+                        <DIV align=right><SPAN class=textbox-label>[ 2006-4-13 
+                        10:09:55 | By: <SPAN class=style3>MCUBLOG</SPAN> 
+                        ]</SPAN></DIV></TD></TR></TBODY></TABLE>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD height=3>&nbsp;</TD></TR></TBODY></TABLE>
+                  <TABLE style="TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 
+                  width="100%" align=center border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><SPAN class=oblog_text><SPAN id=ob_logd9884></SPAN>
+                        <P><STRONG>程序说明：</STRONG><BR>本程序用的单片机是SST89x564RD、SST89x554RC、SST89x58RD2、SST89x54RD2和<BR>SST89x52RD2。示例程序代码中，执行IAP指令的程序放在单片机低端程序空间，也就是BLOCK0，<BR>IAP的程序包括了扇区擦除（Sector-Erase）、字节编程（Byte-Program）和字节校验（Byte-Verify）<BR>（注：字节校验相当于读数据指令）。IAP程序做成子程序，主程序可以调用这些子程序执行IAP操<BR>作，把数据烧写到另外一块的FLASH空间中（BLOCK1）。主程序中，目标扇区先被擦除，然后把<BR>数据（0，1，2，…，n，n等于一个扇区的大小）写入到BLOCK1目标地址BLK1-DST-ADDR，IAP<BR>成功完成后，ErrorCode变为0，如果有错误出现时，程序保持错误功能，ErrorCode还是为1。<BR>/***********************************************************************************************************<BR>* 
+                        demoIAP.c - SST89x564RD IAP C51示范代码<BR>*<BR>* 
+                        SST89x564RD、SST89x554RC、SST89x58RD2、SST89x54RD2和SST89x53RD2<BR>* 
+                        MCU有两个内部FLASH存储器块，本代码是从BLOCK0执行IAP指令改写。<BR>* 
+                        BLOCK1的1000H(SST89x564RD)或E000H 
+                        (SST89x554RC、SST89x58RD2、SST89x54RD2<BR>* 
+                        和SST89x53RD2)的数据。<BR>* 
+                        本程序默认是SST89x564RD，如果使用SST89x554RC、SST89x58RD2、SST89x54RD2<BR>* 
+                        和SST89x53RD2，只要修改变量BLK1_DST_ADDR就可以。<BR>*<BR>***********************************************************************************************************/<BR>/***********************************************************************************************************<BR>* 
+                        MCU特殊功能寄存器地址<BR>***********************************************************************************************************/<BR>sfr 
+                        SFCF = 0xB1; /*FLASH配置位*/<BR>sfr SFCM = 0xB2; 
+                        /*FLASH命令位*/<BR>sfr SFAL = 0xB3; /*FLASH地址低位*/<BR>sfr 
+                        SFAH = 0xB4; /*FLASH地址高位*/<BR>sfr SFDT = 0xB5; 
+                        /*FLASH数据位*/<BR>sfr SFST = 0xB6; 
+                        /*FLASH状态位*/<BR>/***********************************************************************************************************<BR>* 
+                        MCU 
+                        IAP命令<BR>***********************************************************************************************************/<BR>#define 
+                        SFCM_SE 0x0B; /*扇区擦除IAP指令*/<BR>#define SFCM_VB 0x0C; 
+                        /*字节校读IAP指令*/<BR>#define SFCM_PB 0x0E; 
+                        /*字节编程IAP指令*/<BR>/***********************************************************************************************************<BR>* 
+                        全局变量定义<BR>***********************************************************************************************************/<BR>const 
+                        unsigned short int BLK1_DST_ADDR = 
+                        0x1000;<BR>/*SST89x564RD准备写入的目标地址(在另外一块的片内FLASH)<BR>如果是用SST89x554RC、SST89x58RD2、SST89x54RD2和SST89x53RD2，请删除这句，<BR>改为用下面一句。*/<BR>/*const 
+                        unsigned short int BLK1_DST_ADDR = 0x0F000; 
+                        */<BR>/*SST89x554RC、SST89x58RD2、SST89x54RD2和SST89x53RD2准备写入的目标地址。*/<BR>const 
+                        unsigned char SECT_SIZE = 0x80; /*一个扇区的字节数*/<BR>unsigned 
+                        char ErrorCode; 
+                        /*标示操作的结果*/<BR>/***********************************************************************************************************<BR>* 
+                        Function 
+                        Prototype<BR>***********************************************************************************************************/<BR>void 
+                        sector_erase(unsigned short int dataAddr);<BR>void 
+                        byte_program(unsigned short int dataAddr, unsigned char 
+                        dataByte);<BR>unsigned char byte_verify(unsigned short 
+                        int dataAddr);<BR>int ready();<BR>void 
+                        error();<BR>/***********************************************************************************************************<BR>* 
+                        主程序 <BR>* 
+                        改写块1一个扇区的数据(从0开始，每次加1)，地址从BLK1_DST_ADDR开始。<BR>* 
+                        当IAP执行成功，ErrorCode=0，否则ErrorCode=1.<BR>***********************************************************************************************************/<BR>void 
+                        main()<BR>{<BR>unsigned short int destAddr = 
+                        BLK1_DST_ADDR;<BR>unsigned char byteCnt ; 
+                        /*字节数*/<BR>unsigned char origData; 
+                        /*存储IAP操作的数据*/<BR>unsigned char verifyData; 
+                        /*校对数据*/<BR>sector_erase(destAddr); 
+                        /*写数据前先擦除要写的扇区*/<BR>origData = 0;<BR>for(byteCnt=0; 
+                        byteCnt&lt;SECT_SIZE; 
+                        byteCnt++)<BR>{<BR>byte_program(destAddr, origData); 
+                        /*编程一个字节*/<BR>verifyData=byte_verify(destAddr); 
+                        /*校对编程的字节是否正确*/<BR>if(verifyData!=origData)<BR>error(); 
+                        /*如果编程不正确跳到error 
+                        */<BR>destAddr++;<BR>origData++;<BR>}<BR>ErrorCode=0; 
+                        /*IAP正确*/<BR>while(1)<BR>{}<BR>}<BR>/***********************************************************************************************************<BR>* 
+                        IAP子程序<BR>* 1. Sector-Erase 扇区擦除<BR>* 2. Byte-Program 
+                        字节编程<BR>* 3. Byte-Verify 
+                        字节校读<BR>***********************************************************************************************************/<BR>/***********************************************************************************************************<BR>* 
+                        扇区擦除子程序<BR>***********************************************************************************************************/<BR>void 
+                        sector_erase(unsigned short int 
+                        dataAddr)<BR>{<BR>unsigned short int destAddr = 
+                        dataAddr;<BR>SFCF = SFCF | 0x40; /*IAP使能*/<BR>SFAH = 
+                        destAddr&gt;&gt;8; /*存入地址的高位字节*/<BR>SFAL = destAddr; 
+                        /*存入地址的低位字节*/<BR>SFCM = SFCM_SE; 
+                        /*发出扇区擦除指令*/<BR>if(!ready())<BR>error();<BR>return;<BR>}<BR>/***********************************************************************************************************<BR>* 
+                        字节编程子程序<BR>***********************************************************************************************************/<BR>void 
+                        byte_program(unsigned short int dataAddr, unsigned char 
+                        dataByte)<BR>{<BR>unsigned short int destAddr = 
+                        dataAddr;<BR>SFCF = SFCF | 0x40; /* IAP使能*/<BR>SFAH = 
+                        destAddr&gt;&gt;8; /*存入地址的高位字节*/<BR>SFAL = destAddr; 
+                        /*存入地址的低位字节*/<BR>SFDT = dataByte; /*存入要编程的数据*/<BR>SFCM = 
+                        SFCM_PB; 
+                        /*发出字节编程指令*/<BR>if(!ready())<BR>error();<BR>return;<BR>}<BR>/***********************************************************************************************************<BR>* 
+                        字节校读子程序<BR>***********************************************************************************************************/</P>
+                        <P>unsigned char byte_verify(unsigned short int 
+                        dataAddr)<BR>{<BR>unsigned short int destAddr = 
+                        dataAddr;<BR>unsigned char readByte;<BR>SFCF = SFCF | 
+                        0x40; /*IAP使能*/<BR>SFAH = destAddr&gt;&gt;8; 
+                        /*存入地址的高位字节*/<BR>SFAL = destAddr; /*存入地址的低位字节*/<BR>SFCM 
+                        = SFCM_VB; /*发出字节校读指令*/<BR>readByte = SFDT;<BR>SFCF = 
+                        SFCF &amp; 0xBF; /*关闭IAP*/<BR>SFDT = 0;<BR>return 
+                        readByte;<BR>}<BR>/***********************************************************************************************************<BR>* 
+                        准备子程序<BR>*<BR>* 
+                        检查IAP操作是否完成。如果结束，关闭IAP。<BR>***********************************************************************************************************/<BR>int 
+                        ready()<BR>{<BR>unsigned long int TimeOut = 0;<BR>while 
+                        (TimeOut &lt; 100000)<BR>{<BR>if ((SFST&amp;4) == 0) 
+                        /*查IAP是否完成*/<BR>{ /*IAP完成*/<BR>SFCF = SFCF &amp; 0xBF; 
+                        /*关闭IAP*/<BR>SFDT = 0;<BR>return 1; /* 
+                        IAP操作结束*/<BR>}<BR>TimeOut++;<BR>}<BR>SFCF = SFCF &amp; 
+                        0xBF; /*关闭IAP*/<BR>SFDT = 0;<BR>return 0; 
+                        /*IAP操作没有完成*/<BR>}<BR>/***********************************************************************************************************<BR>* 
+                        Error 
+                        Function<BR>***********************************************************************************************************/<BR>void 
+                        error()<BR>{<BR>ErrorCode=1; /*IAP出错*/<BR>while(1) 
+                        /*软件陷阱*/<BR>{}<BR>}</P></SPAN></TD></TR></TBODY></TABLE>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD height=3>&nbsp;</TD></TR></TBODY></TABLE>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD>
+                        <DIV align=right><SPAN class=textbox-urls><A 
+                        href="http://www.mcublog.com/blog/user1/5/archives/2006/9884.html#">阅读全文<SPAN 
+                        id=ob_logreaded></SPAN></A> | <A 
+                        href="http://www.mcublog.com/blog/user1/5/archives/2006/9884.html#cmt">回复(0)</A> 
+                        <SPAN id=ob_logm9884></SPAN>| <A 
+                        href="http://www.mcublog.com/blog/showtb.asp?id=9884" 
+                        target=_blank>引用通告<SPAN id=ob_tbnum></SPAN></A> | <A 
+                        href="http://www.mcublog.com/blog/user_post.asp?logid=9884" 
+                        target=_blank>编辑</A></SPAN></DIV></TD></TR></TBODY></TABLE>
+                  <TABLE height=14 cellSpacing=0 cellPadding=0 width="100%" 
+                  align=center border=0>
+                    <TBODY>
+                    <TR>
+                      <TD 
+            class=content5></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+            <DIV id=morelog>
+            <UL>
+              <LI>上一篇：<A 
+              href="http://www.mcublog.com/blog/user1/5/archives/2006/2798.html">短信部分——VB.NET编码PDU</A> 
+
+              <LI>下一篇：<A 
+              href="http://www.mcublog.com/blog/user1/5/archives/2006/9886.html">利用USB&nbsp;UART桥接器实现单片机在线编程</A> 
+              </LI></UL></DIV>
+            <DIV id=form_comment>
+            <DIV id=gg_usercomment></DIV><A name=cmt></A>
+            <DIV class=title>发表评论：</DIV>
+            <FORM id=commentform name=commentform 
+            onsubmit="return Verifycomment()" 
+            action=/blog/savecomment.asp?logid=9884 method=post>
+            <DIV class=d1><LABEL>昵称：<INPUT id=UserName maxLength=20 
+            name=UserName></LABEL></DIV>
+            <DIV class=d2><LABEL>密码：<INPUT id=Password type=password 
+            maxLength=20 name=Password> (游客无须输入密码)</LABEL></DIV>
+            <DIV class=d3><LABEL>主页：<INPUT id=homepage maxLength=50 size=42 
+            value=http:// name=homepage></LABEL></DIV>
+            <DIV class=d4><LABEL>标题：<INPUT id=commenttopic maxLength=50 size=42 
+            value=Re:SST&nbsp;单片机IAP&nbsp;编程示例（C&nbsp;语言） 
+            name=commenttopic></LABEL></DIV>
+            <DIV class=d5><INPUT id=edit type=hidden name=edit> 
+            <DIV id=oblog_edit>数据载入中...</DIV></DIV>
+            <DIV class=d6><SPAN id=ob_code></SPAN><INPUT onclick='oblog_edittext.createTextRange().execCommand("Copy");' type=submit value=&nbsp;提&nbsp;交&nbsp;></DIV></FORM></DIV></TD></TR></TBODY></TABLE></DIV></TD>
+    <TD vAlign=top width=195><BR>
+      <TABLE style="TABLE-LAYOUT: fixed; OVERFLOW: hidden" cellSpacing=0 
+      cellPadding=0 width="90%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD>
+            <DIV id=placard>数据载入中...</DIV></TD></TR></TBODY></TABLE>
+      <TABLE class=table3 cellSpacing=0 cellPadding=0 width="100%" align=center 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD class=b2 align=middle height=43>时 间 记 忆</TD></TR>
+        <TR>
+          <TD align=middle>
+            <DIV class=content4>
+            <DIV id=calendar>数据载入中...</DIV></DIV></TD></TR></TBODY></TABLE><!-- BEGIN: last_followups -->
+      <TABLE class=table3 cellSpacing=0 cellPadding=0 width="100%" align=center 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD class=b2 align=middle height=43>最 新 评 论</TD></TR><!-- BEGIN: followups_row -->
+        <TR>
+          <TD>
+            <DIV class=content4>
+            <DIV id=comment>数据载入中...</DIV></DIV></TD></TR><!-- END: followups_row --></TBODY></TABLE><!-- END: last_followups --><BR>
+      <TABLE class=table3 cellSpacing=0 cellPadding=0 width="100%" align=center 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD class=b2 align=middle height=43>专 题 分 类</TD></TR>
+        <TR>
+          <TD>
+            <DIV class=content4>
+            <DIV id=subject>数据载入中...</DIV></DIV></TD></TR></TBODY></TABLE><!-- BEGIN: last_tb -->
+      <TABLE class=table3 cellSpacing=0 cellPadding=0 width="100%" align=center 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD class=b2 align=middle height=43>最 新 日 志</TD></TR>
+        <TR>
+          <TD>
+            <DIV class=content4><!-- BEGIN: tb -->
+            <DIV 
+      id=newblog>数据载入中...</DIV><!-- END: tb --></DIV></TD></TR></TBODY></TABLE><!-- END: last_tb -->
+      <TABLE class=table3 cellSpacing=0 cellPadding=0 width="100%" align=center 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD class=b2 align=middle height=43>最 新 留 言</TD></TR>
+        <TR>
+          <TD>
+            <DIV class=content4>
+            <DIV id=newmessage>数据载入中...</DIV></DIV></TD></TR></TBODY></TABLE>
+      <TABLE class=table3 cellSpacing=0 cellPadding=0 width="100%" align=center 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD class=b2 align=middle height=43>搜 索</TD></TR>
+        <TR>
+          <TD>
+            <DIV class=content4>
+            <DIV id=search>数据载入中...</DIV></DIV></TD></TR></TBODY></TABLE>
+      <TABLE class=table3 cellSpacing=0 cellPadding=0 width="100%" align=center 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD class=b2 align=middle height=43>用 户 登 录</TD></TR>
+        <TR>
+          <TD align=middle>
+            <DIV class=content4>
+            <DIV id=ob_login>数据载入中...</DIV></DIV></TD></TR></TBODY></TABLE><!-- BEGIN: link -->
+      <TABLE class=table3 cellSpacing=0 cellPadding=0 width="100%" align=center 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD class=b2 align=middle height=43>友 情 连 接</TD></TR>
+        <TR>
+          <TD>
+            <TABLE style="TABLE-LAYOUT: fixed; OVERFLOW: hidden" cellSpacing=0 
+            cellPadding=0 width="87%" align=center border=0>
+              <TBODY>
+              <TR>
+                <TD class=b1>
+                  <DIV id=links></DIV>
+                  <DIV 
+      id=gg_userlinks></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <TABLE class=table3 cellSpacing=0 cellPadding=0 width="100%" align=center 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD class=b2 align=middle height=43>博 客 信 息</TD></TR>
+        <TR>
+          <TD>
+            <TABLE class=b1 cellSpacing=5 cellPadding=2 width="100%" align=right 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD class=b1 align=left>
+                  <DIV id=info>数据载入中...</DIV>
+                  <DIV id=aobomusic></DIV></TD></TR>
+              <TR>
+                <TD class=b1 align=left>
+                  <DIV id=xml><SPAN id=txml></SPAN><BR><BR><A 
+                  href="http://www.mcublog.com/blog/user1/5/rss2.xml" 
+                  target=_blank><IMG height=14 
+                  src="SST　单片机IAP　编程示例（C　语言）--MCUBLOG的电子博客.files/xml.gif" 
+                  width=36 
+      border=0></A></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- END: link --></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width=1004 border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=30 alt="" 
+      src="SST　单片机IAP　编程示例（C　语言）--MCUBLOG的电子博客.files/index_06.gif" 
+  width=1004></TD></TR></TBODY></TABLE><SPAN id=gg_userbot></SPAN>
+<DIV id=powered><A href="http://www.mcublog.com/" target=_blank><IMG 
+alt="Powered by McuBLog." 
+src="SST　单片机IAP　编程示例（C　语言）--MCUBLOG的电子博客.files/mcublog_powered.gif" 
+border=0></A></DIV>
+<SCRIPT src="SST　单片机IAP　编程示例（C　语言）--MCUBLOG的电子博客.files/200604.htm"></SCRIPT>
+
+<SCRIPT src="SST　单片机IAP　编程示例（C　语言）--MCUBLOG的电子博客.files/count.htm"></SCRIPT>
+
+<SCRIPT 
+src="SST　单片机IAP　编程示例（C　语言）--MCUBLOG的电子博客.files/commentedit.htm"></SCRIPT>
+
+<SCRIPT 
+src="E:\SST　单片机IAP　编程示例（C　语言）--MCUBLOG的电子博客.files\count(1).htm"></SCRIPT>
+
+<SCRIPT src="SST　单片机IAP　编程示例（C　语言）--MCUBLOG的电子博客.files/login.htm"></SCRIPT>
+
+<SCRIPT src="SST　单片机IAP　编程示例（C　语言）--MCUBLOG的电子博客.files/ShowXml.htm"></SCRIPT>
+
+<SCRIPT 
+src="E:\SST　单片机IAP　编程示例（C　语言）--MCUBLOG的电子博客.files\count(2).htm"></SCRIPT>
+</BODY></HTML>

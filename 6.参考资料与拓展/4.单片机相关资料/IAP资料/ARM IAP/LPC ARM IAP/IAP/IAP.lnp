@@ -1,0 +1,4 @@
+"startup.o" "main.o" "iap.o" "uart.o" --strict --scatter "IAP.sct" 
+--map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\IAP.map" -o "IAP.axf"

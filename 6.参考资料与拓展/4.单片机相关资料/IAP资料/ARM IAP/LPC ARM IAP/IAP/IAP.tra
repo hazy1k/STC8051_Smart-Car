@@ -1,0 +1,22 @@
+*** Creating Trace Output File 'IAP.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"startup.o"'
+### List of Objects: adding '"main.o"'
+### List of Objects: adding '"iap.o"'
+### List of Objects: adding '"uart.o"'
+### ADS-LD Command completed:
+"startup.o" "main.o" "iap.o" "uart.o" --strict --scatter "IAP.sct" 
+--map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\IAP.map" -o "IAP.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'IAP.axf'
+### ADS-LD Command File: 'IAP.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'IAP.lnp', Handle=0x000002CC
+### Writing '.lnp' file
+### ADS-LD Command file 'IAP.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

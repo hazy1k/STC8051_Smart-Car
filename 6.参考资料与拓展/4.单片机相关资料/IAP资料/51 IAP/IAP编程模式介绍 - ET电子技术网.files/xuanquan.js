@@ -1,0 +1,1 @@
+document.writeln("<a href=\"http:\/\/focus.ti.com.cn\/cn\/dsp\/docs\/dsphome.tsp?sectionId=46&DCMP=TI-cn_Home_Tracking&HQS=v?OT+home_p\"><img src=\"http:\/\/www.studydz.com\/images\/ad1.gif\" alt=\"DSP\"width=\"468\" height=\"60\" border=\"0\" class=\"spc\"><\/a>")

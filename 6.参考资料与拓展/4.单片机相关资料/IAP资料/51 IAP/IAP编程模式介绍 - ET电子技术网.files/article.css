@@ -1,0 +1,216 @@
+.pleft {
+	FLOAT: left; OVERFLOW: hidden; WIDTH: 670px
+}
+.thisplace {
+	BACKGROUND: url(../images/place_bg.jpg) repeat-x; WIDTH: 670px; HEIGHT: 31px
+}
+.thisplace .title {
+	DISPLAY: block; FONT-WEIGHT: bold; BACKGROUND: url(../images/place_left.gif) no-repeat right top; FLOAT: left; WIDTH: 156px; TEXT-INDENT: 22px; LINE-HEIGHT: 29px; LETTER-SPACING: 4px; HEIGHT: 31px
+}
+.thisplace .placenav {
+	FLOAT: right; LINE-HEIGHT: 31px; MARGIN-RIGHT: 10px
+}
+.thisplace .placenav A {
+	COLOR: #666666
+}
+.picnews {
+	CLEAR: both; BORDER-RIGHT: #ddd 1px solid; BORDER-TOP: #ddd 1px solid; PADDING-BOTTOM: 3px; BORDER-LEFT: #ddd 1px solid; WIDTH: 668px; BORDER-BOTTOM: #ddd 1px solid
+}
+.picnews DL {
+	BACKGROUND: url(../images/place_bg.jpg) repeat-x; MARGIN: 1px auto; OVERFLOW: hidden; WIDTH: 666px
+}
+.picnews DL DD {
+	DISPLAY: inline; FLOAT: left; MARGIN: 10px 0px 0px 9px; WIDTH: 156px; LINE-HEIGHT: 31px; TEXT-ALIGN: center
+}
+.picnews DL DD A IMG {
+	BORDER-RIGHT: #ddd 1px solid; BORDER-TOP: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; BORDER-BOTTOM: #ddd 1px solid
+}
+.picnews DL DD A {
+	DISPLAY: block
+}
+.pright {
+	FLOAT: right
+}
+.rlist {
+	WIDTH: 222px
+}
+.rlist .title {
+	FONT-WEIGHT: bold; BACKGROUND: url(../images/rlist_title_bg.gif) no-repeat; WIDTH: 222px; COLOR: #555; TEXT-INDENT: 10px; PADDING-TOP: 9px; LETTER-SPACING: 2px; HEIGHT: 19px
+}
+.rbox {
+	BORDER-RIGHT: #ddd 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #ddd 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 7px; BORDER-LEFT: #ddd 1px solid; WIDTH: 220px; PADDING-TOP: 5px; BORDER-BOTTOM: #ddd 1px solid
+}
+.rbox UL LI {
+	BACKGROUND: url(../images/ico_4.gif) no-repeat 12px 13px; OVERFLOW: hidden; WIDTH: 214px; TEXT-INDENT: 23px; LINE-HEIGHT: 27px; HEIGHT: 27px
+}
+.rbox UL LI A {
+	COLOR: #039
+}
+.listbox {
+	OVERFLOW: hidden; WIDTH: 680px
+}
+.listbox DL {
+	BORDER-RIGHT: #ddd 1px solid; BORDER-TOP: #ddd 1px solid; DISPLAY: inline; FLOAT: left; MARGIN: 8px 10px 0px 0px; BORDER-LEFT: #ddd 1px solid; WIDTH: 328px; BORDER-BOTTOM: #ddd 1px solid
+}
+.listbox DL DT {
+	BACKGROUND: url(../images/title_bg_1.gif) repeat-x; MARGIN: 1px auto; WIDTH: 326px; BORDER-BOTTOM: #ddd 1px solid; HEIGHT: 26px
+}
+.listbox DL DT .title {
+	BACKGROUND: url(../images/article_ico_1.gif) no-repeat 10px 6px; FLOAT: left; WIDTH: 200px; LINE-HEIGHT: 26px; HEIGHT: 26px
+}
+.listbox DL DT .title A {
+	FONT-WEIGHT: bold; MARGIN-LEFT: 28px; LETTER-SPACING: 2px; TEXT-DECORATION: none
+}
+.listbox DL DT .more {
+	BACKGROUND: url(../images/article_ico_2.gif) no-repeat; FLOAT: right; MARGIN: 3px 5px 0px 0px; WIDTH: 48px; LINE-HEIGHT: 19px; HEIGHT: 19px; TEXT-ALIGN: center
+}
+.listbox DL DT .more A {
+	TEXT-DECORATION: none
+}
+.listbox DL DD {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 14px; PADDING-BOTTOM: 5px; PADDING-TOP: 3px
+}
+.listbox DL DD A {
+	DISPLAY: block; FONT-SIZE: 14px; BACKGROUND: url(../images/ico_2.gif) no-repeat 2px 12px; COLOR: #666; TEXT-INDENT: 20px; LINE-HEIGHT: 31px; HEIGHT: 31px
+}
+.newslist {
+	BORDER-RIGHT: #ddd 1px solid; BORDER-TOP: #ddd 1px solid; MARGIN-TOP: 10px; BACKGROUND: url(../images/place_bg.jpg) repeat-x 1px 1px; PADDING-BOTTOM: 10px; BORDER-LEFT: #ddd 1px solid; WIDTH: 668px; BORDER-BOTTOM: #ddd 1px solid
+}
+.newslist DL {
+	DISPLAY: block; MARGIN: 10px auto 0px; WIDTH: 650px; BORDER-BOTTOM: #ddd 1px dotted
+}
+.newslist DL DT {
+	BACKGROUND: url(../images/ico_2.gif) no-repeat 3px 11px; MARGIN: 0px auto; WIDTH: 638px
+}
+.newslist DL DT A {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; MARGIN-LEFT: 20px; COLOR: #039; LINE-HEIGHT: 27px; LETTER-SPACING: 1px
+}
+.newslist DL DD {
+	MARGIN: 0px auto; WIDTH: 624px
+}
+.newslist DL DD.preview {
+	COLOR: #777; TEXT-INDENT: 14px; LINE-HEIGHT: 19px
+}
+.newslist DL DD.info {
+	COLOR: #999; LINE-HEIGHT: 31px
+}
+.newslist DL DD.info SPAN {
+	COLOR: #f60; MARGIN-RIGHT: 20px
+}
+.newslist DL DD.info A {
+	FLOAT: right; MARGIN: -30px 5px 0px 0px; COLOR: #039; POSITION: relative
+}
+.newsview {
+	BORDER-RIGHT: #ddd 1px solid; BORDER-TOP: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; WIDTH: 668px; BORDER-BOTTOM: #ddd 1px solid
+}
+.newsview .title {
+	BACKGROUND: url(../images/place_bg.jpg) repeat-x 1px 1px; MARGIN: 0px auto; WIDTH: 666px; LINE-HEIGHT: 53px; HEIGHT: 53px
+}
+.newsview .title H1 {
+	FONT-SIZE: 24px; MARGIN-LEFT: 21px
+}
+.newsview .info {
+	PADDING-RIGHT: 20px; BORDER-TOP: #eee 1px solid; WIDTH: 648px; COLOR: #f60; LINE-HEIGHT: 27px; BORDER-BOTTOM: #eee 1px solid; HEIGHT: 27px; TEXT-ALIGN: right
+}
+.newsview .info STRONG {
+	MARGIN-LEFT: 20px; COLOR: #666
+}
+.newsview .content {
+	FONT-SIZE: 14px; MARGIN: 10px auto; OVERFLOW: hidden; WIDTH: 638px; COLOR: #444; LINE-HEIGHT: 25px
+}
+.newsview .cupage {
+	MARGIN: 5px auto; OVERFLOW: hidden; WIDTH: 638px; LINE-HEIGHT: 31px; TEXT-ALIGN: center
+}
+.newsview .cupage A {
+	FONT-SIZE: 14px; MARGIN-LEFT: 14px; COLOR: #0033ff
+}
+.newsview .cupage STRONG {
+	FONT-SIZE: 14px; MARGIN-LEFT: 14px; COLOR: #ff0000
+}
+.newsview .actbar {
+	BORDER-RIGHT: #f0f0f0 1px solid; BORDER-TOP: #f0f0f0 1px solid; BACKGROUND: #fcfcfc; MARGIN: 6px auto; BORDER-LEFT: #f0f0f0 1px solid; WIDTH: 638px; LINE-HEIGHT: 27px; BORDER-BOTTOM: #f0f0f0 1px solid; HEIGHT: 27px; TEXT-ALIGN: right
+}
+.newsview .actbar SPAN {
+	COLOR: #ccc; MARGIN-RIGHT: 20px
+}
+.newsview .actbar SPAN A {
+	MARGIN-LEFT: 3px; COLOR: #669900; MARGIN-RIGHT: 3px
+}
+.newsview .context {
+	MARGIN: 6px auto; WIDTH: 628px; COLOR: #666; LINE-HEIGHT: 27px
+}
+.newsview .context A {
+	COLOR: #cc0000
+}
+.comment {
+	BORDER-RIGHT: #ddd 1px solid; BORDER-TOP: #ddd 1px solid; MARGIN-TOP: 7px; BORDER-LEFT: #ddd 1px solid; WIDTH: 668px; BORDER-BOTTOM: #ddd 1px solid
+}
+.comment .commenttitle {
+	BACKGROUND: url(../images/title_bg_1.gif) repeat-x; MARGIN: 1px auto; WIDTH: 666px; BORDER-BOTTOM: #ddd 1px solid; HEIGHT: 26px
+}
+.comment .commenttitle .title {
+	DISPLAY: inline; FLOAT: left; MARGIN: 5px 0px 0px 12px; COLOR: #999
+}
+.comment .commenttitle .title STRONG {
+	COLOR: #444; MARGIN-RIGHT: 10px; LETTER-SPACING: 4px
+}
+.comment .commenttitle .gotopost {
+	DISPLAY: block; FLOAT: right; WIDTH: 100px; HEIGHT: 23px
+}
+.comment .commenttitle .gotopost A {
+	DISPLAY: inline; BACKGROUND: url(../images/ico_gotopost.gif) no-repeat; FLOAT: right; MARGIN: 1px 3px 0px 0px; WIDTH: 95px; LINE-HEIGHT: 22px; HEIGHT: 22px; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+.comment .commentbox {
+	WIDTH: 668px
+}
+.comment .commentbox DL {
+	BORDER-RIGHT: #d1ddce 1px solid; BORDER-TOP: #d1ddce 1px solid; MARGIN: 10px auto 0px; BORDER-LEFT: #d1ddce 1px solid; WIDTH: 636px; BORDER-BOTTOM: #d1ddce 1px solid
+}
+.comment .commentbox DL DT {
+	BACKGROUND: #f4f9f2; WIDTH: 636px; COLOR: #333; TEXT-INDENT: 10px; LINE-HEIGHT: 25px; BORDER-BOTTOM: #e6ece3 1px solid
+}
+.comment .commentbox DL DT SPAN {
+	FONT-SIZE: 11px; COLOR: #669933
+}
+.comment .commentbox DL DD {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FONT-SIZE: 14px; PADDING-BOTTOM: 10px; COLOR: #666; LINE-HEIGHT: 25px; PADDING-TOP: 10px
+}
+.comment .posttitle {
+	BORDER-TOP: #ddd 1px solid; BACKGROUND: url(../images/title_bg_1.gif) repeat-x; MARGIN: 10px auto; WIDTH: 666px; BORDER-BOTTOM: #ddd 1px solid; HEIGHT: 26px
+}
+.comment .posttitle STRONG {
+	DISPLAY: block; MARGIN: 7px 0px 0px 13px; COLOR: #444; LETTER-SPACING: 4px
+}
+.comment .postbox {
+	MARGIN: 5px auto; OVERFLOW: hidden; WIDTH: 636px
+}
+.comment .postbox .userbox {
+	MARGIN-TOP: 10px; OVERFLOW: hidden; WIDTH: 636px
+}
+.comment .postbox .userbox DL {
+	WIDTH: 636px
+}
+.comment .postbox .userbox DL DD {
+	DISPLAY: block; FLOAT: left; PADDING-BOTTOM: 2px
+}
+.comment .postbox .userbox DL DD INPUT.username {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; BORDER-LEFT: #ccc 1px solid; WIDTH: 100px; MARGIN-RIGHT: 10px; PADDING-TOP: 3px; BORDER-BOTTOM: #ccc 1px solid
+}
+.comment .postbox .userbox DL DD INPUT.password {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; BORDER-LEFT: #ccc 1px solid; WIDTH: 100px; MARGIN-RIGHT: 10px; PADDING-TOP: 3px; BORDER-BOTTOM: #ccc 1px solid
+}
+.comment .postbox .userbox DL DD.mtop {
+	MARGIN: 7px 7px 0px 0px
+}
+.comment .postbox .txtbox {
+	WIDTH: 636px; LINE-HEIGHT: 25px
+}
+.comment .postbox .txtbox TEXTAREA {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; BORDER-LEFT: #ccc 1px solid; WIDTH: 600px; PADDING-TOP: 5px; BORDER-BOTTOM: #ccc 1px solid; HEIGHT: 80px
+}
+.comment .postbox .sbut {
+	MARGIN: 10px
+}
+.comment .postbox .userbox .submit {
+	WIDTH: 100px; PADDING-TOP: 2px; HEIGHT: 25px
+}

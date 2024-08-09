@@ -1,0 +1,25 @@
+document.writeln("<style type=\"text\/css\">");
+document.writeln("<!--");
+document.writeln(".style1 {color: #FF0000}");
+document.writeln(".style2 {color: #00007B}");
+document.writeln(".STYLE9 {border:1px solid #96BDDE }");
+document.writeln("-->");
+document.writeln("<\/style>");
+document.writeln("<table class=\"downdoc STYLE9\" width=\"170\" height=\"60\" border=\"0\" cellspacing=\"0\" bordercolor=\"#FF0000\">");
+document.writeln("  <tr>");
+document.writeln("    <td><table width=\"170\" height=\"60\" border=\"0\" cellspacing=\"0\">");
+document.writeln("      <tr>");
+document.writeln("        <td bgcolor=\"#F2F6FB\"><div align=\"center\"><a href=\"http:\/\/www.et-dz.com\/product_126.html\"><span class=\"style1\">特价51开发板<\/span><\/a><\/div><\/td>");
+document.writeln("        <td bgcolor=\"#F2F6FB\"><div align=\"center\"><a href=\"http:\/\/abc.studydz.com\/\"><span class=\"style2\">ABC网址导航<\/span><\/a><\/div><\/td>");
+document.writeln("      <\/tr>");
+document.writeln("      <tr>");
+document.writeln("        <td bgcolor=\"#F2F6FB\"><div align=\"center\"><span class=\"style2\">热门文字位3<\/span><\/div><\/td>");
+document.writeln("        <td bgcolor=\"#F2F6FB\"><div align=\"center\"><span class=\"style1\">热门文字位4<\/span><\/div><\/td>");
+document.writeln("      <\/tr>");
+document.writeln("      <tr>");
+document.writeln("        <td bgcolor=\"#F2F6FB\"><div align=\"center\"><span class=\"style2\">热门文字位5<\/span><\/div><\/td>");
+document.writeln("        <td bgcolor=\"#F2F6FB\"><div align=\"center\"><span class=\"style2\">热门文字位6<\/span><\/div><\/td>");
+document.writeln("      <\/tr>");
+document.writeln("    <\/table><\/td>");
+document.writeln("  <\/tr>");
+document.writeln("<\/table>")

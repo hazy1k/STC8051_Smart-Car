@@ -1,0 +1,1 @@
+document.writeln("<a href=\"http:\/\/www.studydz.com\/home\"><img src=\"http:\/\/www.studydz.com\/images\/ad2.gif\" alt=\"注册电子工程师自已的博客\"width=\"468\" height=\"60\" border=\"0\" class=\"spc\"><\/a>")

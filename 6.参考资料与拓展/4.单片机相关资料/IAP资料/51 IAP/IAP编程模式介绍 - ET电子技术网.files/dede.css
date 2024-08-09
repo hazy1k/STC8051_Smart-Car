@@ -1,0 +1,258 @@
+ {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+BODY {
+	FONT-SIZE: 12px
+}
+UL {
+	LIST-STYLE-TYPE: none
+}
+IMG {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+A {
+	COLOR: #333333
+}
+A:hover {
+	COLOR: #ff3300; TEXT-DECORATION: none
+}
+.cbody {
+	MARGIN: 0px auto; WIDTH: 900px
+}
+.margintop {
+	MARGIN-TOP: 5px
+}
+.floatclear {
+	CLEAR: both
+}
+INPUT {
+	VERTICAL-ALIGN: middle
+}
+SELECT {
+	VERTICAL-ALIGN: middle
+}
+.top {
+	OVERFLOW: hidden; HEIGHT: 88px
+}
+.toplogo {
+	MARGIN-TOP: 14px; FLOAT: left; WIDTH: 200px
+}
+.topbanner {
+	MARGIN-TOP: 14px; FLOAT: left; MARGIN-LEFT: 20px; WIDTH: 480px
+}
+.toplink {
+	MARGIN-TOP: 14px; FLOAT: left; MARGIN-LEFT: 20px; WIDTH: 180px
+}
+.toplink UL LI {
+	FLOAT: left; WIDTH: 90px; LINE-HEIGHT: 30px; HEIGHT: 30px; TEXT-ALIGN: center
+}
+.submit {
+	BORDER-RIGHT: #d4b06a 1px solid; BORDER-TOP: #d4b06a 1px solid; FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND: url(../images/userlogin_submit.gif) repeat-x; BORDER-LEFT: #d4b06a 1px solid; WIDTH: 68px; COLOR: #753d00; LINE-HEIGHT: 20px; MARGIN-RIGHT: 20px; BORDER-BOTTOM: #d4b06a 1px solid; LETTER-SPACING: 3px; HEIGHT: 21px
+}
+.topmenu {
+	BACKGROUND: url(../images/topmenu_bg.gif) repeat-x left top; HEIGHT: 40px
+}
+.topmenu UL {
+	BACKGROUND: url(../images/topmenu_r.gif) no-repeat center top; OVERFLOW: hidden; WIDTH: 900px; HEIGHT: 40px
+}
+.topmenu UL LI {
+	BACKGROUND: url(../images/topmenu_bg.gif) no-repeat left bottom; FLOAT: left; MARGIN-LEFT: -2px; TEXT-ALIGN: center
+}
+.topmenu UL LI A {
+	PADDING-RIGHT: 15px; DISPLAY: block; PADDING-LEFT: 17px; FLOAT: left; COLOR: #ffffff; LINE-HEIGHT: 37px; HEIGHT: 40px; TEXT-DECORATION: none
+}
+.topmenu UL LI A:hover {
+	BACKGROUND: url(../images/topmenu_o.gif) no-repeat center bottom; COLOR: #ffff99
+}
+.topmenu UL LI A.thisclass {
+	BACKGROUND: url(../images/topmenu_o.gif) no-repeat center bottom; COLOR: #ffff99
+}
+.topmenu .rssbut {
+	DISPLAY: inline; FLOAT: right; MARGIN: -30px 8px auto; POSITION: relative
+}
+.topsearch {
+	BORDER-RIGHT: #eee 1px solid; MARGIN-TOP: 3px; BACKGROUND: url(../images/topsearch_bg.gif) repeat-x; OVERFLOW: hidden; WIDTH: 899px; HEIGHT: 37px
+}
+.topsearch .title {
+	BACKGROUND: url(../images/topsearch_title.gif) no-repeat left center; FLOAT: left; WIDTH: 83px; HEIGHT: 37px
+}
+.topsearch .inpbox {
+	MARGIN-TOP: 4px; FLOAT: left; WIDTH: 430px
+}
+.topsearch .inpbox INPUT {
+	MARGIN-LEFT: 10px; MARGIN-RIGHT: 10px
+}
+.topsearch .inpbox SELECT {
+	FONT-SIZE: 12px; WIDTH: 100px
+}
+.topsearch .inpbox .searchtxt {
+	BORDER-RIGHT: #d4d0c8 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #808080 1px solid; PADDING-LEFT: 5px; FONT-SIZE: 12px; PADDING-BOTTOM: 4px; BORDER-LEFT: #808080 1px solid; WIDTH: 200px; PADDING-TOP: 6px; BORDER-BOTTOM: #d4d0c8 1px solid; HEIGHT: 13px
+}
+.topsearch .hots {
+	FLOAT: left; LINE-HEIGHT: 33px
+}
+.main {
+	CLEAR: both
+}
+.userlogin {
+	OVERFLOW: hidden
+}
+.userlogin DL {
+	CLEAR: both; MARGIN-TOP: 7px; LINE-HEIGHT: 23px; HEIGHT: 23px
+}
+.userlogin DL DT {
+	DISPLAY: block; FLOAT: left; WIDTH: 66px; TEXT-ALIGN: right
+}
+.userlogin DL DD {
+	FLOAT: left
+}
+.userlogin DL DD INPUT {
+	BORDER-RIGHT: #d4d0c8 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #808080 1px solid; PADDING-LEFT: 5px; FONT-SIZE: 12px; PADDING-BOTTOM: 3px; BORDER-LEFT: #808080 1px solid; WIDTH: 126px; PADDING-TOP: 3px; BORDER-BOTTOM: #d4d0c8 1px solid; HEIGHT: 13px
+}
+.userlogin DL DD IMG {
+	VERTICAL-ALIGN: middle
+}
+.userlogin DL DD INPUT.gdcode {
+	WIDTH: 52px
+}
+.userlogin .ulsubmit {
+	MARGIN-TOP: 15px; HEIGHT: 33px; TEXT-ALIGN: center
+}
+.footer {
+	CLEAR: both; BORDER-TOP: #ddd 1px solid
+}
+.footer .copyright {
+	FONT-SIZE: 10px; MARGIN: 10px auto; COLOR: #999999; TEXT-ALIGN: center
+}
+.footer .copyright A {
+	FONT-WEIGHT: bold; COLOR: #999999; TEXT-DECORATION: none
+}
+.footer .copyright A:hover {
+	COLOR: #999999
+}
+.pages {
+	BACKGROUND: #ffffff; MARGIN: 12px auto 0px 10px; HEIGHT: 25px
+}
+.pages .pcount {
+	BORDER-RIGHT: #ccc 2px solid; PADDING-RIGHT: 10px; DISPLAY: inline; PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 11px; FLOAT: left; MARGIN: 6px 20px 0px 2px; COLOR: #3366cc; LINE-HEIGHT: 13px
+}
+.pages .plist {
+	FLOAT: left; LINE-HEIGHT: 17px; PADDING-TOP: 3px
+}
+.pages .plist INPUT {
+	BORDER-RIGHT: #dddddd 1px solid; BORDER-TOP: #dddddd 1px solid; FLOAT: left; BORDER-LEFT: #dddddd 1px solid; WIDTH: 30px; BORDER-BOTTOM: #dddddd 1px solid; HEIGHT: 17px
+}
+.pages .plist #button {
+	BORDER-RIGHT: #cc3333 1px solid; BORDER-TOP: #cc3333 1px solid; BORDER-LEFT: #cc3333 1px solid; WIDTH: 30px; COLOR: #ffffff; BORDER-BOTTOM: #cc3333 1px solid; HEIGHT: 18px; BACKGROUND-COLOR: #ff6600
+}
+.pages .plist SPAN {
+	FLOAT: right
+}
+.pages .plist STRONG {
+	BORDER-RIGHT: #c33 1px solid; PADDING-RIGHT: 8px; BORDER-TOP: #c33 1px solid; DISPLAY: block; PADDING-LEFT: 8px; BACKGROUND: #f60; FLOAT: left; MARGIN: 0px 3px 0px 0px; BORDER-LEFT: #c33 1px solid; COLOR: #fff; BORDER-BOTTOM: #c33 1px solid
+}
+.pages .plist A {
+	BORDER-RIGHT: #ddd 1px solid; PADDING-RIGHT: 8px; BORDER-TOP: #ddd 1px solid; DISPLAY: block; PADDING-LEFT: 8px; BACKGROUND: #fff; FLOAT: left; BORDER-LEFT: #ddd 1px solid; COLOR: #000; MARGIN-RIGHT: 2px; BORDER-BOTTOM: #ddd 1px solid; HEIGHT: 17px; TEXT-DECORATION: none
+}
+.pages .plist A:hover {
+	COLOR: #ff0000
+}
+.comment {
+	BORDER-RIGHT: #ddd 1px solid; BORDER-TOP: #ddd 1px solid; MARGIN-TOP: 7px; BORDER-LEFT: #ddd 1px solid; WIDTH: 668px; BORDER-BOTTOM: #ddd 1px solid
+}
+.comment .commenttitle {
+	BACKGROUND: url(../images/title_bg_1.gif) repeat-x; MARGIN: 1px auto; WIDTH: 666px; BORDER-BOTTOM: #ddd 1px solid; HEIGHT: 26px
+}
+.comment .commenttitle .title {
+	DISPLAY: inline; FLOAT: left; MARGIN: 5px 0px 0px 12px; COLOR: #999
+}
+.comment .commenttitle .title STRONG {
+	COLOR: #444; MARGIN-RIGHT: 10px; LETTER-SPACING: 4px
+}
+.comment .commenttitle .gotopost {
+	DISPLAY: block; FLOAT: right; WIDTH: 100px; HEIGHT: 23px
+}
+.comment .commenttitle .gotopost A {
+	DISPLAY: inline; BACKGROUND: url(../images/ico_gotopost.gif) no-repeat; FLOAT: right; MARGIN: 1px 3px 0px 0px; WIDTH: 95px; LINE-HEIGHT: 22px; HEIGHT: 22px; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+.comment .commentbox {
+	WIDTH: 668px
+}
+.comment .commentbox DL {
+	BORDER-RIGHT: #d1ddce 1px solid; BORDER-TOP: #d1ddce 1px solid; MARGIN: 10px auto 0px; BORDER-LEFT: #d1ddce 1px solid; WIDTH: 636px; BORDER-BOTTOM: #d1ddce 1px solid
+}
+.comment .commentbox DL DT {
+	BACKGROUND: #f4f9f2; WIDTH: 636px; COLOR: #333; TEXT-INDENT: 10px; LINE-HEIGHT: 25px; BORDER-BOTTOM: #e6ece3 1px solid
+}
+.comment .commentbox DL DT SPAN {
+	FONT-SIZE: 11px; COLOR: #669933
+}
+.comment .commentbox DL DD {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FONT-SIZE: 14px; PADDING-BOTTOM: 10px; COLOR: #666; LINE-HEIGHT: 25px; PADDING-TOP: 10px
+}
+.comment .posttitle {
+	BORDER-TOP: #ddd 1px solid; BACKGROUND: url(../images/title_bg_1.gif) repeat-x; MARGIN: 10px auto; WIDTH: 666px; BORDER-BOTTOM: #ddd 1px solid; HEIGHT: 26px
+}
+.comment .posttitle STRONG {
+	DISPLAY: block; MARGIN: 7px 0px 0px 13px; COLOR: #444; LETTER-SPACING: 4px
+}
+.comment .postbox {
+	MARGIN: 5px auto; OVERFLOW: hidden; WIDTH: 636px
+}
+.comment .postbox .userbox {
+	MARGIN-TOP: 10px; OVERFLOW: hidden; WIDTH: 636px
+}
+.comment .postbox .userbox DL {
+	WIDTH: 636px
+}
+.comment .postbox .userbox DL DD {
+	DISPLAY: block; FLOAT: left; PADDING-BOTTOM: 2px
+}
+.comment .postbox .userbox DL DD INPUT.username {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; BORDER-LEFT: #ccc 1px solid; WIDTH: 100px; MARGIN-RIGHT: 10px; PADDING-TOP: 3px; BORDER-BOTTOM: #ccc 1px solid
+}
+.comment .postbox .userbox DL DD INPUT.password {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; BORDER-LEFT: #ccc 1px solid; WIDTH: 100px; MARGIN-RIGHT: 10px; PADDING-TOP: 3px; BORDER-BOTTOM: #ccc 1px solid
+}
+.comment .postbox .userbox DL DD.mtop {
+	MARGIN: 7px 7px 0px 0px
+}
+.comment .postbox .txtbox {
+	WIDTH: 636px; LINE-HEIGHT: 25px
+}
+.comment .postbox .txtbox TEXTAREA {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; BORDER-LEFT: #ccc 1px solid; WIDTH: 600px; PADDING-TOP: 5px; BORDER-BOTTOM: #ccc 1px solid; HEIGHT: 80px
+}
+.comment .postbox .sbut {
+	MARGIN: 10px
+}
+.comment .postbox .userbox .submit {
+	WIDTH: 100px; PADDING-TOP: 2px; HEIGHT: 25px
+}
+.classbox {
+	CLEAR: both; BACKGROUND: url(../images/rcbox_title.gif) no-repeat center bottom; PADDING-BOTTOM: 5px; WIDTH: 222px
+}
+.classbox DL {
+	WIDTH: 222px
+}
+.classbox DL DT {
+	FONT-WEIGHT: bold; BACKGROUND: url(../images/rcbox_title.gif) no-repeat center top; COLOR: #555; TEXT-INDENT: 10px; LINE-HEIGHT: 29px; LETTER-SPACING: 1px; HEIGHT: 31px
+}
+.classbox DL DD {
+	BORDER-RIGHT: #ddd 1px solid; BACKGROUND: #fafafa; BORDER-LEFT: #ddd 1px solid; WIDTH: 220px
+}
+.classbox DL DD UL {
+	OVERFLOW: hidden; WIDTH: 220px; LIST-STYLE-TYPE: none
+}
+.classbox DL DD UL LI {
+	DISPLAY: inline; FONT-SIZE: 14px; FLOAT: left; MARGIN-BOTTOM: 5px; MARGIN-LEFT: 5px; WIDTH: 102px; TEXT-INDENT: 10px; LINE-HEIGHT: 25px; HEIGHT: 27px
+}
+.classbox DL DD UL LI A {
+	BORDER-RIGHT: #ddd 1px solid; BORDER-TOP: #ddd 1px solid; DISPLAY: block; BACKGROUND: #fff; BORDER-LEFT: #ddd 1px solid; WIDTH: 100px; COLOR: #0066cc; BORDER-BOTTOM: #ddd 1px solid; HEIGHT: 25px; TEXT-DECORATION: none
+}
+.classbox DL DD UL LI A:hover {
+	BORDER-RIGHT: #ccc 1px solid; BORDER-TOP: #ccc 1px solid; BACKGROUND: #fafafa; BORDER-LEFT: #ccc 1px solid; COLOR: #000; BORDER-BOTTOM: #ccc 1px solid
+}
+.classbox DL DD UL LI.this A {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND: #ffc; COLOR: #ff6600
+}
