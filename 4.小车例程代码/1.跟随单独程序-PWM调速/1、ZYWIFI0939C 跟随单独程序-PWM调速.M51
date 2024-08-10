@@ -1,8 +1,8 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/08/2016  10:38:50  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        08/10/2024  11:55:03  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
-C:\KEIL\C51\BIN\BL51.EXE main.obj TO 1、ZYWIFI0939C 跟随单独程序-PWM调速 RAMSIZE (256)
+E:\DIANZI\KEILC51\C51\BIN\BL51.EXE main.obj TO 1、ZYWIFI0939C 跟随单独程序-PWM调速 RAMSIZE (256)
 
 
 MEMORY MODEL: SMALL
@@ -10,8 +10,8 @@ MEMORY MODEL: SMALL
 
 INPUT MODULES INCLUDED:
   main.obj (MAIN)
-  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
-  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+  E:\DIANZI\KEILC51\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\DIANZI\KEILC51\C51\LIB\C51S.LIB (?C_INIT)
 
 
 LINK MAP OF MODULE:  1、ZYWIFI0939C 跟随单独程序-PWM调速 (MAIN)
@@ -43,7 +43,7 @@ LINK MAP OF MODULE:  1、ZYWIFI0939C 跟随单独程序-PWM调速 (MAIN)
             CODE    019DH     000FH     UNIT         ?PR?BACKRUN?MAIN
             CODE    01ACH     000FH     UNIT         ?PR?LEFTRUN?MAIN
             CODE    01BBH     000FH     UNIT         ?PR?RIGHTRUN?MAIN
-            CODE    01CAH     000FH     UNIT         ?PR?STOP?MAIN
+            CODE    01CAH     000EH     UNIT         ?PR?STOP?MAIN
 
 
 
@@ -59,7 +59,7 @@ SEGMENT
 
 *** NEW ROOT ***************************************************
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/08/2016  10:38:50  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/10/2024  11:55:03  PAGE 2
 
 
 ?C_C51STARTUP
@@ -119,7 +119,7 @@ SYMBOL TABLE OF MODULE:  1、ZYWIFI0939C 跟随单独程序-PWM调速 (MAIN)
   D:000DH         PUBLIC        pwm_val_right
   C:00F8H         SYMBOL        L?0043
   -------         PROC          L?0042
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/08/2016  10:38:50  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/10/2024  11:55:03  PAGE 3
 
 
   -------         ENDPROC       L?0042
@@ -130,164 +130,164 @@ SYMBOL TABLE OF MODULE:  1、ZYWIFI0939C 跟随单独程序-PWM调速 (MAIN)
   D:0004H         SYMBOL        x
   D:0002H         SYMBOL        y
   -------         ENDDO         
-  C:00FCH         LINE#         59
-  C:00FCH         LINE#         60
-  C:00FCH         LINE#         62
-  C:0106H         LINE#         63
-  C:011BH         LINE#         64
+  C:00FCH         LINE#         38
+  C:00FCH         LINE#         39
+  C:00FCH         LINE#         41
+  C:0106H         LINE#         42
+  C:011BH         LINE#         43
   -------         ENDPROC       _DELAY
   -------         PROC          RUN
-  C:018EH         LINE#         67
-  C:018EH         LINE#         68
-  C:018EH         LINE#         69
-  C:0191H         LINE#         70
-  C:0194H         LINE#         71
-  C:0198H         LINE#         72
-  C:019CH         LINE#         73
+  C:018EH         LINE#         46
+  C:018EH         LINE#         47
+  C:018EH         LINE#         48
+  C:0191H         LINE#         49
+  C:0194H         LINE#         50
+  C:0198H         LINE#         51
+  C:019CH         LINE#         52
   -------         ENDPROC       RUN
   -------         PROC          BACKRUN
-  C:019DH         LINE#         76
-  C:019DH         LINE#         77
-  C:019DH         LINE#         78
-  C:01A0H         LINE#         79
-  C:01A3H         LINE#         80
-  C:01A7H         LINE#         81
-  C:01ABH         LINE#         82
+  C:019DH         LINE#         55
+  C:019DH         LINE#         56
+  C:019DH         LINE#         57
+  C:01A0H         LINE#         58
+  C:01A3H         LINE#         59
+  C:01A7H         LINE#         60
+  C:01ABH         LINE#         61
   -------         ENDPROC       BACKRUN
   -------         PROC          LEFTRUN
-  C:01ACH         LINE#         85
-  C:01ACH         LINE#         86
-  C:01ACH         LINE#         87
-  C:01AFH         LINE#         88
-  C:01B2H         LINE#         89
-  C:01B6H         LINE#         90
-  C:01BAH         LINE#         91
+  C:01ACH         LINE#         64
+  C:01ACH         LINE#         65
+  C:01ACH         LINE#         66
+  C:01AFH         LINE#         67
+  C:01B2H         LINE#         68
+  C:01B6H         LINE#         69
+  C:01BAH         LINE#         70
   -------         ENDPROC       LEFTRUN
   -------         PROC          RIGHTRUN
-  C:01BBH         LINE#         94
-  C:01BBH         LINE#         95
-  C:01BBH         LINE#         96
-  C:01BEH         LINE#         97
-  C:01C1H         LINE#         98
-  C:01C5H         LINE#         99
-  C:01C9H         LINE#         100
+  C:01BBH         LINE#         73
+  C:01BBH         LINE#         74
+  C:01BBH         LINE#         75
+  C:01BEH         LINE#         76
+  C:01C1H         LINE#         77
+  C:01C5H         LINE#         78
+  C:01C9H         LINE#         79
   -------         ENDPROC       RIGHTRUN
   -------         PROC          STOP
-  C:01CAH         LINE#         102
-  C:01CAH         LINE#         103
-  C:01CAH         LINE#         104
-  C:01CDH         LINE#         105
-  C:01D0H         LINE#         106
-  C:01D4H         LINE#         107
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/08/2016  10:38:50  PAGE 4
+  C:01CAH         LINE#         82
+  C:01CAH         LINE#         83
+  C:01CAH         LINE#         84
+  C:01CDH         LINE#         85
+  C:01CFH         LINE#         86
+  C:01D3H         LINE#         87
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/10/2024  11:55:03  PAGE 4
 
 
-  C:01D8H         LINE#         108
+  C:01D7H         LINE#         88
   -------         ENDPROC       STOP
   -------         PROC          PWM_OUT_LEFT_MOTO
-  C:013DH         LINE#         115
-  C:013DH         LINE#         116
-  C:013DH         LINE#         117
-  C:0140H         LINE#         118
-  C:0140H         LINE#         119
-  C:0147H         LINE#         120
-  C:0147H         LINE#         121
-  C:0149H         LINE#         123
-  C:014BH         LINE#         125
-  C:014BH         LINE#         126
-  C:014DH         LINE#         128
-  C:014DH         LINE#         129
-  C:0154H         LINE#         130
-  C:0157H         LINE#         131
-  C:0158H         LINE#         133
-  C:0158H         LINE#         134
-  C:015AH         LINE#         136
-  C:015AH         LINE#         137
+  C:013DH         LINE#         92
+  C:013DH         LINE#         93
+  C:013DH         LINE#         94
+  C:0140H         LINE#         95
+  C:0140H         LINE#         96
+  C:0147H         LINE#         97
+  C:0147H         LINE#         98
+  C:0149H         LINE#         99
+  C:014BH         LINE#         101
+  C:014BH         LINE#         102
+  C:014DH         LINE#         103
+  C:014DH         LINE#         104
+  C:0154H         LINE#         105
+  C:0157H         LINE#         106
+  C:0158H         LINE#         108
+  C:0158H         LINE#         109
+  C:015AH         LINE#         110
+  C:015AH         LINE#         111
   -------         ENDPROC       PWM_OUT_LEFT_MOTO
   -------         PROC          PWM_OUT_RIGHT_MOTO
-  C:015BH         LINE#         140
-  C:015BH         LINE#         141
-  C:015BH         LINE#         142
-  C:015EH         LINE#         143
-  C:015EH         LINE#         144
-  C:0165H         LINE#         145
-  C:0165H         LINE#         146
-  C:0167H         LINE#         148
-  C:0169H         LINE#         150
-  C:0169H         LINE#         151
-  C:016BH         LINE#         153
-  C:016BH         LINE#         154
-  C:0172H         LINE#         155
-  C:0175H         LINE#         156
-  C:0176H         LINE#         158
-  C:0176H         LINE#         159
-  C:0178H         LINE#         161
-  C:0178H         LINE#         162
+  C:015BH         LINE#         114
+  C:015BH         LINE#         115
+  C:015BH         LINE#         116
+  C:015EH         LINE#         117
+  C:015EH         LINE#         118
+  C:0165H         LINE#         119
+  C:0165H         LINE#         120
+  C:0167H         LINE#         121
+  C:0169H         LINE#         123
+  C:0169H         LINE#         124
+  C:016BH         LINE#         125
+  C:016BH         LINE#         126
+  C:0172H         LINE#         127
+  C:0175H         LINE#         128
+  C:0176H         LINE#         130
+  C:0176H         LINE#         131
+  C:0178H         LINE#         132
+  C:0178H         LINE#         133
   -------         ENDPROC       PWM_OUT_RIGHT_MOTO
   -------         PROC          TIMER0
-  C:011CH         LINE#         166
-  C:0120H         LINE#         168
-  C:0123H         LINE#         169
-  C:0126H         LINE#         170
-  C:012EH         LINE#         171
-  C:0130H         LINE#         172
-  C:0132H         LINE#         173
-  C:0135H         LINE#         174
-  C:0138H         LINE#         175
+  C:011CH         LINE#         136
+  C:0120H         LINE#         138
+  C:0123H         LINE#         139
+  C:0126H         LINE#         140
+  C:012EH         LINE#         141
+  C:0130H         LINE#         142
+  C:0132H         LINE#         143
+  C:0135H         LINE#         144
+  C:0138H         LINE#         145
   -------         ENDPROC       TIMER0
   -------         PROC          MAIN
   -------         DO            
   D:0001H         SYMBOL        i
   C:009DH         SYMBOL        B
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/08/2016  10:38:50  PAGE 5
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/10/2024  11:55:03  PAGE 5
 
 
   -------         ENDDO         
-  C:009AH         LINE#         23
-  C:009AH         LINE#         24
-  C:009AH         LINE#         27
-  C:009DH         LINE#         29
-  C:009FH         LINE#         30
-  C:009FH         LINE#         31
-  C:00A6H         LINE#         32
-  C:00A9H         LINE#         33
-  C:00A9H         LINE#         34
-  C:00ADH         LINE#         36
-  C:00AFH         LINE#         37
-  C:00B6H         LINE#         38
-  C:00B8H         LINE#         40
-  C:00BBH         LINE#         41
-  C:00BEH         LINE#         42
-  C:00C1H         LINE#         43
-  C:00C3H         LINE#         44
-  C:00C5H         LINE#         45
-  C:00C7H         LINE#         46
-  C:00C7H         LINE#         47
-  C:00C7H         LINE#         51
-  C:00CDH         LINE#         53
-  C:00D2H         LINE#         56
-  C:00D2H         LINE#         57
-  C:00D8H         LINE#         58
-  C:00D8H         LINE#         59
-  C:00DBH         LINE#         60
-  C:00DEH         LINE#         62
-  C:00DEH         LINE#         64
-  C:00E4H         LINE#         65
-  C:00E4H         LINE#         67
-  C:00E7H         LINE#         68
-  C:00EAH         LINE#         70
-  C:00EAH         LINE#         71
-  C:00F0H         LINE#         72
-  C:00F0H         LINE#         73
-  C:00F3H         LINE#         74
-  C:00F6H         LINE#         76
-  C:00F6H         LINE#         77
-  C:00F6H         LINE#         78
+  C:009AH         LINE#         4
+  C:009AH         LINE#         5
+  C:009AH         LINE#         7
+  C:009DH         LINE#         9
+  C:009FH         LINE#         10
+  C:009FH         LINE#         11
+  C:00A6H         LINE#         12
+  C:00A9H         LINE#         13
+  C:00A9H         LINE#         14
+  C:00ADH         LINE#         15
+  C:00AFH         LINE#         16
+  C:00B6H         LINE#         17
+  C:00B8H         LINE#         20
+  C:00BBH         LINE#         21
+  C:00BEH         LINE#         22
+  C:00C1H         LINE#         23
+  C:00C3H         LINE#         24
+  C:00C5H         LINE#         25
+  C:00C7H         LINE#         26
+  C:00C7H         LINE#         27
+  C:00C7H         LINE#         29
+  C:00CDH         LINE#         30
+  C:00D2H         LINE#         32
+  C:00D2H         LINE#         33
+  C:00D8H         LINE#         34
+  C:00D8H         LINE#         35
+  C:00DBH         LINE#         36
+  C:00DEH         LINE#         37
+  C:00DEH         LINE#         38
+  C:00E4H         LINE#         39
+  C:00E4H         LINE#         41
+  C:00E7H         LINE#         42
+  C:00EAH         LINE#         43
+  C:00EAH         LINE#         44
+  C:00F0H         LINE#         45
+  C:00F0H         LINE#         46
+  C:00F3H         LINE#         47
+  C:00F6H         LINE#         48
+  C:00F6H         LINE#         49
+  C:00F6H         LINE#         50
   -------         ENDPROC       MAIN
   -------         ENDMOD        MAIN
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?BACKRUN?MAIN
 
-Program Size: data=15.2 xdata=0 code=465
+Program Size: data=15.2 xdata=0 code=464
 LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
